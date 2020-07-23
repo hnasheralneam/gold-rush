@@ -716,47 +716,110 @@ function light() {
 //News
 //==========================================================
 
-var allNews =[
+var allNews = [
+  'You go mining somtimes',
+]
+
+var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
   'News: Gold industry gains a complete monopoly over the pickaxe industry.',
-  'News: Reports of "Little people weilding pickaxes" increasing daily',
-  'News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necassarily a bad thing" says retired miner',
-  'News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.',
+]
+
+var dwarfNews = [
   'News: Dwarfs stop human miners from going to work, "They only get in the way."',
+  'News: Reports of "Little people weilding pickaxes" increasing daily',
+  'News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner',
+  'News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.',
+  'News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.',
+  'News: Gold mine collapses, dwarfs demand safer workplaces.',
+]
+
+var mineNews = [
   'News: Mines opening everywhere, environmentalists worried.',
   'News: Coal and diamond mines going out of business as gold mines reign supreme.',
-  'News: "Mabye we should stop drilling holes in the earth." says random man.',
-  'News: Gold mine collapses, dwarfs demand safer workplaces.',
-  'News: Dragon eats poodle, owner furious: "He ate Foofles! I\'ll have his skin for my handbag!"',
+  'News: "Maybe we should stop drilling holes in the earth." says random man.',
+  'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
+]
+
+var dragonNews = [
+  'News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"',
   'News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.',
   'News: Scientist warn people to stay indoors during dragon breeding season."It\'s for your own overall health."',
-  'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
-  'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
   'News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.',
-  'News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.',
-  'News: Leprechaun becomes politician, world leaders upset.',
-  'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
-  'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
-  'News: Warning: do not stand in front of mass ray... actualy, on second thought, do. (hehe, more gold)',
-  'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
+  'New: Dragon babiysitters needed becase all parents busy hoarding gold.',
   'News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.',
-  'News: Grass-fed dragon milk, new lactose-free substitude to cow milk.',
+  'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
+]
+
+var stoneNews = [
+
+]
+
+var stationNews = [
+
+]
+
+var lepNews = [
+  'News: Leprechaun becomes politician, world leaders upset.',
+]
+
+var sheepNews = [
+  'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
   'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
+]
+
+var rayNews = [
+  'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
+  'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
+]
+
+var mergerNews = [
   'News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."',
-  'News: Rumered discoveries of Otherworld portals disrupting world peace.',
-  'New: Dragon babiesitters needed becase all parents busy hoarding gold.'
 ]
 
 var news = window.setInterval(function (){
-  var randomallNews = allNews[Math.floor(Math.random() * allNews.length)];
+  var trueNews = allNews
+  if (gameData.pickaxeNumber >= 1) {
+    trueNews = trueNews.concat(pickaxeNews)
+  }
+  if (gameData.dwarfNumber >= 1) {
+    trueNews = trueNews.concat(dwarfNews)
+  }
+  if (gameData.mineNumber >= 1) {
+    trueNews = trueNews.concat(mineNews)
+  }
+  if (gameData.dragonNumber >= 1) {
+    trueNews = trueNews.concat(dragonNews)
+  }
+  if (gameData.stoneNumber >= 1) {
+    trueNews = trueNews.concat(stoneNews)
+  }
+  if (gameData.stationNumber >= 1) {
+    trueNews = trueNews.concat(stationNews)
+  }
+  if (gameData.leprechaunNumber >= 1) {
+    trueNews = trueNews.concat(lepNews)
+  }
+  if (gameData.sheepNumber >= 1) {
+    trueNews = trueNews.concat(sheepNews)
+  }
+  if (gameData.rayNumber >= 1) {
+    trueNews = trueNews.concat(rayNews)
+  }
+  if (gameData.mergerNumber >= 1) {
+    trueNews = trueNews.concat(mergerNews)
+  }
+  var randomallNews = trueNews[Math.floor(Math.random() * trueNews.length)];
   document.getElementById("news").innerHTML = randomallNews;
-}, 12000)
+}, 1000)
 
-//if (gameData.dwarfNumber >= 1 {
-//  document.getElementById("updwarf").style.visibility = "visible";
-//}
-
+/*
+8 news per item
+'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
+'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
+'News: Rumered discoveries of Otherworld portals disrupting world peace.',
+*/
 //==========================================================
 //Onload
 //==========================================================
