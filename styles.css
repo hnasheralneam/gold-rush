@@ -173,8 +173,8 @@ Upgrades, Acheivements, Settings, and News
 /* Upgrades */
 
 .increase {
-  width: 1px;/* 58px */
-  height: 1px;/* 58px */
+  width: 58px;
+  height: 58px;
   border: outset darkred 5px;
   border-radius: 5px;
   background-image: none;
@@ -184,7 +184,7 @@ Upgrades, Acheivements, Settings, and News
   color: white;
   font-size: 10px;
   vertical-align: top;
-  display: none;
+  /*display: none;*/
 }
 
 /* Acheivements */
