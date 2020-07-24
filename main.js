@@ -254,6 +254,33 @@ var upgrades = window.setInterval(function() {
   if (gameData.pickaxeNumber >= 1) {
     document.getElementById("p1").style.display = "inline-block";
   }
+  if (gameData.dwarfNumber >= 1) {
+    document.getElementById("d1").style.display = "inline-block";
+  }
+  if (gameData.mineNumber >= 1) {
+    document.getElementById("mi1").style.display = "inline-block";
+  }
+  if (gameData.dragonNumber >= 1) {
+    document.getElementById("dr1").style.display = "inline-block";
+  }
+  if (gameData.stoneNumber >= 1) {
+    document.getElementById("sto1").style.display = "inline-block";
+  }
+  if (gameData.stationNumber >= 1) {
+    document.getElementById("sta1").style.display = "inline-block";
+  }
+  if (gameData.leprechaunNumber >= 1) {
+    document.getElementById("l1").style.display = "inline-block";
+  }
+  if (gameData.sheepNumber >= 1) {
+    document.getElementById("she1").style.display = "inline-block";
+  }
+  if (gameData.rayNumber >= 1) {
+    document.getElementById("r1").style.display = "inline-block";
+  }
+  if (gameData.mergerNumber >= 1) {
+    document.getElementById("me1").style.display = "inline-block";
+  }
 }, 3000)
 
 function upgradeClick() {
