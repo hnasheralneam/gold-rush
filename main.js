@@ -869,7 +869,7 @@ window.onload = gameLayout;
 //Welcome Instructions
 //==========================================================
 
-alert("This is an incremantal game. To earn gold, click on the asteroid, and when you get enough, invest it in gold producing items. Enjoy the game.")
+alert("This is an incremental game. To earn gold, click on the asteroid, and when you get enough, invest it in gold producing items. Enjoy the game.")
 
 //==========================================================
 //Console
