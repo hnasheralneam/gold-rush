@@ -674,6 +674,7 @@ function dark() {
   document.getElementById("b3").style.background = "#737373";
   document.getElementById("b4").style.background = "#737373";
   document.getElementById("bu").style.background = "#737373";
+  document.getElementById("gain").style.background = "#737373";
   image = document.getElementById('gollllld');
   image.src = "goldrushDark.png";
   //document.getElementById("gain").style.background = "#737373";
