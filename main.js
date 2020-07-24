@@ -110,6 +110,14 @@ function collectGold() {
   document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
 }
 
+//Spacebar gold
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+      gameData.gold += gameData.clickinGold
+      document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
+    }
+}
+
 //==========================================================
 //Purchase Buildings
 //==========================================================
