@@ -647,8 +647,8 @@ function dark() {
   document.getElementById("b3").style.background = "#737373";
   document.getElementById("b4").style.background = "#737373";
   document.getElementById("bu").style.background = "#737373";
-  image = document.getElementById('imgDisp');
-  image.src = "/Images/goldrushDark.png";
+  image = document.getElementById('gollllld');
+  image.src = "Squirrel-314.github.io/Images/goldrushDark.png?time=1595605378186";
   //document.getElementById("gain").style.background = "#737373";
   //document.getElementById("gollllld").scr = "file:///C:/Users/theho/OneDrive/Desktop/Gold%20Rush/Images/goldrushDark.png?time=1595009551290";
 
