@@ -44,7 +44,7 @@ var initialGameData = {
   upgradeMineCost: 125000,
 
 //Dragons
-  dragonProfit: 3000,
+  dragonProfit: 2000,
   dragonGold: 0,
   hireDragonCost: 150000,
   dragonNumber: 0,
@@ -752,7 +752,7 @@ var dragonNews = [
   'News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.',
   'News: Scientist warn people to stay indoors during dragon breeding season."It\'s for your own overall health."',
   'News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.',
-  'New: Dragon babiysitters needed becase all parents busy hoarding gold.',
+  'New: Dragon babysitters needed becase all parents busy hoarding gold.',
   'News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.',
   'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
 ]
@@ -767,6 +767,7 @@ var stationNews = [
 
 var lepNews = [
   'News: Leprechaun becomes politician, world leaders upset.',
+  'News: Rainbows occuring more and more often, leprechaun suspected.',
 ]
 
 var sheepNews = [
