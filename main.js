@@ -118,17 +118,6 @@ document.body.onkeyup = function(e){
     }
 }
 
-document.addEventListener('keyup', event => {
-  if (event.code === 'Space') {
-    console.log('Space pressed')
-  }
-})
-
-function myFunction() {
-  alert("You pressed a key inside the input field");
-}
-</script>
-
 //==========================================================
 //Purchase Buildings
 //==========================================================
