@@ -647,13 +647,8 @@ function dark() {
   document.getElementById("b3").style.background = "#737373";
   document.getElementById("b4").style.background = "#737373";
   document.getElementById("bu").style.background = "#737373";
-    var image = document.getElementById('gollllld');
-    if (image.src.match("635898850094838508.JPG")) {
-        image.src = "/HTPictures/Generics/5-635898849972807270.JPG";
-    }
-    else {
-        image.src = "/HTPictures/Generics/5-635898850094838508.JPG";
-    }
+  image = document.getElementById('imgDisp');
+  image.src = "pickaxe.png";
   //document.getElementById("gain").style.background = "#737373";
   //document.getElementById("gollllld").scr = "file:///C:/Users/theho/OneDrive/Desktop/Gold%20Rush/Images/goldrushDark.png?time=1595009551290";
 
