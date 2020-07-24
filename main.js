@@ -580,7 +580,7 @@ var mainGameLoop = window.setInterval(function() {
     document.getElementById("buyMerger").style.display = "inline";
   }
 
-  if (gameData.gold >= 1) {
+  if (gameData.toolLevel >= 1) {
     document.getElementById("upClick").style.display = "inline-block";
   }
   if (gameData.pickaxeNumber >= 1) {
@@ -812,7 +812,7 @@ var news = window.setInterval(function (){
   }
   var randomallNews = trueNews[Math.floor(Math.random() * trueNews.length)];
   document.getElementById("news").innerHTML = randomallNews;
-}, 1000)
+}, 12000)
 
 /*
 8 news per item
@@ -862,6 +862,8 @@ function gameLayout() {
   document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + (formatNumber(gameData.hireSheepCost)) + " Gold"
   document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
   document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
+
+  document
 }
 window.onload = gameLayout;
 
