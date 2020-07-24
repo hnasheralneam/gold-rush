@@ -248,8 +248,11 @@ function buyMerger() {
 //==========================================================
 
 var upgrades = window.setInterval(function() {
+  if (gameData.gold >= 25) {
+    document.getElementById("c1").style.display = "inline-block";
+  }
   if (gameData.pickaxeNumber >= 1) {
-    document.getElementById("p-").style.display = "inline-block";
+    document.getElementById("p1").style.display = "inline-block";
   }
 }, 3000)
 
@@ -372,11 +375,6 @@ function upgradeMerger() {
     document.getElementById("mergerGolld").innerHTML = "Gold Mine <br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold"
   }
 }
-
-//if (gameData.pickaxeNumber >= 10) {
-//  function pickaxeUpgrade() {
-  //}
-//}
 
 //==========================================================
 //Acheivements
@@ -586,10 +584,6 @@ var mainGameLoop = window.setInterval(function() {
   }
   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
     document.getElementById("buyMerger").style.display = "inline";
-  }
-
-  if (gameData.pickaxeNumber >= 1) {
-    document.getElementById("upPickaxe").style.display = "inline-block";
   }
 
   document.title = (formatNumber(gameData.gold)) + " Gold";
