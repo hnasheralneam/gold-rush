@@ -580,9 +580,6 @@ var mainGameLoop = window.setInterval(function() {
     document.getElementById("buyMerger").style.display = "inline";
   }
 
-  if (gameData.toolLevel >= 1) {
-    document.getElementById("upClick").style.display = "inline-block";
-  }
   if (gameData.pickaxeNumber >= 1) {
     document.getElementById("upPickaxe").style.display = "inline-block";
   }
@@ -863,7 +860,7 @@ function gameLayout() {
   document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
   document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
 
-  document
+  document.getElementById("upClick").style.display = "inline-block";
 }
 window.onload = gameLayout;
 
