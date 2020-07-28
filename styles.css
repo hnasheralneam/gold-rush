@@ -144,10 +144,7 @@ Upgrades, Acheivements, Settings, and News
 .maingamecenter {
   width: 28%;
   height: 90%;
-  margin-top: 0px;
-  margin-right: 2.5px;
-  margin-bottom: 4px;
-  margin-left: 2.5px;
+  margin: 0px 2.5px 4px 2.5px;
   padding: 5px;
   border: outset #ab0c07 10px;
   overflow: auto;
@@ -155,6 +152,16 @@ Upgrades, Acheivements, Settings, and News
   display: inline;
   position: absolute;
   left: 325px;
+}
+
+#playerrName {
+  border: inset 4px lightblue;
+  background-color: lightyellow;
+  width: 256px;
+  font-size: 1.5em;
+  padding: 10px;
+  position: absolute;
+  bottom: -14px;
 }
 
 /* News */
@@ -269,7 +276,7 @@ Buildings
   font-weight: 700;
   margin: 0.8px;
   padding: 5px 0px;
-  background-color: #ffffbd;
+  background-color: #333;
   background-image: none;
   display: none;
 }
