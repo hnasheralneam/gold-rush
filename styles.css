@@ -15,6 +15,7 @@ Everything
 
 body {
   background-image: url("Images/goldrush-background.png");
+  height: 90%;
 }
 
 
@@ -62,6 +63,58 @@ a {
 }
 
 /*==========================================================
+Main Elements
+==========================================================*/
+
+#gain {
+  width: 30%;
+  border: outset #ab0c07 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  background-color: #fff;
+  display: inline-block;
+  max-height: 382px;
+  min-height: 382px;
+  padding: 4px;
+}
+
+.maingamecenter, #building {
+  width: 30%;
+  border: outset #ab0c07 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  display: inline-block;
+  max-height: 382px;
+  padding: 4px;
+}
+
+#buildings {
+  width: 30%;
+  height: 90%;
+  border: outset #ab0c07 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  display: inline-block;
+  max-height: 382px;
+  padding: 4px;
+}
+
+#leftplease {
+  text-align: left;
+  display: inline;
+}
+
+#centerplease {
+  text-align: center;
+  display: inline;
+}
+
+#rightplease {
+  text-align: right;
+  display: inline;
+}
+
+/*==========================================================
 Profit
 ==========================================================*/
 
@@ -73,24 +126,6 @@ Profit
   position: relative;
   top: 10px;
   left: 10px;
-}
-
-#gain {
-  width: 30%;
-  height: 90%;
-  margin-top: 0px;
-  margin-right: 2.5px;
-  margin-bottom: 4px;
-  margin-left: 2.5px;
-  padding: 5px;
-  border: outset #ab0c07 10px;
-  overflow: auto;
-  scroll-behavior: smooth;
-  display: inline;
-  position: absolute;
-  left: 5px;
-  background-color: #fff;
-  background-image: none;
 }
 
 #gps {
@@ -141,27 +176,13 @@ Profit
 Upgrades, Acheivements, Settings, and News
 ==========================================================*/
 
-.maingamecenter {
-  width: 28%;
-  height: 90%;
-  margin: 0px 2.5px 4px 2.5px;
-  padding: 5px;
-  border: outset #ab0c07 10px;
-  overflow: auto;
-  scroll-behavior: smooth;
-  display: inline;
-  position: absolute;
-  left: 325px;
-}
-
 #playerrName {
   border: inset 4px lightblue;
   background-color: lightyellow;
-  width: 256px;
+  width: 80%;
   font-size: 1.5em;
   padding: 10px;
-  position: absolute;
-  bottom: -14px;
+  position: relative;
 }
 
 /* News */
@@ -249,23 +270,6 @@ Upgrades, Acheivements, Settings, and News
 /*==========================================================
 Buildings
 ==========================================================*/
-
-#buildings {
-  width: 30%;
-  height: 90%;
-  margin-top: 0px;
-  margin-right: 2.5px;
-  margin-bottom: 4px;
-  margin-left: 2.5px;
-  padding: 5px;
-  border: outset #ab0c07 10px;
-  overflow: auto;
-  scroll-behavior: smooth;
-  position: absolute;
-  right: 5px;
-  background-color: none;
-  background-image: none;
-}
 
 .info {
   width: 99%;
