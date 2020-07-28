@@ -826,7 +826,6 @@ function dark() {
   document.getElementById("buyMerger").style.color = "#fff";
   document.getElementById("buyMerger").style.fontFamily = "times";
   document.getElementById("buyMerger").style.border = "outset 5px lightblue";
-
 }
 
 function light() {
