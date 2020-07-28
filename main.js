@@ -869,7 +869,7 @@ var dragonNews = [
   'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
 ]
 var stoneNews = [
-  'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimins!"'
+  'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"'
 ]
 var stationNews = [
 
