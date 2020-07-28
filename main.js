@@ -93,7 +93,8 @@ var initialGameData = {
   mergerNumber: 0,
   upgradeMergerCost: 10000000000,
 
-  lastTick: Date.now()
+  lastTick: Date.now(),
+  playerName: 3,
 }
 
 function goldPerSecond() {
@@ -108,7 +109,7 @@ var gameData = initialGameData
 
 function collectGold() {
   gameData.gold += gameData.clickinGold
-  gameData.clicks + 1
+  gameData.clicks += 1
   document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
 }
 
@@ -606,37 +607,104 @@ var mainGameLoop = window.setInterval(function() {
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
   }
+  if (gameData.gold >= gameData.bToolCost) {
+    document.getElementById("bTools").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("bTools").style.backgroundColor = "#333";
+  }
   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
     document.getElementById("buyPickaxe").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyPickaxeCost) {
+    document.getElementById("buyPickaxe").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("buyPickaxe").style.backgroundColor = "#333";
   }
   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
     document.getElementById("hireDwarf").style.display = "inline";
   }
+  if (gameData.gold >= gameData.hireDwarfCost) {
+    document.getElementById("hireDwarf").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("hireDwarf").style.backgroundColor = "#333";
+  }
   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
     document.getElementById("openMine").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.openMineCost) {
+    document.getElementById("openMine").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("openMine").style.backgroundColor = "#333";
   }
   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
     document.getElementById("hireDragon").style.display = "inline";
   }
+  if (gameData.gold >= gameData.hireDragonCost) {
+    document.getElementById("hireDragon").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("hireDragon").style.backgroundColor = "#333";
+  }
   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
     document.getElementById("buyStone").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyStoneCost) {
+    document.getElementById("buyStone").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("buyStone").style.backgroundColor = "#333";
   }
   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
     document.getElementById("openStation").style.display = "inline";
   }
+  if (gameData.gold >= gameData.openStationCost) {
+    document.getElementById("openStation").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("openStation").style.backgroundColor = "#333";
+  }
   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
     document.getElementById("hireLeprechaun").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.hireLeprechaunCost) {
+    document.getElementById("hireLeprechaun").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("hireLeprechaun").style.backgroundColor = "#333";
   }
   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
     document.getElementById("hireSheep").style.display = "inline";
   }
+  if (gameData.gold >= gameData.hireSheepCost) {
+    document.getElementById("hireSheep").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("hireSheep").style.backgroundColor = "#333";
+  }
   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
     document.getElementById("buyRay").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyRayCost) {
+    document.getElementById("buyRay").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("buyRay").style.backgroundColor = "#333";
   }
   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
     document.getElementById("buyMerger").style.display = "inline";
   }
+  if (gameData.gold >= gameData.buyMergerCost) {
+    document.getElementById("buyMerger").style.backgroundColor = "#ffffbd";
+  }
+  else {
+    document.getElementById("buyMerger").style.backgroundColor = "#333";
+  }
 
+  document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
   document.title = (formatNumber(gameData.gold)) + " Gold";
   document.getElementById("gpc").innerHTML = (formatNumber(gameData.clickinGold)) + " Gold Per Click";
   document.getElementById("gps").innerHTML = (formatNumber(goldPerSecond())) + " Gold Per Second";
@@ -772,13 +840,11 @@ function light() {
 var allNews = [
   'You go mining somtimes',
 ]
-
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
   'News: Gold industry gains a complete monopoly over the pickaxe industry.',
 ]
-
 var dwarfNews = [
   'News: Dwarfs stop human miners from going to work, "They only get in the way."',
   'News: Reports of "Little people weilding pickaxes" increasing daily',
@@ -787,14 +853,12 @@ var dwarfNews = [
   'News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.',
   'News: Gold mine collapses, dwarfs demand safer workplaces.',
 ]
-
 var mineNews = [
   'News: Mines opening everywhere, environmentalists worried.',
   'News: Coal and diamond mines going out of business as gold mines reign supreme.',
   'News: "Maybe we should stop drilling holes in the earth." says random man.',
   'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
 ]
-
 var dragonNews = [
   'News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"',
   'News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.',
@@ -804,30 +868,24 @@ var dragonNews = [
   'News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.',
   'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
 ]
-
 var stoneNews = [
-
+  'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimins!"'
 ]
-
 var stationNews = [
 
 ]
-
 var lepNews = [
   'News: Leprechaun becomes politician, world leaders upset.',
   'News: Rainbows occuring more and more often, leprechaun suspected.',
 ]
-
 var sheepNews = [
   'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
   'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
 ]
-
 var rayNews = [
   'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
   'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
 ]
-
 var mergerNews = [
   'News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."',
 ]
@@ -870,6 +928,7 @@ var news = window.setInterval(function (){
 
 /*
 8 news per item
+if much gold ->
 'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
 'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
 'News: Rumered discoveries of Otherworld portals disrupting world peace.',
@@ -918,6 +977,10 @@ function gameLayout() {
   document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
 
   document.getElementById("upClick").style.display = "inline-block";
+  document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
+  if (gameData.playerName == 3) {
+    gameSetup();
+  }
 }
 window.onload = gameLayout;
 
@@ -925,7 +988,10 @@ window.onload = gameLayout;
 //Welcome Instructions
 //==========================================================
 
-alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.")
+function gameSetup() {
+  alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.")
+  gameData.playerName = prompt("What is your name?(don't use your real name)")
+}
 
 //==========================================================
 //Console
