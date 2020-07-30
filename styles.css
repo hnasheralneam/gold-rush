@@ -28,7 +28,6 @@ body {
   right:0;
 }
 
-
 ::-webkit-scrollbar {
     display: none;
 }
@@ -70,6 +69,39 @@ a {
   position: relative;
   left: 152px;
   bottom: 128px;
+}
+
+/*==========================================================
+Mobile
+==========================================================*/
+
+@media (max-width: 740px) {
+  body {
+    font-size: .8em;
+  }
+  #leftplease {
+    display: block;
+  }
+  #centerplease {
+    display: block;
+    width: 100%;
+  }
+  #gain {
+    display: block;
+    width: 100%;
+    min-width: 175px;
+  }
+  .maingamecenter {
+    display: block;
+    width: 100%;
+    margin: 0px 18%;
+    min-width: 175px;
+  }
+  #buildings {
+    display: block;
+    width: 100%;
+    min-width: 175px;
+  }
 }
 
 /*==========================================================
