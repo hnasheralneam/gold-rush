@@ -417,7 +417,7 @@ var acheivments = window.setInterval(function() {
   if (gameData.clicks == 0 && gameData.gold >= 10000) {
       document.getElementById("noclick2").style.display = "inline-block";
   }
-  if (gameData.clicks == 0 && gameData.gold >= 10000) {
+  if (gameData.clicks == 0 && gameData.gold >= 100000) {
       document.getElementById("noclick3").style.display = "inline-block";
   }
   if (gameData.clicks >= 1) {
