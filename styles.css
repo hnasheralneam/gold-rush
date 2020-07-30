@@ -11,12 +11,18 @@ Everything
 
 * {
   text-align: center;
+  overflow: scroll;
 }
 
 body {
   background-image: url("Images/goldrush-background.png");
   background-size: 120px;
-  height: 90%;
+  overflow: scroll;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
 }
 
 
@@ -69,35 +75,33 @@ Main Elements
 
 #gain {
   width: 30%;
+  height: 94%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
   background-color: #fff;
   display: inline-block;
-  max-height: 382px;
-  min-height: 382px;
-  padding: 4px;
+  padding: .1%;
 }
 
 .maingamecenter, #building {
   width: 30%;
+  height: 94%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
   display: inline-block;
-  max-height: 382px;
-  padding: 4px;
+  padding: .1%;
 }
 
 #buildings {
   width: 30%;
-  height: 90%;
+  height: 94%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
   display: inline-block;
-  max-height: 382px;
-  padding: 4px;
+  padding: .1%;
 }
 
 #leftplease {
