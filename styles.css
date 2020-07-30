@@ -11,6 +11,9 @@ Everything
 
 * {
   text-align: center;
+}
+
+html {
   overflow: scroll;
 }
 
@@ -75,7 +78,7 @@ Main Elements
 
 #gain {
   width: 30%;
-  height: 94%;
+  height: 92%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
@@ -84,9 +87,9 @@ Main Elements
   padding: .1%;
 }
 
-.maingamecenter, #building {
+.maingamecenter {
   width: 30%;
-  height: 94%;
+  height: 92%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
@@ -96,7 +99,7 @@ Main Elements
 
 #buildings {
   width: 30%;
-  height: 94%;
+  height: 92%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
@@ -355,7 +358,7 @@ button.uptooltip:hover span {
 
 .tooltipy {
   visibility: hidden;
-  z-index: 10;
+  z-index: 100;
   opacity: .40;
   padding: 0px 20px;
   background: #000;
@@ -368,6 +371,7 @@ button.uptooltip:hover span {
 
 .con-tooltip:hover .tooltipy{
   visibility: visible;
+  z-index: 100;
   opacity: .9;
     transition: .5s linear;
 }
