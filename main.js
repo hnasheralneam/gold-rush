@@ -411,6 +411,15 @@ function upgradeMerger() {
 //==========================================================
 
 var acheivments = window.setInterval(function() {
+  if (gameData.clicks == 0 && gameData.gold >= 1000) {
+      document.getElementById("noclick1").style.display = "inline-block";
+  }
+  if (gameData.clicks == 0 && gameData.gold >= 10000) {
+      document.getElementById("noclick2").style.display = "inline-block";
+  }
+  if (gameData.clicks == 0 && gameData.gold >= 10000) {
+      document.getElementById("noclick3").style.display = "inline-block";
+  }
   if (gameData.clicks >= 1) {
       document.getElementById("click1").style.display = "inline-block";
   }
@@ -423,15 +432,7 @@ var acheivments = window.setInterval(function() {
   if (gameData.clicks >= 1000) {
       document.getElementById("click4").style.display = "inline-block";
   }
-  if (gameData.clicks >= 10000) {
-      document.getElementById("click5").style.display = "inline-block";
-  }
-  if (gameData.clicks >= 100000) {
-      document.getElementById("click6").style.display = "inline-block";
-  }
-  if (gameData.clicks >= 1000000) {
-      document.getElementById("click7").style.display = "inline-block";
-  }
+
 
   if (gameData.pickaxeNumber >= 1) {
       document.getElementById("pick1").style.display = "inline-block";
