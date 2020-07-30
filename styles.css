@@ -100,7 +100,7 @@ Mobile
   #buildings {
     display: block;
     width: 100%;
-    min-width: 175px;
+    min-width: 300px;
   }
 }
 
