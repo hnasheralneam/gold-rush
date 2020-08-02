@@ -24,7 +24,7 @@ var initialGameData = {
   toolLevel: 1,
 
 //Pickaxes
-  pickaxeProfit: 1,
+  pickaxeProfit: 0.5,
   pickaxeGold: 0,
   buyPickaxeCost: 25,
   pickaxeNumber: 0,
@@ -139,7 +139,7 @@ function buyPickaxe() {
   if (gameData.gold >= gameData.buyPickaxeCost) {
     gameData.gold -= gameData.buyPickaxeCost
     gameData.pickaxeGold += gameData.pickaxeProfit
-    gameData.buyPickaxeCost *= 2//(25 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(2)   //Price=BaseCost×1.15(#Owned)
+    gameData.buyPickaxeCost = (25 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(2)   //Price=BaseCost×1.15(#Owned)
     gameData.pickaxeNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
@@ -150,7 +150,7 @@ function hireDwarf() {
   if(gameData.gold >= gameData.hireDwarfCost) {
     gameData.gold -= gameData.hireDwarfCost
     gameData.dwarfGold += gameData.dwarfProfit
-    gameData.hireDwarfCost *= 2
+    gameData.hireDwarfCost = (100 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(2)
     gameData.dwarfNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
@@ -603,7 +603,7 @@ var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
   gameData.gold += Math.round(goldPerSecond()  * (diff / 1000))
-  document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold))+ " Gold Mined"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2)))+ " Gold Mined"
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
