@@ -31,7 +31,7 @@ var initialGameData = {
   upgradePickaxeCost: 1000,
 
 //Dwarfs
-  dwarfProfit: 5,
+  dwarfProfit: 2,
   dwarfGold: 0,
   hireDwarfCost: 100,
   dwarfNumber: 0,
@@ -110,7 +110,7 @@ var gameData = initialGameData
 function collectGold() {
   gameData.gold += gameData.clickinGold
   gameData.clicks += 1
-  document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2))) + " Gold Mined"
 }
 
 //Spacebar gold
@@ -596,6 +596,14 @@ var acheivments = window.setInterval(function() {
 }, 5000)
 
 //==========================================================
+//Acheivements
+//==========================================================
+
+function youWin() {
+  alert("you win")
+}
+
+//==========================================================
 //Main Game Loop
 //==========================================================
 
@@ -604,6 +612,10 @@ var mainGameLoop = window.setInterval(function() {
   gameData.lastTick = Date.now()
   gameData.gold += goldPerSecond()  * (diff / 1000)
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2)))+ " Gold Mined"
+
+  if (gameData.pickaxeNumber >= 100 && gameData.dwarfNumber >= 100 && gameData.mineNumber >= 100 && gameData.dragonNumber >= 100 && gameData.stoneNumber >= 100 && gameData.stationNumber >= 100 && gameData.leprechaunNumber >= 100 && gameData.sheepNumber >= 100 && gameData.rayNumber >= 100 && gameData.mergerNumber >= 100) {
+    youWin()
+  }
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
@@ -832,6 +844,13 @@ function dark() {
 function light() {
   document.location.href = ("")
 }
+
+var myAudio = document.getElementById("myAudio");
+
+function music() {
+  return myAudio.paused ? myAudio.play() : myAudio.pause();
+};
+
 
 //==========================================================
 //News
