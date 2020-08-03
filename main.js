@@ -851,13 +851,12 @@ function music() {
   return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
 
-
 //==========================================================
 //News
 //==========================================================
 
 var allNews = [
-  'You go mining somtimes',
+  'You go mining sometimes',
 ]
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
