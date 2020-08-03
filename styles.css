@@ -136,6 +136,7 @@ Main Elements
   scroll-behavior: smooth;
   display: inline-block;
   padding: .1%;
+  font-size: 15px;
 }
 
 #leftplease {
