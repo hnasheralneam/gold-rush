@@ -91,7 +91,7 @@ Mobile
     width: 100%;
     min-width: 300px;
   }
-  .maingamecenter {
+  #maingamecenter {
     display: block;
     width: 100%;
     min-width: 300px;
@@ -118,7 +118,7 @@ Main Elements
   padding: .1%;
 }
 
-.maingamecenter {
+#maingamecenter {
   width: 30%;
   height: 92%;
   border: outset #ab0c07 10px;
