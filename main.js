@@ -602,7 +602,7 @@ var acheivments = window.setInterval(function() {
 var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
-  gameData.gold += Math.round(goldPerSecond()  * (diff / 1000))
+  gameData.gold += goldPerSecond()  * (diff / 1000)
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2)))+ " Gold Mined"
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
@@ -706,7 +706,7 @@ var mainGameLoop = window.setInterval(function() {
   }
 
   document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
-  document.title = (formatNumber(gameData.gold)) + " Gold";
+  document.title = (formatNumber((gameData.gold).toFixed(2))) + " Gold";
   document.getElementById("gpc").innerHTML = (formatNumber(gameData.clickinGold)) + " Gold Per Click";
   document.getElementById("gps").innerHTML = (formatNumber(goldPerSecond())) + " Gold Per Second";
   document.getElementById("gpm").innerHTML = (formatNumber(goldPerSecond() * 60)) + " Gold Per Minute";
