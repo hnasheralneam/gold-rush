@@ -596,12 +596,21 @@ var acheivments = window.setInterval(function() {
 }, 5000)
 
 //==========================================================
-//Acheivements
+//Winning
 //==========================================================
 
 function youWin() {
   alert("you win")
+  document.getElementById("buildings").innerHTML = '<iframe src="https://giphy.com/embed/peAFQfg7Ol6IE" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/peAFQfg7Ol6IE">via GIPHY</a></p>'
+  document.getElementById("maingamecenter").innerHTML = '<iframe src="https://giphy.com/embed/l1J3DaHzWEp2bTpYs" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fun-party-celebration-l1J3DaHzWEp2bTpYs">via GIPHY</a></p>'
+  document.getElementById("gain").innerHTML = '<iframe src="https://giphy.com/embed/1zhHiGwQiu2CaGj1uE" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/trippy-rainbow-background-1zhHiGwQiu2CaGj1uE">via GIPHY</a></p>'
 }
+
+var winQuestion = window.setInterval(function() {
+  if (gameData.pickaxeNumber >= 100 && gameData.dwarfNumber >= 100 && gameData.mineNumber >= 100 && gameData.dragonNumber >= 100 && gameData.stoneNumber >= 100 && gameData.stationNumber >= 100 && gameData.leprechaunNumber >= 100 && gameData.sheepNumber >= 100 && gameData.rayNumber >= 100 && gameData.mergerNumber >= 100) {
+    youWin()
+  }
+}, 5000)
 
 //==========================================================
 //Main Game Loop
@@ -612,10 +621,6 @@ var mainGameLoop = window.setInterval(function() {
   gameData.lastTick = Date.now()
   gameData.gold += goldPerSecond()  * (diff / 1000)
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2)))+ " Gold Mined"
-
-  if (gameData.pickaxeNumber >= 100 && gameData.dwarfNumber >= 100 && gameData.mineNumber >= 100 && gameData.dragonNumber >= 100 && gameData.stoneNumber >= 100 && gameData.stationNumber >= 100 && gameData.leprechaunNumber >= 100 && gameData.sheepNumber >= 100 && gameData.rayNumber >= 100 && gameData.mergerNumber >= 100) {
-    youWin()
-  }
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
