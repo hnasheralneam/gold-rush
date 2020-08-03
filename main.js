@@ -161,7 +161,7 @@ function openMine() {
   if(gameData.gold >= gameData.openMineCost) {
     gameData.gold -= gameData.openMineCost
     gameData.mineGold += gameData.mineProfit
-    gameData.openMineCost = (100 * Math.pow(1.15, gameData.mineNumber)).toFixed(2)
+    gameData.openMineCost = (25000 * Math.pow(1.15, gameData.mineNumber)).toFixed(2)
     gameData.mineNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
@@ -172,7 +172,7 @@ function hireDragon() {
   if(gameData.gold >= gameData.hireDragonCost) {
     gameData.gold -= gameData.hireDragonCost
     gameData.dragonGold += gameData.dragonProfit
-    gameData.hireDragonCost = (100 * Math.pow(1.15, gameData.dragonNumber)).toFixed(2)
+    gameData.hireDragonCost = (15000 * Math.pow(1.15, gameData.dragonNumber)).toFixed(2)
     gameData.dragonNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
@@ -183,7 +183,7 @@ function buyStone() {
   if(gameData.gold >= gameData.buyStoneCost) {
     gameData.gold -= gameData.buyStoneCost
     gameData.stoneGold += gameData.stoneProfit
-    gameData.buyStoneCost = (100 * Math.pow(1.15, gameData.stoneNumber)).toFixed(2)
+    gameData.buyStoneCost = (3000000 * Math.pow(1.15, gameData.stoneNumber)).toFixed(2)
     gameData.stoneNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
@@ -194,7 +194,7 @@ function openStation() {
   if(gameData.gold >= gameData.openStationCost) {
     gameData.gold -= gameData.openStationCost
     gameData.stationGold += gameData.stationProfit
-    gameData.openStationCost = (100 * Math.pow(1.15, gameData.stationNumber)).toFixed(2)
+    gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(2)
     gameData.stationNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("openStation").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + (formatNumber(gameData.openStationCost)) + " Gold"
@@ -205,7 +205,7 @@ function hireleprechaun() {
   if(gameData.gold >= gameData.hireLeprechaunCost) {
     gameData.gold -= gameData.hireLeprechaunCost
     gameData.leprechaunGold += gameData.lepProfit
-    gameData.hireLeprechaunCost = (100 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(2)
+    gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(2)
     gameData.leprechaunNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + (formatNumber(gameData.hireLeprechaunCost)) + " Gold"
@@ -216,7 +216,7 @@ function hireSheep() {
   if(gameData.gold >= gameData.hireSheepCost) {
     gameData.gold -= gameData.hireSheepCost
     gameData.sheepGold += gameData.sheepProfit
-    gameData.hireSheepCost = (100 * Math.pow(1.15, gameData.sheepNumber)).toFixed(2)
+    gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(2)
     gameData.sheepNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + (formatNumber(gameData.hireSheepCost)) + " Gold"
@@ -227,7 +227,7 @@ function buyRay() {
   if(gameData.gold >= gameData.buyRayCost) {
     gameData.gold -= gameData.buyRayCost
     gameData.rayGold += gameData.rayProfit
-    gameData.buyRayCost = (100 * Math.pow(1.15, gameData.rayNumber)).toFixed(2)
+    gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(2)
     gameData.rayNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
@@ -238,7 +238,7 @@ function buyMerger() {
   if(gameData.gold >= gameData.buyMergerCost) {
     gameData.gold -= gameData.buyMergerCost
     gameData.mergerGold += gameData.mergerProfit
-    gameData.buyMergerCost = (100 * Math.pow(1.15, gameData.mergerNumber)).toFixed(2)
+    gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(2)
     gameData.mergerNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
