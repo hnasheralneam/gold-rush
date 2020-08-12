@@ -30,80 +30,44 @@ You won't learn anything from snooping around here. It's main.js you want to loo
   <div id="maingamecenter">
       <p id="news" >You start your search for fame and gold with nothing but a rusty pickaxe.</p><!--Your adventure begins when a huge gold-laden astroid lands in your backyard. -->
     <details open class="boxi" id="bu">
-      <summary>Upgrades</summary>
+      <summary>Research</summary>
       <div id="upgrades" >
-        <div class="con-tooltip">
-          <button id="c1" class="increase" onclick="upgradeClick()">Hand of Fate</button>
-          <div class="tooltipy ">
-            <p id="upClick">Cost: 100<br>Double clicking revenue</p>
-          </div>
-        </div>
-        <div class="con-tooltip">
-          <button id="p1" class="increase" onclick="upgradePickaxe()">Sharper Pickaxes</button>
-          <div class="tooltipy ">
-            <p id="upPickaxe">Cost: 1,000 <br> Multiplies pickaxe revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="d1" class="increase" onclick="upgradeDwarf()">Dwarf Academy</button>
-          <div class="tooltipy ">
-            <p id="upDwarf">Cost: 5,000 <br> Multiplies dwarf revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="mi1" class="increase"onclick="upgradeMine()">Deeper Mines</button>
-          <div class="tooltipy ">
-            <p id="upMine">Cost: 125,000 <br> Multiplies mine revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="dr1" class="increase" onclick="upgradeDragon()">Dragon Gold Insurance</button>
-          <div class="tooltipy ">
-            <p id="upDragon">Cost: 625,000 <br> Multiplies dragon revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="sto1"  class="increase" onclick="upgradeStone()">The Flammel Effect </button>
-          <div class="tooltipy ">
-            <p id="upStone">Cost: 3,000,000 <br> Multiplies Philosopher's Stone revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="sta1" class="increase" onclick="upgradeStation()">Solar Powered Batteries </button>
-          <div class="tooltipy ">
-            <p id="upStation">Cost: 15,000,000 <br>Astroid-mining Stations twice as efficient</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="l1" class="increase" onclick="upgradeLeprechaun()">Leprechaun Hierarchy</button>
-          <div class="tooltipy ">
-            <p id="upLeprechaun" >Cost: 80,000,000 <br> Multiplies Leprechaun revenue by 2 </p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="she1" class="increase" onclick="upgradeSheep()">Bubble Baths </button>
-          <div class="tooltipy ">
-            <p id="upSheep">Cost: 400,000,000 <br> Multiplies Golden Sheep revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <button id="r1" class="increase" onclick="upgradeRay()">Upgrade Mass Ray </button>
-          <div class="tooltipy ">
-            <p id="upRay">Cost: 2,000,000,000 <br> Multiplies Mass Ray revenue by 2</p>
-          </div>
-        </div>
-        <div class="con-tooltip">
-          <button id="me1" class="increase" onclick="upgradeMerger()"> Neutron Star Magnets  </button>
-          <div class="tooltipy ">
-            <p id="upMerger">Cost: 10,000,000,000 <br> Neutron Star Mergers twice as efficient</p>
-          </div>
-        </div>
-        <div class="con-tooltip  ">
-          <a href="C:\Users\theho\OneDrive\Desktop\Coding Projects\Otherworld\otherworld.html"><button  class="increase">The Otherworld Portal</button></a>
-          <div class="tooltipy ">
-            <p>This portal is not yet ready and should not be used</p>
-          </div>
-        </div></div>
+        <ul>
+          <li aria-label="Cost 100 Gold" id="a1" onclick="a1()" class="UP">Hand of Fate!<p class="why">Fate is with you!</p><p class="more">Clicking revenue x2</p></li>
+          <li aria-label="Cost 500 Gold" id="a2" onclick="a2()" class="UP">New Tool Material!<p class="why">Complete with dubius origins!</p><p class="more">Clicking revenue x2</p></li>
+          <li aria-label="Cost 1,000 Gold" id="a3" onclick="a3()" class="UP">Golden Fingers!<p class="why">Clicking gold with gold!</p><p class="more">Clicking revenue x2</p></li>
+          <li aria-label="Cost 5,000 Gold" id="a4" onclick="a4()" class="UP">Both Hands!<p class="why">Double the efficancy!</p><p class="more">Clicking revenue x2</p></li>
+          <li aria-label="Cost 800 Gold" id="b1" onclick="b1()" class="UP">Sharper Pickaxes!<p class="why">This statment has not been evaluated by the Food and Drug Admisistration!</p><p class="more">Pickaxe profit x2</p></li>
+          <li aria-label="Cost 4,000 Gold" id="b2" onclick="b2()" class="UP">New Element!<p class="why">Pickaxium works 3x better than competing brands!</p><p class="more">Pickaxe profit x2</p></li>
+          <li aria-label="Cost 8,000 Gold" id="b3" onclick="b3()" class="UP">Automatic Mechanisms!<p class="why">These pickaxes will mine by themself!(watching them work may be slightly disconcerting)</p><p class="more">Pickaxe profit x2</p></li>
+          <li aria-label="Cost 15,000 Gold" id="b4" onclick="b4()" class="UP">Self-oiling Gears!<p class="why">Make them work so fast they blur!(safty gear recomended)</p><p class="more">Pickaxe profit x2</p></li>
+
+          <li aria-label="Cost 10,000 Gold" id="c2" onclick="c2()" class="UP">Dwarf Managers!<p class="why">Down with the worker unions!</p><p class="more">Dwarf profits x2</p></li>
+          <li aria-label="Cost 20,000 Gold" id="d1" onclick="d1()" class="UP">Deeper Mines!<p class="why">Far over, the misty mountians cold...</p><p class="more">Mine profits x2</p></li>
+
+          <li aria-label="Cost 80,000 Gold" id="d1" onclick="d1()" class="UP">Deeper Mines!<p class="why">Far over, the misty mountians cold...</p><p class="more">Mine profits x2</p></li>
+          <li aria-label="Cost 160,000 Gold" id="d1" onclick="d1()" class="UP">Deeper Mines!<p class="why">Far over, the misty mountians cold...</p><p class="more">Mine profits x2</p></li>
+
+          <li aria-label="Cost 100 Gold" id="d2" onclick="d1()" class="UP">Wider Mine-Shafts!<p class="why">Five feet wide the door and three may walk abreast...</p><p class="more">Mine profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="e2" onclick="e2()" class="UP">Dragon Gold Insurance!<p class="why">Switch to dragon gold insurance!</p><p class="more">Dragon profits x2</p></li>
+  dragon        <li aria-label="Cost 100 Gold" id="e2" onclick="e2()" class="UP">Upgrade Dragon!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+         <li aria-label="Cost 100 Gold" id="f2" onclick="f2()" class="UP">The Flammel Effect!<p class="why">Made by Nicolas Flammel himself!</p><p class="more">Philosopher's Stone profits x2</p></li>
+  stone        <li aria-label="Cost 100 Gold" id="f2" onclick="f2()" class="UP">Upgrade Stone!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="g2" onclick="g2()" class="UP">Solar Power!<p class="why">WHY did we not think of this before?</p><p class="more">Astroid-mining Station profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="g2" onclick="g2()" class="UP">Self Repairing!<p class="why">Throught the power of AI!</p><p class="more">Astroid-mining Station profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="h2" onclick="h2()" class="UP">Leprechaun Hierarchy!<p class="why">Allows for working class!</p><p class="more">Leprechaun profits x2</p></li>
+  lep        <li aria-label="Cost 100 Gold" id="h2" onclick="h2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="i2" onclick="i2()" class="UP">Bubble Baths!<p class="why">Give that fleece a nice good cleaning!</p><p class="more">Golden Sheep profits x2</p></li>
+  sheep        <li aria-label="Cost 100 Gold" id="i2" onclick="i2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+  ray        <li aria-label="Cost 100 Gold" id="j2" onclick="j2()" class="UP">Upgrade Mass Ray!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+  ray        <li aria-label="Cost 100 Gold" id="j2" onclick="j2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+  merger        <li aria-label="Cost 100 Gold" id="k2" onclick="k2()" class="UP">Upgrade Neutron Star Merger!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+  merger        <li aria-label="Cost 100 Gold" id="k2" onclick="k2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">Gold Monopoly!<p class="why">Mine, ALL MINE!(pun intended)</p><p class="more">All profits x2</p></li>
+          <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+          <li aria-label="Cost 1,000,000,000,000,000,000 Gold" class="UP"><a href="C:\Users\theho\OneDrive\Desktop\Coding Projects\Otherworld\otherworld.html">The Otherworld Portal</a><p class="why">This portal is not yet ready and should not be used</p><p class="more">A whole new world!</p></li>
+        </ul>
+      </div>
     </details>
     <details class="boxi" id="b1">
       <summary>Acheivements</summary>
