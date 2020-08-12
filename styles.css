@@ -241,19 +241,69 @@ Upgrades, Acheivements, Settings, and News
 
 /* Upgrades */
 
-.increase {
-  width: 58px;
-  height: 58px;
-  border: outset darkred 5px;
-  border-radius: 5px;
-  background-image: none;
-  background-color: black;
-  margin: .2px -2px;
-  padding: 2px;
-  color: white;
-  font-size: 10px;
-  vertical-align: top;
+.active {
+  background-color: #4caf50;
+  font-size: 1.5em;
+  color: #eee;
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 99%;
+  height: 100%;
+  overflow: auto;
+}
+
+.more {
+  font-size: .8em;
+  margin: 0;
+}
+
+.why {
+  font-size: .6em;
+  margin: 0;
+}
+
+.UP {
+  border: outset 4px #4a4a4a;
+  margin: 5px;
+  font-size: 1.4em;
+  background-color: #e8efff;
   display: none;
+}
+
+summary {
+  font-size: 1.3em;
+}
+
+/* Hover-thingy */
+
+li:hover {
+    position: relative;
+}
+
+li[aria-label]:hover:after {
+  visibility: visible;
+  z-index: 100;
+  opacity: .9;
+    transition: .5s linear;
+
+
+     content: attr(aria-label);
+     border: outset gold 4px;
+     background-color: #000;
+     color: #fff;
+     padding: 2px 5px;
+     position: absolute;
+     left: 0;
+     top: 100%;
+     white-space: nowrap;
+     z-index: 20;
 }
 
 /* Acheivements */
