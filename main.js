@@ -12,6 +12,7 @@
 var initialGameData = {
 //Gold
   gold: 0,
+  totalGold: 0,
 
 //Clicks
   clickinGold: 1,
@@ -213,6 +214,7 @@ var gameData = initialGameData
 function collectGold() {
   gameData.gold += gameData.clickinGold
   gameData.clicks += 1
+  gameData.totalGold += gameData.clickinGold
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 }
 
@@ -220,6 +222,7 @@ function collectGold() {
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
       gameData.gold += gameData.clickinGold
+      gameData.totalGold += gameData.clickinGold
       document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
     }
 }
@@ -790,7 +793,9 @@ var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
   gameData.gold += goldPerSecond()  * (diff / 1000)
-  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold Mined"
+  gameData.totalGold += goldPerSecond()
+  document.getElementById("totalGold").innerHTML =  gameData.totalGold + " Lifetime Gold Profits"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
@@ -1050,7 +1055,7 @@ var allNews = [
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
-  'News: Gold industry gains a complete monopoly over the pickaxe industry.',
+  //'News: ',
   //'News: ',
   //'News: ',
   //'News: ',
