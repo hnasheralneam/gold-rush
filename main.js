@@ -794,7 +794,7 @@ var mainGameLoop = window.setInterval(function() {
   gameData.lastTick = Date.now()
   gameData.gold += goldPerSecond()  * (diff / 1000)
   gameData.totalGold += goldPerSecond()
-  document.getElementById("totalGold").innerHTML =  gameData.totalGold + " Lifetime Gold Profits"
+  document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
