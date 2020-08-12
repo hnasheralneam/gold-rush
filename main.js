@@ -863,7 +863,7 @@ var mainGameLoop = window.setInterval(function() {
   }
 
   document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
-  document.title = (formatNumber((gameData.gold).toFixed(2))) + " Gold";
+  document.title = (formatNumber((gameData.gold).toFixed(0))) + " Gold";
   document.getElementById("gpc").innerHTML = (formatNumber(gameData.clickinGold)) + " Gold Per Click";
   document.getElementById("gps").innerHTML = (formatNumber(goldPerSecond())) + " Gold Per Second";
   document.getElementById("gpm").innerHTML = (formatNumber(goldPerSecond() * 60)) + " Gold Per Minute";
