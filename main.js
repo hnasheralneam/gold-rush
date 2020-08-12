@@ -624,9 +624,9 @@ var acheivments = window.setInterval(function() {
 
 function youWin() {
   alert("you win")
-  document.getElementById("buildings").innerHTML = '<iframe src="https://giphy.com/embed/peAFQfg7Ol6IE" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/peAFQfg7Ol6IE">via GIPHY</a></p>'
-  document.getElementById("maingamecenter").innerHTML = '<iframe src="https://giphy.com/embed/l1J3DaHzWEp2bTpYs" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fun-party-celebration-l1J3DaHzWEp2bTpYs">via GIPHY</a></p>'
-  document.getElementById("gain").innerHTML = '<iframe src="https://giphy.com/embed/1zhHiGwQiu2CaGj1uE" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/trippy-rainbow-background-1zhHiGwQiu2CaGj1uE">via GIPHY</a></p>'
+  //document.getElementById("buildings").innerHTML = '<iframe src="https://giphy.com/embed/peAFQfg7Ol6IE" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/peAFQfg7Ol6IE">via GIPHY</a></p>'
+  //document.getElementById("maingamecenter").innerHTML = '<iframe src="https://giphy.com/embed/l1J3DaHzWEp2bTpYs" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fun-party-celebration-l1J3DaHzWEp2bTpYs">via GIPHY</a></p>'
+  //document.getElementById("gain").innerHTML = '<iframe src="https://giphy.com/embed/1zhHiGwQiu2CaGj1uE" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/trippy-rainbow-background-1zhHiGwQiu2CaGj1uE">via GIPHY</a></p>'
 }
 
 var winQuestion = window.setInterval(function() {
