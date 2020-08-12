@@ -797,6 +797,11 @@ var mainGameLoop = window.setInterval(function() {
   document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 
+  var today = new Date();
+  var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+  document.getElementById("copE-right").innerHTML = date
+
+
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
   }
