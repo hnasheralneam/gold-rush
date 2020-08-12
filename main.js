@@ -93,6 +93,76 @@ var initialGameData = {
   mergerNumber: 0,
   upgradeMergerCost: 10000000000,
 
+  a1: 1,
+  a1Price: 100,
+  a2: 1,
+  a2Price: 500,
+  a3: 1,
+  a3Price: 1000,
+  a4: 1,
+  a4Price: 5000,
+  b1: 1,
+  b1Price: 800,
+  b2: 1,
+  b2Price: 4000,
+  b3: 1,
+  b3Price: 8000,
+  b4: 1,
+  b4Price: 15000,
+  c1: 1,
+  c1Price: 10000,
+  c2: 1,
+  c2Price: 20000,
+  c3: 1,
+  c3Price: 80000,
+  c4: 1,
+  c4Price: 160000,
+
+  d1: 1,
+  d1Price: 100,
+  d2: 1,
+  d2Price: 500,
+
+  e1: 1,
+  e1Price: 100,
+  e2: 1,
+  e2Price: 500,
+
+  f1: 1,
+  f1Price: 100,
+  f2: 1,
+  f2Price: 500,
+
+  g1: 1,
+  g1Price: 100,
+  g2: 1,
+  g2Price: 500,
+
+  h1: 1,
+  h1Price: 100,
+  h2: 1,
+  h2Price: 500,
+
+  i1: 1,
+  i1Price: 100,
+  i2: 1,
+  i2Price: 500,
+
+  j1: 1,
+  j1Price: 100,
+  j2: 1,
+  j2Price: 500,
+
+  k1: 1,
+  k1Price: 100,
+  k2: 1,
+  k2Price: 500,
+
+  l1: 1,
+  l1Price: 100,
+  l2: 1,
+  l2Price: 500,
+
   lastTick: Date.now(),
   playerName: 3,
 }
@@ -110,14 +180,14 @@ var gameData = initialGameData
 function collectGold() {
   gameData.gold += gameData.clickinGold
   gameData.clicks += 1
-  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2))) + " Gold Mined"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 }
 
 //Spacebar gold
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
       gameData.gold += gameData.clickinGold
-      document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
+      document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
     }
 }
 
@@ -139,7 +209,7 @@ function buyPickaxe() {
   if (gameData.gold >= gameData.buyPickaxeCost) {
     gameData.gold -= gameData.buyPickaxeCost
     gameData.pickaxeGold += gameData.pickaxeProfit
-    gameData.buyPickaxeCost = (25 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(2)   //Price=BaseCost×1.15(#Owned)
+    gameData.buyPickaxeCost = (25 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
     gameData.pickaxeNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
@@ -150,7 +220,7 @@ function hireDwarf() {
   if(gameData.gold >= gameData.hireDwarfCost) {
     gameData.gold -= gameData.hireDwarfCost
     gameData.dwarfGold += gameData.dwarfProfit
-    gameData.hireDwarfCost = (100 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(2)
+    gameData.hireDwarfCost = (100 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
     gameData.dwarfNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
@@ -161,7 +231,7 @@ function openMine() {
   if(gameData.gold >= gameData.openMineCost) {
     gameData.gold -= gameData.openMineCost
     gameData.mineGold += gameData.mineProfit
-    gameData.openMineCost = (25000 * Math.pow(1.15, gameData.mineNumber)).toFixed(2)
+    gameData.openMineCost = (25000 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
     gameData.mineNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
@@ -172,7 +242,7 @@ function hireDragon() {
   if(gameData.gold >= gameData.hireDragonCost) {
     gameData.gold -= gameData.hireDragonCost
     gameData.dragonGold += gameData.dragonProfit
-    gameData.hireDragonCost = (15000 * Math.pow(1.15, gameData.dragonNumber)).toFixed(2)
+    gameData.hireDragonCost = (150000 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
     gameData.dragonNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
@@ -183,7 +253,7 @@ function buyStone() {
   if(gameData.gold >= gameData.buyStoneCost) {
     gameData.gold -= gameData.buyStoneCost
     gameData.stoneGold += gameData.stoneProfit
-    gameData.buyStoneCost = (3000000 * Math.pow(1.15, gameData.stoneNumber)).toFixed(2)
+    gameData.buyStoneCost = (3000000 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
     gameData.stoneNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
@@ -194,7 +264,7 @@ function openStation() {
   if(gameData.gold >= gameData.openStationCost) {
     gameData.gold -= gameData.openStationCost
     gameData.stationGold += gameData.stationProfit
-    gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(2)
+    gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0)
     gameData.stationNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("openStation").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + (formatNumber(gameData.openStationCost)) + " Gold"
@@ -205,7 +275,7 @@ function hireleprechaun() {
   if(gameData.gold >= gameData.hireLeprechaunCost) {
     gameData.gold -= gameData.hireLeprechaunCost
     gameData.leprechaunGold += gameData.lepProfit
-    gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(2)
+    gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0)
     gameData.leprechaunNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + (formatNumber(gameData.hireLeprechaunCost)) + " Gold"
@@ -216,7 +286,7 @@ function hireSheep() {
   if(gameData.gold >= gameData.hireSheepCost) {
     gameData.gold -= gameData.hireSheepCost
     gameData.sheepGold += gameData.sheepProfit
-    gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(2)
+    gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0)
     gameData.sheepNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + (formatNumber(gameData.hireSheepCost)) + " Gold"
@@ -227,7 +297,7 @@ function buyRay() {
   if(gameData.gold >= gameData.buyRayCost) {
     gameData.gold -= gameData.buyRayCost
     gameData.rayGold += gameData.rayProfit
-    gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(2)
+    gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0)
     gameData.rayNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
@@ -238,7 +308,7 @@ function buyMerger() {
   if(gameData.gold >= gameData.buyMergerCost) {
     gameData.gold -= gameData.buyMergerCost
     gameData.mergerGold += gameData.mergerProfit
-    gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(2)
+    gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0)
     gameData.mergerNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
@@ -250,159 +320,112 @@ function buyMerger() {
 //Upgrades
 //==========================================================
 
-var upgrades = window.setInterval(function() {
-  if (gameData.gold >= 25) {
-    document.getElementById("c1").style.display = "inline-block";
+var checkForUpgrades = window.setInterval(function() {
+  if (gameData.toolLevel >= 1 && gameData.a1 == 1) {
+    document.getElementById("a1").style.display = "block";
   }
-  if (gameData.pickaxeNumber >= 1) {
-    document.getElementById("p1").style.display = "inline-block";
+  if (gameData.toolLevel >= 5 && gameData.a2 == 1) {
+    document.getElementById("a2").style.display = "block";
   }
-  if (gameData.dwarfNumber >= 1) {
-    document.getElementById("d1").style.display = "inline-block";
+  if (gameData.toolLevel >= 10 && gameData.a3 == 1) {
+    document.getElementById("a3").style.display = "block";
   }
-  if (gameData.mineNumber >= 1) {
-    document.getElementById("mi1").style.display = "inline-block";
+  if (gameData.toolLevel >= 15 && gameData.a4 == 1) {
+    document.getElementById("a4").style.display = "block";
   }
-  if (gameData.dragonNumber >= 1) {
-    document.getElementById("dr1").style.display = "inline-block";
+
+  if (gameData.pickaxeNumber >= 1 && gameData.b1 == 1) {
+    document.getElementById("b1").style.display = "block";
   }
-  if (gameData.stoneNumber >= 1) {
-    document.getElementById("sto1").style.display = "inline-block";
+  if (gameData.pickaxeNumber >= 5 && gameData.b2 == 1) {
+    document.getElementById("b2").style.display = "block";
   }
-  if (gameData.stationNumber >= 1) {
-    document.getElementById("sta1").style.display = "inline-block";
+  if (gameData.pickaxeNumber >= 10 && gameData.b3 == 1) {
+    document.getElementById("b3").style.display = "block";
   }
-  if (gameData.leprechaunNumber >= 1) {
-    document.getElementById("l1").style.display = "inline-block";
-  }
-  if (gameData.sheepNumber >= 1) {
-    document.getElementById("she1").style.display = "inline-block";
-  }
-  if (gameData.rayNumber >= 1) {
-    document.getElementById("r1").style.display = "inline-block";
-  }
-  if (gameData.mergerNumber >= 1) {
-    document.getElementById("me1").style.display = "inline-block";
+  if (gameData.pickaxeNumber >= 15 && gameData.b4 == 1) {
+    document.getElementById("b4").style.display = "block";
   }
 }, 3000)
 
-function upgradeClick() {
-  if (gameData.gold >= gameData.upgradeClickCost) { //add color if avalible
-    gameData.gold -= gameData.upgradeClickCost
+function a1() {
+  if (gameData.gold >= gameData.a1Price) {
+    gameData.gold -= gameData.a1Price
     gameData.clickinGold *= 2
-    gameData.upgradeClickCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upClick").innerHTML = "Cost: " + (formatNumber(gameData.upgradeClickCost)) + " Gold <br> Double click revenue"
+    gameData.a1 = 2
+    document.getElementById("a1").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
   }
 }
-function upgradePickaxe() {
-  if (gameData.gold >= gameData.upgradePickaxeCost) { //add color if avalible
-    gameData.gold -= gameData.upgradePickaxeCost
+function a2() {
+  if (gameData.gold >= gameData.a2Price) {
+    gameData.gold -= gameData.a2Price
+    gameData.clickinGold *= 2
+    gameData.a2 = 2
+    document.getElementById("a2").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+  }
+}
+function a3() {
+  if (gameData.gold >= gameData.a3Price) {
+    gameData.gold -= gameData.a3Price
+    gameData.clickinGold *= 2
+    gameData.a3 = 2
+    document.getElementById("a3").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+  }
+}
+function a4() {
+  if (gameData.gold >= gameData.a4Price) {
+    gameData.gold -= gameData.a4Price
+    gameData.clickinGold *= 2
+    gameData.a4 = 2
+    document.getElementById("a4").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+  }
+}
+
+
+function b1() {
+  if (gameData.gold >= gameData.b1Price) {
+    gameData.gold -= gameData.b1Price
+    gameData.pickaxeProfit *= 2
     gameData.pickaxeGold *= 2
-    gameData.pickaxeProfit *=2
-    gameData.upgradePickaxeCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upPickaxe").innerHTML = "Cost: " + (formatNumber(gameData.upgradePickaxeCost)) + " Gold <br> Multiplies pickaxe revenue by 2"
+    gameData.b1 = 2
+    document.getElementById("b1").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
-function upgradeDwarf() {
-  if (gameData.gold >= gameData.upgradeDwarfCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeDwarfCost
-    gameData.dwarfGold *= 2
-    gameData.dwarfProfit *=2
-    gameData.upgradeDwarfCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upDwarf").innerHTML = "Cost: " + (formatNumber(gameData.upgradeDwarfCost)) + " Gold <br>Multiplies dwarf revenue by 2"
-    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+function b2() {
+  if (gameData.gold >= gameData.b2Price) {
+    gameData.gold -= gameData.b2Price
+    gameData.pickaxeProfit *= 2
+    gameData.pickaxeGold *= 2
+    gameData.b2 = 2
+    document.getElementById("b2").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
-}
-function upgradeMine() {
-  if (gameData.gold >= gameData.upgradeMineCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeMineCost
-    gameData.mineGold *= 2
-    gameData.mineProfit *=2
-    gameData.upgradeMineCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upMine").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeMineCost)) + " Gold<br>Multiplies gold mine revenue by 2"
-    document.getElementById("mineGolld").innerHTML = "Gold Mine <br> " + (formatNumber(gameData.mineProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
+}function b3() {
+  if (gameData.gold >= gameData.b3Price) {
+    gameData.gold -= gameData.b3Price
+    gameData.pickaxeProfit *= 2
+    gameData.pickaxeGold *= 2
+    gameData.b3 = 2
+    document.getElementById("b3").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
-}
-function upgradeDragon() {
-  if (gameData.gold >= gameData.upgradeDragonCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeDragonCost
-    gameData.dragonGold *= 2
-    gameData.dragonProfit *=2
-    gameData.upgradeDragonCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upDragon").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeDragonCost)) + " Gold<br>Multiplies dragon revenue by 2"
-    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
-  }
-}
-function upgradeStone() {
-  if (gameData.gold >= gameData.upgradeStoneCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeStoneCost
-    gameData.stoneGold *= 2
-    gameData.stoneProfit *= 2
-    gameData.upgradeStoneCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upStone").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeStoneCost)) + " Gold<br>Multiplies Philosopher's Stone revenue by 2"
-    document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
-  }
-}
-function upgradeStation() {
-  if (gameData.gold >= gameData.upgradeStationCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeStationCost
-    gameData.stationGold *= 2
-    gameData.stationProfit *= 2
-    gameData.upgradeStationCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upStation").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeStationCost)) + " Gold<br>Astroid-mining Stations twice as efficient"
-    document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
-  }
-}
-function upgradeLeprechaun() {
-  if (gameData.gold >= gameData.upgradeLeprechaunCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeLeprechaunCost
-    gameData.leprechaunGold *= 2
-    gameData.lepProfit *= 2
-    gameData.upgradeLeprechaunCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upLeprechaun").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeLeprechaunCost)) + " Gold <br> Multiplies Leprechaun revenue by 2"
-    document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + "  each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
-  }
-}
-function upgradeSheep() {
-  if (gameData.gold >= gameData.upgradeSheepCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeSheepCost
-    gameData.sheepGold *= 2
-    gameData.sheepProfit *= 2
-    gameData.upgradeSheepCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upSheep").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeSheepCost)) + " Gold <br> Multiplies Golden Sheep revenue by 2"
-    document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
-  }
-}
-function upgradeRay() {
-  if (gameData.gold >= gameData.upgradeRayCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeRayCost
-    gameData.rayGold *= 2
-    gameData.rayProfit *= 2
-    gameData.upgradeRayCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upRay").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeRayCost)) + " Gold <br> Multiplies Mass Ray revenue by 2"
-    document.getElementById("rayGolld").innerHTML = "Mass ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
-  }
-}
-function upgradeMerger() {
-  if (gameData.gold >= gameData.upgradeMergerCost) { //add color if avalible
-    gameData.gold -=gameData.upgradeMergerCost
-    gameData.mergerGold *= 2
-    gameData.mergerProfit *= 2
-    gameData.upgradeMergerCost *= 5
-    document.getElementById("goldMined").innerHTML = (formatNumber(gameData.gold)) + " Gold Mined"
-    document.getElementById("upMerger").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeMergerCost)) + " Gold <br> Neutron Star Mergers twice as efficient"
-    document.getElementById("mergerGolld").innerHTML = "Gold Mine <br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold"
+}function b4() {
+  if (gameData.gold >= gameData.b4Price) {
+    gameData.gold -= gameData.b4Price
+    gameData.pickaxeProfit *= 2
+    gameData.pickaxeGold *= 2
+    gameData.b4 = 2
+    document.getElementById("b4").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
 
@@ -620,7 +643,7 @@ var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
   gameData.gold += goldPerSecond()  * (diff / 1000)
-  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(2)))+ " Gold Mined"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold Mined"
 
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
     document.getElementById("bTools").style.display = "inline";
@@ -743,6 +766,10 @@ if (savegame !== null) {
   gameData = savegame
 }
 
+var setThingsRight = window.setInterval(function() {
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold Mined"
+}, 1)
+
 //==========================================================
 //Math
 //==========================================================
@@ -763,9 +790,12 @@ function formatNumber(num) {
 //==========================================================
 
 function restart() {
-  gameData = initialGameData
-  localStorage.setItem("goldRushSave", JSON.stringify(gameData))
-  document.location.href = ("")
+  var r = confirm("Are you SURE you want to restart? This will wipe all your progress!");
+  if (r == true) {
+    gameData = initialGameData
+    localStorage.setItem("goldRushSave", JSON.stringify(gameData))
+    document.location.href = ("")
+  }
 }
 
 function save() {
@@ -961,19 +991,6 @@ if much gold ->
 //==========================================================
 
 function gameLayout() {
-//Upgrade Costs
-  document.getElementById("upClick").innerHTML = "Cost: " + (formatNumber(gameData.upgradeClickCost)) + " Gold <br> Double click revenue"
-  document.getElementById("upPickaxe").innerHTML = "Cost: " + (formatNumber(gameData.upgradePickaxeCost)) + " Gold <br> Multiplies pickaxe revenue by 2"
-  document.getElementById("upDwarf").innerHTML = "Cost: " + (formatNumber(gameData.upgradeDwarfCost)) + " Gold<br> Multiplies dwarf revenue by 2"
-  document.getElementById("upMine").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeMineCost)) + " Gold<br> Multiplies gold mine revenue by 2"
-  document.getElementById("upDragon").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeDragonCost)) + " Gold<br> Multiplies dragon revenue by 2"
-  document.getElementById("upStone").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeStoneCost)) + " Gold<br>Multiplies Philosopher's Stone revenue by 2"
-  document.getElementById("upStation").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeStationCost)) + " Gold<br>Astroid-mining Stations twice as efficient"
-  document.getElementById("upLeprechaun").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeLeprechaunCost)) + " Gold <br> Multiplies Leprechaun revenue by 2"
-  document.getElementById("upSheep").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeSheepCost)) + " Gold <br> Multiplies Golden Sheep revenue by 2"
-  document.getElementById("upRay").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeRayCost)) + " Gold <br> Multiplies Mass Ray revenue by 2"
-  document.getElementById("upMerger").innerHTML = "Cost: " +  (formatNumber(gameData.upgradeMergerCost)) + " Gold <br> Neutron Star Mergers twice as efficient"
-
 //Gold per Building
   document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br> " + (formatNumber(gameData.pickaxeProfit)) + " GPS <br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
@@ -999,7 +1016,6 @@ function gameLayout() {
   document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
   document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
 
-  document.getElementById("upClick").style.display = "inline-block";
   document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
   if (gameData.playerName == 3) {
     gameSetup();
