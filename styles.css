@@ -80,6 +80,8 @@ a {
   height: .1%;
   font-weight: bolder;
   font-family: monospace;
+  color: #fff;
+  text-shadow: 1.5px 2px black;
 }
 
 /*==========================================================
