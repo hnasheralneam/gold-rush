@@ -119,9 +119,13 @@ var initialGameData = {
   c4Price: 160000,
 
   d1: 1,
-  d1Price: 100,
+  d1Price: 100000,
   d2: 1,
-  d2Price: 500,
+  d2Price: 500000,
+  d3: 1,
+  d3Price: 2000000,
+  d4: 1,
+  d4Price: 8000000,
 
   e1: 1,
   e1Price: 100,
@@ -345,7 +349,6 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.pickaxeNumber >= 15 && gameData.b4 == 1) {
     document.getElementById("b4").style.display = "block";
   }
-
   if (gameData.dwarfNumber >= 1 && gameData.c1 == 1) {
     document.getElementById("c1").style.display = "block";
   }
@@ -357,6 +360,18 @@ var checkForUpgrades = window.setInterval(function() {
   }
   if (gameData.dwarfNumber >= 15 && gameData.c4 == 1) {
     document.getElementById("c4").style.display = "block";
+  }
+  if (gameData.mineNumber >= 1 && gameData.d1 == 1) {
+    document.getElementById("d1").style.display = "block";
+  }
+  if (gameData.mineNumber >= 5 && gameData.d2 == 1) {
+    document.getElementById("d2").style.display = "block";
+  }
+  if (gameData.mineNumber >= 10 && gameData.d3 == 1) {
+    document.getElementById("d3").style.display = "block";
+  }
+  if (gameData.mineNumber >= 15 && gameData.d4 == 1) {
+    document.getElementById("d4").style.display = "block";
   }
 }, 3000)
 
@@ -484,6 +499,51 @@ function c4() {
     document.getElementById("c4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+  }
+}
+
+function d1() {
+  if (gameData.gold >= gameData.d1Price) {
+    gameData.gold -= gameData.d1Price
+    gameData.mineProfit *= 2
+    gameData.mineGold *= 2
+    gameData.d1 = 2
+    document.getElementById("d1").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
+  }
+}
+function d2() {
+  if (gameData.gold >= gameData.d2Price) {
+    gameData.gold -= gameData.d2Price
+    gameData.mineProfit *= 2
+    gameData.mineGold *= 2
+    gameData.d2 = 2
+    document.getElementById("d2").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
+  }
+}
+function d3() {
+  if (gameData.gold >= gameData.d3Price) {
+    gameData.gold -= gameData.d3Price
+    gameData.mineProfit *= 2
+    gameData.mineGold *= 2
+    gameData.d3 = 2
+    document.getElementById("d3").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
+  }
+}
+function d4() {
+  if (gameData.gold >= gameData.d4Price) {
+    gameData.gold -= gameData.d4Price
+    gameData.mineProfit *= 2
+    gameData.mineGold *= 2
+    gameData.d4 = 2
+    document.getElementById("d4").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   }
 }
 
