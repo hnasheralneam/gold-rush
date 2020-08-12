@@ -117,7 +117,6 @@ var initialGameData = {
   c3Price: 80000,
   c4: 1,
   c4Price: 160000,
-
   d1: 1,
   d1Price: 100000,
   d2: 1,
