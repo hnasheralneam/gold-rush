@@ -333,7 +333,6 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.toolLevel >= 15 && gameData.a4 == 1) {
     document.getElementById("a4").style.display = "block";
   }
-
   if (gameData.pickaxeNumber >= 1 && gameData.b1 == 1) {
     document.getElementById("b1").style.display = "block";
   }
@@ -345,6 +344,19 @@ var checkForUpgrades = window.setInterval(function() {
   }
   if (gameData.pickaxeNumber >= 15 && gameData.b4 == 1) {
     document.getElementById("b4").style.display = "block";
+  }
+
+  if (gameData.dwarfNumber >= 1 && gameData.c1 == 1) {
+    document.getElementById("c1").style.display = "block";
+  }
+  if (gameData.dwarfNumber >= 5 && gameData.c2 == 1) {
+    document.getElementById("c2").style.display = "block";
+  }
+  if (gameData.dwarfNumber >= 10 && gameData.c3 == 1) {
+    document.getElementById("c3").style.display = "block";
+  }
+  if (gameData.dwarfNumber >= 15 && gameData.c4 == 1) {
+    document.getElementById("c4").style.display = "block";
   }
 }, 3000)
 
@@ -385,7 +397,6 @@ function a4() {
   }
 }
 
-
 function b1() {
   if (gameData.gold >= gameData.b1Price) {
     gameData.gold -= gameData.b1Price
@@ -407,7 +418,8 @@ function b2() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
-}function b3() {
+}
+function b3() {
   if (gameData.gold >= gameData.b3Price) {
     gameData.gold -= gameData.b3Price
     gameData.pickaxeProfit *= 2
@@ -417,7 +429,8 @@ function b2() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
-}function b4() {
+}
+function b4() {
   if (gameData.gold >= gameData.b4Price) {
     gameData.gold -= gameData.b4Price
     gameData.pickaxeProfit *= 2
@@ -426,6 +439,51 @@ function b2() {
     document.getElementById("b4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
+  }
+}
+
+function c1() {
+  if (gameData.gold >= gameData.c1Price) {
+    gameData.gold -= gameData.c1Price
+    gameData.dwarfProfit *= 2
+    gameData.dwarfGold *= 2
+    gameData.c1 = 2
+    document.getElementById("c1").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+  }
+}
+function c2() {
+  if (gameData.gold >= gameData.c2Price) {
+    gameData.gold -= gameData.c2Price
+    gameData.dwarfProfit *= 2
+    gameData.dwarfGold *= 2
+    gameData.c2 = 2
+    document.getElementById("c2").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+  }
+}
+function c3() {
+  if (gameData.gold >= gameData.c3Price) {
+    gameData.gold -= gameData.c3Price
+    gameData.dwarfProfit *= 2
+    gameData.dwarfGold *= 2
+    gameData.c3 = 2
+    document.getElementById("c3").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+  }
+}
+function c4() {
+  if (gameData.gold >= gameData.c4Price) {
+    gameData.gold -= gameData.c4Price
+    gameData.dwarfProfit *= 2
+    gameData.dwarfGold *= 2
+    gameData.c4 = 2
+    document.getElementById("c4").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
 
@@ -892,6 +950,7 @@ function music() {
 
 var allNews = [
   'You go mining sometimes',
+  'You like the shiny twinkle of gold',
 ]
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
@@ -925,7 +984,7 @@ var stoneNews = [
   'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"'
 ]
 var stationNews = [
-
+  'News: Major astroid mining station slams into Earth! Impacted country enraged!'
 ]
 var lepNews = [
   'News: Leprechaun becomes politician, world leaders upset.',
