@@ -126,40 +126,70 @@ var initialGameData = {
   d4: 1,
   d4Price: 8000000,
 
+
+
   e1: 1,
   e1Price: 100,
   e2: 1,
   e2Price: 500,
+  e3: 1,
+  e3Price: 2000000,
+  e4: 1,
+  e4Price: 8000000,
 
   f1: 1,
   f1Price: 100,
   f2: 1,
   f2Price: 500,
+  f3: 1,
+  f3Price: 2000000,
+  f4: 1,
+  f4Price: 8000000,
 
   g1: 1,
   g1Price: 100,
   g2: 1,
   g2Price: 500,
+  g3: 1,
+  g3Price: 2000000,
+  g4: 1,
+  g4Price: 8000000,
 
   h1: 1,
   h1Price: 100,
   h2: 1,
   h2Price: 500,
+  h3: 1,
+  h3Price: 2000000,
+  h4: 1,
+  h4Price: 8000000,
 
   i1: 1,
   i1Price: 100,
   i2: 1,
   i2Price: 500,
+  i3: 1,
+  i3Price: 2000000,
+  i4: 1,
+  i4Price: 8000000,
 
   j1: 1,
   j1Price: 100,
   j2: 1,
   j2Price: 500,
+  j3: 1,
+  j3Price: 2000000,
+  j4: 1,
+  j4Price: 8000000,
 
   k1: 1,
   k1Price: 100,
   k2: 1,
   k2Price: 500,
+  k3: 1,
+  k3Price: 2000000,
+  k4: 1,
+  k4Price: 8000000,
 
   l1: 1,
   l1Price: 100,
@@ -1010,11 +1040,22 @@ function music() {
 var allNews = [
   'You go mining sometimes',
   'You like the shiny twinkle of gold',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
   'News: Gold industry gains a complete monopoly over the pickaxe industry.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var dwarfNews = [
   'News: Dwarfs stop human miners from going to work, "They only get in the way."',
@@ -1023,12 +1064,18 @@ var dwarfNews = [
   'News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.',
   'News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.',
   'News: Gold mine collapses, dwarfs demand safer workplaces.',
+  //'News: ',
+  //'News: ',
 ]
 var mineNews = [
   'News: Mines opening everywhere, environmentalists worried.',
   'News: Coal and diamond mines going out of business as gold mines reign supreme.',
   'News: "Maybe we should stop drilling holes in the earth." says random man.',
   'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var dragonNews = [
   'News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"',
@@ -1038,28 +1085,95 @@ var dragonNews = [
   'New: Dragon babysitters needed becase all parents busy hoarding gold.',
   'News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.',
   'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
+  'News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"',
 ]
 var stoneNews = [
-  'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"'
+  'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var stationNews = [
-  'News: Major astroid mining station slams into Earth! Impacted country enraged!'
+  'News: Major astroid mining station slams into Earth! Impacted country enraged!',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var lepNews = [
   'News: Leprechaun becomes politician, world leaders upset.',
   'News: Rainbows occuring more and more often, leprechaun suspected.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var sheepNews = [
   'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
   'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var rayNews = [
   'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
   'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
 var mergerNews = [
   'News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
 ]
+var richNews = [
+  'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
+  'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
+  'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
+  'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+]
+var otherNews = [
+  'News: Rumered discoveries of Otherworld portals disrupting world peace.',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+]
+
 
 var news = window.setInterval(function (){
   var trueNews = allNews
@@ -1093,17 +1207,16 @@ var news = window.setInterval(function (){
   if (gameData.mergerNumber >= 1) {
     trueNews = trueNews.concat(mergerNews)
   }
+  if (gameData.gold >= 1000000) {
+    trueNews = trueNews.concat(richNews)
+  }
+  if (gameData.mergerNumber >= 10 && gameData.gold >= 1000000000000) {
+    trueNews = trueNews.concat(otherNews)
+  }
   var randomallNews = trueNews[Math.floor(Math.random() * trueNews.length)];
   document.getElementById("news").innerHTML = randomallNews;
 }, 12000)
 
-/*
-8 news per item
-if much gold ->
-'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
-'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
-'News: Rumered discoveries of Otherworld portals disrupting world peace.',
-*/
 //==========================================================
 //Onload
 //==========================================================
