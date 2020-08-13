@@ -82,9 +82,12 @@ a {
 }
 
 li:hover {
-  display:none;
   background-color: #e8c564;
   box-shadow: 4px 4px black;
+}
+
+button:hover {
+  box-shadow: 2px 2px black;
 }
 
 /*==========================================================
