@@ -86,8 +86,12 @@ li:hover {
   box-shadow: 4px 4px black;
 }
 
+button{
+    transition: 0s;
+}
+
 button:hover {
-  box-shadow: 2px 2px black;
+  box-shadow: 2px 2px #000;
 }
 
 /*==========================================================
