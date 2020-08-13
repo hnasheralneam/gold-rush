@@ -902,6 +902,10 @@ var mainGameLoop = window.setInterval(function() {
     document.getElementById("buyMerger").style.backgroundColor = "#333";
   }
 
+  if (gameData.mergerNumber == 0) {
+    //loading bar
+  }
+
   document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
   document.title = (formatNumber((gameData.gold).toFixed(0))) + " Gold";
   document.getElementById("gpc").innerHTML = (formatNumber(gameData.clickinGold)) + " Gold Per Click";
@@ -959,25 +963,43 @@ function save() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }
 
+window.onload = dark()
+
+
 function dark() {
-  document.getElementById("bod").style.background = "#383838";
   document.getElementById("bod").style.color = "#fff";
-  document.getElementById("news").style.background = "#737373";
-  document.getElementById("upgrades").style.background = "#737373";
-  document.getElementById("acheive").style.background = "#737373";
-  document.getElementById("settings").style.background = "#737373";
-  document.getElementById("b1").style.background = "#737373";
-  document.getElementById("b2").style.background = "#737373";
-  document.getElementById("b3").style.background = "#737373";
-  document.getElementById("b4").style.background = "#737373";
-  document.getElementById("bu").style.background = "#737373";
-  document.getElementById("gain").style.background = "#737373";
-  image = document.getElementById('gollllld');
-  image.src = "goldrushDark.png";
+  document.getElementById("bod").style.background = "#383838";
+
+
+  //document.getElementById("news").style.background = "#737373";
+  //document.getElementsByClassName("boxi").style.color  = "#fff"
+
+  //document.getElementsByTagName("DETAILS")[0].style.background = "blue";
+  //document.getElementsByTagName("DETAILS")[1].style.background = "blue";
+  //document.getElementsByTagName("DETAILS")[2].style.background = "blue";
+  //document.getElementsByTagName("DETAILS")[3].style.background = "blue";
+  //document.getElementsByTagName("DETAILS")[4].style.background = "blue";
+
+  //var x = document.querySelectorAll('.set')
+
+  //document.getElementsByTagName("DIV")[0].style.color = "blue";
+  //document.getElementById("demo").innerHTML = x;
+
+  //document.getElementsByClassName("boxi").innerHTML = "does it workseses"
+  //document.getElementById("upgrades").style.background = "#737373";
+  //document.getElementById("acheive").style.background = "#737373";
+  //document.getElementById("settings").style.background = "#737373";
+  ///document.getElementById("b1").style.background = "#737373";
+  //document.getElementById("b2").style.background = "#737373";
+  //document.getElementById("b3").style.background = "#737373";
+  //document.getElementById("b4").style.background = "#737373";
+  //document.getElementById("gain").style.background = "#737373";
+  //image = document.getElementById('gollllld');
+  //image.src = "goldrushDark.png";
   //document.getElementById("gain").style.background = "#737373";
   //document.getElementById("gollllld").scr = "file:///C:/Users/theho/OneDrive/Desktop/Gold%20Rush/Images/goldrushDark.png?time=1595009551290";
 
-  document.getElementById("bTools").style.background = "#454545";
+  /*document.getElementById("bTools").style.background = "#454545";
   document.getElementById("bTools").style.color = "#fff";
   document.getElementById("bTools").style.fontFamily = "times";
   document.getElementById("bTools").style.border = "outset 5px lightblue";
@@ -1030,7 +1052,7 @@ function dark() {
   document.getElementById("buyMerger").style.background = "#454545";
   document.getElementById("buyMerger").style.color = "#fff";
   document.getElementById("buyMerger").style.fontFamily = "times";
-  document.getElementById("buyMerger").style.border = "outset 5px lightblue";
+  document.getElementById("buyMerger").style.border = "outset 5px lightblue";*/
 }
 
 function light() {
