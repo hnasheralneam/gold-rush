@@ -972,25 +972,21 @@ function save() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }
 
-
-
 function dark() {
   document.getElementById("bod").style.color = "#fff";
   document.getElementById("bod").style.background = "#383838";
-  document.getElementsByTagName("li")[1].style.background = "pink";
+  document.getElementsByTagName("DETAILS")[0].style.background = "#737373";
+  document.getElementsByTagName("DETAILS")[1].style.background = "#737373";
+  document.getElementsByTagName("DETAILS")[2].style.background = "#737373";
+  document.getElementsByTagName("DETAILS")[3].style.background = "#737373";
+  document.getElementsByTagName("DETAILS")[4].style.background = "#737373";
+
   //document.getElementsByClassName("UP")[10].style.background = "blue";
 
 
-  document.getElementsByTagName("DETAILS")[0].style.background = "blue";
-  document.getElementsByTagName("DETAILS")[1].style.background = "blue";
-  document.getElementsByTagName("DETAILS")[2].style.background = "blue";
-  document.getElementsByTagName("DETAILS")[3].style.background = "blue";
-  document.getElementsByTagName("DETAILS")[4].style.background = "blue";
+
 
   //var x = document.querySelectorAll('.set')
-
-  //document.getElementsByTagName("DIV")[0].style.color = "blue";
-  //document.getElementById("demo").innerHTML = x;
 
   //document.getElementById("upgrades").style.background = "#737373";
   //document.getElementById("acheive").style.background = "#737373";
