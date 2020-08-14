@@ -1189,8 +1189,8 @@ var richNews = [
   'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
   'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
   'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
-  'News: new podcast about ' + gameData.playerName  + '\'s amazing rise to success coming out! Don\'t miss it!',
-  //'News: ',
+  'News: New podcast about ' + gameData.playerName  + '\'s amazing rise to success coming out! Don\'t miss it!',
+  'News: Studies show that ' + gameData.playerName  + ' has made a total '  + gameData.totalGold  + 'Gold. "All I wonder is why are they doing this?" says researcher',
   //'News: ',
   //'News: ',
 ]
