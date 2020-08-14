@@ -1314,5 +1314,3 @@ console.log(diffInMilliseconds);
 //==========================================================
 
 console.log("Look behind you.")
-
-var $meta = $('meta[name=description]').attr('content', 'Gold Rush is an incremental game about clicking gold.'); 
