@@ -199,8 +199,13 @@ var initialGameData = {
   l2: 1,
   l2Price: 5000000000000,
 
-  lastTick: Date.now(),
+  //Player Name
+
   playerName: 3,
+
+//Time
+  startTime: 0,
+  lastTick: Date.now(),
 }
 
 function goldPerSecond() {
@@ -799,6 +804,9 @@ var mainGameLoop = window.setInterval(function() {
   document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 
+//var timePassed = gameData.startTime - Date.now()
+//console.log(timePassed);
+
   var today = new Date();
   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
   document.getElementById("copE-right").innerHTML = date
@@ -1293,8 +1301,7 @@ window.onload = gameLayout;
 function gameSetup() {
   alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.")
   gameData.playerName = prompt("What is your name?(don't use your real name)")
-  var startTime = new Date()
-  console.log(startTime);
+  gameData.startTime = new Date()
 }
 
 //==========================================================
