@@ -984,14 +984,12 @@ function dark() {
 
 
   image = document.getElementById('gollllld');
-  image.src = "Images/goldrushDark.png";
+  image.src = "Images/Goldrush_dark.png"; // hex is #737373
 
 /*
 
 document.getElementsByClassName("UP")[10].style.background = "blue";
 var x = document.querySelectorAll('.set')
-
-document.getElementById("gollllld").scr = "/Images/goldrushDark.png";
 
 document.getElementById("upgrades").style.background = "#737373";
 document.getElementById("acheive").style.background = "#737373";
