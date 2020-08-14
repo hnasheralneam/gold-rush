@@ -973,35 +973,36 @@ function save() {
 }
 
 function dark() {
-  document.getElementById("bod").style.color = "#fff";
   document.getElementById("bod").style.background = "#383838";
+  document.getElementById("news").style.background = "#737373";
   document.getElementsByTagName("DETAILS")[0].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[1].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[2].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[3].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[4].style.background = "#737373";
-
-  //document.getElementsByClassName("UP")[10].style.background = "blue";
-
+  document.getElementById("gain").style.background = "#737373";
 
 
+  image = document.getElementById('gollllld');
+  image.src = "Images/goldrushDark.png";
 
-  //var x = document.querySelectorAll('.set')
+/*
 
-  //document.getElementById("upgrades").style.background = "#737373";
-  //document.getElementById("acheive").style.background = "#737373";
-  //document.getElementById("settings").style.background = "#737373";
-  ///document.getElementById("b1").style.background = "#737373";
-  //document.getElementById("b2").style.background = "#737373";
-  //document.getElementById("b3").style.background = "#737373";
-  //document.getElementById("b4").style.background = "#737373";
-  //document.getElementById("gain").style.background = "#737373";
-  //image = document.getElementById('gollllld');
-  //image.src = "goldrushDark.png";
-  //document.getElementById("gain").style.background = "#737373";
-  //document.getElementById("gollllld").scr = "file:///C:/Users/theho/OneDrive/Desktop/Gold%20Rush/Images/goldrushDark.png?time=1595009551290";
+document.getElementsByClassName("UP")[10].style.background = "blue";
+var x = document.querySelectorAll('.set')
 
-  /*document.getElementById("bTools").style.background = "#454545";
+document.getElementById("gollllld").scr = "/Images/goldrushDark.png";
+
+document.getElementById("upgrades").style.background = "#737373";
+document.getElementById("acheive").style.background = "#737373";
+document.getElementById("settings").style.background = "#737373";
+document.getElementById("b1").style.background = "#737373";
+document.getElementById("b2").style.background = "#737373";
+document.getElementById("b3").style.background = "#737373";
+document.getElementById("b4").style.background = "#737373";
+document.getElementById("gain").style.background = "#737373";
+
+  document.getElementById("bTools").style.background = "#454545";
   document.getElementById("bTools").style.color = "#fff";
   document.getElementById("bTools").style.fontFamily = "times";
   document.getElementById("bTools").style.border = "outset 5px lightblue";
