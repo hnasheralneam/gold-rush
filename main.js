@@ -782,7 +782,7 @@ function youWin() {
 }
 
 var winQuestion = window.setInterval(function() {
-  if (gameData.pickaxeNumber >= 100 && gameData.dwarfNumber >= 100 && gameData.mineNumber >= 100 && gameData.dragonNumber >= 100 && gameData.stoneNumber >= 100 && gameData.stationNumber >= 100 && gameData.leprechaunNumber >= 100 && gameData.sheepNumber >= 100 && gameData.rayNumber >= 100 && gameData.mergerNumber >= 100) {
+  if (gameData.pickaxeNumber >= 1000 && gameData.dwarfNumber >= 900 && gameData.mineNumber >= 800 && gameData.dragonNumber >= 700 && gameData.stoneNumber >= 600 && gameData.stationNumber >= 500 && gameData.leprechaunNumber >= 400 && gameData.sheepNumber >= 300 && gameData.rayNumber >= 200 && gameData.mergerNumber >= 100) {
     youWin()
   }
 }, 5000)
@@ -1293,6 +1293,8 @@ window.onload = gameLayout;
 function gameSetup() {
   alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.")
   gameData.playerName = prompt("What is your name?(don't use your real name)")
+  var startTime = new Date()
+  console.log(startTime);
 }
 
 //==========================================================
