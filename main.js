@@ -130,7 +130,7 @@ var initialGameData = {
 
 
 
-  
+
   e1: 1,
   e1Price: 1000000,
   e2: 1,
@@ -812,6 +812,7 @@ var mainGameLoop = window.setInterval(function() {
   }
   else {
     document.getElementById("bTools").style.backgroundColor = "#333";
+    document.getElementById("bTools").style.cursor = "wait";
   }
   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
     document.getElementById("buyPickaxe").style.display = "inline";
