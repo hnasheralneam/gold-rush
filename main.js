@@ -1082,7 +1082,7 @@ var allNews = [
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
-  'News: Little plastic keychian pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"',
+  'News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1120,7 +1120,7 @@ var dragonNews = [
   'News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"',
 ]
 var stoneNews = [
-  'News: geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
+  'News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
   //'News: ',
   //'News: ',
   //'News: ',
