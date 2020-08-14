@@ -796,6 +796,7 @@ var winQuestion = window.setInterval(function() {
 //Main Game Loop
 //==========================================================
 
+
 var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
@@ -804,8 +805,6 @@ var mainGameLoop = window.setInterval(function() {
   document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
 
-//var timePassed = gameData.startTime - Date.now()
-//console.log(timePassed);
 
   var today = new Date();
   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
@@ -820,7 +819,7 @@ var mainGameLoop = window.setInterval(function() {
   }
   else {
     document.getElementById("bTools").style.backgroundColor = "#333";
-    document.getElementById("bTools").style.cursor = "wait";
+    //document.getElementById("bTools").style.cursor = "wait";
   }
   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
     document.getElementById("buyPickaxe").style.display = "inline";
@@ -1298,14 +1297,22 @@ window.onload = gameLayout;
 //Welcome Instructions
 //==========================================================
 
+var startTime = null
+
 function gameSetup() {
   alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.")
   gameData.playerName = prompt("What is your name?(don't use your real name)")
-  gameData.startTime = new Date()
+  var startTime = Date.now()
 }
+
+const diffInMilliseconds = Math.abs(Date.now - startTime);
+
+console.log(diffInMilliseconds);
 
 //==========================================================
 //Console
 //==========================================================
 
 console.log("Look behind you.")
+
+var $meta = $('meta[name=description]').attr('content', 'Gold Rush is an incremental game about clicking gold.'); 
