@@ -1072,7 +1072,7 @@ function music() {
 var allNews = [
   'You go mining sometimes',
   'You like the shiny twinkle of gold',
-  //'News: ',
+  'When you feel sad, you look at your hoard of gold. ',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1082,7 +1082,7 @@ var allNews = [
 var pickaxeNews = [
   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
-  //'News: ',
+  'News: Little plastic keychian pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1101,7 +1101,7 @@ var dwarfNews = [
 ]
 var mineNews = [
   'News: Mines opening everywhere, environmentalists worried.',
-  'News: Coal and diamond mines going out of business as gold mines reign supreme.',
+  'News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what\'s so special about coal?"',
   'News: "Maybe we should stop drilling holes in the earth." says random man.',
   'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
   //'News: ',
@@ -1189,14 +1189,14 @@ var richNews = [
   'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
   'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
   'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
-  //'News: ',
+  'News: new podcast about ' + gameData.playerName  + '\'s amazing rise to success coming out! Don\'t miss it!',
   //'News: ',
   //'News: ',
   //'News: ',
 ]
 var otherNews = [
   'News: Rumered discoveries of Otherworld portals disrupting world peace.',
-  //'News: ',
+  'News: Lost children suspected to have stumbled throught Otherworld portals',
   //'News: ',
   //'News: ',
   //'News: ',
