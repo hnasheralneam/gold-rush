@@ -204,7 +204,6 @@ var initialGameData = {
   playerName: 3,
 
 //Time
-  startTime: 0,
   lastTick: Date.now(),
 }
 
@@ -1302,12 +1301,8 @@ var startTime = null
 function gameSetup() {
   alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.")
   gameData.playerName = prompt("What is your name?(don't use your real name)")
-  var startTime = Date.now()
+  startTime = Date.now()
 }
-
-const diffInMilliseconds = Math.abs(Date.now - startTime);
-
-console.log(diffInMilliseconds);
 
 //==========================================================
 //Console
