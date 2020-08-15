@@ -234,11 +234,11 @@ document.body.onkeyup = function(e){
     }
 }
 
-button.onclick = function(event) {
+/*button.onclick = function(event) {
     if (event.ctrlKey && event.shiftKey) {
       multiPickaxe
     }
-  };
+  };*/
 
 //==========================================================
 //Purchase Buildings
