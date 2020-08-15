@@ -1097,7 +1097,7 @@ var dwarfNews = [
   'News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.',
   'News: Gold mine collapses, dwarfs demand safer workplaces.',
   'News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "it\'s suprising how threatening a mob of tiny people can be" admits journalist',
-  'News: Peaceful dwarf protests recived with violent reprisal',
+  'News: Peaceful dwarf protests recived with violent reprisal!',
 ]
 var mineNews = [
   'News: Mines opening everywhere, environmentalists worried.',
