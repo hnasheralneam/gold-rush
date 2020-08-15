@@ -1066,7 +1066,7 @@ var mineNews = [
   'News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what\'s so special about coal?"',
   'News: "Maybe we should stop drilling holes in the earth." says random man.',
   'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
-  //'News: ',
+  'News: As the gold industry gradualy gains control of the government, new laws are passed in the favor of mining.',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1083,7 +1083,7 @@ var dragonNews = [
 ]
 var stoneNews = [
   'News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
-  //'News: ',
+  'News: Throught  an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered. "Do you know how are it is to live with a glittering hunk of gold shimmering in your face CONSTANTLY?"',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1116,7 +1116,7 @@ var lepNews = [
 var sheepNews = [
   'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
   'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
-  //'News: ',
+  'News: Pet golden sheeps becoming more popular, causing the intorduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm. ',
   //'News: ',
   //'News: ',
   //'News: ',
