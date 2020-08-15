@@ -206,7 +206,8 @@ Profit
   position: relative;
   top: -22px;
   margin-bottom: -14px;
-background-image: url("Images/goldback.jpg");}
+  background-image: url("Images/goldback.jpg");
+}
 
 #gpc {
   font-family: sans-serif;
@@ -219,7 +220,8 @@ background-image: url("Images/goldback.jpg");}
   position: relative;
   top: -22px;
   margin-bottom: -14px;
-background-image: url("Images/goldback.jpg");}
+  background-image: url("Images/goldback.jpg");
+}
 
 .gold-mined {
   color: yellow;
