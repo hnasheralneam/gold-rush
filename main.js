@@ -1190,7 +1190,7 @@ var richNews = [
   'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
   'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
   'News: New podcast about ' + gameData.playerName  + '\'s amazing rise to success coming out! Don\'t miss it!',
-  'News: Studies show that ' + gameData.playerName  + ' has made a total '  + gameData.totalGold  + 'Gold. "All I wonder is why are they doing this?" says researcher',
+  'News: Studies show that ' + gameData.playerName  + ' has made a total '  + (formatNumber(gameData.totalGold))  + ' Gold. "All I wonder is why are they doing this?" says researcher',
   //'News: ',
   //'News: ',
 ]
