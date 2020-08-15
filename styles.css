@@ -478,3 +478,7 @@ button.uptooltip:hover span {
 p {
   background-image: none;
 }
+
+audio {
+  display: none;
+}
