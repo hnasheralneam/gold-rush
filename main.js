@@ -213,6 +213,9 @@ function goldPerSecond() {
 
 var gameData = initialGameData
 
+var regColor = "#ffffbd"
+var notEnoughColor = "#333"
+
 //==========================================================
 //Gain Profit
 //==========================================================
@@ -795,126 +798,16 @@ var winQuestion = window.setInterval(function() {
 //Main Game Loop
 //==========================================================
 
-
 var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
   gameData.gold += goldPerSecond()  * (diff / 1000)
   gameData.totalGold += goldPerSecond()
-  document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
-  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
-
-
   var today = new Date();
   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
   document.getElementById("copE-right").innerHTML = date
-
-
-  if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
-    document.getElementById("bTools").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.bToolCost) {
-    document.getElementById("bTools").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("bTools").style.backgroundColor = "#333";
-    //document.getElementById("bTools").style.cursor = "wait";
-  }
-  if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
-    document.getElementById("buyPickaxe").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.buyPickaxeCost) {
-    document.getElementById("buyPickaxe").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("buyPickaxe").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
-    document.getElementById("hireDwarf").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.hireDwarfCost) {
-    document.getElementById("hireDwarf").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("hireDwarf").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
-    document.getElementById("openMine").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.openMineCost) {
-    document.getElementById("openMine").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("openMine").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
-    document.getElementById("hireDragon").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.hireDragonCost) {
-    document.getElementById("hireDragon").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("hireDragon").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
-    document.getElementById("buyStone").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.buyStoneCost) {
-    document.getElementById("buyStone").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("buyStone").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
-    document.getElementById("openStation").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.openStationCost) {
-    document.getElementById("openStation").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("openStation").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
-    document.getElementById("hireLeprechaun").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.hireLeprechaunCost) {
-    document.getElementById("hireLeprechaun").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("hireLeprechaun").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
-    document.getElementById("hireSheep").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.hireSheepCost) {
-    document.getElementById("hireSheep").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("hireSheep").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
-    document.getElementById("buyRay").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.buyRayCost) {
-    document.getElementById("buyRay").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("buyRay").style.backgroundColor = "#333";
-  }
-  if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
-    document.getElementById("buyMerger").style.display = "inline";
-  }
-  if (gameData.gold >= gameData.buyMergerCost) {
-    document.getElementById("buyMerger").style.backgroundColor = "#ffffbd";
-  }
-  else {
-    document.getElementById("buyMerger").style.backgroundColor = "#333";
-  }
-
-  if (gameData.mergerNumber == 0) {
-    //loading bar
-  }
-
+  document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
   document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
   document.title = (formatNumber((gameData.gold).toFixed(0))) + " Gold";
   document.getElementById("gpc").innerHTML = (formatNumber(gameData.clickinGold)) + " Gold Per Click";
@@ -926,6 +819,113 @@ var mainGameLoop = window.setInterval(function() {
   document.getElementById("gpM").innerHTML = (formatNumber(goldPerSecond() * 60 * 60 * 24 * 7 * 4)) + " Gold Per Month";
   document.getElementById("gpy").innerHTML = (formatNumber(goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12)) + " Gold Per Year";
 }, 1000)
+
+var buildColorLoop = window.setInterval(function() {
+  if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
+    document.getElementById("bTools").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.bToolCost) {
+    document.getElementById("bTools").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("bTools").style.backgroundColor = notEnoughColor;
+    //document.getElementById("bTools").style.cursor = "wait";
+  }
+  if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
+    document.getElementById("buyPickaxe").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyPickaxeCost) {
+    document.getElementById("buyPickaxe").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("buyPickaxe").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
+    document.getElementById("hireDwarf").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.hireDwarfCost) {
+    document.getElementById("hireDwarf").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("hireDwarf").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
+    document.getElementById("openMine").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.openMineCost) {
+    document.getElementById("openMine").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("openMine").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
+    document.getElementById("hireDragon").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.hireDragonCost) {
+    document.getElementById("hireDragon").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("hireDragon").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
+    document.getElementById("buyStone").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyStoneCost) {
+    document.getElementById("buyStone").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("buyStone").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
+    document.getElementById("openStation").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.openStationCost) {
+    document.getElementById("openStation").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("openStation").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
+    document.getElementById("hireLeprechaun").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.hireLeprechaunCost) {
+    document.getElementById("hireLeprechaun").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
+    document.getElementById("hireSheep").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.hireSheepCost) {
+    document.getElementById("hireSheep").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("hireSheep").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
+    document.getElementById("buyRay").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyRayCost) {
+    document.getElementById("buyRay").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("buyRay").style.backgroundColor = notEnoughColor;
+  }
+  if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
+    document.getElementById("buyMerger").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.buyMergerCost) {
+    document.getElementById("buyMerger").style.backgroundColor = regColor;
+  }
+  else {
+    document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
+  }
+
+  if (gameData.mergerNumber == 0) {
+    //loading bar
+  }
+}, 500)
 
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
@@ -949,12 +949,6 @@ function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
-//fix pricing
-//var number = 77.77777;
-
-//console.log(number.toFixed(1))
-
-
 //==========================================================
 //Settings
 //==========================================================
@@ -973,6 +967,12 @@ function save() {
 }
 
 function dark() {
+  regColor = "#454545"
+  notEnoughColor = "#000"
+
+  image = document.getElementById('gollllld');
+  image.src = "Images/Goldrush_dark.png";
+
   document.getElementById("bod").style.background = "#383838";
   document.getElementById("news").style.background = "#737373";
   document.getElementById("playerrName").style.background = "#8f8d8d";
@@ -982,77 +982,39 @@ function dark() {
   document.getElementsByTagName("DETAILS")[2].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[3].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[4].style.background = "#737373";
-
-  image = document.getElementById('gollllld');
-  image.src = "Images/Goldrush_dark.png";
-
-/*
-document.getElementsByClassName("UP")[10].style.background = "blue";
-var x = document.querySelectorAll('.set')
-
-document.getElementById("upgrades").style.background = "#737373";
-document.getElementById("acheive").style.background = "#737373";
-document.getElementById("settings").style.background = "#737373";
-document.getElementById("b1").style.background = "#737373";
-document.getElementById("b2").style.background = "#737373";
-document.getElementById("b3").style.background = "#737373";
-document.getElementById("b4").style.background = "#737373";
-document.getElementById("gain").style.background = "#737373";
-
-  document.getElementById("bTools").style.background = "#454545";
   document.getElementById("bTools").style.color = "#fff";
   document.getElementById("bTools").style.fontFamily = "times";
   document.getElementById("bTools").style.border = "outset 5px lightblue";
-
-  document.getElementById("buyPickaxe").style.background = "#454545";
   document.getElementById("buyPickaxe").style.color = "#fff";
   document.getElementById("buyPickaxe").style.fontFamily = "times";
   document.getElementById("buyPickaxe").style.border = "outset 5px lightblue";
-
-  document.getElementById("hireDwarf").style.background = "#454545";
   document.getElementById("hireDwarf").style.color = "#fff";
   document.getElementById("hireDwarf").style.fontFamily = "times";
   document.getElementById("hireDwarf").style.border = "outset 5px lightblue";
-
-  document.getElementById("openMine").style.background = "#454545";
   document.getElementById("openMine").style.color = "#fff";
   document.getElementById("openMine").style.fontFamily = "times";
   document.getElementById("openMine").style.border = "outset 5px lightblue";
-
-  document.getElementById("hireDragon").style.background = "#454545";
   document.getElementById("hireDragon").style.color = "#fff";
   document.getElementById("hireDragon").style.fontFamily = "times";
   document.getElementById("hireDragon").style.border = "outset 5px lightblue";
-
-  document.getElementById("buyStone").style.background = "#454545";
   document.getElementById("buyStone").style.color = "#fff";
   document.getElementById("buyStone").style.fontFamily = "times";
   document.getElementById("buyStone").style.border = "outset 5px lightblue";
-
-  document.getElementById("openStation").style.background = "#454545";
   document.getElementById("openStation").style.color = "#fff";
   document.getElementById("openStation").style.fontFamily = "times";
   document.getElementById("openStation").style.border = "outset 5px lightblue";
-
-  document.getElementById("hireLeprechaun").style.background = "#454545";
   document.getElementById("hireLeprechaun").style.color = "#fff";
   document.getElementById("hireLeprechaun").style.fontFamily = "times";
   document.getElementById("hireLeprechaun").style.border = "outset 5px lightblue";
-
-  document.getElementById("hireSheep").style.background = "#454545";
   document.getElementById("hireSheep").style.color = "#fff";
   document.getElementById("hireSheep").style.fontFamily = "times";
   document.getElementById("hireSheep").style.border = "outset 5px lightblue";
-
-  document.getElementById("buyRay").style.background = "#454545";
   document.getElementById("buyRay").style.color = "#fff";
   document.getElementById("buyRay").style.fontFamily = "times";
   document.getElementById("buyRay").style.border = "outset 5px lightblue";
-
-  document.getElementById("buyMerger").style.background = "#454545";
   document.getElementById("buyMerger").style.color = "#fff";
   document.getElementById("buyMerger").style.fontFamily = "times";
-  document.getElementById("buyMerger").style.border = "outset 5px lightblue";*/
+  document.getElementById("buyMerger").style.border = "outset 5px lightblue";
 }
 
 function light() {
