@@ -13,6 +13,7 @@ var initialGameData = {
 //Gold
   gold: 0,
   totalGold: 0,
+  totalGoldSpent: 0,
 
 //Clicks
   clickinGold: 1,
@@ -243,9 +244,9 @@ document.body.onkeyup = function(e){
 function bTool() {
   if (gameData.gold >= gameData.bToolCost) {
     gameData.gold -= gameData.bToolCost
+    gameData.totalGoldSpent += gameData.bToolCost
     gameData.clickinGold += 1
     gameData.bToolCost *= 2
-    gameData.toolLevel += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("bTools").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold"
   }
@@ -253,6 +254,7 @@ function bTool() {
 function buyPickaxe() {
   if (gameData.gold >= gameData.buyPickaxeCost) {
     gameData.gold -= gameData.buyPickaxeCost
+    gameData.totalGoldSpent += gameData.buyPickaxeCost
     gameData.pickaxeGold += gameData.pickaxeProfit
     gameData.buyPickaxeCost = (25 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
     gameData.pickaxeNumber += 1
@@ -264,6 +266,7 @@ function buyPickaxe() {
 function hireDwarf() {
   if(gameData.gold >= gameData.hireDwarfCost) {
     gameData.gold -= gameData.hireDwarfCost
+    gameData.totalGoldSpent += gameData.hireDwarfCost
     gameData.dwarfGold += gameData.dwarfProfit
     gameData.hireDwarfCost = (100 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
     gameData.dwarfNumber += 1
@@ -275,6 +278,7 @@ function hireDwarf() {
 function openMine() {
   if(gameData.gold >= gameData.openMineCost) {
     gameData.gold -= gameData.openMineCost
+    gameData.totalGoldSpent += gameData.openMineCost
     gameData.mineGold += gameData.mineProfit
     gameData.openMineCost = (25000 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
     gameData.mineNumber += 1
@@ -286,6 +290,7 @@ function openMine() {
 function hireDragon() {
   if(gameData.gold >= gameData.hireDragonCost) {
     gameData.gold -= gameData.hireDragonCost
+    gameData.totalGoldSpent += gameData.hireDragonCost
     gameData.dragonGold += gameData.dragonProfit
     gameData.hireDragonCost = (150000 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
     gameData.dragonNumber += 1
@@ -297,6 +302,7 @@ function hireDragon() {
 function buyStone() {
   if(gameData.gold >= gameData.buyStoneCost) {
     gameData.gold -= gameData.buyStoneCost
+    gameData.totalGoldSpent += gameData.buyStoneCost
     gameData.stoneGold += gameData.stoneProfit
     gameData.buyStoneCost = (3000000 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
     gameData.stoneNumber += 1
@@ -308,6 +314,7 @@ function buyStone() {
 function openStation() {
   if(gameData.gold >= gameData.openStationCost) {
     gameData.gold -= gameData.openStationCost
+    gameData.totalGoldSpent += gameData.openStationCost
     gameData.stationGold += gameData.stationProfit
     gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0)
     gameData.stationNumber += 1
@@ -319,6 +326,7 @@ function openStation() {
 function hireleprechaun() {
   if(gameData.gold >= gameData.hireLeprechaunCost) {
     gameData.gold -= gameData.hireLeprechaunCost
+    gameData.totalGoldSpent += gameData.hireLeprechaunCost
     gameData.leprechaunGold += gameData.lepProfit
     gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0)
     gameData.leprechaunNumber += 1
@@ -330,6 +338,7 @@ function hireleprechaun() {
 function hireSheep() {
   if(gameData.gold >= gameData.hireSheepCost) {
     gameData.gold -= gameData.hireSheepCost
+    gameData.totalGoldSpent += gameData.hireSheepCost
     gameData.sheepGold += gameData.sheepProfit
     gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0)
     gameData.sheepNumber += 1
@@ -341,6 +350,7 @@ function hireSheep() {
 function buyRay() {
   if(gameData.gold >= gameData.buyRayCost) {
     gameData.gold -= gameData.buyRayCost
+    gameData.totalGoldSpent += gameData.buyRayCost
     gameData.rayGold += gameData.rayProfit
     gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0)
     gameData.rayNumber += 1
@@ -352,6 +362,7 @@ function buyRay() {
 function buyMerger() {
   if(gameData.gold >= gameData.buyMergerCost) {
     gameData.gold -= gameData.buyMergerCost
+    gameData.totalGoldSpent += gameData.buyMergerCost
     gameData.mergerGold += gameData.mergerProfit
     gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0)
     gameData.mergerNumber += 1
@@ -421,6 +432,7 @@ function a1() {
     gameData.gold -= gameData.a1Price
     gameData.clickinGold *= 2
     gameData.a1 = 2
+    gameData.totalGoldSpent += gameData.a1Price
     document.getElementById("a1").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
   }
@@ -430,6 +442,7 @@ function a2() {
     gameData.gold -= gameData.a2Price
     gameData.clickinGold *= 2
     gameData.a2 = 2
+    gameData.totalGoldSpent += gameData.a2Price
     document.getElementById("a2").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
   }
@@ -439,6 +452,7 @@ function a3() {
     gameData.gold -= gameData.a3Price
     gameData.clickinGold *= 2
     gameData.a3 = 2
+    gameData.totalGoldSpent += gameData.a3Price
     document.getElementById("a3").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
   }
@@ -448,6 +462,7 @@ function a4() {
     gameData.gold -= gameData.a4Price
     gameData.clickinGold *= 2
     gameData.a4 = 2
+    gameData.totalGoldSpent += gameData.a4Price
     document.getElementById("a4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
   }
@@ -459,6 +474,7 @@ function b1() {
     gameData.pickaxeProfit *= 2
     gameData.pickaxeGold *= 2
     gameData.b1 = 2
+    gameData.totalGoldSpent += gameData.b1Price
     document.getElementById("b1").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
@@ -470,6 +486,7 @@ function b2() {
     gameData.pickaxeProfit *= 2
     gameData.pickaxeGold *= 2
     gameData.b2 = 2
+    gameData.totalGoldSpent += gameData.b2Price
     document.getElementById("b2").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
@@ -481,6 +498,7 @@ function b3() {
     gameData.pickaxeProfit *= 2
     gameData.pickaxeGold *= 2
     gameData.b3 = 2
+    gameData.totalGoldSpent += gameData.b3Price
     document.getElementById("b3").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
@@ -492,6 +510,7 @@ function b4() {
     gameData.pickaxeProfit *= 2
     gameData.pickaxeGold *= 2
     gameData.b4 = 2
+    gameData.totalGoldSpent += gameData.b4Price
     document.getElementById("b4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
@@ -504,6 +523,7 @@ function c1() {
     gameData.dwarfProfit *= 2
     gameData.dwarfGold *= 2
     gameData.c1 = 2
+    gameData.totalGoldSpent += gameData.c1Price
     document.getElementById("c1").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
@@ -515,6 +535,7 @@ function c2() {
     gameData.dwarfProfit *= 2
     gameData.dwarfGold *= 2
     gameData.c2 = 2
+    gameData.totalGoldSpent += gameData.c2Price
     document.getElementById("c2").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
@@ -526,6 +547,7 @@ function c3() {
     gameData.dwarfProfit *= 2
     gameData.dwarfGold *= 2
     gameData.c3 = 2
+    gameData.totalGoldSpent += gameData.c3Price
     document.getElementById("c3").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
@@ -537,6 +559,7 @@ function c4() {
     gameData.dwarfProfit *= 2
     gameData.dwarfGold *= 2
     gameData.c4 = 2
+    gameData.totalGoldSpent += gameData.c4Price
     document.getElementById("c4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
@@ -549,6 +572,7 @@ function d1() {
     gameData.mineProfit *= 2
     gameData.mineGold *= 2
     gameData.d1 = 2
+    gameData.totalGoldSpent += gameData.d1Price
     document.getElementById("d1").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
@@ -560,6 +584,7 @@ function d2() {
     gameData.mineProfit *= 2
     gameData.mineGold *= 2
     gameData.d2 = 2
+    gameData.totalGoldSpent += gameData.d2Price
     document.getElementById("d2").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
@@ -571,6 +596,7 @@ function d3() {
     gameData.mineProfit *= 2
     gameData.mineGold *= 2
     gameData.d3 = 2
+    gameData.totalGoldSpent += gameData.d3Price
     document.getElementById("d3").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
@@ -582,6 +608,7 @@ function d4() {
     gameData.mineProfit *= 2
     gameData.mineGold *= 2
     gameData.d4 = 2
+    gameData.totalGoldSpent += gameData.d4Price
     document.getElementById("d4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
@@ -807,6 +834,7 @@ var mainGameLoop = window.setInterval(function() {
   var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
   document.getElementById("copE-right").innerHTML = date
   document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
+  document.getElementById("totalSpendings").innerHTML =  (formatNumber(gameData.totalGoldSpent)) + " Lifetime Spendings"
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
   document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
   document.title = (formatNumber((gameData.gold).toFixed(0))) + " Gold";
