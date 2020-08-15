@@ -1137,7 +1137,7 @@ var rayNews = [
 ]
 var mergerNews = [
   'News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."',
-  //'News: ',
+  'News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants. ',
   //'News: ',
   //'News: ',
   //'News: ',
