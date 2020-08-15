@@ -145,6 +145,7 @@ Main Elements
   background-color: #fff;
   display: inline-block;
   padding: .1%;
+  overflow-x: hidden; 
 }
 
 #maingamecenter {
