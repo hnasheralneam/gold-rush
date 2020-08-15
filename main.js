@@ -125,20 +125,18 @@ var initialGameData = {
   d3: 1,
   d3Price: 2000000,
   d4: 1,
-  d4Price: 8000000,
-
-
-
-
-
+  d4Price: 6000000,
   e1: 1,
-  e1Price: 1000000,
+  e1Price: 500000,
   e2: 1,
-  e2Price: 5000000,
+  e2Price: 1500000,
   e3: 1,
-  e3Price: 20000000,
+  e3Price: 4000000,
   e4: 1,
-  e4Price: 80000000,
+  e4Price: 8000000,
+
+
+
 
   f1: 1,
   f1Price: 10000000,
@@ -235,6 +233,12 @@ document.body.onkeyup = function(e){
       document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
     }
 }
+
+button.onclick = function(event) {
+    if (event.ctrlKey && event.shiftKey) {
+      multiPickaxe
+    }
+  };
 
 //==========================================================
 //Purchase Buildings
@@ -414,6 +418,18 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.mineNumber >= 15 && gameData.d4 == 1) {
     document.getElementById("d4").style.display = "block";
   }
+  if (gameData.dragonNumber >= 1 && gameData.e1 == 1) {
+    document.getElementById("e1").style.display = "block";
+  }
+  if (gameData.dragonNumber >= 5 && gameData.e2 == 1) {
+    document.getElementById("e2").style.display = "block";
+  }
+  if (gameData.dragonNumber >= 10 && gameData.e3 == 1) {
+    document.getElementById("e3").style.display = "block";
+  }
+  if (gameData.dragonNumber >= 15 && gameData.e4 == 1) {
+    document.getElementById("e4").style.display = "block";
+  }
 }, 3000)
 
 function a1() {
@@ -585,6 +601,51 @@ function d4() {
     document.getElementById("d4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
+  }
+}
+
+function e1() {
+  if (gameData.gold >= gameData.e1Price) {
+    gameData.gold -= gameData.e1Price
+    gameData.dragonProfit *= 2
+    gameData.dragonGold *= 2
+    gameData.e1 = 2
+    document.getElementById("e1").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
+  }
+}
+function e2() {
+  if (gameData.gold >= gameData.e2Price) {
+    gameData.gold -= gameData.e2Price
+    gameData.dragonProfit *= 2
+    gameData.dragonGold *= 2
+    gameData.e2 = 2
+    document.getElementById("e2").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
+  }
+}
+function e3() {
+  if (gameData.gold >= gameData.e3Price) {
+    gameData.gold -= gameData.e3Price
+    gameData.dragonProfit *= 2
+    gameData.dragonGold *= 2
+    gameData.e3 = 2
+    document.getElementById("e3").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
+  }
+}
+function e4() {
+  if (gameData.gold >= gameData.e4Price) {
+    gameData.gold -= gameData.e4Price
+    gameData.dragonProfit *= 2
+    gameData.dragonGold *= 2
+    gameData.e4 = 2
+    document.getElementById("e4").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   }
 }
 
