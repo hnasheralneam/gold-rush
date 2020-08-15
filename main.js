@@ -1158,8 +1158,8 @@ var richNews = [
 ]
 var otherNews = [
   'News: Rumered discoveries of Otherworld portals disrupting world peace.',
-  'News: Lost children suspected to have stumbled throught Otherworld portals',
-  //'News: ',
+  'News: Lost children suspected to have stumbled throught Otherworld portals.',
+  'News: Freak weather causing havoc and destruction, traced to Otherworld portals.',
   //'News: ',
   //'News: ',
   //'News: ',
