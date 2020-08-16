@@ -655,68 +655,68 @@ function e4() {
 
 var acheivments = window.setInterval(function() {
   if (gameData.clicks == 0 && gameData.gold >= 1000) {
-      document.getElementById("noclick1").style.display = "inline-block";
+      document.getElementById("noclick1").style.display = "inline";
   }
   if (gameData.clicks == 0 && gameData.gold >= 10000) {
-      document.getElementById("noclick2").style.display = "inline-block";
+      document.getElementById("noclick2").style.display = "inline";
   }
   if (gameData.clicks == 0 && gameData.gold >= 100000) {
-      document.getElementById("noclick3").style.display = "inline-block";
+      document.getElementById("noclick3").style.display = "inline";
   }
   if (gameData.clicks >= 1) {
-      document.getElementById("click1").style.display = "inline-block";
+      document.getElementById("click1").style.display = "inline";
   }
   if (gameData.clicks >= 10) {
-      document.getElementById("click2").style.display = "inline-block";
+      document.getElementById("click2").style.display = "inline";
   }
   if (gameData.clicks >= 100) {
-      document.getElementById("click3").style.display = "inline-block";
+      document.getElementById("click3").style.display = "inline";
   }
   if (gameData.clicks >= 1000) {
-      document.getElementById("click4").style.display = "inline-block";
+      document.getElementById("click4").style.display = "inline";
   }
 
 
   if (gameData.pickaxeNumber >= 1) {
-      document.getElementById("pick1").style.display = "inline-block";
+      document.getElementById("pick1").style.display = "inline";
   }
   if (gameData.pickaxeNumber >= 5) {
-      document.getElementById("pick2").style.display = "inline-block";
+      document.getElementById("pick2").style.display = "inline";
   }
   if (gameData.pickaxeNumber >= 25) {
-      document.getElementById("pick3").style.display = "inline-block";
+      document.getElementById("pick3").style.display = "inline";
   }
   if (gameData.pickaxeNumber >= 50) {
-      document.getElementById("pick4").style.display = "inline-block";
+      document.getElementById("pick4").style.display = "inline";
   }
   if (gameData.pickaxeNumber >= 100) {
-      document.getElementById("pick5").style.display = "inline-block";
+      document.getElementById("pick5").style.display = "inline";
   }
 
   if (gameData.dwarfNumber >= 1) {
-      document.getElementById("dwarf1").style.display = "inline-block";
+      document.getElementById("dwarf1").style.display = "inline";
   }
   if (gameData.dwarfNumber >= 5) {
-      document.getElementById("dwarf2").style.display = "inline-block";
+      document.getElementById("dwarf2").style.display = "inline";
   }
   if (gameData.dwarfNumber >= 25) {
-      document.getElementById("dwarf3").style.display = "inline-block";
+      document.getElementById("dwarf3").style.display = "inline";
   }
   if (gameData.dwarfNumber >= 50) {
-      document.getElementById("dwarf4").style.display = "inline-block";
+      document.getElementById("dwarf4").style.display = "inline";
   }
   if (gameData.dwarfNumber >= 100) {
-      document.getElementById("dwarf5").style.display = "inline-block";
+      document.getElementById("dwarf5").style.display = "inline";
   }
 
   if (gameData.mineNumber >= 1) {
-      document.getElementById("mine1").style.display = "inline-block";
+      document.getElementById("mine1").style.display = "inline";
   }
   if (gameData.mineNumber >= 5) {
-      document.getElementById("mine2").style.display = "inline-block";
+      document.getElementById("mine2").style.display = "inline";
   }
   if (gameData.mineNumber >= 25) {
-      document.getElementById("mine3").style.display = "inline-block";
+      document.getElementById("mine3").style.display = "inline";
   }
   if (gameData.mineNumber >= 50) {
       document.getElementById("mine4").style.display = "inline-block";
@@ -726,115 +726,115 @@ var acheivments = window.setInterval(function() {
   }
 
   if (gameData.dragonNumber >= 1) {
-        document.getElementById("dragon1").style.display = "inline-block";
+        document.getElementById("dragon1").style.display = "inlinek";
     }
   if (gameData.dragonNumber >= 5) {
-        document.getElementById("dragon2").style.display = "inline-block";
+        document.getElementById("dragon2").style.display = "inlinek";
     }
   if (gameData.dragonNumber >= 25) {
-        document.getElementById("dragon3").style.display = "inline-block";
+        document.getElementById("dragon3").style.display = "inline";
     }
   if (gameData.dragonNumber >= 50) {
-        document.getElementById("dragon4").style.display = "inline-block";
+        document.getElementById("dragon4").style.display = "inlinek";
     }
   if (gameData.dragonNumber >= 100) {
-        document.getElementById("dragon5").style.display = "inline-block";
+        document.getElementById("dragon5").style.display = "inlinek";
     }
 
   if (gameData.stoneNumber >= 1) {
-          document.getElementById("stone1").style.display = "inline-block";
+          document.getElementById("stone1").style.display = "inlinek";
       }
   if (gameData.stoneNumber >= 5) {
-          document.getElementById("stone2").style.display = "inline-block";
+          document.getElementById("stone2").style.display = "inlinek";
       }
   if (gameData.stoneNumber >= 25) {
-          document.getElementById("stone3").style.display = "inline-block";
+          document.getElementById("stone3").style.display = "inlinek";
       }
   if (gameData.stoneNumber >= 50) {
-          document.getElementById("stone4").style.display = "inline-block";
+          document.getElementById("stone4").style.display = "inlinek";
       }
   if (gameData.stoneNumber >= 100) {
-          document.getElementById("stone5").style.display = "inline-block";
+          document.getElementById("stone5").style.display = "inline-";
       }
 
   if (gameData.stationNumber >= 1) {
-            document.getElementById("station1").style.display = "inline-block";
+            document.getElementById("station1").style.display = "inline-";
         }
   if (gameData.stationNumber >= 5) {
-            document.getElementById("station2").style.display = "inline-block";
+            document.getElementById("station2").style.display = "inlinek";
         }
   if (gameData.stationNumber >= 25) {
-            document.getElementById("station3").style.display = "inline-block";
+            document.getElementById("station3").style.display = "inline-";
         }
   if (gameData.stationNumber >= 50) {
-            document.getElementById("station4").style.display = "inline-block";
+            document.getElementById("station4").style.display = "inlinek";
         }
   if (gameData.stationNumber >= 100) {
-            document.getElementById("station5").style.display = "inline-block";
+            document.getElementById("station5").style.display = "inline-";
         }
 
   if (gameData.leprechaunNumber >= 1) {
-              document.getElementById("lep1").style.display = "inline-block";
+              document.getElementById("lep1").style.display = "inlinek";
           }
   if (gameData.leprechaunNumber >= 5) {
-              document.getElementById("lep2").style.display = "inline-block";
+              document.getElementById("lep2").style.display = "inlinck";
           }
   if (gameData.leprechaunNumber >= 25) {
-              document.getElementById("lep3").style.display = "inline-block";
+              document.getElementById("lep3").style.display = "inlinek";
           }
   if (gameData.leprechaunNumber >= 50) {
-              document.getElementById("lep4").style.display = "inline-block";
+              document.getElementById("lep4").style.display = "inline-";
           }
   if (gameData.leprechaunNumber >= 100) {
-              document.getElementById("lep5").style.display = "inline-block";
+              document.getElementById("lep5").style.display = "inline-";
           }
 
   if (gameData.sheepNumber >= 1) {
-                document.getElementById("sheep1").style.display = "inline-block";
+                document.getElementById("sheep1").style.display = "inlinek";
             }
   if (gameData.sheepNumber >= 5) {
-                document.getElementById("sheep2").style.display = "inline-block";
+                document.getElementById("sheep2").style.display = "inlinek";
             }
   if (gameData.sheepNumber >= 25) {
-                document.getElementById("sheep3").style.display = "inline-block";
+                document.getElementById("sheep3").style.display = "inlinek";
             }
   if (gameData.sheepNumber >= 50) {
-                document.getElementById("sheep4").style.display = "inline-block";
+                document.getElementById("sheep4").style.display = "inline-";
             }
   if (gameData.sheepNumber >= 100) {
-                document.getElementById("sheep5").style.display = "inline-block";
+                document.getElementById("sheep5").style.display = "inline-";
             }
 
   if (gameData.rayNumber >= 1) {
-                  document.getElementById("ray1").style.display = "inline-block";
+                  document.getElementById("ray1").style.display = "inlinek";
               }
   if (gameData.rayNumber >= 5) {
-                  document.getElementById("ray2").style.display = "inline-block";
+     document.getElementById("ray2").style.display = "inline";
               }
-  if (gameData.rayNumber >= 25) {
-                  document.getElementById("ray3").style.display = "inline-block";
+    if (gameData.rayNumber >= 25) {
+       document.getElementById("ray3").style.display = "inline";
               }
   if (gameData.rayNumber >= 50) {
-                  document.getElementById("ray4").style.display = "inline-block";
+                  document.getElementById("ray4").style.display = "inline-";
               }
   if (gameData.rayNumber >= 100) {
-                  document.getElementById("ray5").style.display = "inline-block";
+                  document.getElementById("ray5").style.display = "inline";
               }
 
   if (gameData.mergerNumber >= 1) {
-                    document.getElementById("merger1").style.display = "inline-block";
+                    document.getElementById("merger1").style.display = "inline";
                 }
   if (gameData.mergerNumber >= 5) {
-                    document.getElementById("merger2").style.display = "inline-block";
+                    document.getElementById("merger2").style.display = "inline";
                 }
   if (gameData.mergerNumber >= 25) {
-                    document.getElementById("merger3").style.display = "inline-block";
+                    document.getElementById("merger3").style.display = "inline";
                 }
   if (gameData.mergerNumber >= 50) {
-                    document.getElementById("merger4").style.display = "inline-block";
+                    document.getElementById("merger4").style.display = "inline";
                 }
   if (gameData.mergerNumber >= 100) {
-                    document.getElementById("merger5").style.display = "inline-block";
+                    document.getElementById("merger5").style.display = "inline";
                 }
 }, 5000)
 
