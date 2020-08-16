@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background-image: url("Images/goldrush-background.png");
+  background-image: url("Images/background.png");
   background-size: 120px;
   overflow: scroll;
   -webkit-transform: translateZ(0);
@@ -207,7 +207,7 @@ Profit
   color: #03ecfc;
   text-shadow: 1px 1px #000;
   border: inset silver 3px;
-  background-image: url("Images/goldback.jpg");
+  background-image: url("Images/goldbars.jpg");
 }
 
 #gpc {
@@ -216,7 +216,7 @@ Profit
   color: #03ecfc;
   text-shadow: 1px 1px #000;
   border: inset silver 3px;
-  background-image: url("Images/goldback.jpg");
+  background-image: url("Images/goldbars.jpg");
 }
 
 .gold-mined {
@@ -225,7 +225,7 @@ Profit
   -webkit-text-stroke: 1.2px black;
   font-size: 25px;
   border: inset 5px grey;
-  background-image: url("Images/goldback.jpg");
+  background-image: url("Images/goldbars.jpg");
 }
 
 
