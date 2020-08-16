@@ -1032,7 +1032,7 @@ function dark() {
   notEnoughColor = "#000"
 
   image = document.getElementById('gollllld');
-  image.src = "Images/Goldrush_dark.png";
+  image.src = "Images/darkAstroid.png";
 
   document.getElementById("bod").style.background = "#383838";
   document.getElementById("news").style.background = "#737373";
