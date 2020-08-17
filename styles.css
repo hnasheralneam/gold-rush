@@ -361,9 +361,6 @@ button[aria-label]:hover:after {
   border: outset darkred 5px;
   border-radius: 5px;
   display: none;
-
-//80px big
-//60/70px Medium
 }
 
 .yep:hover {
