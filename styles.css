@@ -417,6 +417,10 @@ button[aria-label]:hover:after {
   padding: 5px;
 }
 
+#gpm, #g0pher, #gpd, #gpw, #gpM, #gpy, #totalGold {
+  font-family: monospace;
+}
+
 /*==========================================================
 Buildings
 ==========================================================*/
