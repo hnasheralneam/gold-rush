@@ -352,18 +352,48 @@ button[aria-label]:hover:after {
 }
 
 .yep {
-  width: 57.8px;
-  height: 57.8px;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  color: white;
+  margin: .5px -1.5px;
+  vertical-align: top;
   border: outset darkred 5px;
   border-radius: 5px;
-  background-image: none;
-  background-color: black;
-  margin: .2px -2px;
-  padding: 2px;
+
+//80px big
+//60/70px Medium
+
+  //display: none;
+}
+
+.yep:hover {
+  width: 52px;
+  height: 52px;
+  background-color: #000;
   color: white;
-  display: none;
-  font-size: 8px;
+  margin: .5px -1.5px;
   vertical-align: top;
+  border: outset darkred 5px;
+  border-radius: 5px;
+
+//80px big
+//60/70px Medium
+
+  //display: none;
+}
+
+.hover-text {
+  color: #000;
+  display: block;
+}
+
+.hover-text:hover {
+  display: block;
+  color: #fff;
+  position: relative;
+  top: 25px;
+  left: 5px;
 }
 
 /* Settings */
