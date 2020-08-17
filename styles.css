@@ -360,11 +360,10 @@ button[aria-label]:hover:after {
   vertical-align: top;
   border: outset darkred 5px;
   border-radius: 5px;
+  display: none;
 
 //80px big
 //60/70px Medium
-
-  //display: none;
 }
 
 .yep:hover {
@@ -376,7 +375,6 @@ button[aria-label]:hover:after {
   vertical-align: top;
   border: outset darkred 5px;
   border-radius: 5px;
-  display: none;
 
 //80px big
 //60/70px Medium
