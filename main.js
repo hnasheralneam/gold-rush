@@ -1034,49 +1034,22 @@ function dark() {
   image = document.getElementById('gollllld');
   image.src = "Images/darkAstroid.png";
 
+  var all = document.getElementsByClassName('info');
+  for (var i = 0; i < all.length; i++) {
+    all[i].style.color = '#fff';
+    all[i].style.fontFamily = 'times';
+    all[i].style.border = 'outset 5px lightblue';
+  }
+
+  var allo = document.getElementsByClassName('boxi');
+  for (var i = 0; i < allo.length; i++) {
+    allo[i].style.background = '#737373';
+  }
+
   document.body.style.color = "#fff";
-  document.getElementById("bod").style.background = "#383838";
-  document.getElementById("news").style.background = "#737373";
+  document.body.style.background = "#383838";
   document.getElementById("playerrName").style.background = "#8f8d8d";
   document.getElementById("gain").style.background = "#737373";
-  document.getElementsByTagName("DETAILS")[0].style.background = "#737373";
-  document.getElementsByTagName("DETAILS")[1].style.background = "#737373";
-  document.getElementsByTagName("DETAILS")[2].style.background = "#737373";
-  document.getElementsByTagName("DETAILS")[3].style.background = "#737373";
-  document.getElementsByTagName("DETAILS")[4].style.background = "#737373";
-  document.getElementById("bTools").style.color = "#fff";
-  document.getElementById("bTools").style.fontFamily = "times";
-  document.getElementById("bTools").style.border = "outset 5px lightblue";
-  document.getElementById("buyPickaxe").style.color = "#fff";
-  document.getElementById("buyPickaxe").style.fontFamily = "times";
-  document.getElementById("buyPickaxe").style.border = "outset 5px lightblue";
-  document.getElementById("hireDwarf").style.color = "#fff";
-  document.getElementById("hireDwarf").style.fontFamily = "times";
-  document.getElementById("hireDwarf").style.border = "outset 5px lightblue";
-  document.getElementById("openMine").style.color = "#fff";
-  document.getElementById("openMine").style.fontFamily = "times";
-  document.getElementById("openMine").style.border = "outset 5px lightblue";
-  document.getElementById("hireDragon").style.color = "#fff";
-  document.getElementById("hireDragon").style.fontFamily = "times";
-  document.getElementById("hireDragon").style.border = "outset 5px lightblue";
-  document.getElementById("buyStone").style.color = "#fff";
-  document.getElementById("buyStone").style.fontFamily = "times";
-  document.getElementById("buyStone").style.border = "outset 5px lightblue";
-  document.getElementById("openStation").style.color = "#fff";
-  document.getElementById("openStation").style.fontFamily = "times";
-  document.getElementById("openStation").style.border = "outset 5px lightblue";
-  document.getElementById("hireLeprechaun").style.color = "#fff";
-  document.getElementById("hireLeprechaun").style.fontFamily = "times";
-  document.getElementById("hireLeprechaun").style.border = "outset 5px lightblue";
-  document.getElementById("hireSheep").style.color = "#fff";
-  document.getElementById("hireSheep").style.fontFamily = "times";
-  document.getElementById("hireSheep").style.border = "outset 5px lightblue";
-  document.getElementById("buyRay").style.color = "#fff";
-  document.getElementById("buyRay").style.fontFamily = "times";
-  document.getElementById("buyRay").style.border = "outset 5px lightblue";
-  document.getElementById("buyMerger").style.color = "#fff";
-  document.getElementById("buyMerger").style.fontFamily = "times";
-  document.getElementById("buyMerger").style.border = "outset 5px lightblue";
 }
 
 function light() {
@@ -1145,7 +1118,7 @@ var dragonNews = [
 ]
 var stoneNews = [
   'News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
-  'News: Throught  an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered. "Do you know how are it is to live with a glittering hunk of gold shimmering in your face CONSTANTLY?"',
+  'News: Throught  an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered. "Do you know how hard it is to live with a glittering hunk of gold shimmering in your face CONSTANTLY?"',
   //'News: ',
   //'News: ',
   //'News: ',
