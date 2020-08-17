@@ -1034,10 +1034,12 @@ function dark() {
   image = document.getElementById('gollllld');
   image.src = "Images/darkAstroid.png";
 
+  document.body.style.color = "#fff";
   document.getElementById("bod").style.background = "#383838";
   document.getElementById("news").style.background = "#737373";
   document.getElementById("playerrName").style.background = "#8f8d8d";
   document.getElementById("gain").style.background = "#737373";
+  document.getElementsByTagName("DETAILS")[0].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[1].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[2].style.background = "#737373";
   document.getElementsByTagName("DETAILS")[3].style.background = "#737373";
