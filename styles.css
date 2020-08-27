@@ -199,6 +199,7 @@ Profit
   height: 200px;
   border-radius: 90px;
   margin: 8px;
+  cursor: url("Images/pickaxecursor.png"), auto;
 }
 
 #gps {
