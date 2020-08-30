@@ -29,28 +29,24 @@ var initialGameData = {
   pickaxeGold: 0,
   buyPickaxeCost: 25,
   pickaxeNumber: 0,
-  upgradePickaxeCost: 1000,
 
 //Dwarfs
   dwarfProfit: 2,
   dwarfGold: 0,
   hireDwarfCost: 100,
   dwarfNumber: 0,
-  upgradeDwarfCost: 5000,
 
 //Gold mines
-  mineProfit: 100,
+  mineProfit: 80,
   mineGold: 0,
   openMineCost: 20000,
   mineNumber: 0,
-  upgradeMineCost: 125000,
 
 //Dragons
   dragonProfit: 2000,
   dragonGold: 0,
   hireDragonCost: 150000,
   dragonNumber: 0,
-  upgradeDragonCost: 625000,
 
 //Philosopher's Stones
   stoneProfit: 10000,
@@ -64,35 +60,30 @@ var initialGameData = {
   stationGold: 0,
   openStationCost: 250000000,
   stationNumber: 0,
-  upgradeStationCost: 15000000,
 
 //Leprechauns
-  lepProfit: 1000000,
+  lepProfit: 600000,
   leprechaunGold: 0,
   hireLeprechaunCost: 1000000000,
   leprechaunNumber: 0,
-  upgradeLeprechaunCost: 80000000,
 
 //Golden Sheep
   sheepProfit: 10000000,
   sheepGold: 0,
   hireSheepCost: 250000000000,
   sheepNumber: 0,
-  upgradeSheepCost: 400000000,
 
 //Mass rays
   rayProfit: 1000000000,
   rayGold: 0,
   buyRayCost: 2000000000000,
   rayNumber: 0,
-  upgradeRayCost: 2000000000,
 
 //Neutron Star Mergers
   mergerProfit: 10000000000,
   mergerGold: 0,
   buyMergerCost: 200000000000000,
   mergerNumber: 0,
-  upgradeMergerCost: 10000000000,
 
   a1: 1,
   a1Price: 100,
