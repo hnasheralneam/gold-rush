@@ -93,24 +93,22 @@ var initialGameData = {
   a3Price: 1000,
   a4: 1,
   a4Price: 5000,
-
   b1: 1,
-  b1Price: 800,
+  b1Price: 200,
   b2: 1,
-  b2Price: 4000,
+  b2Price: 400,
   b3: 1,
-  b3Price: 8000,
+  b3Price: 800,
   b4: 1,
-  b4Price: 15000,
-
+  b4Price: 1600,
   c1: 1,
-  c1Price: 10000,
+  c1Price: 600,
   c2: 1,
-  c2Price: 20000,
+  c2Price: 1200,
   c3: 1,
-  c3Price: 80000,
+  c3Price: 2600,
   c4: 1,
-  c4Price: 160000,
+  c4Price: 5000,
 
   c01: 1,
   c01Price: 10000,
@@ -138,10 +136,6 @@ var initialGameData = {
   e3Price: 4000000,
   e4: 1,
   e4Price: 8000000,
-
-
-
-
   f1: 1,
   f1Price: 10000000,
   f2: 1,
