@@ -226,6 +226,11 @@ Profit
   -webkit-text-stroke: 1.2px black;
   font-size: 25px;
   border: inset 5px grey;
+  //font-family: 'Balsamiq Sans', cursive;
+  //font-family: 'Fredoka One', cursive;
+  //font-family: 'Acme', sans-serif;
+  //font-family: 'EB Garamond', serif;
+  //font-family: 'Merriweather', serif;
   background-image: url("Images/goldbars.jpg");
 }
 
