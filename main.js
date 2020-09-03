@@ -1060,6 +1060,18 @@ function music() {
   return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
 
+function fontChange0() {
+  document.getElementById("GM").style.background = "#8f8d8d";
+}
+
+function fontChange1() {
+  document.getElementById("playerrName").style.background = "#8f8d8d";
+}
+
+function fontChange2() {
+  document.getElementById("playerrName").style.background = "#8f8d8d";
+}
+
 //==========================================================
 //News
 //==========================================================
