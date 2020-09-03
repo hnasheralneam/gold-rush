@@ -23,7 +23,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
 ==========================================================-->
 <div id="leftplease">
     <div id="gain">
-      <p id="goldMined" class="gold-mined">0 Gold Mined</p>
+      <p id="goldMined" class="gold-mined"><span id="GM">0 Gold Mined</span></p>
       <p id="gps">0 Gold Per Second</p>
       <p id="gpc">0 Gold Per Click</p>
       <img title="Tap the gold to magically make gold appear. Logic at it's finest." id="gollllld" src="Images/astroid.png" alt="Click for Gold!" onclick="collectGold()">
@@ -211,6 +211,24 @@ You won't learn anything from snooping around here. It's main.js you want to loo
               <button class="set" type="button"><a onClick="music()">MUSIC</a></button>
               <div class="tooltipy ">
                 <p>Turn music on or off</p>
+              </div>
+            </div>
+            <div class="con-tooltip">
+              <button class="set" type="button"><a onClick="fontChange0">DEFAULT FONT</a></button>
+              <div class="tooltipy ">
+                <p>Change to default font!</p>
+              </div>
+            </div>
+            <div class="con-tooltip">
+              <button class="set" type="button"><a onClick="fontChange1">FONT 1</a></button>
+              <div class="tooltipy ">
+                <p>Change to font 1!</p>
+              </div>
+            </div>
+            <div class="con-tooltip">
+              <button class="set" type="button"><a onClick="fontChange2">FONT 2</a></button>
+              <div class="tooltipy ">
+                <p>Change to font 2!</p>
               </div>
             </div>
             <audio id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop>
