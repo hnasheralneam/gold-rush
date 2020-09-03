@@ -36,6 +36,12 @@ var initialGameData = {
   hireDwarfCost: 100,
   dwarfNumber: 0,
 
+//Geese
+  gooseProfit: 10,
+  gooseGold: 0,
+  hireGooseCost: 8000,
+  gooseNumber: 0,
+
 //Gold mines
   mineProfit: 80,
   mineGold: 0,
@@ -196,7 +202,7 @@ var initialGameData = {
 }
 
 function goldPerSecond() {
-  return gameData.pickaxeGold + gameData.dwarfGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold + gameData.goldPerClick
+  return gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold + gameData.goldPerClick
 }
 
 var gameData = initialGameData
@@ -264,6 +270,17 @@ function hireDwarf() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+  }
+}
+function hireGoose() {
+  if(gameData.gold >= gameData.hireGooseCost) {
+    gameData.gold -= gameData.hireGooseCost
+    gameData.gooseGold += gameData.gooseProfit
+    gameData.hireGooseCost = (100 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0)
+    gameData.gooseNumber += 1
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+    document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
+    document.getElementById("gooseGolld").innerHTML = "Goose  <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden eggs"
   }
 }
 function openMine() {
@@ -900,6 +917,15 @@ var buildColorLoop = window.setInterval(function() {
   else {
     document.getElementById("hireDwarf").style.backgroundColor = notEnoughColor;
   }
+  if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) {
+    document.getElementById("hireGoose").style.display = "inline";
+  }
+  if (gameData.gold >= gameData.hireDwarfCost) {
+    document.getElementById("hireGoose").style.backgroundColor = regColor;
+  }
+  else {
+   document.getElementById("hireGoose").style.backgroundColor = notEnoughColor;
+ }
   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
     document.getElementById("openMine").style.display = "inline";
   }
@@ -1256,6 +1282,7 @@ function gameLayout() {
 //Gold per Building
   document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br> " + (formatNumber(gameData.pickaxeProfit)) + " GPS <br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+  //document.getElementById("geeseGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   document.getElementById("mineGolld").innerHTML = "Gold Mine <br> " + (formatNumber(gameData.mineProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   document.getElementById("dragonGolld").innerHTML = "Dragon <br> " + (formatNumber(gameData.dragonProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
@@ -1269,6 +1296,7 @@ function gameLayout() {
   document.getElementById("bTools").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold"
   document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
   document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
+  document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
   document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
   document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
   document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
