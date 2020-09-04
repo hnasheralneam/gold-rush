@@ -581,8 +581,8 @@ function c4() {
 function c01() {
   if (gameData.gold >= gameData.c01Price) {
     gameData.gold -= gameData.c01Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
+    gameData.gooseProfit *= 2
+    gameData.gooseGold *= 2
     gameData.c01 = 2
     document.getElementById("c01").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
@@ -592,8 +592,8 @@ function c01() {
 function c02() {
   if (gameData.gold >= gameData.c02Price) {
     gameData.gold -= gameData.c02Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
+    gameData.gooseProfit *= 2
+    gameData.gooseGold *= 2
     gameData.c02 = 2
     document.getElementById("c02").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
@@ -603,8 +603,8 @@ function c02() {
 function c03() {
   if (gameData.gold >= gameData.c03Price) {
     gameData.gold -= gameData.c03Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
+    gameData.gooseProfit *= 2
+    gameData.gooseGold *= 2
     gameData.c03 = 2
     document.getElementById("c03").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
@@ -614,8 +614,8 @@ function c03() {
 function c04() {
   if (gameData.gold >= gameData.c04Price) {
     gameData.gold -= gameData.c04Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
+    gameData.gooseProfit *= 2
+    gameData.gooseGold *= 2
     gameData.c04 = 2
     document.getElementById("c04").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
