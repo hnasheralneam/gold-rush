@@ -413,6 +413,18 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.dwarfNumber >= 15 && gameData.c4 == 1) {
     document.getElementById("c4").style.display = "block";
   }
+  if (gameData.gooseNumber >= 1 && gameData.c01 == 1) {
+    document.getElementById("c01").style.display = "block";
+  }
+  if (gameData.gooseNumber >= 5 && gameData.c02 == 1) {
+    document.getElementById("c02").style.display = "block";
+  }
+  if (gameData.gooseNumber >= 10 && gameData.c03 == 1) {
+    document.getElementById("c03").style.display = "block";
+  }
+  if (gameData.gooseNumber >= 15 && gameData.c04 == 1) {
+    document.getElementById("c04").style.display = "block";
+  }
   if (gameData.mineNumber >= 1 && gameData.d1 == 1) {
     document.getElementById("d1").style.display = "block";
   }
