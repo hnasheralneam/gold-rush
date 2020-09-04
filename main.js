@@ -1181,6 +1181,16 @@ var dwarfNews = [
   'News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "it\'s suprising how threatening a mob of tiny people can be" admits journalist',
   'News: Peaceful dwarf protests recived with violent reprisal!',
 ]
+var gooseNews = [
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+  //'News: ',
+]
 var mineNews = [
   'News: Mines opening everywhere, environmentalists worried.',
   'News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what\'s so special about coal?"',
@@ -1224,7 +1234,7 @@ var stationNews = [
 var lepNews = [
   'News: Leprechaun becomes politician, world leaders upset.',
   'News: Rainbows occuring more and more often, leprechaun suspected.',
-  //'News: ',
+  'News: Three leaved clovers become rare due to the large amount of four leaved clovers.',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1272,7 +1282,7 @@ var richNews = [
   'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
   'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
   'News: New podcast about ' + gameData.playerName  + '\'s amazing rise to success coming out! Don\'t miss it!',
-  'News: Studies show that ' + gameData.playerName  + ' has made a total '  + (formatNumber(gameData.totalGold))  + ' Gold. "All I wonder is why are they doing this?" says researcher',
+  'News: Studies show that ' + gameData.playerName  + ' has made a total '  + (formatNumber(gameData.totalGold))  + ' Gold. "That\'s a lot of chiny" says researcher',
   //'News: ',
   //'News: ',
 ]
@@ -1296,6 +1306,9 @@ var news = window.setInterval(function (){
   }
   if (gameData.dwarfNumber >= 1) {
     trueNews = trueNews.concat(dwarfNews)
+  }
+  if (gameData.gooseNumber >= 1) {
+    trueNews = trueNews.concat(gooseNews)
   }
   if (gameData.mineNumber >= 1) {
     trueNews = trueNews.concat(mineNews)
