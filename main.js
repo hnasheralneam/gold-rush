@@ -1555,7 +1555,7 @@ var dragonNews = [
 ]
 var stoneNews = [
   'News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
-  'News: Throught  an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered. "Do you know how hard it is to live with a glittering hunk of gold shimmering in your face CONSTANTLY?"',
+  'News: Throught  an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"',
   //'News: ',
   //'News: ',
   //'News: ',
