@@ -20,12 +20,6 @@ body {
   background-image: url("Images/background.png");
   background-size: 120px;
   overflow: scroll;
-  -webkit-transform: translateZ(0);
-  position:fixed;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
 }
 
 ::selection  {
@@ -152,6 +146,7 @@ Main Elements
   display: inline-block;
   padding: .1%;
   overflow-x: hidden;
+  display: inline-grid;
 }
 
 #maingamecenter {
@@ -162,6 +157,7 @@ Main Elements
   scroll-behavior: smooth;
   display: inline-block;
   padding: .1%;
+  display: inline-grid;
 }
 
 #buildings {
@@ -173,21 +169,7 @@ Main Elements
   display: inline-block;
   padding: .1%;
   font-size: 15px;
-}
-
-#leftplease {
-  text-align: left;
-  display: inline;
-}
-
-#centerplease {
-  text-align: center;
-  display: inline;
-}
-
-#rightplease {
-  text-align: right;
-  display: inline;
+  display: inline-grid;
 }
 
 /*==========================================================
