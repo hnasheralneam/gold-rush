@@ -1446,9 +1446,6 @@ function dark() {
   regColor = "#454545"
   notEnoughColor = "#000"
 
-  image = document.getElementById('gollllld');
-  image.src = "Images/darkAstroid.png";
-
   var all = document.getElementsByClassName('info');
   for (var i = 0; i < all.length; i++) {
     all[i].style.color = '#fff';
