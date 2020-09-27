@@ -247,7 +247,7 @@ function bTool() {
     gameData.bToolCost *= 2
     gameData.toolLevel += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
-    document.getElementById("bTools").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold"
+    document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
   }
 }
 function buyPickaxe() {
@@ -1288,15 +1288,16 @@ var mainGameLoop = window.setInterval(function() {
 }, 1000)
 
 var buildColorLoop = window.setInterval(function() {
+
   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
-    document.getElementById("bTools").style.display = "inline";
+    document.getElementById("bTool").style.display = "inline";
   }
   if (gameData.gold >= gameData.bToolCost) {
-    document.getElementById("bTools").style.backgroundColor = regColor;
+    document.getElementById("bTool").style.backgroundColor = regColor;
   }
   else {
-    document.getElementById("bTools").style.backgroundColor = notEnoughColor;
-    //document.getElementById("bTools").style.cursor = "wait";
+    document.getElementById("bTool").style.backgroundColor = notEnoughColor;
+    //document.getElementById("bTool").style.cursor = "wait";
   }
   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
     document.getElementById("buyPickaxe").style.display = "inline";
@@ -1702,7 +1703,7 @@ function gameLayout() {
   document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
 
 //Building Count
-  document.getElementById("bTools").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold"
+  document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
   document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
   document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
   document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"

@@ -95,7 +95,7 @@ button{
 }
 
 button:hover {
-  box-shadow: 2px 2px #000;
+  //box-shadow: 2px 2px #000;
 }
 
 /*==========================================================
@@ -435,8 +435,25 @@ Buildings
   margin: 0.8px;
   padding: 5px 0px;
   background-color: #333;
-  background-image: none;
   display: none;
+}
+
+#bTool  .spannn {
+  display: none;
+}
+
+#bTool:hover  .spannn {
+  display: block;
+  position: absolute;
+  background-color: black;
+  border: outset 3.5px gold;
+  color: #fff;
+  width: 140px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-weight: 100;
+  font-family: times;
 }
 
 /*==========================================================
