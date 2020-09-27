@@ -8,8 +8,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- Font Links -->
+    <!-- Font Links-->
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -22,6 +21,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
 <!--=========================================================
           Gain Section
 ==========================================================-->
+<div id="leftplease">
     <div id="gain">
       <p id="goldMined" class="gold-mined"><span id="GM">0 Gold Mined</span></p>
       <p id="gps">0 Gold Per Second</p>
@@ -29,9 +29,11 @@ You won't learn anything from snooping around here. It's main.js you want to loo
       <img title="Tap the gold to magically make gold appear. Logic at it's finest." id="gollllld" src="Images/astroid.png" alt="Click for Gold!" onclick="collectGold()">
       <p id="playerrName">Random Player's Mine</p>
     </div>
+</div>
 <!-- =========================================================
           Upgrades, Acheivements, Settings, and News
 ==========================================================-->
+<div id="centerplease">
   <div id="maingamecenter">
       <p id="news" class="boxi" >You start your search for fame and gold with nothing but a rusty pickaxe.</p><!--Your adventure begins when a huge gold-laden astroid lands in your backyard. -->
     <details open class="boxi" id="box1">
@@ -52,8 +54,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
           <li aria-label="Cost 5,000 Gold" id="c4" onclick="c4()" class="UP">Paid Holidays!<p class="why">There's nothing someone won't do when you give them paid holidays!</p><p class="more">Dwarf profits x2</p></li>
           <li aria-label="Cost 25,000 Gold" id="c01" onclick="c01()" class="UP">Healthier Diets!<p class="why">Make sure they get all the nutrients they need!</p><p class="more">Geese profits x2</p></li>
           <li aria-label="Cost 50,000 Gold" id="c02" onclick="c02()" class="UP">Larger Flocks!<p class="why">More geese, more eggs!</p><p class="more">Geese profits x2</p></li>
-<!----          <li aria-label="Cost 100,000 Gold" id="c03" onclick="c03()" class="UP">!<p class="why">Upgrade Geese!</p><p class="more">Geese profits x2</p></li>
-<!--          <li aria-label="Cost 160,000 Gold" id="c04" onclick="c04()" class="UP">!<p class="why">Upgrade Geese!</p><p class="more">Geese profits x2</p></li>-->
+          <li aria-label="Cost 100,000 Gold" id="c03" onclick="c03()" class="UP">Advanced Mental Abilites!<p class="why">Dark magic is your greatest friend!</p><p class="more">Geese profits x2</p></li>
+          <li aria-label="Cost 160,000 Gold" id="c04" onclick="c04()" class="UP">Bigger Nesting Boxes!<p class="why">I don't even know how this will help!</p><p class="more">Geese profits x2</p></li>
           <li aria-label="Cost 60,000 Gold" id="d1" onclick="d1()" class="UP">Deeper Mines!<p class="why">Far over, the misty mountians cold...</p><p class="more">Mine profits x2</p></li>
           <li aria-label="Cost 120,000 Gold" id="d2" onclick="d2()" class="UP">Wider Mine-Shafts!<p class="why">Five feet wide the door and three may walk abreast...</p><p class="more">Mine profits x2</p></li>
           <li aria-label="Cost 240,000 Gold" id="d3" onclick="d3()" class="UP">Journy to the Center of the Earth!<p class="why">(let's hope that isn't copyrighted)</p><p class="more">Mine profits x2</p></li>
@@ -229,58 +231,61 @@ You won't learn anything from snooping around here. It's main.js you want to loo
           Get your consumerism 70% percent off today! Limited time offer! (Not including tax and outrageous shipping prices)
     </details>
   </div>
+</div>
 <!--=========================================================
           Buildings
 ===========================================================-->
+<div id="rightplease">
     <div id="buildings">
-      <a href="javascript:void(0)" class="tooltip" id="tool" ><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip" id="tool" ><p class="hide">link</p>
         <button class="info" onclick="bTool()" id="bTools">Better Tools <br>Tool Level 1 <br>Cost: 10 Gold</button><br>
         <span>Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip" id="pickaxe" ><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip" id="pickaxe" ><p class="hide">link</p>
         <button class="info" onclick="buyPickaxe()" id="buyPickaxe">Pickaxe <br>(You have 0) <br>Cost: 25 Gold</button><br>
         <span id="pickaxeGolld">Pickaxe <br> 0.5 GPS each<br> Producing 0 GPS<br>A sturdy pickaxe to mine gold with</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="hireDwarf()" id="hireDwarf">Dwarf <br>(You have 0) <br>Cost: 100 Gold</button><br>
         <span id="dwarfGolld">Dwarf <br> 2 GPS each<br> Producing 0 GPS<br>An assistant to help you mine gold</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="hireGoose()" id="hireGoose">Goose <br>(You have 0) <br>Cost: 8,000 Gold</button><br>
         <span id="gooseGolld">Goose <br> 10 GPS each<br> Producing 0 GPS<br>A nice goose that lays golden eggs</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="openMine()" id="openMine">Gold Mine <br>(You have 0) <br>Cost: 20,000 Gold</button><br>
         <span id="mineGolld">Gold Mine <br> 100 GPS each<br> Producing 0 GPS<br> A new mine to mine gold in</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="hireDragon()" id="hireDragon">Dragon <br>(You have 0) <br>Cost: 150,000 Gold</button><br>
         <span id="dragonGolld">Dragon <br> 2,000 GPS each<br> Producing 0 GPS<br> A nice dragon to steal gold and hoard it</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="buyStone()" id="buyStone">Philosopher's Stone <br>(You have 0) <br>Cost: 3,000,000 Gold</button><br>
         <span id="stoneGolld">Philosopher's Stone <br> 10,000 GPS each<br> Producing 0 GPS<br> An alchemy stone that turns ordinary rocks into gold</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="openStation()" id="openStation">Astroid-mining Station <br>(You have 0) <br>Cost: 250,000,000 Gold<p class="tooltiptext"></p></button><br>
         <span id="stationGolld">Astroid-mining Station <br> 85,000 GPS each<br> Producing 0 GPS<br> A space station that mines astroids for gold</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="hireleprechaun()" id="hireLeprechaun">Leprechaun <br>(You have 0) <br>Cost: 1,000,000,000 Gold</button><br>
         <span id="lepGolld">Leprechaun <br> 1,000,000 GPS each<br> Producing 0 GPS<br> Uses magical leprechaun powers to find gold at the end of rainbows</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="hireSheep()" id="hireSheep">Golden Sheep <br>(You have 0) <br>Cost: 250,000,000,000 Gold</button><br> <!-- golden fleece -->
         <span id="sheepGolld">Golden Sheep <br> 10,000,000 GPS each<br> Producing 0 GPS<br> A cute round fluffy sheep with golden fleece</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)" class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="buyRay()" id="buyRay">Mass Ray each<br> Producing 0 GPS<br>(You have 0) <br>Cost: 2,000,000,000,000 Gold</button><br>
         <span id="rayGolld">Mass Ray <br> 1,000,000,000 GPS each<br> Turns mass into gold</span>
       </a>
-      <a href="javascript:void(0)" class="tooltip"><p class="hide"></p>
+      <a href="javascript:void(0)"class="tooltip"><p class="hide">link</p>
         <button class="info" onclick="buyMerger()" id="buyMerger">Neutron Star Merger<br>(You have 0) <br>Cost: 200,000,000,000,000 Gold</button><br>
         <span id="mergerGolld">Neutron Star Merger<br> 10,000,000,000 GPS each<br> Producing 0 GPS<br> Merges neutron stars to create gold (find what you want at it's source :).</span>
       </a>
+</div>
 </div>
   </body>
   <p id="words">Copyright &copy <span id="copE-right">When this was copyrighted</span> Meeeeee</p>

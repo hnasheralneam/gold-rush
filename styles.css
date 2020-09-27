@@ -12,9 +12,20 @@ Everything
   text-align: center;
 }
 
+html {
+  overflow: scroll;
+}
+
 body {
   background-image: url("Images/background.png");
   background-size: 120px;
+  overflow: scroll;
+  -webkit-transform: translateZ(0);
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
 }
 
 ::selection  {
@@ -26,14 +37,65 @@ body {
     display: none;
 }
 
-li:hover {
+.ad {
+  border: inset 8px lightblue;
+  background-color: lightyellow;
+  background-image: none;
+  height: 125px;
+  margin-top: 8px;
+  font-family: merriweather-serif;
+  font-size: 18px;
+  padding: 10px;
+  text-align: left;
+}
+
+.hide {
+  visibility: hidden;
+  font-size: 0px;
+  background-image: none;
+}
+
+a {
+  background-image: none;
+  text-decoration: none;
+  color: white;
+}
+
+#words {
+  padding: 2px 2px 20px 2px;
+  -webkit-transform: translateZ(0);
+  position: fixed;
+  bottom: 0;
+  margin: 0%;
+  width: 100%;
+  height: .1%;
+  font-weight: bolder;
+  font-family: monospace;
+  color: #fff;
+  text-shadow: 1.5px 2px black;
+}
+
+.smallgold {
+  width: 25px;
+  height: 25px;
+}
+
+li {
   padding-top: 5px;
 }
 
 li:hover {
   background-color: #e8c564;
-  box-shadow: 3px 3px black;
+  box-shadow: 4px 4px black;
   padding-top: 2px;
+}
+
+button{
+    transition: 0s;
+}
+
+button:hover {
+  box-shadow: 2px 2px #000;
 }
 
 /*==========================================================
@@ -43,6 +105,13 @@ Mobile
 @media (max-width: 740px) {
   body {
     font-size: .8em;
+  }
+  #leftplease {
+    display: block;
+  }
+  #centerplease {
+    display: block;
+    width: 100%;
   }
   #gain {
     display: block;
@@ -66,21 +135,53 @@ Main Elements
 ==========================================================*/
 
 #gain {
-  width: 100%;
+  font-weight: bolder;
+  font-family: sans-serif;
+  width: 30%;
+  height: 91%;
   border: outset #ab0c07 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  background-color: #fff;
+  display: inline-block;
   padding: .1%;
+  overflow-x: hidden;
 }
 
 #maingamecenter {
-  width: 100%;
+  width: 30%;
+  height: 91%;
   border: outset #ab0c07 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  display: inline-block;
   padding: .1%;
 }
 
 #buildings {
-  width: 100%;
+  width: 30%;
+  height: 91%;
   border: outset #ab0c07 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  display: inline-block;
   padding: .1%;
+  font-size: 15px;
+}
+
+#leftplease {
+  text-align: left;
+  display: inline;
+}
+
+#centerplease {
+  text-align: center;
+  display: inline;
+}
+
+#rightplease {
+  text-align: right;
+  display: inline;
 }
 
 /*==========================================================
@@ -119,8 +220,14 @@ Profit
   -webkit-text-stroke: 1.2px black;
   font-size: 25px;
   border: inset 5px grey;
+  //font-family: 'Balsamiq Sans', cursive;
+  //font-family: 'Fredoka One', cursive;
+  //font-family: 'Acme', sans-serif;
+  //font-family: 'EB Garamond', serif;
+  //font-family: 'Merriweather', serif;
   background-image: url("Images/goldbars.jpg");
 }
+
 
 #playerrName {
   border: inset 4px lightblue;
