@@ -14,6 +14,7 @@ Everything
 
 html {
   overflow: scroll;
+  margin: 8px 0 0 0;
 }
 
 body {
@@ -24,8 +25,8 @@ body {
   position:fixed;
   top:0;
   bottom:0;
-  left:0;
-  right:0;
+  margin: 0;
+  margin: 8px 0 0 0;
 }
 
 ::selection  {
@@ -50,8 +51,10 @@ a {
 }
 
 #words {
-  padding: 2px 2px 20px 2px;
+  padding: 5px 5px 20px 5px;
+  margin: -15px;
   -webkit-transform: translateZ(0);
+  background-color: black;
   position: fixed;
   bottom: 0;
   margin: 0%;
@@ -126,7 +129,7 @@ Main Elements
   font-weight: bolder;
   font-family: sans-serif;
   width: 30%;
-  height: 91%;
+  height: 90%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
@@ -138,7 +141,7 @@ Main Elements
 
 #maingamecenter {
   width: 30%;
-  height: 91%;
+  height: 90%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
@@ -148,7 +151,7 @@ Main Elements
 
 #buildings {
   width: 30%;
-  height: 91%;
+  height: 90%;
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
