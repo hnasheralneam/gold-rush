@@ -37,18 +37,6 @@ body {
     display: none;
 }
 
-.ad {
-  border: inset 8px lightblue;
-  background-color: lightyellow;
-  background-image: none;
-  height: 125px;
-  margin-top: 8px;
-  font-family: merriweather-serif;
-  font-size: 18px;
-  padding: 10px;
-  text-align: left;
-}
-
 .hide {
   visibility: hidden;
   font-size: 0px;
