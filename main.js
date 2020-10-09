@@ -455,12 +455,12 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.stoneNumber >= 5 && gameData.f2 == 1) {
     document.getElementById("f2").style.display = "block";
   }
-  if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
+ /* if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
     document.getElementById("f3").style.display = "block";
   }
   if (gameData.stoneNumber >= 15 && gameData.f4 == 1) {
     document.getElementById("f4").style.display = "block";
-  }
+}*/
   if (gameData.stationNumber >= 1 && gameData.g1 == 1) {
     document.getElementById("g1").style.display = "block";
   }
@@ -470,33 +470,33 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.stationNumber >= 10 && gameData.g3 == 1) {
     document.getElementById("g3").style.display = "block";
   }
-  if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
+  /*if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
     document.getElementById("g4").style.display = "block";
-  }
+  }*/
   if (gameData.leprechaunNumber >= 1 && gameData.h1 == 1) {
     document.getElementById("h1").style.display = "block";
   }
   if (gameData.leprechaunNumber >= 5 && gameData.h2 == 1) {
     document.getElementById("h2").style.display = "block";
   }
-  if (gameData.leprechaunNumber >= 10 && gameData.h3 == 1) {
+ /* if (gameData.leprechaunNumber >= 10 && gameData.h3 == 1) {
     document.getElementById("h3").style.display = "block";
   }
   if (gameData.leprechaunNumber >= 15 && gameData.h4 == 1) {
     document.getElementById("h4").style.display = "block";
-  }
+  }*/
   if (gameData.sheepNumber >= 1 && gameData.i1 == 1) {
     document.getElementById("i1").style.display = "block";
   }
   if (gameData.sheepNumber >= 5 && gameData.i2 == 1) {
     document.getElementById("i2").style.display = "block";
   }
-  if (gameData.sheepNumber >= 10 && gameData.i3 == 1) {
+  /*if (gameData.sheepNumber >= 10 && gameData.i3 == 1) {
     document.getElementById("i3").style.display = "block";
   }
   if (gameData.sheepNumber >= 15 && gameData.i4 == 1) {
     document.getElementById("i4").style.display = "block";
-  }
+  }*/
   if (gameData.rayNumber >= 1 && gameData.j1 == 1) {
     document.getElementById("j1").style.display = "block";
   }
@@ -506,9 +506,9 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.rayNumber >= 10 && gameData.j3 == 1) {
     document.getElementById("j3").style.display = "block";
   }
-  if (gameData.rayNumber >= 15 && gameData.j4 == 1) {
+ /* if (gameData.rayNumber >= 15 && gameData.j4 == 1) {
     document.getElementById("j4").style.display = "block";
-  }
+  }*/
   if (gameData.mergerNumber >= 1 && gameData.k1 == 1) {
     document.getElementById("k1").style.display = "block";
   }
@@ -518,9 +518,9 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.mergerNumber >= 10 && gameData.k3 == 1) {
     document.getElementById("k3").style.display = "block";
   }
-  if (gameData.mergerNumber >= 15 && gameData.k4 == 1) {
+  /*if (gameData.mergerNumber >= 15 && gameData.k4 == 1) {
     document.getElementById("k4").style.display = "block";
-  }
+  }*/
 }, 3000)
 
 function a1() {
@@ -807,7 +807,7 @@ function f2() {
     document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
-/*function f3() {
+function f3() {
   if (gameData.gold >= gameData.f3Price) {
     gameData.gold -= gameData.f3Price
     gameData.stoneProfit *= 2
@@ -828,7 +828,7 @@ function f4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
-}*/
+}
 
 function g1() {
   if (gameData.gold >= gameData.g1Price) {
@@ -863,7 +863,7 @@ function g3() {
     document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
-/*function g4() {
+function g4() {
   if (gameData.gold >= gameData.g4Price) {
     gameData.gold -= gameData.g4Price
     gameData.stationProfit *= 2
@@ -873,7 +873,7 @@ function g3() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
-}*/
+}
 
 function h1() {
   if (gameData.gold >= gameData.h1Price) {
@@ -897,7 +897,7 @@ function h2() {
     document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
-/*function h3() {
+function h3() {
   if (gameData.gold >= gameData.h3Price) {
     gameData.gold -= gameData.h3Price
     gameData.lepProfit *= 2
@@ -918,7 +918,7 @@ function h4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
-}*/
+}
 
 function i1() {
   if (gameData.gold >= gameData.i1Price) {
@@ -942,7 +942,7 @@ function i2() {
     document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
-/*function i3() {
+function i3() {
   if (gameData.gold >= gameData.i3Price) {
     gameData.gold -= gameData.i3Price
     gameData.sheepProfit *= 2
@@ -963,7 +963,7 @@ function i4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
-}*/
+}
 
 function j1() {
   if (gameData.gold >= gameData.j1Price) {
@@ -987,7 +987,7 @@ function j2() {
     document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
-/*function j3() {
+function j3() {
   if (gameData.gold >= gameData.j3Price) {
     gameData.gold -= gameData.j3Price
     gameData.rayProfit *= 2
@@ -1008,7 +1008,7 @@ function j4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
-}*/
+}
 
 function k1() {
   if (gameData.gold >= gameData.k1Price) {
@@ -1043,7 +1043,7 @@ function k3() {
     document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
-/*function k4() {
+function k4() {
   if (gameData.gold >= gameData.k4Price) {
     gameData.gold -= gameData.k4Price
     gameData.mergerProfit *= 2
@@ -1053,7 +1053,7 @@ function k3() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
-}*/
+}
 
 //==========================================================
 //Acheivements
