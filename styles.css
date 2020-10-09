@@ -20,7 +20,8 @@ html {
 body {
   background-image: url("Images/background.png");
   background-size: 120px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-transform: translateZ(0);
   position:fixed;
   top:0;

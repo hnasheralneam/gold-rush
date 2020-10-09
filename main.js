@@ -455,10 +455,10 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.stoneNumber >= 5 && gameData.f2 == 1) {
     document.getElementById("f2").style.display = "block";
   }
- /* if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
+  if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
     document.getElementById("f3").style.display = "block";
   }
-  if (gameData.stoneNumber >= 15 && gameData.f4 == 1) {
+ /* if (gameData.stoneNumber >= 15 && gameData.f4 == 1) {
     document.getElementById("f4").style.display = "block";
 }*/
   if (gameData.stationNumber >= 1 && gameData.g1 == 1) {
@@ -470,9 +470,9 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.stationNumber >= 10 && gameData.g3 == 1) {
     document.getElementById("g3").style.display = "block";
   }
-  /*if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
+  if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
     document.getElementById("g4").style.display = "block";
-  }*/
+  }
   if (gameData.leprechaunNumber >= 1 && gameData.h1 == 1) {
     document.getElementById("h1").style.display = "block";
   }
