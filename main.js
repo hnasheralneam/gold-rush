@@ -807,7 +807,7 @@ function f2() {
     document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
-function f3() {
+/*function f3() {
   if (gameData.gold >= gameData.f3Price) {
     gameData.gold -= gameData.f3Price
     gameData.stoneProfit *= 2
@@ -828,7 +828,7 @@ function f4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
-}
+}*/
 
 function g1() {
   if (gameData.gold >= gameData.g1Price) {
@@ -863,7 +863,7 @@ function g3() {
     document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
-function g4() {
+/*function g4() {
   if (gameData.gold >= gameData.g4Price) {
     gameData.gold -= gameData.g4Price
     gameData.stationProfit *= 2
@@ -873,7 +873,7 @@ function g4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
-}
+}*/
 
 function h1() {
   if (gameData.gold >= gameData.h1Price) {
@@ -897,7 +897,7 @@ function h2() {
     document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
-function h3() {
+/*function h3() {
   if (gameData.gold >= gameData.h3Price) {
     gameData.gold -= gameData.h3Price
     gameData.lepProfit *= 2
@@ -918,7 +918,7 @@ function h4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
-}
+}*/
 
 function i1() {
   if (gameData.gold >= gameData.i1Price) {
@@ -942,7 +942,7 @@ function i2() {
     document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
-function i3() {
+/*function i3() {
   if (gameData.gold >= gameData.i3Price) {
     gameData.gold -= gameData.i3Price
     gameData.sheepProfit *= 2
@@ -963,7 +963,7 @@ function i4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
-}
+}*/
 
 function j1() {
   if (gameData.gold >= gameData.j1Price) {
@@ -987,7 +987,7 @@ function j2() {
     document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
-function j3() {
+/*function j3() {
   if (gameData.gold >= gameData.j3Price) {
     gameData.gold -= gameData.j3Price
     gameData.rayProfit *= 2
@@ -1008,7 +1008,7 @@ function j4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
-}
+}*/
 
 function k1() {
   if (gameData.gold >= gameData.k1Price) {
@@ -1043,7 +1043,7 @@ function k3() {
     document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
-function k4() {
+/*function k4() {
   if (gameData.gold >= gameData.k4Price) {
     gameData.gold -= gameData.k4Price
     gameData.mergerProfit *= 2
@@ -1053,7 +1053,7 @@ function k4() {
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
-}
+}*/
 
 //==========================================================
 //Acheivements
