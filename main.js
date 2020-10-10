@@ -43,7 +43,7 @@ var initialGameData = {
   gooseNumber: 0,
 
 //Gold mines
-  mineProfit: 80,
+  mineProfit: 60,
   mineGold: 0,
   openMineCost: 25000,
   mineNumber: 0,
