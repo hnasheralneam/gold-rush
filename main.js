@@ -99,6 +99,10 @@ var initialGameData = {
   a3Price: 1000,
   a4: 1,
   a4Price: 5000,
+  a5: 1,
+  a5Price: 15000,
+  a6: 1,
+  a6Price: 45000,
   b1: 1,
   b1Price: 200,
   b2: 1,
@@ -389,6 +393,12 @@ var checkForUpgrades = window.setInterval(function() {
   if (gameData.toolLevel >= 15 && gameData.a4 == 1) {
     document.getElementById("a4").style.display = "block";
   }
+  if (gameData.toolLevel >= 20 && gameData.a5 == 1) {
+    document.getElementById("a5").style.display = "block";
+  }
+  if (gameData.toolLevel >= 25 && gameData.a6 == 1) {
+    document.getElementById("a6").style.display = "block";
+  }
   if (gameData.pickaxeNumber >= 1 && gameData.b1 == 1) {
     document.getElementById("b1").style.display = "block";
   }
@@ -544,7 +554,7 @@ function a2() {
 function a3() {
   if (gameData.gold >= gameData.a3Price) {
     gameData.gold -= gameData.a3Price
-    gameData.clickinGold *= 2
+    gameData.clickinGold *= gameData.pickaxeNumber
     gameData.a3 = 2
     document.getElementById("a3").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
@@ -553,9 +563,27 @@ function a3() {
 function a4() {
   if (gameData.gold >= gameData.a4Price) {
     gameData.gold -= gameData.a4Price
-    gameData.clickinGold *= 2
+    gameData.clickinGold *= gameData.pickaxeNumber
     gameData.a4 = 2
     document.getElementById("a4").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+  }
+}
+function a5() {
+  if (gameData.gold >= gameData.a5Price) {
+    gameData.gold -= gameData.a5Price
+    gameData.clickinGold *= gameData.pickaxeNumber
+    gameData.a5 = 2
+    document.getElementById("a5").style.display = "none";
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
+  }
+}
+function a6() {
+  if (gameData.gold >= gameData.a6Price) {
+    gameData.gold -= gameData.a6Price
+    gameData.clickinGold *= gameData.pickaxeNumber
+    gameData.a6 = 2
+    document.getElementById("a6").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
   }
 }
