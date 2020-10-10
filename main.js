@@ -45,7 +45,7 @@ var initialGameData = {
 //Gold mines
   mineProfit: 80,
   mineGold: 0,
-  openMineCost: 20000,
+  openMineCost: 25000,
   mineNumber: 0,
 
 //Dragons
