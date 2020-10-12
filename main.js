@@ -1303,7 +1303,6 @@ var mainGameLoop = window.setInterval(function() {
   document.getElementById("copE-right").innerHTML = date
   document.getElementById("totalGold").innerHTML =  (formatNumber(gameData.totalGold)) + " Lifetime Gold Profits"
   document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0))) + " Gold Mined"
-  document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
   document.title = (formatNumber((gameData.gold).toFixed(0))) + " Gold";
   document.getElementById("gpc").innerHTML = (formatNumber(gameData.clickinGold)) + " Gold Per Click";
   document.getElementById("gps").innerHTML = (formatNumber(goldPerSecond())) + " Gold Per Second";
@@ -1438,7 +1437,7 @@ var saveGameLoop = window.setInterval(function() {
 
 var savegame = JSON.parse(localStorage.getItem("goldRushSave"))
 if (savegame !== null) {
-  gameData = savegame
+  gameData = savegame;
 }
 
 var setThingsRight = window.setInterval(function() {

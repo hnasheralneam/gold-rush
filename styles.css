@@ -99,13 +99,6 @@ Mobile
   body {
     font-size: .8em;
   }
-  #leftplease {
-    display: block;
-  }
-  #centerplease {
-    display: block;
-    width: 100%;
-  }
   #gain {
     display: block;
     width: 100%;
@@ -160,21 +153,6 @@ Main Elements
   display: inline-block;
   padding: .1%;
   font-size: 15px;
-}
-
-#leftplease {
-  text-align: left;
-  display: inline;
-}
-
-#centerplease {
-  text-align: center;
-  display: inline;
-}
-
-#rightplease {
-  text-align: right;
-  display: inline;
 }
 
 /*==========================================================
