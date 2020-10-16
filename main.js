@@ -1460,9 +1460,12 @@ function formatNumber(num) {
 function restart() {
   var r = confirm("Are you SURE you want to restart? This will wipe all your progress!");
   if (r == true) {
-    gameData = initialGameData
-    localStorage.setItem("goldRushSave", JSON.stringify(gameData))
-    document.location.href = ("")
+     var rr = confirm("Are you REALLY SURE you want to restart? There is no going back!");
+     if (rr == true) {
+       gameData = initialGameData
+       localStorage.setItem("goldRushSave", JSON.stringify(gameData))
+       document.location.href = ("")
+     }
   }
 }
 
