@@ -1605,7 +1605,7 @@ var lepNews = [
   'News: Leprechaun becomes politician, world leaders upset.',
   'News: Rainbows occuring more and more often, leprechaun suspected.',
   'News: Three leaved clovers become rare due to the large amount of four leaved clovers.',
-  //'News: ',
+  'News: "Don\'t trust the gold at the end of them leprechaun rainbows" says scientist, "Who knows what nasty tricks they have up there sleaves!" "Ehm ehm" says leprechaun with camera.',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1616,7 +1616,7 @@ var lepNews = [
 var sheepNews = [
   'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
   'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
-  'News: Pet golden sheeps becoming more popular, causing the intorduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm. ',
+  'News: Pet golden sheeps becoming more popular, causing the intorduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.',
   //'News: ',
   //'News: ',
   //'News: ',
@@ -1628,7 +1628,7 @@ var sheepNews = [
 var rayNews = [
   'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
   'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
-  //'News: ',
+  'News: Illegal banished criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing. Wait... are you a reporter?!"',
   //'News: ',
   //'News: ',
   //'News: ',
