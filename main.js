@@ -1525,7 +1525,7 @@ var allNews = [
   'You go mining sometimes',
   'You like the shiny twinkle of gold',
   'When you feel sad, you look at your hoard of gold. ',
-  //'News: ',
+  'You dream of golden sheep in a golden meadow eating golden grass.',
   //'News: ',
   //'News: ',
   //'News: ',
