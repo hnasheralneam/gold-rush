@@ -1526,7 +1526,7 @@ var allNews = [
   'You like the shiny twinkle of gold',
   'When you feel sad, you look at your hoard of gold. ',
   'You dream of golden sheep in a golden meadow eating golden grass.',
-  //'News: ',
+  'You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.',
   //'News: ',
   //'News: ',
   //'News: ',
