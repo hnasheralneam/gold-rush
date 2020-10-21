@@ -1628,7 +1628,7 @@ var sheepNews = [
 var rayNews = [
   'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
   'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
-  'News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing. Wait... are you a reporter?!"',
+  'News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it\'s illegal, but I hope they keep doing. Wait... are you a reporter?!"',
   //'News: ',
   //'News: ',
   //'News: ',
