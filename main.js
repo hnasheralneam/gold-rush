@@ -51,13 +51,13 @@ var initialGameData = {
 //Dragons
   dragonProfit: 2000,
   dragonGold: 0,
-  hireDragonCost: 150000,
+  hireDragonCost: 200000,
   dragonNumber: 0,
 
 //Philosopher's Stones
   stoneProfit: 10000,
   stoneGold: 0,
-  buyStoneCost: 3000000,
+  buyStoneCost: 3500000,
   stoneNumber: 0,
   upgradeStoneCost: 3000000,
 
