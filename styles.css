@@ -519,3 +519,46 @@ p {
 audio {
   display: none;
 }
+
+/*==========================================================
+Tool Tip
+==========================================================
+
+#container div .contckt {
+  display: inline-block;
+  margin-top: 10%;
+  padding: 1em 2em;
+  font-size: 2em;
+  color: #fff;
+  font-family: arial, sans-serif;
+  text-decoration: none;
+  border-radius: 0.3em;
+  position: relative;
+  background-color: #ccc;
+  background-image: linear-gradient(to top, #C0357E, #EE5840);
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+}
+
+#container div .contckt:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3em;
+  background-image: linear-gradient(to top, #6d8aa0, #343436);
+  transition: opacity 0.5s ease-out;
+  z-index: 2;
+  opacity: 0;
+}
+
+#container div .contckt:hover:after {
+  opacity: 1;
+}
+#container div .contckt .contTACK {
+  position: relative;
+  z-index: 3;
+}
+*/
