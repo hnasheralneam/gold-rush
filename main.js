@@ -1466,7 +1466,8 @@ function restart() {
      var rr = confirm("Are you REALLY SURE you want to restart? There is no going back!");
      if (rr == true) {
        gameData = initialGameData
-       localStorage.setItem("goldRushSave", JSON.stringify(gameData))
+       upgradeData = initialUpgradeData
+       localStorage.setItem("goldRushSave", JSON.stringify(gameData, upgradeData))
        document.location.href = ("")
      }
   }
