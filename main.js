@@ -1441,7 +1441,7 @@ if (savegame !== null) {
 }
 
 var setThingsRight = window.setInterval(function() {
-  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold Mined <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">"
 }, 1)
 
 //==========================================================
