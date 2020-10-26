@@ -261,7 +261,7 @@ function buyPickaxe() {
     gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
     gameData.pickaxeNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
-    document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
+    document.getElementById("buyPickaxe").innerHTML = "<img class=\"icon\" src=\"Icons/pickaxe.png\"> Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
     document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
@@ -272,7 +272,7 @@ function hireDwarf() {
     gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
     gameData.dwarfNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
-    document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
+    document.getElementById("hireDwarf").innerHTML = "<img class=\"icon\" src=\"Icons/dwarf.png\"> Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
     document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
@@ -1733,9 +1733,9 @@ function gameLayout() {
   document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
 
 //Building Count
-  document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
-  document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
-  document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
+  document.getElementById("bTool").innerHTML = "<img class=\"icon\" src=\"Icons/tool.png\"> Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
+  document.getElementById("buyPickaxe").innerHTML = "<img class=\"icon\" src=\"Icons/pickaxe.png\"> Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
+  document.getElementById("hireDwarf").innerHTML = "<img class=\"icon\" src=\"Icons/dwarf.png\"> Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
   document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
   document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
   document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
