@@ -88,7 +88,12 @@ button{
 }
 
 button:hover {
-  //box-shadow: 2px 2px #000;
+  box-shadow: 2px 2px #000;
+}
+
+.retro-coin {
+   height: 25px;
+   margin-bottom: -5px;
 }
 
 /*==========================================================

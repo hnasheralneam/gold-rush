@@ -1441,7 +1441,7 @@ if (savegame !== null) {
 }
 
 var setThingsRight = window.setInterval(function() {
-  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold Mined"
+  document.getElementById("goldMined").innerHTML = (formatNumber((gameData.gold).toFixed(0)))+ " Gold Mined <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">"
 }, 1)
 
 //==========================================================
@@ -1770,3 +1770,11 @@ function gameSetup() {
 //==========================================================
 
 console.log("Look behind you.")
+console.log((formatNumber(revisedRandId())))
+
+
+
+
+function revisedRandId() {
+     return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
+}
