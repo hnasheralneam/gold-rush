@@ -27,13 +27,13 @@ var initialGameData = {
 //Pickaxes
   pickaxeProfit: 0.5,
   pickaxeGold: 0,
-  buyPickaxeCost: 25,
+  buyPickaxeCost: 50,
   pickaxeNumber: 0,
 
 //Dwarfs
   dwarfProfit: 2,
   dwarfGold: 0,
-  hireDwarfCost: 100,
+  hireDwarfCost: 250,
   dwarfNumber: 0,
 
 //Geese
@@ -258,7 +258,7 @@ function buyPickaxe() {
   if (gameData.gold >= gameData.buyPickaxeCost) {
     gameData.gold -= gameData.buyPickaxeCost
     gameData.pickaxeGold += gameData.pickaxeProfit
-    gameData.buyPickaxeCost = (25 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
+    gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
     gameData.pickaxeNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
@@ -269,7 +269,7 @@ function hireDwarf() {
   if(gameData.gold >= gameData.hireDwarfCost) {
     gameData.gold -= gameData.hireDwarfCost
     gameData.dwarfGold += gameData.dwarfProfit
-    gameData.hireDwarfCost = (100 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
+    gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
     gameData.dwarfNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold Mined"
     document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
