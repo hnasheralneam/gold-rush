@@ -1435,7 +1435,7 @@ var buildColorLoop = window.setInterval(function() {
 }, 500)
 
 var saveGameLoop = window.setInterval(function() {
-  localStorage.setItem("goldRushSave", JSON.stringify(gameData))
+  localStorage.setItem("goldRushSave", JSON.stringify(gameData, upgradeData))
 }, 15000)
 
 var savegame = JSON.parse(localStorage.getItem("goldRushSave"))
@@ -1473,7 +1473,7 @@ function restart() {
 }
 
 function save() {
-  localStorage.setItem("goldRushSave", JSON.stringify(gameData))
+  localStorage.setItem("goldRushSave", JSON.stringify(gameData, upgradeData))
 }
 
 function dark() {

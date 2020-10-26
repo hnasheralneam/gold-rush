@@ -169,7 +169,7 @@ Main Elements
 Profit
 ==========================================================*/
 
-#gollllld {
+#gold {
   width: 275px;
   height: 200px;
   border-radius: 90px;
@@ -226,12 +226,8 @@ Upgrades, Acheivements, Settings, and News
 /* News */
 
 #news {
-  border: inset 8px lightblue;
-  background-color: lightyellow;
-  background-image: none;
   height: 125px;
   margin: 0px;
-  font-family: merriweather-serif;
   font-size: 18px;
   padding: 10px;
   font-weight: 500;
@@ -392,7 +388,6 @@ button[aria-label]:hover:after {
 .boxi {
   border: inset 8px lightblue;
   background-color: lightyellow;
-  background-image: none;
   margin-top: 8px;
   font-family: merriweather-serif;
   padding: 5px;
