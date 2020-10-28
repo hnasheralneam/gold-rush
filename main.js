@@ -39,13 +39,13 @@ var initialGameData = {
 //Geese
   gooseProfit: 10,
   gooseGold: 0,
-  hireGooseCost: 8000,
+  hireGooseCost: 10000,
   gooseNumber: 0,
 
 //Gold mines
   mineProfit: 60,
   mineGold: 0,
-  openMineCost: 25000,
+  openMineCost: 28000,
   mineNumber: 0,
 
 //Dragons
@@ -57,7 +57,7 @@ var initialGameData = {
 //Philosopher's Stones
   stoneProfit: 10000,
   stoneGold: 0,
-  buyStoneCost: 3500000,
+  buyStoneCost: 3750000,
   stoneNumber: 0,
   upgradeStoneCost: 3000000,
 
@@ -93,17 +93,17 @@ var initialGameData = {
 
 //Upgrades
   a1: 1,
-  a1Price: 100,
+  a1Price: 200,
   a2: 1,
   a2Price: 500,
   a3: 1,
-  a3Price: 1000,
+  a3Price: 2000,
   a4: 1,
-  a4Price: 5000,
+  a4Price: 8000,
   a5: 1,
-  a5Price: 15000,
+  a5Price: 30000,
   a6: 1,
-  a6Price: 45000,
+  a6Price: 80000,
   b1: 1,
   b1Price: 200,
   b2: 1,
@@ -281,7 +281,7 @@ function hireGoose() {
   if(gameData.gold >= gameData.hireGooseCost) {
     gameData.gold -= gameData.hireGooseCost
     gameData.gooseGold += gameData.gooseProfit
-    gameData.hireGooseCost = (8000 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0)
+    gameData.hireGooseCost = (10127 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0)
     gameData.gooseNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
     document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
@@ -292,7 +292,7 @@ function openMine() {
   if(gameData.gold >= gameData.openMineCost) {
     gameData.gold -= gameData.openMineCost
     gameData.mineGold += gameData.mineProfit
-    gameData.openMineCost = (25000 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
+    gameData.openMineCost = (28351 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
     gameData.mineNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
     document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
@@ -303,7 +303,7 @@ function hireDragon() {
   if(gameData.gold >= gameData.hireDragonCost) {
     gameData.gold -= gameData.hireDragonCost
     gameData.dragonGold += gameData.dragonProfit
-    gameData.hireDragonCost = (150000 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
+    gameData.hireDragonCost = (201648 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
     gameData.dragonNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
     document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
@@ -314,7 +314,7 @@ function buyStone() {
   if(gameData.gold >= gameData.buyStoneCost) {
     gameData.gold -= gameData.buyStoneCost
     gameData.stoneGold += gameData.stoneProfit
-    gameData.buyStoneCost = (3000000 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
+    gameData.buyStoneCost = (3752186 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
     gameData.stoneNumber += 1
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
     document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
