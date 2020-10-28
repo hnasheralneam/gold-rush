@@ -1438,7 +1438,7 @@ var saveGameLoop = window.setInterval(function() {
 
 var savegame = JSON.parse(localStorage.getItem("goldRushSave"))
 if (savegame !== null) {
-  savegame = combineData();
+  gameData = savegame;
 }
 
 var setThingsRight = window.setInterval(function() {
@@ -1470,8 +1470,7 @@ function restart() {
 }
 
 function save() {
-   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
-   console.log(goldRushSave);
+  localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }
 
 function dark() {
