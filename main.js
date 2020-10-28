@@ -125,7 +125,7 @@ var initialGameData = {
   c02: 1,
   c02Price: 50000,
   c03: 1,
-  c03Price: 100000,
+  c03Price: 80000,
   c04: 1,
   c04Price: 160000,
   d1: 1,
