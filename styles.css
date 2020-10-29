@@ -138,7 +138,7 @@ Main Elements
   border: outset #ab0c07 10px;
   overflow: auto;
   scroll-behavior: smooth;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, .8);
   display: inline-block;
   padding: .1%;
   overflow-x: hidden;
@@ -172,8 +172,7 @@ Profit
 #gold {
   width: 275px;
   height: 200px;
-  border-radius: 90px;
-  margin: 8px;
+  margin: 36px 8px;
   cursor: url("Images/pickaxecursor.png"), auto;
 }
 
