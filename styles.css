@@ -75,10 +75,11 @@ a {
 
 li {
   padding-top: 5px;
+  transition: all 1.2s;
 }
 
 li:hover {
-  background-color: #e8c564;
+  background-color: #97d7e3;
   box-shadow: 4px 4px black;
   padding-top: 2px;
 }
@@ -281,25 +282,6 @@ li:hover {
 }
 
 li[aria-label]:hover:after {
-  visibility: visible;
-  z-index: 100;
-  opacity: .9;
-    transition: .5s linear;
-
-
-     content: attr(aria-label);
-     border: outset gold 4px;
-     background-color: #000;
-     color: #fff;
-     padding: 2px 5px;
-     position: absolute;
-     left: 0;
-     top: 100%;
-     white-space: nowrap;
-     z-index: 20;
-}
-
-button[aria-label]:hover:after {
   visibility: visible;
   z-index: 100;
   opacity: .9;

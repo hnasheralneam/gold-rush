@@ -1484,6 +1484,12 @@ function dark() {
     all[i].style.border = 'outset 5px lightblue';
   }
 
+  var up = document.getElementsByClassName('UP');
+  for (var i = 0; i < up.length; i++) {
+    up[i].style.color = '#000';
+    up[i].style.backgroundColor = '#b3d0de';
+  }
+
   var allo = document.getElementsByClassName('boxi');
   for (var i = 0; i < allo.length; i++) {
     allo[i].style.background = '#737373';
