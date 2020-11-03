@@ -1498,7 +1498,7 @@ function dark() {
   document.body.style.color = "#fff";
   document.body.style.background = "#383838";
   document.getElementById("playerrName").style.background = "#8f8d8d";
-  document.getElementById("gain").style.background = "#737373";
+  document.getElementById("gain").style.backgroundColor = "rgba(0, 0, 0, .2)";
 }
 
 function light() {
