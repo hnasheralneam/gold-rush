@@ -35,6 +35,15 @@ Click
   border-radius: 80px;
 }
 
+#otherStars {
+  font-weight: bolder;
+  -webkit-text-stroke: 1.2px black;
+  font-family: sans-serif;
+  font-size: 25px;
+  border: inset 5px silver;
+  margin-top: -1px;
+}
+
 /*==========================================================
 Star Wars Effect
 ==========================================================*/
@@ -169,6 +178,25 @@ Space
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 
 
@@ -225,14 +253,7 @@ a.tooltip:hover span {
 
 
 
-#otherStars {
-  font-weight: bolder;
-  -webkit-text-stroke: 1.2px black;
-  font-family: sans-serif;
-  font-size: 25px;
-  border: inset 5px silver;
-  margin-top: -1px;
-}
+
 
 
 
