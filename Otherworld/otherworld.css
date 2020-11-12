@@ -6,7 +6,6 @@ If you are here, then you are either trying to recreat an effect or copy all the
 * {
   color: white;
   background-size: 750px 420px;
-
   text-align: center;
 }
 
@@ -107,18 +106,20 @@ Space
 ==========================================================*/
 
 .info {
-  width: 99%;
-  height: 80px;
-  border-radius: 8px;
-  border: outset silver 8px;
-  font-size: 1.066em;
-  font-weight: 700;
-  margin: 2px;
-  padding: 5px 0px;
-  background-color: rgba(0, 0, 0, 0.5);
+
 }
 
-
+.object {
+   width: 95%;
+   height: 80px;
+   border-radius: 8px;
+   border: outset silver 8px;
+   font-size: 1.066em;
+   font-weight: 700;
+   margin: 5px auto;
+   padding: 5px 0px;
+   background-color: rgba(0, 0, 0, 0.5);
+}
 
 
 
