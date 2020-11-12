@@ -1757,6 +1757,7 @@ function gameLayout() {
     gameSetup();
   }
 }
+
 window.onload = gameLayout;
 
 //==========================================================
