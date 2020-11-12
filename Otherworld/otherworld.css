@@ -13,6 +13,7 @@ body {
    display: grid;
    grid-template-columns: repeat(4, minmax(0, 1fr));
    background-image: url(../Images/space.jpg);
+   overflow-y: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -24,6 +25,8 @@ body {
    margin: 5px;
    padding: 5px;
    overflow: hidden;
+   height: 91vh;
+   overflow-y: scroll;
 }
 
 /*==========================================================
@@ -105,8 +108,30 @@ Portfolio
 Space
 ==========================================================*/
 
-.info {
+.text {
+   position: relative;
+   left: -500px;
+   z-index: -1;
+   margin-top: -5px;
+   transition: all .5s 0s;
+}
 
+#sorry {
+   margin-top: 15px;
+}
+
+.object:hover .text {
+   left: 0;
+   z-index: 1;
+   color: #000;
+}
+
+.object:hover .info {
+   display: none;
+}
+
+.object:hover {
+   background-color: whitesmoke;
 }
 
 .object {
@@ -117,8 +142,9 @@ Space
    font-size: 1.066em;
    font-weight: 700;
    margin: 5px auto;
-   padding: 5px 0px;
+   padding: 0px 0px 16px 0px;
    background-color: rgba(0, 0, 0, 0.5);
+   transition: all .5s 0s;
 }
 
 

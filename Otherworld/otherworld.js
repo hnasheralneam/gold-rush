@@ -9,9 +9,9 @@
 //A Warm Welcome
 //==========================================================
 
-alert("Welcome to the Otherworld. Have a nice trip.")
-var username = prompt ("What shall you be called while you are in the Otherworld? (this is important, but don't use you're real name)");
-console.log("Hello, " + username)
+//alert("Welcome to the Otherworld. Have a nice trip.")
+//var username = prompt ("What shall you be called while you are in the Otherworld? (this is important, but don't use you're real name)");
+//console.log("Hello, " + username)
 
 
 //==========================================================
