@@ -1,68 +1,180 @@
-/* Copyright meeeeee 2020 A.D.
-Go away please. Anyway, what are you doing looking at this code?*/
+/*==========================================================
+Copyright meeeeee 2020 A.D.
+If you are here, then you are either trying to recreat an effect or copy all the code.
+==========================================================*/
 
 * {
   color: white;
   background-size: 750px 420px;
-  background-image: url(https://images.pexels.com/photos/957061/milky-way-starry-sky-night-sky-star-957061.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
   text-align: center;
 }
 
-#galaxy {
-  border-radius: 80px;
-  position: absolute;
-  left: 28px;
-  top: 90px;
-}
-
-#a {
-  width: 30%;
-  height: 90%;
-  margin-top: 0px;
-  margin-right: 2.5px;
-  margin-bottom: 4px;
-  margin-left: 2.5px;
-  padding: 5px;
-  border: outset gold 10px;
-  overflow: auto;
-  scroll-behavior: smooth;
-  display: inline;
-  position: absolute;
-  left: 5px;
-}
-#b {
-  width: 28%;
-  height: 90%;
-  margin-top: 0px;
-  margin-right: 2.5px;
-  margin-bottom: 4px;
-  margin-left: 2.5px;
-  padding: 5px;
-  border: outset gold 10px;
-  overflow: auto;
-  scroll-behavior: smooth;
-  display: inline;
-  position: absolute;
-  left: 325px;
-}
-#c {
-  width: 30%;
-  height: 90%;
-  margin-top: 0px;
-  margin-right: 2.5px;
-  margin-bottom: 4px;
-  margin-left: 2.5px;
-  padding: 5px;
-  border: outset gold 10px;
-  overflow: auto;
-  scroll-behavior: smooth;
-  position: absolute;
-  right: 5px;
+body {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   background-image: url(../Images/space.jpg);
 }
 
 ::-webkit-scrollbar {
     display: none;
 }
+
+.third {
+   border: outset 8px gold;
+   margin: 5px;
+   padding: 5px;
+   overflow: hidden;
+}
+
+/*==========================================================
+Click
+==========================================================*/
+
+#galaxy {
+  border-radius: 80px;
+}
+
+/*==========================================================
+Star Wars Effect
+==========================================================*/
+
+.hello {
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+.entrance {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 800px;
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 400%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 250px;
+  text-align: justify;
+}
+
+.crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+
+.crawl > .title {
+  font-size: 80%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes crawl {
+ 0% {
+    top: -100px;
+    transform: rotateX(20deg)  translateZ(0);
+  }
+ 100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+/*==========================================================
+Portfolio
+==========================================================*/
+
+
+
+/*==========================================================
+Space
+==========================================================*/
+
+.info {
+  width: 99%;
+  height: 80px;
+  border-radius: 8px;
+  border: outset silver 8px;
+  font-size: 1.066em;
+  font-weight: 700;
+  margin: 2px;
+  padding: 5px 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+
 
 .hide {
   visibility: hidden;
@@ -94,22 +206,24 @@ a.tooltip:hover span {
   display: block;
 }
 
-a {
-  background-image: none;
-}
 
-.info {
-  width: 99%;
-  height: 80px;
-  border-radius: 8px;
-  border: outset silver 8px;
-  font-size: 1.066em;
-  font-weight: 700;
-  margin: 2px;
-  padding: 5px 0px;
-  background-color: black;
-  background-image: none;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #otherStars {
   font-weight: bolder;
@@ -120,70 +234,15 @@ a {
   margin-top: -1px;
 }
 
-.hello {
-  padding: 10px;
-  font-size: 1.3em;
-}
+
 
   /*  border: inset gold 12px;*/
 
 /*==========================================================
 Scroll Section
-==========================================================*/
+==========================================================
   body {
     width: 100%;
     height: 100%;
     background: #000;
-  }
-
-  .fade {
-    position: relative;
-    width: 100%;
-    min-height: 60vh;
-    top: -25px;
-    background-image: linear-gradient(0deg, transparent, black 75%);
-    z-index: 1;
-  }
-
-  .entrance {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    height: 800px;
-    color: #feda4a;
-    font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 400%;
-    font-weight: 600;
-    letter-spacing: 6px;
-    line-height: 150%;
-    perspective: 250px;
-    text-align: justify;
-  }
-
-  .crawl {
-    position: relative;
-    top: 99999px;
-    transform-origin: 50% 100%;
-    animation: crawl 60s linear;
-  }
-
-  .crawl > .title {
-    font-size: 80%;
-    text-align: center;
-  }
-
-  .crawl > .title h1 {
-    margin: 0 0 100px;
-    text-transform: uppercase;
-  }
-
-  @keyframes crawl {
-  	0% {
-      top: -100px;
-      transform: rotateX(20deg)  translateZ(0);
-    }
-  	100% {
-      top: -6000px;
-      transform: rotateX(25deg) translateZ(-2500px);
-    }
   }
