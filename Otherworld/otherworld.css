@@ -7,6 +7,7 @@ If you are here, then you are either trying to recreat an effect or copy all the
   color: white;
   background-size: 750px 420px;
   text-align: center;
+
 }
 
 body {
@@ -14,6 +15,25 @@ body {
    grid-template-columns: repeat(4, minmax(0, 1fr));
    background-image: url(../Images/space.jpg);
    overflow-y: hidden;
+}
+
+#background-img {
+   position: absolute;
+   z-index: -1;
+   width: 300em;
+   height: 300em;
+   left: -50em;
+   top: -50em;
+   animation: rotation 15s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 ::-webkit-scrollbar {
@@ -50,52 +70,43 @@ Click
 Star Wars Effect
 ==========================================================*/
 
-.hello {
-  padding: 10px;
-  font-size: 1.3em;
+#titles {
+	position: absolute;
+	width: 140%;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+   margin-left: -5em;
+	font-size: 350%;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(15deg);
 }
 
-.entrance {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  height: 800px;
-  color: #feda4a;
-  font-family: 'Pathway Gothic One', sans-serif;
-  font-size: 400%;
-  font-weight: 600;
-  letter-spacing: 6px;
-  line-height: 150%;
-  perspective: 250px;
-  text-align: justify;
+#welcome {
+   position: relative;
 }
 
-.crawl {
-  position: relative;
-  top: 99999px;
-  transform-origin: 50% 100%;
-  animation: crawl 60s linear;
+#titles p {
+	text-align: justify;
+	margin: 0.8em 0;
 }
 
-.crawl > .title {
-  font-size: 80%;
-  text-align: center;
+#titles p.center {
+	text-align: center;
 }
 
-.crawl > .title h1 {
-  margin: 0 0 100px;
-  text-transform: uppercase;
+#titlecontent {
+	position: absolute;
+	top: 100%;
+	animation: scroll 100s linear infinite;
 }
 
-@keyframes crawl {
- 0% {
-    top: -100px;
-    transform: rotateX(20deg)  translateZ(0);
-  }
- 100% {
-    top: -6000px;
-    transform: rotateX(25deg) translateZ(-2500px);
-  }
+/* animation */
+@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
 }
 
 /*==========================================================
@@ -145,6 +156,7 @@ Space
    padding: 0px 0px 16px 0px;
    background-color: rgba(0, 0, 0, 0.5);
    transition: all .5s 0s;
+   overflow: hidden;
 }
 
 
