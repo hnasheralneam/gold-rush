@@ -198,6 +198,8 @@ var initialGameData = {
   l2: 1,
   l2Price: 5000000000000,
 
+  otherworldPortalActivationCost: 120000000000000,
+
   //Player Name
 
   playerName: 3,
@@ -532,6 +534,9 @@ var checkForUpgrades = window.setInterval(function() {
   /*if (gameData.mergerNumber >= 15 && gameData.k4 == 1) {
     document.getElementById("k4").style.display = "block";
   }*/
+  if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
+    document.getElementById("otherworldPortal").style.display = "block";
+  }
 }, 3000)
 
 function a1() {
@@ -1081,6 +1086,14 @@ function k4() {
     document.getElementById("k4").style.display = "none";
     document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
     document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
+  }
+}
+
+function otherworldPortal() {
+  if (gameData.gold >= gameData.otherworldPortalActivationCost) {
+    gameData.gold -= gameData.otherworldPortalActivationCost
+    window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#")
+    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 
