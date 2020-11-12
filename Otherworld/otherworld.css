@@ -7,7 +7,6 @@ If you are here, then you are either trying to recreat an effect or copy all the
   color: white;
   background-size: 750px 420px;
   text-align: center;
-
 }
 
 body {
@@ -49,6 +48,16 @@ body {
    overflow-y: scroll;
 }
 
+.set {
+  border: outset gold 2.5px;
+  background-color: #000;
+  color: #fff;
+  padding: 4px;
+  margin: 5px;
+  width: 45%;
+  height: 75px;
+}
+
 /*==========================================================
 Click
 ==========================================================*/
@@ -57,7 +66,7 @@ Click
   border-radius: 80px;
 }
 
-#otherStars {
+#otherStars, #playerrName {
   font-weight: bolder;
   -webkit-text-stroke: 1.2px black;
   font-family: sans-serif;
