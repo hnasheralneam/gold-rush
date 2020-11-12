@@ -395,6 +395,18 @@ Buildings
   display: none;
 }
 
+.building {
+   width: 92%;
+   height: 80px;
+   border-radius: 8px;
+   border: double black 8px;
+   font-size: 1.066em;
+   font-weight: 700;
+   margin: 0.8px;
+   padding: 5px 0px;
+   background-color: #333;
+}
+
 #bTool  .spannn {
   display: none;
 }
