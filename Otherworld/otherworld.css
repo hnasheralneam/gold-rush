@@ -46,6 +46,11 @@ body {
    overflow: hidden;
    height: 91vh;
    overflow-y: scroll;
+   font-family: 'Goldman', cursive;
+}
+
+#welcome {
+   font-family: sans-serif;
 }
 
 .set {
@@ -56,6 +61,8 @@ body {
   margin: 5px;
   width: 45%;
   height: 75px;
+  font-family: 'Goldman', cursive;
+
 }
 
 .musicby {
@@ -84,6 +91,7 @@ Click
   font-size: 25px;
   border: inset 5px silver;
   margin-top: -1px;
+  font-family: 'Goldman', cursive;
 }
 
 /*==========================================================
