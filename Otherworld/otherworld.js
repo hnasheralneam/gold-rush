@@ -188,7 +188,7 @@ var mainGameLoop = window.setInterval(function() {
   diff = Date.now() - gameData.lastTick;
   gameData.lastTick = Date.now()
   gameData.otherStars += Math.round(gameData.otherStarsPerSecond  * (diff / 1000))
-  document.getElementById("otherStars").innerHTML = gameData.otherStars + " Otherstars"
+  document.getElementById("otherStars").innerHTML = Math.round(gameData.otherStars) + " Otherstars"
 }, 1000)
 
 var saveGameLoop = window.setInterval(function() {
@@ -201,7 +201,7 @@ if (savegame !== null) {
 }
 
 //==========================================================
-//Restart
+//Settings
 //==========================================================
 
 function restart() {
