@@ -62,6 +62,11 @@ Section 1 | Astroid and Player Information
    text-shadow: 0 0;
 }
 
+.retro-coin {
+   height: 25px;
+   margin-bottom: -5px;
+}
+
 /*==========================================================
 Section 2 | Research Facility, News Station, Setting, and Ads
 ==========================================================*/
@@ -187,26 +192,35 @@ Section 3 | Shop
 ==========================================================*/
 
 .store-item {
-   width: 90%;
+   width: 95%;
    height: 80px;
    border-radius: 8px;
    border: double #000 8px;
    font-weight: 700;
    margin: 0.8px;
    padding: 5px 0px;
+   //display: none;
+   overflow: hidden;
+   transition: all .5s 0s;
+}
+
+.store-info {
+   left: -500px;
+   transition: all .5s 0s;
+}
+
+.store-itemt:hover .store-info {
+   left: 0;
+   z-index: 1;
+   color: #000;
+}
+
+.store-item:hover .store-display {
    display: none;
 }
 
-.building {
-   width: 92%;
-   height: 80px;
-   border-radius: 8px;
-   border: double black 8px;
-   font-size: 1.066em;
-   font-weight: 700;
-   margin: 0.8px;
-   padding: 5px 0px;
-   background-color: #333;
+.store-item:hover {
+   background-color: rgba(0, 0, 0, 0.8);
 }
 
 /*==========================================================
