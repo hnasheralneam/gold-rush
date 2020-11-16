@@ -32,6 +32,10 @@ body {
 Section 1
 ==========================================================*/
 
+.section:nth-child(1) {
+  background: rgba(255, 255, 255, 0.8);
+}
+
 #astroid-image {
   width: 80%;
   height: auto;
