@@ -29,7 +29,7 @@ body {
 }
 
 /*==========================================================
-Section 1
+Section 1 | Astroid and Player Information
 ==========================================================*/
 
 #astroid-image {
@@ -63,7 +63,7 @@ Section 1
 }
 
 /*==========================================================
-Section 2
+Section 2 | Research Facility, News Station, Setting, and Ads
 ==========================================================*/
 
 #news {
@@ -180,6 +180,33 @@ li[aria-label]:hover:after {
 
 audio {
    display: none;
+}
+
+/*==========================================================
+Section 3 | Shop
+==========================================================*/
+
+.store-item {
+   width: 90%;
+   height: 80px;
+   border-radius: 8px;
+   border: double #000 8px;
+   font-weight: 700;
+   margin: 0.8px;
+   padding: 5px 0px;
+   display: none;
+}
+
+.building {
+   width: 92%;
+   height: 80px;
+   border-radius: 8px;
+   border: double black 8px;
+   font-size: 1.066em;
+   font-weight: 700;
+   margin: 0.8px;
+   padding: 5px 0px;
+   background-color: #333;
 }
 
 /*==========================================================
