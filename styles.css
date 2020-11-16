@@ -46,7 +46,7 @@ Section 1
 .basic-info {
    border: inset 5px #16bee0;
    margin: 2px -2px;
-   padding: 4px;
+   padding: 2px;
    font-size: 25px;
    font-family: 'Noto Sans', sans-serif;
    background-image: url("Images/goldbars.jpg");
@@ -98,13 +98,47 @@ summary {
    font-family: monospace;
 }
 
+.set-info {
+   position: relative;
+   left: -500px;
+   z-index: -1;
+   margin-top: -5px;
+   transition: all .5s 0s;
+}
+
+.set-div:hover .set-info {
+   left: 0;
+   z-index: 1;
+   color: #000;
+}
+
+.set-div:hover .info {
+   display: none;
+}
+
+.set-div:hover {
+   background-color: whitesmoke;
+}
+
+.set-div {
+   width: 45%;
+   height: 80px;
+   border-radius: 8px;
+   border: outset silver 8px;
+   font-size: 1.066em;
+   font-weight: 700;
+   margin: 5px auto;
+   padding: 0px 0px 16px 0px;
+   background-color: rgba(0, 0, 0, 0.5);
+   transition: all .5s 0s;
+   overflow: hidden;
+}
 
 
 
 
 
-
-
+/*
 .active {
   background-color: #4caf50;
   font-size: 1.5em;
@@ -133,7 +167,7 @@ ul {
   margin: 0;
 }
 
-/* Hover-thingy */
+/* Hover-thingy
 
 li:hover {
     position: relative;
@@ -172,7 +206,7 @@ li[aria-label]:hover:after {
   left: 5px;
 }
 
-/* Settings */
+/* Settings
 
 .set {
   border: outset gold 2.5px;
@@ -184,7 +218,7 @@ li[aria-label]:hover:after {
   float: left;
   width: 75px;
 }
-
+*/
 
 
 
