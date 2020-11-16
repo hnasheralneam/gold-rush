@@ -32,10 +32,6 @@ body {
 Section 1
 ==========================================================*/
 
-.section:nth-child(1) {
-  background: rgba(255, 255, 255, 0.8);
-}
-
 #astroid-image {
   width: 80%;
   height: auto;
@@ -44,15 +40,19 @@ Section 1
 }
 
 .basic-info {
-   border: inset 5px #16bee0;
+   border: ridge 5px #ab0c07;
    margin: 2px -2px;
    padding: 2px;
    font-size: 25px;
    font-family: 'Noto Sans', sans-serif;
    background-image: url("Images/goldbars.jpg");
    background-size: 100% auto;
-   text-shadow: 2px 2px 2px #262626;
-   color: #4cff00;
+   text-shadow: -2px 2px 2px #262626;
+   color: lightyellow;
+}
+
+#gold-profits {
+   font-size: 18px;
 }
 
 #player-name {
@@ -86,6 +86,8 @@ summary {
    font-size: 25px;
 }
 
+/* Upgrades */
+
 .UP {
    border: outset 4px #4a4a4a;
    margin: 5px;
@@ -94,134 +96,91 @@ summary {
    display: none;
 }
 
+ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 99%;
+   height: 100%;
+   overflow: auto;
+}
+
+.more {
+   font-size: .8em;
+   margin: 0;
+}
+
+.why {
+   font-size: .6em;
+   margin: 0;
+}
+
+li:hover {
+   position: relative;
+}
+
+li[aria-label]:hover:after {
+   visibility: visible;
+   z-index: 100;
+   transition: .8s linear;
+      content: attr(aria-label);
+      border: outset gold 4px;
+      background-color: #000;
+      color: #fff;
+      padding: 2px 5px;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      z-index: 20;
+}
+
+/* Gold Profits */
+
 #gpm, #g0pher, #gpd, #gpw, #gpM, #gpy, #totalGold {
    font-family: monospace;
 }
 
+/* Settings */
+
 .set-info {
    position: relative;
-   left: -500px;
+   top: -500px;
    z-index: -1;
-   margin-top: -5px;
+   margin-top: 5px;
    transition: all .5s 0s;
+   color: #fff;
+   font-size: 15px;
 }
 
 .set-div:hover .set-info {
-   left: 0;
+   top: 0;
    z-index: 1;
-   color: #000;
-}
-
-.set-div:hover .info {
-   display: none;
 }
 
 .set-div:hover {
-   background-color: whitesmoke;
+   font-size: 18px;
+   display: inline-block;
+   height: 100px;
 }
 
 .set-div {
-   width: 45%;
-   height: 80px;
+   width: 40%;
+   background-color: #000;
+   display: inline-block;
    border-radius: 8px;
-   border: outset silver 8px;
-   font-size: 1.066em;
-   font-weight: 700;
+   border: outset gold 5px;
    margin: 5px auto;
-   padding: 0px 0px 16px 0px;
-   background-color: rgba(0, 0, 0, 0.5);
+   padding: 8px;
    transition: all .5s 0s;
    overflow: hidden;
+   height: 50px;
+   color: #fff;
+   font-size: 25px;
 }
 
-
-
-
-
-/*
-.active {
-  background-color: #4caf50;
-  font-size: 1.5em;
-  color: #eee;
-  display: block;
-  padding: 8px 16px;
-  text-decoration: none;
+audio {
+   display: none;
 }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 99%;
-  height: 100%;
-  overflow: auto;
-}
-
-.more {
-  font-size: .8em;
-  margin: 0;
-}
-
-.why {
-  font-size: .6em;
-  margin: 0;
-}
-
-/* Hover-thingy
-
-li:hover {
-    position: relative;
-}
-
-li[aria-label]:hover:after {
-  visibility: visible;
-  z-index: 100;
-  opacity: .9;
-    transition: .5s linear;
-
-
-     content: attr(aria-label);
-     border: outset gold 4px;
-     background-color: #000;
-     color: #fff;
-     padding: 2px 5px;
-     position: absolute;
-     left: 0;
-     top: 100%;
-     white-space: nowrap;
-     z-index: 20;
-}
-
-
-.hover-text {
-  color: #000;
-  display: block;
-}
-
-.hover-text:hover {
-  display: block;
-  color: #fff;
-  position: relative;
-  top: 25px;
-  left: 5px;
-}
-
-/* Settings
-
-.set {
-  border: outset gold 2.5px;
-  background-color: black;
-  background-image: none;
-  color: white;
-  padding: 4px;
-  margin: 5px;
-  float: left;
-  width: 75px;
-}
-*/
-
-
-
 
 /*==========================================================
 Copyright

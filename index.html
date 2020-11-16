@@ -17,8 +17,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
      <!-- Click -->
       <div class="section">
          <p id="gold-owned" class="basic-info">0 Gold</p>
-         <p id="gps" class="basic-info">0 Gold per Second</p>
-         <p id="gpc" class="basic-info">1 Gold per Click</p>
+         <p id="gold-profits" class="basic-info">0 Gold per Second<br>1 Gold per Click</p>
          <img id="astroid-image" src="Images/astroid.png" alt="Gold">
          <p id="player-name" class="basic-info">3's Mine</p>
       </div>
@@ -98,48 +97,23 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p id="gpy">0 Gold Per Year</p>
             <p id="totalGold">0 Lifetime Gold Profits</p>
          </details>
-         <details open id="settings">
+         <details id="settings">
             <summary>Settings</summary>
             <div id="settings">
-               <div class="set-div">Save
+               <div class="set-div" onclick="save()">SAVE
                   <p class="set-info">Manually save your progress (autosaves every 15 seconds)</p>
                </div>
-
-               <div class="set-div">Save
-                  <p class="set-info">Manually save your progress (autosaves every 15 seconds)</p>
+               <div class="set-div" onclick="restart()">RESTART
+                  <p class="set-info">Undo all your progress, permanantly. This is irreverable.</p>
                </div>
-
-               <button onclick="save()" class="set">SAVE</button>
-
-               <div class="con-tooltip">
-                  <button onclick="save()" class="set" type="button">SAVE</button>
-                  <div class="tooltipy ">
-                     <p>Manually save your progress (autosaves every 15 seconds)</p>
-                  </div>
+               <div class="set-div" onclick="dark()">DARK THEME
+                  <p class="set-info">Change to the Dark theme (Come to the Dark side)</p>
                </div>
-               <div class="con-tooltip">
-                  <button onclick="restart()" class="set" type="button">RESTART</button>
-                  <div class="tooltipy ">
-                     <p>Undo all your progress</p>
-                  </div>
+               <div class="set-div" onclick="light()">LIGHT
+                  <p class="set-info">Return to the light theme</p>
                </div>
-               <div class="con-tooltip">
-                  <button onclick="dark()" class="set" type="button">DARK</button>
-                  <div class="tooltipy ">
-                     <p>Change to the dark theme</p>
-                  </div>
-               </div>
-               <div class="con-tooltip">
-                  <button onclick="light()" class="set" type="button">LIGHT</button>
-                  <div class="tooltipy ">
-                     <p>Return to the light theme</p>
-                  </div>
-               </div>
-               <div class="con-tooltip">
-                  <button class="set" type="button"><a onClick="music()">MUSIC</a></button>
-                  <div class="tooltipy ">
-                     <p>Turn music on or off</p>
-                  </div>
+               <div class="set-div" onclick="music()">MUSIC
+                  <p class="set-info">Turn the amazing music on or off</p>
                </div>
                <audio id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
             </div>
@@ -154,4 +128,16 @@ You won't learn anything from snooping around here. It's main.js you want to loo
       </div>
       <p id="copyright"><a href="https://hillside-township.github.io/">Hillside Township</a> | <a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a> | Copyright © <span id="copE-right">16/11/2020</span> Meeeeee | <img class="help" src="Icons/helps.png"></p>
   </body>
+
+
+
+  <!--<script src="main.js"></script>-->
+
+
+
+
+
+
+
+
 </html>
