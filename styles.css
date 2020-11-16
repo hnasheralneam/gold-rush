@@ -1,7 +1,6 @@
 /*==========================================================
  Copyright meeeeee 2020 A.D.
 Go away please. Anyway, what are you doing looking at this code?
-
 ==========================================================*/
 
 * {
@@ -24,4 +23,23 @@ body {
    margin: 5px;
    padding: 5px;
    height: 91vh;
+   position: relative;
+}
+
+/*==========================================================
+Section 1
+==========================================================*/
+
+#astroid-image {
+  width: 80%;
+  height: auto;
+  margin: 36px 8px;
+  cursor: url("Images/pickaxecursor.png"), auto;
+}
+
+.basic-info {
+   border: inset 5px #16bee0;
+   margin: 2px -2px;
+   padding: 5px;
+   font-size: 25px;
 }
