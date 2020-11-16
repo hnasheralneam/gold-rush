@@ -10,7 +10,8 @@ Go away please. Anyway, what are you doing looking at this code?
 body {
    display: grid;
    grid-template-columns: repeat(3, minmax(0, 1fr));
-   background-image: url(../Images/space.jpg);
+   background-image: url("Images/background.png");
+   background-size: 120px;
    overflow-y: hidden;
 }
 
@@ -58,6 +59,133 @@ Section 1
 }
 
 /*==========================================================
+Section 2
+==========================================================*/
+
+#news {
+   height: 125px;
+   margin: 0px;
+   font-size: 18px;
+   padding: 10px;
+   font-weight: 500;
+}
+
+details, #news {
+   border: inset 8px lightblue;
+   background-color: lightyellow;
+   margin-top: 8px;
+   font-family: merriweather-serif;
+   padding: 5px;
+}
+
+summary {
+   font-size: 25px;
+}
+
+.UP {
+   border: outset 4px #4a4a4a;
+   margin: 5px;
+   font-size: 1.4em;
+   background-color: #e8efff;
+   display: none;
+}
+
+#gpm, #g0pher, #gpd, #gpw, #gpM, #gpy, #totalGold {
+   font-family: monospace;
+}
+
+
+
+
+
+
+
+
+.active {
+  background-color: #4caf50;
+  font-size: 1.5em;
+  color: #eee;
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 99%;
+  height: 100%;
+  overflow: auto;
+}
+
+.more {
+  font-size: .8em;
+  margin: 0;
+}
+
+.why {
+  font-size: .6em;
+  margin: 0;
+}
+
+/* Hover-thingy */
+
+li:hover {
+    position: relative;
+}
+
+li[aria-label]:hover:after {
+  visibility: visible;
+  z-index: 100;
+  opacity: .9;
+    transition: .5s linear;
+
+
+     content: attr(aria-label);
+     border: outset gold 4px;
+     background-color: #000;
+     color: #fff;
+     padding: 2px 5px;
+     position: absolute;
+     left: 0;
+     top: 100%;
+     white-space: nowrap;
+     z-index: 20;
+}
+
+
+.hover-text {
+  color: #000;
+  display: block;
+}
+
+.hover-text:hover {
+  display: block;
+  color: #fff;
+  position: relative;
+  top: 25px;
+  left: 5px;
+}
+
+/* Settings */
+
+.set {
+  border: outset gold 2.5px;
+  background-color: black;
+  background-image: none;
+  color: white;
+  padding: 4px;
+  margin: 5px;
+  float: left;
+  width: 75px;
+}
+
+
+
+
+
+/*==========================================================
 Copyright
 ==========================================================*/
 
@@ -77,6 +205,7 @@ a {
    left: 0;
    margin-bottom: -4px;
    height: 4vh;
+   font-weight: bolder;
 }
 
 /*==========================================================
