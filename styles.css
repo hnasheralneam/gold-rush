@@ -192,12 +192,12 @@ Section 3 | Shop
 ==========================================================*/
 
 .store-item {
-   width: 95%;
+   width: 96%;
    height: 80px;
    border-radius: 8px;
    border: double #000 8px;
    font-weight: 700;
-   margin: 0.8px;
+   margin: 2px auto;
    padding: 5px 0px;
    //display: none;
    overflow: hidden;
@@ -205,22 +205,29 @@ Section 3 | Shop
 }
 
 .store-info {
-   left: -500px;
+   position: relative;
+   left: -180px;
    transition: all .5s 0s;
+   width: 80%;
 }
 
-.store-itemt:hover .store-info {
+.store-item:hover .store-info {
    left: 0;
-   z-index: 1;
-   color: #000;
+   margin: auto 10% auto -10%;
+}
+
+.store-display {
+   transition: top .5s 0s;
 }
 
 .store-item:hover .store-display {
-   display: none;
+   visibility: hidden;
 }
 
 .store-item:hover {
-   background-color: rgba(0, 0, 0, 0.8);
+   display: flex;
+   align-items: center;
+   background-color: whitesmoke;
 }
 
 /*==========================================================
