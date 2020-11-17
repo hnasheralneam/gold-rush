@@ -334,7 +334,7 @@ function openStation() {
     document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
-function hireleprechaun() {
+function hireLeprechaun() {
   if(gameData.gold >= gameData.hireLeprechaunCost) {
     gameData.gold -= gameData.hireLeprechaunCost
     gameData.leprechaunGold += gameData.lepProfit
