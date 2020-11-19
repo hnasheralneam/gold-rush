@@ -82,7 +82,7 @@ Section 2 | Research Facility, News Station, Setting, and Ads
 details, #news {
    border: inset 8px lightblue;
    background-color: lightyellow;
-   margin-top: 8px;
+   margin-top: 5px;
    font-family: merriweather-serif;
    padding: 5px;
 }
