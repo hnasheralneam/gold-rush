@@ -1422,7 +1422,7 @@ var news = window.setInterval(function (){
 //==========================================================
 
 function gameLayout() {
-  document.getElementById("playerrName").innerHTML = gameData.playerName + "'s Mine";
+  document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
   if (gameData.playerName == 3) {
     gameSetup();
   }
