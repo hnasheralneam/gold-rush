@@ -91,13 +91,11 @@ summary {
    font-size: 25px;
 }
 
-/* Upgrades */
-
 .UP {
    border: outset 4px #4a4a4a;
    margin: 5px;
    font-size: 1.4em;
-   background-color: #e8efff;
+   background-color: rgba(186, 235, 255, 0.8);
    display: none;
 }
 
@@ -199,34 +197,35 @@ Section 3 | Shop
    font-weight: 700;
    margin: 2px auto;
    padding: 5px 0px;
-   //display: none;
+   display: none;
    overflow: hidden;
-   transition: all .5s 0s;
+   transition: all 1.5s 0s;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .store-info {
-   position: relative;
-   left: -180px;
-   transition: all .5s 0s;
-   width: 80%;
+   position: absolute;
+   transform: scale(0);
+   opacity: 0;
+   transition: all .5s .5s;
 }
 
 .store-item:hover .store-info {
-   left: 0;
+   transform: scale(1);
+   opacity: 1;
 }
 
 .store-display {
-   transition: top .5s 0s;
+   transform: scale(1);
+   opacity: 1;
+   transition: all .5s .5s;
 }
 
 .store-item:hover .store-display {
-   visibility: hidden;
-}
-
-.store-item:hover {
-   display: flex;
-   align-items: center;
-   background-color: whitesmoke;
+   transform: scale(0);
+   opacity: 0;
 }
 
 /*==========================================================
@@ -247,7 +246,7 @@ a {
    bottom: 0;
    right: 0;
    left: 0;
-   margin-bottom: -4px;
+   margin-bottom: -2px;
    height: 4vh;
    font-weight: bolder;
 }
