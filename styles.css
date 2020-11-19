@@ -22,7 +22,7 @@ body {
 .section {
    border: outset #ab0c07 10px;
    margin: .2vh 5px;
-   padding: 1%;
+   padding: 0px 1% 1% 1%;
    height: 88vh;
    position: relative;
    overflow: scroll;
