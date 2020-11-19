@@ -253,8 +253,6 @@ function bTool() {
     gameData.clickinGold += 1
     gameData.bToolCost *= 2
     gameData.toolLevel += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("bTool").innerHTML = "<img class=\"icon\" src=\"Icons/tool.png\"> Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
   }
 }
 function buyPickaxe() {
@@ -263,9 +261,6 @@ function buyPickaxe() {
     gameData.pickaxeGold += gameData.pickaxeProfit
     gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
     gameData.pickaxeNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("buyPickaxe").innerHTML = "<img class=\"icon\" src=\"Icons/pickaxe.png\"> Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
-    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
 function hireDwarf() {
@@ -274,9 +269,6 @@ function hireDwarf() {
     gameData.dwarfGold += gameData.dwarfProfit
     gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
     gameData.dwarfNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("hireDwarf").innerHTML = "<img class=\"icon\" src=\"Icons/dwarf.png\"> Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
-    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
 function hireGoose() {
@@ -285,9 +277,6 @@ function hireGoose() {
     gameData.gooseGold += gameData.gooseProfit
     gameData.hireGooseCost = (10127 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0)
     gameData.gooseNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
-    document.getElementById("gooseGolld").innerHTML = "Goose  <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden eggs"
   }
 }
 function openMine() {
@@ -296,9 +285,6 @@ function openMine() {
     gameData.mineGold += gameData.mineProfit
     gameData.openMineCost = (28351 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
     gameData.mineNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
-    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   }
 }
 function hireDragon() {
@@ -307,9 +293,6 @@ function hireDragon() {
     gameData.dragonGold += gameData.dragonProfit
     gameData.hireDragonCost = (201648 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
     gameData.dragonNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
-    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   }
 }
 function buyStone() {
@@ -318,9 +301,6 @@ function buyStone() {
     gameData.stoneGold += gameData.stoneProfit
     gameData.buyStoneCost = (3752186 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
     gameData.stoneNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
-    document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
 function openStation() {
@@ -329,9 +309,6 @@ function openStation() {
     gameData.stationGold += gameData.stationProfit
     gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0)
     gameData.stationNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("openStation").innerHTML = "<img class=\"icon\" src=\"Icons/flare.png\"> Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + (formatNumber(gameData.openStationCost)) + " Gold"
-    document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
 function hireLeprechaun() {
@@ -340,9 +317,6 @@ function hireLeprechaun() {
     gameData.leprechaunGold += gameData.lepProfit
     gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0)
     gameData.leprechaunNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + (formatNumber(gameData.hireLeprechaunCost)) + " Gold"
-    document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
 function hireSheep() {
@@ -351,9 +325,6 @@ function hireSheep() {
     gameData.sheepGold += gameData.sheepProfit
     gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0)
     gameData.sheepNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + (formatNumber(gameData.hireSheepCost)) + " Gold"
-    document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
 function buyRay() {
@@ -362,9 +333,6 @@ function buyRay() {
     gameData.rayGold += gameData.rayProfit
     gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0)
     gameData.rayNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
-    document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
 function buyMerger() {
@@ -373,9 +341,6 @@ function buyMerger() {
     gameData.mergerGold += gameData.mergerProfit
     gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0)
     gameData.mergerNumber += 1
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
-    document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
 
@@ -545,7 +510,6 @@ function a1() {
     gameData.clickinGold *= 2
     gameData.a1 = 2
     document.getElementById("a1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 function a2() {
@@ -554,7 +518,6 @@ function a2() {
     gameData.clickinGold *= 2
     gameData.a2 = 2
     document.getElementById("a2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 function a3() {
@@ -563,7 +526,6 @@ function a3() {
     gameData.clickinGold *= gameData.pickaxeNumber
     gameData.a3 = 2
     document.getElementById("a3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 function a4() {
@@ -572,7 +534,6 @@ function a4() {
     gameData.clickinGold *= gameData.pickaxeNumber
     gameData.a4 = 2
     document.getElementById("a4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 function a5() {
@@ -581,7 +542,6 @@ function a5() {
     gameData.clickinGold *= gameData.pickaxeNumber
     gameData.a5 = 2
     document.getElementById("a5").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 function a6() {
@@ -590,7 +550,6 @@ function a6() {
     gameData.clickinGold *= gameData.pickaxeNumber
     gameData.a6 = 2
     document.getElementById("a6").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
 
@@ -601,8 +560,6 @@ function b1() {
     gameData.pickaxeGold *= 2
     gameData.b1 = 2
     document.getElementById("b1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
 function b2() {
@@ -612,8 +569,6 @@ function b2() {
     gameData.pickaxeGold *= 2
     gameData.b2 = 2
     document.getElementById("b2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
 function b3() {
@@ -623,8 +578,6 @@ function b3() {
     gameData.pickaxeGold *= 2
     gameData.b3 = 2
     document.getElementById("b3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
 function b4() {
@@ -634,8 +587,6 @@ function b4() {
     gameData.pickaxeGold *= 2
     gameData.b4 = 2
     document.getElementById("b4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br>" + (formatNumber(gameData.pickaxeProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
   }
 }
 
@@ -646,8 +597,6 @@ function c1() {
     gameData.dwarfGold *= 2
     gameData.c1 = 2
     document.getElementById("c1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
 function c2() {
@@ -657,8 +606,6 @@ function c2() {
     gameData.dwarfGold *= 2
     gameData.c2 = 2
     document.getElementById("c2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
 function c3() {
@@ -668,8 +615,6 @@ function c3() {
     gameData.dwarfGold *= 2
     gameData.c3 = 2
     document.getElementById("c3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
 function c4() {
@@ -679,8 +624,6 @@ function c4() {
     gameData.dwarfGold *= 2
     gameData.c4 = 2
     document.getElementById("c4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
   }
 }
 
@@ -691,8 +634,6 @@ function c01() {
     gameData.gooseGold *= 2
     gameData.c01 = 2
     document.getElementById("c01").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("gooseGolld").innerHTML = "Goose  <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden eggs"
   }
 }
 function c02() {
@@ -702,8 +643,6 @@ function c02() {
     gameData.gooseGold *= 2
     gameData.c02 = 2
     document.getElementById("c02").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("gooseGolld").innerHTML = "Goose  <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden eggs"
   }
 }
 function c03() {
@@ -713,8 +652,6 @@ function c03() {
     gameData.gooseGold *= 2
     gameData.c03 = 2
     document.getElementById("c03").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("gooseGolld").innerHTML = "Goose  <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden eggs"
   }
 }
 function c04() {
@@ -724,8 +661,6 @@ function c04() {
     gameData.gooseGold *= 2
     gameData.c04 = 2
     document.getElementById("c04").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("gooseGolld").innerHTML = "Goose  <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden eggs"
   }
 }
 
@@ -736,8 +671,6 @@ function d1() {
     gameData.mineGold *= 2
     gameData.d1 = 2
     document.getElementById("d1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   }
 }
 function d2() {
@@ -747,8 +680,6 @@ function d2() {
     gameData.mineGold *= 2
     gameData.d2 = 2
     document.getElementById("d2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   }
 }
 function d3() {
@@ -758,8 +689,6 @@ function d3() {
     gameData.mineGold *= 2
     gameData.d3 = 2
     document.getElementById("d3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   }
 }
 function d4() {
@@ -769,8 +698,6 @@ function d4() {
     gameData.mineGold *= 2
     gameData.d4 = 2
     document.getElementById("d4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mineGolld").innerHTML = "Gold Mine <br>  " + (formatNumber(gameData.mineProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
   }
 }
 
@@ -781,8 +708,6 @@ function e1() {
     gameData.dragonGold *= 2
     gameData.e1 = 2
     document.getElementById("e1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   }
 }
 function e2() {
@@ -792,8 +717,6 @@ function e2() {
     gameData.dragonGold *= 2
     gameData.e2 = 2
     document.getElementById("e2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   }
 }
 function e3() {
@@ -803,8 +726,6 @@ function e3() {
     gameData.dragonGold *= 2
     gameData.e3 = 2
     document.getElementById("e3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   }
 }
 function e4() {
@@ -814,8 +735,6 @@ function e4() {
     gameData.dragonGold *= 2
     gameData.e4 = 2
     document.getElementById("e4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("dragonGolld").innerHTML = "Dragon <br>  " + (formatNumber(gameData.dragonProfit)) + "  GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
   }
 }
 
@@ -826,8 +745,6 @@ function f1() {
     gameData.stoneGold *= 2
     gameData.f1 = 2
     document.getElementById("f1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
 function f2() {
@@ -837,8 +754,6 @@ function f2() {
     gameData.stoneGold *= 2
     gameData.f2 = 2
     document.getElementById("f2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
 function f3() {
@@ -848,8 +763,6 @@ function f3() {
     gameData.stoneGold *= 2
     gameData.f3 = 2
     document.getElementById("f3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
 function f4() {
@@ -859,8 +772,6 @@ function f4() {
     gameData.stoneGold *= 2
     gameData.f4 = 2
     document.getElementById("f4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
   }
 }
 
@@ -871,8 +782,6 @@ function g1() {
     gameData.stationGold *= 2
     gameData.g1 = 2
     document.getElementById("g1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
 function g2() {
@@ -882,8 +791,6 @@ function g2() {
     gameData.stationGold *= 2
     gameData.g2 = 2
     document.getElementById("g2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
 function g3() {
@@ -893,8 +800,6 @@ function g3() {
     gameData.stationGold *= 2
     gameData.g3 = 2
     document.getElementById("g3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
 function g4() {
@@ -904,8 +809,6 @@ function g4() {
     gameData.stationGold *= 2
     gameData.g4 = 2
     document.getElementById("g4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
   }
 }
 
@@ -916,8 +819,6 @@ function h1() {
     gameData.leprechaunGold *= 2
     gameData.h1 = 2
     document.getElementById("h1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
 function h2() {
@@ -927,8 +828,6 @@ function h2() {
     gameData.leprechaunGold *= 2
     gameData.h2 = 2
     document.getElementById("h2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
 function h3() {
@@ -938,8 +837,6 @@ function h3() {
     gameData.leprechaunGold *= 2
     gameData.h3 = 2
     document.getElementById("h3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
 function h4() {
@@ -949,8 +846,6 @@ function h4() {
     gameData.leprechaunGold *= 2
     gameData.h4 = 2
     document.getElementById("h4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("lepGolld").innerHTML = "Leprechaun <br>  " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
   }
 }
 
@@ -961,8 +856,6 @@ function i1() {
     gameData.sheepGold *= 2
     gameData.i1 = 2
     document.getElementById("i1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
 function i2() {
@@ -972,8 +865,6 @@ function i2() {
     gameData.sheepGold *= 2
     gameData.i2 = 2
     document.getElementById("i2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
 function i3() {
@@ -983,8 +874,6 @@ function i3() {
     gameData.sheepGold *= 2
     gameData.i3 = 2
     document.getElementById("i3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
 function i4() {
@@ -994,8 +883,6 @@ function i4() {
     gameData.sheepGold *= 2
     gameData.i4 = 2
     document.getElementById("i4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
   }
 }
 
@@ -1006,8 +893,6 @@ function j1() {
     gameData.rayGold *= 2
     gameData.j1 = 2
     document.getElementById("j1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
 function j2() {
@@ -1017,8 +902,6 @@ function j2() {
     gameData.rayGold *= 2
     gameData.j2 = 2
     document.getElementById("j2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
 function j3() {
@@ -1028,8 +911,6 @@ function j3() {
     gameData.rayGold *= 2
     gameData.j3 = 2
     document.getElementById("j3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
 function j4() {
@@ -1039,8 +920,6 @@ function j4() {
     gameData.rayGold *= 2
     gameData.j4 = 2
     document.getElementById("j4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
   }
 }
 
@@ -1051,8 +930,6 @@ function k1() {
     gameData.mergerGold *= 2
     gameData.k1 = 2
     document.getElementById("k1").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
 function k2() {
@@ -1062,8 +939,6 @@ function k2() {
     gameData.mergerGold *= 2
     gameData.k2 = 2
     document.getElementById("k2").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
 function k3() {
@@ -1073,8 +948,6 @@ function k3() {
     gameData.mergerGold *= 2
     gameData.k3 = 2
     document.getElementById("k3").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
 function k4() {
@@ -1084,8 +957,6 @@ function k4() {
     gameData.mergerGold *= 2
     gameData.k4 = 2
     document.getElementById("k4").style.display = "none";
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
-    document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
   }
 }
 
@@ -1093,9 +964,37 @@ function otherworldPortal() {
   if (gameData.gold >= gameData.otherworldPortalActivationCost) {
     gameData.gold -= gameData.otherworldPortalActivationCost
     window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#")
-    document.getElementById("goldMined").innerHTML = gameData.gold + " Gold"
   }
 }
+
+var updateStore = window.setInterval(function() {
+   //Gold per Building
+   document.getElementById("pickaxeGolld").innerHTML = "Pickaxe <br> " + (formatNumber(gameData.pickaxeProfit)) + " GPS <br> Producing " + (formatNumber(gameData.pickaxeGold)) + " GPS<br>A sturdy pickaxe to mine gold with"
+   document.getElementById("dwarfGolld").innerHTML = "Dwarf  <br> " + (formatNumber(gameData.dwarfProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dwarfGold)) + " GPS<br>An assistant to help you mine gold"
+   document.getElementById("gooseGolld").innerHTML = "Geese <br> " + (formatNumber(gameData.gooseProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.gooseGold)) + " GPS<br>A nice goose that lays golden egg"
+   document.getElementById("mineGolld").innerHTML = "Gold Mine <br> " + (formatNumber(gameData.mineProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mineGold)) + " GPS<br>A new mine to mine gold in"
+   document.getElementById("dragonGolld").innerHTML = "Dragon <br> " + (formatNumber(gameData.dragonProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.dragonGold)) + " GPS<br>A nice dragon to steal gold and hoard it"
+   document.getElementById("stoneGolld").innerHTML = "Philosopher's Stone <br> " + (formatNumber(gameData.stoneProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stoneGold)) + " GPS<br>An alchemy stone that turns ordinary rocks into gold"
+   document.getElementById("stationGolld").innerHTML = "Astroid-mining Station <br> " + (formatNumber(gameData.stationProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.stationGold)) + " GPS<br>A space station that mines astroids for gold"
+   document.getElementById("lepGolld").innerHTML = "Leprechaun <br> " + (formatNumber(gameData.lepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.leprechaunGold)) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows"
+   document.getElementById("sheepGolld").innerHTML = "Golden Sheep <br> " + (formatNumber(gameData.sheepProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.sheepGold)) + " GPS<br>A cute round fluffy sheep with golden fleece"
+   document.getElementById("rayGolld").innerHTML = "Mass Ray <br> " + (formatNumber(gameData.rayProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.rayGold)) + " GPS<br>Turns mass into gold"
+   document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
+
+   //Building Count
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
+   document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
+   document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
+   document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
+   document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
+   document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
+   document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
+   document.getElementById("openStation").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + (formatNumber(gameData.openStationCost)) + " Gold"
+   document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + (formatNumber(gameData.hireLeprechaunCost)) + " Gold"
+   document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + (formatNumber(gameData.hireSheepCost)) + " Gold"
+   document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
+   document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + (formatNumber(gameData.buyMergerCost)) + " Gold"
+}, 500)
 
 //==========================================================
 //Winning
@@ -1563,14 +1462,14 @@ function gameLayout() {
   document.getElementById("mergerGolld").innerHTML = "Neutron Star Merger<br> " + (formatNumber(gameData.mergerProfit)) + " GPS each<br> Producing " + (formatNumber(gameData.mergerGold)) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :)."
 
 //Building Count
-  document.getElementById("bTool").innerHTML = "<img class=\"icon\" src=\"Icons/tool.png\"> Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
-  document.getElementById("buyPickaxe").innerHTML = "<img class=\"icon\" src=\"Icons/pickaxe.png\"> Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
-  document.getElementById("hireDwarf").innerHTML = "<img class=\"icon\" src=\"Icons/dwarf.png\"> Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
+  document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br>Cost: " + (formatNumber(gameData.bToolCost)) + " Gold<span class=\"spannn\">Better Tools <br> +1 gold per click<br>Better tools, better mining?</span>"
+  document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + (formatNumber(gameData.buyPickaxeCost)) + " Gold"
+  document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + (formatNumber(gameData.hireDwarfCost)) + " Gold"
   document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + (formatNumber(gameData.hireGooseCost)) + " Gold"
   document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + (formatNumber(gameData.openMineCost)) + " Gold"
   document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + (formatNumber(gameData.hireDragonCost)) + " Gold"
   document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + (formatNumber(gameData.buyStoneCost)) + " Gold"
-  document.getElementById("openStation").innerHTML = "<img class=\"icon\" src=\"Icons/flare.png\"> Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + (formatNumber(gameData.openStationCost)) + " Gold"
+  document.getElementById("openStation").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + (formatNumber(gameData.openStationCost)) + " Gold"
   document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + (formatNumber(gameData.hireLeprechaunCost)) + " Gold"
   document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + (formatNumber(gameData.hireSheepCost)) + " Gold"
   document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + (formatNumber(gameData.buyRayCost)) + " Gold"
