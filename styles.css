@@ -55,13 +55,6 @@ Section 1 | Astroid and Player Information
    font-size: 18px;
 }
 
-#player-name {
-   background-image: none;
-   background-color: #ffffe0;
-   color: #000;
-   text-shadow: 0 0;
-}
-
 .retro-coin {
    height: 25px;
    margin-bottom: -5px;
