@@ -964,10 +964,13 @@ function otherworldPortal() {
     window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#")
   }
 }
-
+*/
+/*
+// This resets the values displayed in the shop
+// Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
    //Gold per Building
-   //document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + gameData.pickaxeGold + " GPS<br>A sturdy pickaxe to mine gold with";
+   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + gameData.pickaxeGold + " GPS<br>A sturdy pickaxe to mine gold with";
    document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + gameData.dwarfProfit + " GPS each<br> Producing " + gameData.dwarfGold + " GPS<br>An assistant to help you mine gold";
    document.getElementById("goose-info").innerHTML = "Geese <br> " + gameData.gooseProfit + " GPS each<br> Producing " + gameData.gooseGold + " GPS<br>A nice goose that lays golden egg";
    document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + gameData.mineProfit + " GPS each<br> Producing " + gameData.mineGold + " GPS<br>A new mine to mine gold in";
@@ -980,20 +983,20 @@ var updateStore = window.setInterval(function() {
    document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + gameData.mergerProfit + " GPS each<br> Producing " + gameData.mergerGold + " GPS<br>Merges neutron stars to create gold (find what you want at it's source :).";
 
    //Building Count
-   //document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
-   //document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
-   //document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
-   //document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
-   //document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + gameData.openMineCost + " Gold";
-   //document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + gameData.hireDragonCost + " Gold";
-   //document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + gameData.buyStoneCost + " Gold";
-   //document.getElementById("openStation").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + gameData.openStationCost + " Gold";
-   //document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + gameData.hireLeprechaunCost + " Gold";
-   //document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + gameData.hireSheepCost + " Gold";
-   //document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
-   //document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
-}, 500)
-*/
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
+   document.getElementById("buyPickaxe").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
+   document.getElementById("hireDwarf").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
+   document.getElementById("hireGoose").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
+   document.getElementById("openMine").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + gameData.openMineCost + " Gold";
+   document.getElementById("hireDragon").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + gameData.hireDragonCost + " Gold";
+   document.getElementById("buyStone").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + gameData.buyStoneCost + " Gold";
+   document.getElementById("openStation").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + gameData.openStationCost + " Gold";
+   document.getElementById("hireLeprechaun").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + gameData.hireLeprechaunCost + " Gold";
+   document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + gameData.hireSheepCost + " Gold";
+   document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
+   document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
+}, 500)*/
+
 //==========================================================
 //Main Game Loop
 //==========================================================
@@ -1036,106 +1039,106 @@ var buildColorLoop = window.setInterval(function() {
       // Make it the unavalible color
       document.getElementById("bTool").style.backgroundColor = notEnoughColor;
    }
-  /*
-  if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
-    document.getElementById("buyPickaxe").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.buyPickaxeCost) {
-    document.getElementById("buyPickaxe").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("buyPickaxe").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
-    document.getElementById("hireDwarf").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.hireDwarfCost) {
-    document.getElementById("hireDwarf").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("hireDwarf").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) {
-    document.getElementById("hireGoose").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.hireGooseCost) {
-    document.getElementById("hireGoose").style.backgroundColor = regColor;
-  }
-  else {
-   document.getElementById("hireGoose").style.backgroundColor = notEnoughColor;
- }
-  if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
-    document.getElementById("openMine").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.openMineCost) {
-    document.getElementById("openMine").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("openMine").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
-    document.getElementById("hireDragon").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.hireDragonCost) {
-    document.getElementById("hireDragon").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("hireDragon").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
-    document.getElementById("buyStone").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.buyStoneCost) {
-    document.getElementById("buyStone").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("buyStone").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
-    document.getElementById("openStation").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.openStationCost) {
-    document.getElementById("openStation").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("openStation").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
-    document.getElementById("hireLeprechaun").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.hireLeprechaunCost) {
-    document.getElementById("hireLeprechaun").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
-    document.getElementById("hireSheep").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.hireSheepCost) {
-    document.getElementById("hireSheep").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("hireSheep").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
-    document.getElementById("buyRay").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.buyRayCost) {
-    document.getElementById("buyRay").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("buyRay").style.backgroundColor = notEnoughColor;
-  }
-  if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
-    document.getElementById("buyMerger").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.buyMergerCost) {
-    document.getElementById("buyMerger").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
-  }*/
+   // These repeat the same proccess
+   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
+      document.getElementById("buyPickaxe").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.buyPickaxeCost) {
+      document.getElementById("buyPickaxe").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("buyPickaxe").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
+      document.getElementById("hireDwarf").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.hireDwarfCost) {
+      document.getElementById("hireDwarf").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("hireDwarf").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) {
+      document.getElementById("hireGoose").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.hireGooseCost) {
+      document.getElementById("hireGoose").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("hireGoose").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
+      document.getElementById("openMine").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.openMineCost) {
+      document.getElementById("openMine").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("openMine").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
+      document.getElementById("hireDragon").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.hireDragonCost) {
+      document.getElementById("hireDragon").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("hireDragon").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
+      document.getElementById("buyStone").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.buyStoneCost) {
+      document.getElementById("buyStone").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("buyStone").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
+      document.getElementById("openStation").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.openStationCost) {
+      document.getElementById("openStation").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("openStation").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
+      document.getElementById("hireLeprechaun").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.hireLeprechaunCost) {
+      document.getElementById("hireLeprechaun").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
+      document.getElementById("hireSheep").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.hireSheepCost) {
+      document.getElementById("hireSheep").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("hireSheep").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
+      document.getElementById("buyRay").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.buyRayCost) {
+      document.getElementById("buyRay").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("buyRay").style.backgroundColor = notEnoughColor;
+   }
+   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
+      document.getElementById("buyMerger").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.buyMergerCost) {
+      document.getElementById("buyMerger").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
+   }
 }, 500)
 
 // Set game data to local Storage
@@ -1187,6 +1190,7 @@ function save() {
 
 /*
 function dark() {
+   This changes the default colors for avalible and unavalible buildings
   regColor = "#454545"
   notEnoughColor = "#000"
 
@@ -1223,11 +1227,11 @@ var myAudio = document.getElementById("myAudio");
 function music() {
   return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
-
+*/
 //==========================================================
 //News
 //==========================================================
-
+/*
 var allNews = [
   'You go mining sometimes',
   'You like the shiny twinkle of gold',
@@ -1373,6 +1377,17 @@ var otherNews = [
   //'News: ',
   //'News: ',
   //'News: ',
+]
+
+var summoningNews = [
+   'News: '
+   //'News: ',
+   //'News: ',
+   //'News: ',
+   //'News: ',
+   //'News: ',
+   //'News: ',
+   //'News: ',
 ]
 
 
