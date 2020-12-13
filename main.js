@@ -13,204 +13,200 @@
 // Default values
 var initialGameData = {
 //Gold
-  gold: 0,
-  totalGold: 0,
+   gold: 0,
+   totalGold: 0,
 
 //Clicks
-  clickinGold: 1,
-  upgradeClickCost: 100,
-  goldPerClick: 0,
-  clicks: 0,
+   clickinGold: 1,
+   upgradeClickCost: 100,
+   goldPerClick: 0,
+   clicks: 0,
 
 //Tools
-  bToolCost: 10,
-  toolLevel: 1,
+   bToolCost: 10,
+   toolLevel: 1,
 
 //Pickaxes
-  pickaxeProfit: 0.5,
-  pickaxeGold: 0,
-  buyPickaxeCost: 50,
-  pickaxeNumber: 0,
+   pickaxeProfit: 0.5,
+   pickaxeGold: 0,
+   buyPickaxeCost: 50,
+   pickaxeNumber: 0,
 
 //Dwarfs
-  dwarfProfit: 2,
-  dwarfGold: 0,
-  hireDwarfCost: 250,
-  dwarfNumber: 0,
+   dwarfProfit: 2,
+   dwarfGold: 0,
+   hireDwarfCost: 250,
+   dwarfNumber: 0,
 
 //Geese
-  gooseProfit: 10,
-  gooseGold: 0,
-  hireGooseCost: 10000,
-  gooseNumber: 0,
+   gooseProfit: 10,
+   gooseGold: 0,
+   hireGooseCost: 10000,
+   gooseNumber: 0,
 
 //Gold mines
-  mineProfit: 60,
-  mineGold: 0,
-  openMineCost: 28000,
-  mineNumber: 0,
+   mineProfit: 60,
+   mineGold: 0,
+   openMineCost: 28000,
+   mineNumber: 0,
 
 //Dragons
-  dragonProfit: 2000,
-  dragonGold: 0,
-  hireDragonCost: 200000,
-  dragonNumber: 0,
+   dragonProfit: 2000,
+   dragonGold: 0,
+   hireDragonCost: 200000,
+   dragonNumber: 0,
 
 //Philosopher's Stones
-  stoneProfit: 10000,
-  stoneGold: 0,
-  buyStoneCost: 3750000,
-  stoneNumber: 0,
-  upgradeStoneCost: 3000000,
+   stoneProfit: 10000,
+   stoneGold: 0,
+   buyStoneCost: 3750000,
+   stoneNumber: 0,
+   upgradeStoneCost: 3000000,
 
 //Astroid-mining Station
-  stationProfit: 85000,
-  stationGold: 0,
-  openStationCost: 250000000,
-  stationNumber: 0,
+   stationProfit: 85000,
+   stationGold: 0,
+   openStationCost: 250000000,
+   stationNumber: 0,
 
 //Leprechauns
-  lepProfit: 600000,
-  leprechaunGold: 0,
-  hireLeprechaunCost: 1000000000,
-  leprechaunNumber: 0,
+   lepProfit: 600000,
+   leprechaunGold: 0,
+   hireLeprechaunCost: 1000000000,
+   leprechaunNumber: 0,
 
 //Golden Sheep
-  sheepProfit: 10000000,
-  sheepGold: 0,
-  hireSheepCost: 250000000000,
-  sheepNumber: 0,
+   sheepProfit: 10000000,
+   sheepGold: 0,
+   hireSheepCost: 250000000000,
+   sheepNumber: 0,
 
 //Mass rays
-  rayProfit: 1000000000,
-  rayGold: 0,
-  buyRayCost: 2000000000000,
-  rayNumber: 0,
+   rayProfit: 1000000000,
+   rayGold: 0,
+   buyRayCost: 2000000000000,
+   rayNumber: 0,
 
 //Neutron Star Mergers
-  mergerProfit: 10000000000,
-  mergerGold: 0,
-  buyMergerCost: 200000000000000,
-  mergerNumber: 0,
+   mergerProfit: 10000000000,
+   mergerGold: 0,
+   buyMergerCost: 200000000000000,
+   mergerNumber: 0,
 
-//Upgrades
-  a1: 1,
-  a1Price: 200,
-  a2: 1,
-  a2Price: 500,
-  a3: 1,
-  a3Price: 2000,
-  a4: 1,
-  a4Price: 8000,
-  a5: 1,
-  a5Price: 80000,
-  a6: 1,
-  a6Price: 280000,
-  b1: 1,
-  b1Price: 750,
-  b2: 1,
-  b2Price: 2000,
-  b3: 1,
-  b3Price: 5000,
-  b4: 1,
-  b4Price: 8000,
-  c1: 1,
-  c1Price: 1250,
-  c2: 1,
-  c2Price: 3200,
-  c3: 1,
-  c3Price: 5000,
-  c4: 1,
-  c4Price: 15000,
-  c01: 1,
-  c01Price: 25000,
-  c02: 1,
-  c02Price: 50000,
-  c03: 1,
-  c03Price: 80000,
-  c04: 1,
-  c04Price: 160000,
-  d1: 1,
-  d1Price: 60000,
-  d2: 1,
-  d2Price: 120000,
-  d3: 1,
-  d3Price: 240000,
-  d4: 1,
-  d4Price: 500000,
-  e1: 1,
-  e1Price: 500000,
-  e2: 1,
-  e2Price: 1000000,
-  e3: 1,
-  e3Price: 2000000,
-  e4: 1,
-  e4Price: 5000000,
-  f1: 1,
-  f1Price: 8000000,
-  f2: 1,
-  f2Price: 16000000,
-  f3: 1,
-  f3Price: 32000000,
-  f4: 1,
-  f4Price: 70000000,
-  g1: 1,
-  g1Price: 500000000,
-  g2: 1,
-  g2Price: 1000000000,
-  g3: 1,
-  g3Price: 2000000000,
-  g4: 1,
-  g4Price: 5000000000,
-  h1: 1,
-  h1Price: 1600000000,
-  h2: 1,
-  h2Price: 2400000000,
-  h3: 1,
-  h3Price: 4800000000,
-  h4: 1,
-  h4Price: 10000000000,
-  i1: 1,
-  i1Price: 200000000000,
-  i2: 1,
-  i2Price: 400000000000,
-  i3: 1,
-  i3Price: 800000000000,
-  i4: 1,
-  i4Price: 1600000000000,
-  j1: 1,
-  j1Price: 4000000000000,
-  j2: 1,
-  j2Price: 8000000000000,
-  j3: 1,
-  j3Price: 16000000000000,
-  j4: 1,
-  j4Price: 32000000000000,
-  k1: 1,
-  k1Price: 50000000000000,
-  k2: 1,
-  k2Price: 100000000000000,
-  k3: 1,
-  k3Price: 200000000000000,
-  k4: 1,
-  k4Price: 500000000000000,
-
-  l1: 1,
-  l1Price: 1000000000000,
-  l2: 1,
-  l2Price: 5000000000000,
-
-  otherworldPortalActivationCost: 120000000000000,
-
-  //Player Name
-
-  playerName: 3,
+//Player Name
+   playerName: 3,
 
 //Time
-  lastTick: Date.now(),
+   lastTick: Date.now()
 }
 var initialUpgradeData = {
+   a1: 1,
+   a1Price: 200,
+   a2: 1,
+   a2Price: 500,
+   a3: 1,
+   a3Price: 2000,
+   a4: 1,
+   a4Price: 8000,
+   a5: 1,
+   a5Price: 80000,
+   a6: 1,
+   a6Price: 280000,
+   b1: 1,
+   b1Price: 750,
+   b2: 1,
+   b2Price: 2000,
+   b3: 1,
+   b3Price: 5000,
+   b4: 1,
+   b4Price: 8000,
+   c1: 1,
+   c1Price: 1250,
+   c2: 1,
+   c2Price: 3200,
+   c3: 1,
+   c3Price: 5000,
+   c4: 1,
+   c4Price: 15000,
+   c01: 1,
+   c01Price: 25000,
+   c02: 1,
+   c02Price: 50000,
+   c03: 1,
+   c03Price: 80000,
+   c04: 1,
+   c04Price: 160000,
+   d1: 1,
+   d1Price: 60000,
+   d2: 1,
+   d2Price: 120000,
+   d3: 1,
+   d3Price: 240000,
+   d4: 1,
+   d4Price: 500000,
+   e1: 1,
+   e1Price: 500000,
+   e2: 1,
+   e2Price: 1000000,
+   e3: 1,
+   e3Price: 2000000,
+   e4: 1,
+   e4Price: 5000000,
+   f1: 1,
+   f1Price: 8000000,
+   f2: 1,
+   f2Price: 16000000,
+   f3: 1,
+   f3Price: 32000000,
+   f4: 1,
+   f4Price: 70000000,
+   g1: 1,
+   g1Price: 500000000,
+   g2: 1,
+   g2Price: 1000000000,
+   g3: 1,
+   g3Price: 2000000000,
+   g4: 1,
+   g4Price: 5000000000,
+   h1: 1,
+   h1Price: 1600000000,
+   h2: 1,
+   h2Price: 2400000000,
+   h3: 1,
+   h3Price: 4800000000,
+   h4: 1,
+   h4Price: 10000000000,
+   i1: 1,
+   i1Price: 200000000000,
+   i2: 1,
+   i2Price: 400000000000,
+   i3: 1,
+   i3Price: 800000000000,
+   i4: 1,
+   i4Price: 1600000000000,
+   j1: 1,
+   j1Price: 4000000000000,
+   j2: 1,
+   j2Price: 8000000000000,
+   j3: 1,
+   j3Price: 16000000000000,
+   j4: 1,
+   j4Price: 32000000000000,
+   k1: 1,
+   k1Price: 50000000000000,
+   k2: 1,
+   k2Price: 100000000000000,
+   k3: 1,
+   k3Price: 200000000000000,
+   k4: 1,
+   k4Price: 500000000000000,
 
+   l1: 1,
+   l1Price: 1000000000000,
+   l2: 1,
+   l2Price: 5000000000000,
+
+   otherworldPortalActivationCost: 120000000000000
 }
 
 // Assigning defaults to individual player values
@@ -232,17 +228,17 @@ var notEnoughColor = "#333";
 
 // Add gold by clicking the asteroid
 function collectGold() {
-  gameData.gold += gameData.clickinGold
-  gameData.clicks += 1
-  gameData.totalGold += gameData.clickinGold
+   gameData.gold += gameData.clickinGold
+   gameData.clicks += 1
+   gameData.totalGold += gameData.clickinGold
 }
 
 // Spacebar gold
 document.body.onkeyup = function(e){
-    if(e.keyCode == 32){
+   if(e.keyCode == 32){
       gameData.gold += gameData.clickinGold
       gameData.totalGold += gameData.clickinGold
-    }
+   }
 }
 
 //==========================================================
@@ -1007,7 +1003,7 @@ var mainGameLoop = window.setInterval(function() {
    // This code collets gold in player absence, disrupting total gold
    /*diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now()
-   gameData.gold += goldPerSecond()  * (diff / 1000)
+   gameData.gold += goldPerSecond() * (diff / 1000)
    gameData.totalGold += goldPerSecond()*/
 
    // Display gold per second & gold per click
@@ -1023,19 +1019,20 @@ var mainGameLoop = window.setInterval(function() {
    document.getElementById("totalGold").innerHTML = gameData.totalGold + " Lifetime Gold Profits";
 }, 1000)
 
-/*
+//Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
 var buildColorLoop = window.setInterval(function() {
-
-  if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
-    document.getElementById("bTool").style.display = "flex";
-  }
-  if (gameData.gold >= gameData.bToolCost) {
-    document.getElementById("bTool").style.backgroundColor = regColor;
-  }
-  else {
-    document.getElementById("bTool").style.backgroundColor = notEnoughColor;
-    //document.getElementById("bTool").style.cursor = "wait";
-  }
+   //
+   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
+      document.getElementById("bTool").style.display = "flex";
+   }
+   if (gameData.gold >= gameData.bToolCost) {
+      document.getElementById("bTool").style.backgroundColor = regColor;
+   }
+   else {
+      document.getElementById("bTool").style.backgroundColor = notEnoughColor;
+      document.getElementById("bTool").style.cursor = "url(Images/coin.png), auto";
+   }
+  /*
   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
     document.getElementById("buyPickaxe").style.display = "flex";
   }
@@ -1134,9 +1131,8 @@ var buildColorLoop = window.setInterval(function() {
   }
   else {
     document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
-  }
+  }*/
 }, 500)
-*/
 
 // Set game data to local Storage
 var saveGameLoop = window.setInterval(function() {
@@ -1150,17 +1146,10 @@ if (savegame !== null) {
   gameData = savegame;
 }
 
-/*
-If add 1 to gold add 1 to total gold
-if (gameData.gold + 1) {
-   gameData.totalGold + 1;
-}
-*/
-
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
-   document.title = ((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = ((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
+   document.title = gameData.gold + " Gold | Gold Rush";
+   document.getElementById("gold-owned").innerHTML = gameData.gold + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
 
 //==========================================================
