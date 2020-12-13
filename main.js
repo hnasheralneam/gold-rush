@@ -2,8 +2,9 @@
 //Copyright and Opening Information
 //==========================================================
 
-//Copyright meeeeee 2020 A.D.
+//Copyright Squirrel 2020 A.D.
 // If you continue you shall get the majority of the game spoiled for you. Also, it's a bit messy
+//SOLICITORS WILL BE RELIEVED OF THEIR SANITY
 
 //==========================================================
 //Game Data
@@ -206,6 +207,9 @@ var initialGameData = {
 
 //Time
   lastTick: Date.now(),
+}
+var initialUpgradeData = {
+
 }
 
 var gameData = initialGameData;
