@@ -1019,18 +1019,22 @@ var mainGameLoop = window.setInterval(function() {
    document.getElementById("totalGold").innerHTML = gameData.totalGold + " Lifetime Gold Profits";
 }, 1000)
 
-//Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
+// Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
 var buildColorLoop = window.setInterval(function() {
-   //
+   // If you have half the gold to buy the item
    if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
+      // Make it visible
       document.getElementById("bTool").style.display = "flex";
    }
+   // If you have enough gold to buy the item
    if (gameData.gold >= gameData.bToolCost) {
+      // Make the color the avalible color
       document.getElementById("bTool").style.backgroundColor = regColor;
    }
+   // If not
    else {
+      // Make it the unavalible color
       document.getElementById("bTool").style.backgroundColor = notEnoughColor;
-      document.getElementById("bTool").style.cursor = "url(Images/coin.png), auto";
    }
   /*
   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
