@@ -2,14 +2,15 @@
 //Copyright and Opening Information
 //==========================================================
 
-//Copyright Squirrel 2020 A.D.
-// If you continue you shall get the majority of the game spoiled for you. Also, it's a bit messy
-//SOLICITORS WILL BE RELIEVED OF THEIR SANITY
+// Copyright Squirrel 2020 A.D.
+// If you continue you shall get the majority of the game spoiled for you. Also, it's a 'bit' messy
+// Solicitors will be relieved of their sanity
 
 //==========================================================
 //Game Data
 //==========================================================
 
+// Default values
 var initialGameData = {
 //Gold
   gold: 0,
@@ -212,26 +213,31 @@ var initialUpgradeData = {
 
 }
 
+// Assigning defaults to individual player values
 var gameData = initialGameData;
-/*
+var upgradeData = initialUpgradeData;
+
+// All building gold added together
 function goldPerSecond() {
-  return gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold + gameData.goldPerClick
+  return gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold;
 }
 
+// Colors for avilibe or unavalibe buildings
 var regColor = "#ffffbd";
 var notEnoughColor = "#333";
-*/
+
 //==========================================================
 //Gain Profit
 //==========================================================
 
+// Add gold by clicking the asteroid
 function collectGold() {
   gameData.gold += gameData.clickinGold
   gameData.clicks += 1
   gameData.totalGold += gameData.clickinGold
 }
 
-//Spacebar gold
+// Spacebar gold
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
       gameData.gold += gameData.clickinGold
@@ -245,18 +251,18 @@ document.body.onkeyup = function(e){
 /*
 function bTool() {
   if (gameData.gold >= gameData.bToolCost) {
-    gameData.gold -= gameData.bToolCost
-    gameData.clickinGold += 1
-    gameData.bToolCost *= 2
-    gameData.toolLevel += 1
+    gameData.gold -= gameData.bToolCost;
+    gameData.clickinGold += 1;
+    gameData.bToolCost *= 2;
+    gameData.toolLevel += 1;
   }
 }
 function buyPickaxe() {
   if (gameData.gold >= gameData.buyPickaxeCost) {
-    gameData.gold -= gameData.buyPickaxeCost
-    gameData.pickaxeGold += gameData.pickaxeProfit
-    gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0)   //Price=BaseCost×1.15(#Owned)
-    gameData.pickaxeNumber += 1
+    gameData.gold -= gameData.buyPickaxeCost;
+    gameData.pickaxeGold += gameData.pickaxeProfit;
+    gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0);
+    gameData.pickaxeNumber += 1;
   }
 }
 function hireDwarf() {
@@ -339,11 +345,11 @@ function buyMerger() {
     gameData.mergerNumber += 1
   }
 }
-
+*/
 //==========================================================
 //Upgrades
 //==========================================================
-
+/*
 var checkForUpgrades = window.setInterval(function() {
   if (gameData.toolLevel >= 1 && gameData.a1 == 1) {
     document.getElementById("a1").style.display = "block";
@@ -991,25 +997,32 @@ var updateStore = window.setInterval(function() {
    //document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
    //document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
 }, 500)
-
+*/
 //==========================================================
 //Main Game Loop
 //==========================================================
-*/
+
+// Runs every second
 var mainGameLoop = window.setInterval(function() {
+   // This code collets gold in player absence, disrupting total gold
    /*diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now()
    gameData.gold += goldPerSecond()  * (diff / 1000)
    gameData.totalGold += goldPerSecond()*/
-   document.getElementById("totalGold").innerHTML =  gameData.totalGold + " Lifetime Gold Profits"
+
+   // Display gold per second & gold per click
    document.getElementById("gold-profits").innerHTML = goldPerSecond() + " Gold per Second<br>" + gameData.clickinGold + " Gold per Second<br>";
+   // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
    document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
    document.getElementById("gpd").innerHTML = goldPerSecond() * 60 * 60 * 24 + " Gold Per Day";
    document.getElementById("gpw").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 + " Gold Per Week";
    document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
    document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
+   // Issue with total gold, does not count gold gathered in absence
+   document.getElementById("totalGold").innerHTML = gameData.totalGold + " Lifetime Gold Profits";
 }, 1000)
+
 /*
 var buildColorLoop = window.setInterval(function() {
 
@@ -1124,45 +1137,62 @@ var buildColorLoop = window.setInterval(function() {
   }
 }, 500)
 */
+
+// Set game data to local Storage
 var saveGameLoop = window.setInterval(function() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }, 15000)
 
-var savegame = JSON.parse(localStorage.getItem("goldRushSave"))
+// Retrive game data as savegame
+var savegame = JSON.parse(localStorage.getItem("goldRushSave"));
+// If the savegame is empty set game data as savegame
 if (savegame !== null) {
   gameData = savegame;
 }
 
-//If add 1 to gold add 1 to total gold
-//if (gameData.gold + 1) {
-//   gameData.totalGold + 1;
-//}
+/*
+If add 1 to gold add 1 to total gold
+if (gameData.gold + 1) {
+   gameData.totalGold + 1;
+}
+*/
 
+// Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
    document.title = ((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = ((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">"
+   document.getElementById("gold-owned").innerHTML = ((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
-/*
+
 //==========================================================
 //Settings
 //==========================================================
 
+//Wipe Save
 function restart() {
-  var r = confirm("Are you SURE you want to restart? This will wipe all your progress!");
-  if (r == true) {
-     var rr = confirm("Are you REALLY SURE you want to restart? There is no going back!");
-     if (rr == true) {
-       gameData = initialGameData
-       localStorage.setItem("goldRushSave", JSON.stringify(gameData))
-       document.location.href = ("")
-     }
-  }
+   // Confirm Restart
+   var areYouSure = confirm("Are you SURE you want to restart? This will wipe all your progress!");
+   // If restart is confirmed
+   if (areYouSure == true) {
+      // Ask again
+      var areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
+      // If restart is still confirmed
+      if (areYouReallySure == true) {
+         // Set gameData to inital values
+         gameData = initialGameData;
+         // Set save as blank
+         localStorage.setItem("goldRushSave", JSON.stringify(gameData));
+         // Reload page
+         document.location.href = ("");
+      }
+   }
 }
 
+// Set game data to local Storage
 function save() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }
 
+/*
 function dark() {
   regColor = "#454545"
   notEnoughColor = "#000"
