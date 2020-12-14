@@ -977,7 +977,7 @@ function otherworldPortal() {
    }
 }
 */
-/*
+
 // This resets the values displayed in the shop
 // Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
@@ -1007,7 +1007,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("hireSheep").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + gameData.hireSheepCost + " Gold";
    document.getElementById("buyRay").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
    document.getElementById("buyMerger").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
-}, 500)*/
+}, 500)
 
 //==========================================================
 //Main Game Loop
