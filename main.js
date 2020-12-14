@@ -229,741 +229,752 @@ var notEnoughColor = "#333";
 
 // Add gold by clicking the asteroid
 function collectGold() {
-   gameData.gold += gameData.clickinGold
-   gameData.clicks += 1
-   gameData.totalGold += gameData.clickinGold
+   addGold(gameData.clickinGold);
+   gameData.clicks += 1;
 }
 
 // Spacebar gold
 document.body.onkeyup = function(e){
    if(e.keyCode == 32){
-      gameData.gold += gameData.clickinGold
-      gameData.totalGold += gameData.clickinGold
+      event.preventDefault();
+      addGold(gameData.clickinGold);
    }
+}
+
+// Adds gold
+function addGold(gold) {
+  gameData.gold = gameData.gold + gold;
+  gameData.totalGold = gameData.totalGold + gold;
 }
 
 //==========================================================
 //Purchase Buildings
 //==========================================================
-/*
+
 function bTool() {
-  if (gameData.gold >= gameData.bToolCost) {
-    gameData.gold -= gameData.bToolCost;
-    gameData.clickinGold += 1;
-    gameData.bToolCost *= 2;
-    gameData.toolLevel += 1;
-  }
+   if (gameData.gold >= gameData.bToolCost) {
+      gameData.gold -= gameData.bToolCost;
+      gameData.clickinGold += 1;
+      gameData.bToolCost *= 2;
+      gameData.toolLevel += 1;
+   }
 }
+
 function buyPickaxe() {
-  if (gameData.gold >= gameData.buyPickaxeCost) {
-    gameData.gold -= gameData.buyPickaxeCost;
-    gameData.pickaxeGold += gameData.pickaxeProfit;
-    gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0);
-    gameData.pickaxeNumber += 1;
-  }
+   // If player has enough gold
+   if (gameData.gold >= gameData.buyPickaxeCost) {
+      // Substract the price from their gold
+      gameData.gold -= gameData.buyPickaxeCost;
+      // Add the amount of gold par pickaxe to the gold pickaxes are producing
+      gameData.pickaxeGold += gameData.pickaxeProfit;
+      // Multiply the cost by 1.15 and the amount of pciakxes
+      gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0);
+      // Add one to the pickaxes owned
+      gameData.pickaxeNumber += 1;
+   }
 }
 function hireDwarf() {
-  if(gameData.gold >= gameData.hireDwarfCost) {
-    gameData.gold -= gameData.hireDwarfCost
-    gameData.dwarfGold += gameData.dwarfProfit
-    gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
-    gameData.dwarfNumber += 1
-  }
+   if(gameData.gold >= gameData.hireDwarfCost) {
+      gameData.gold -= gameData.hireDwarfCost
+      gameData.dwarfGold += gameData.dwarfProfit
+      gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0)
+      gameData.dwarfNumber += 1
+   }
 }
 function hireGoose() {
-  if(gameData.gold >= gameData.hireGooseCost) {
-    gameData.gold -= gameData.hireGooseCost
-    gameData.gooseGold += gameData.gooseProfit
-    gameData.hireGooseCost = (10127 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0)
-    gameData.gooseNumber += 1
-  }
+   if(gameData.gold >= gameData.hireGooseCost) {
+      gameData.gold -= gameData.hireGooseCost
+      gameData.gooseGold += gameData.gooseProfit
+      gameData.hireGooseCost = (10127 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0)
+      gameData.gooseNumber += 1
+   }
 }
 function openMine() {
-  if(gameData.gold >= gameData.openMineCost) {
-    gameData.gold -= gameData.openMineCost
-    gameData.mineGold += gameData.mineProfit
-    gameData.openMineCost = (28351 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
-    gameData.mineNumber += 1
-  }
+   if(gameData.gold >= gameData.openMineCost) {
+      gameData.gold -= gameData.openMineCost
+      gameData.mineGold += gameData.mineProfit
+      gameData.openMineCost = (28351 * Math.pow(1.15, gameData.mineNumber)).toFixed(0)
+      gameData.mineNumber += 1
+   }
 }
 function hireDragon() {
-  if(gameData.gold >= gameData.hireDragonCost) {
-    gameData.gold -= gameData.hireDragonCost
-    gameData.dragonGold += gameData.dragonProfit
-    gameData.hireDragonCost = (201648 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
-    gameData.dragonNumber += 1
-  }
+   if(gameData.gold >= gameData.hireDragonCost) {
+      gameData.gold -= gameData.hireDragonCost
+      gameData.dragonGold += gameData.dragonProfit
+      gameData.hireDragonCost = (201648 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0)
+      gameData.dragonNumber += 1
+   }
 }
 function buyStone() {
-  if(gameData.gold >= gameData.buyStoneCost) {
-    gameData.gold -= gameData.buyStoneCost
-    gameData.stoneGold += gameData.stoneProfit
-    gameData.buyStoneCost = (3752186 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
-    gameData.stoneNumber += 1
-  }
+   if(gameData.gold >= gameData.buyStoneCost) {
+      gameData.gold -= gameData.buyStoneCost
+      gameData.stoneGold += gameData.stoneProfit
+      gameData.buyStoneCost = (3752186 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0)
+      gameData.stoneNumber += 1
+   }
 }
 function openStation() {
-  if(gameData.gold >= gameData.openStationCost) {
-    gameData.gold -= gameData.openStationCost
-    gameData.stationGold += gameData.stationProfit
-    gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0)
-    gameData.stationNumber += 1
-  }
+   if(gameData.gold >= gameData.openStationCost) {
+      gameData.gold -= gameData.openStationCost
+      gameData.stationGold += gameData.stationProfit
+      gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0)
+      gameData.stationNumber += 1
+   }
 }
 function hireLeprechaun() {
-  if(gameData.gold >= gameData.hireLeprechaunCost) {
-    gameData.gold -= gameData.hireLeprechaunCost
-    gameData.leprechaunGold += gameData.lepProfit
-    gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0)
-    gameData.leprechaunNumber += 1
-  }
+   if(gameData.gold >= gameData.hireLeprechaunCost) {
+      gameData.gold -= gameData.hireLeprechaunCost
+      gameData.leprechaunGold += gameData.lepProfit
+      gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0)
+      gameData.leprechaunNumber += 1
+   }
 }
 function hireSheep() {
-  if(gameData.gold >= gameData.hireSheepCost) {
-    gameData.gold -= gameData.hireSheepCost
-    gameData.sheepGold += gameData.sheepProfit
-    gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0)
-    gameData.sheepNumber += 1
-  }
+   if(gameData.gold >= gameData.hireSheepCost) {
+      gameData.gold -= gameData.hireSheepCost
+      gameData.sheepGold += gameData.sheepProfit
+      gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0)
+      gameData.sheepNumber += 1
+   }
 }
 function buyRay() {
-  if(gameData.gold >= gameData.buyRayCost) {
-    gameData.gold -= gameData.buyRayCost
-    gameData.rayGold += gameData.rayProfit
-    gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0)
-    gameData.rayNumber += 1
-  }
+   if(gameData.gold >= gameData.buyRayCost) {
+      gameData.gold -= gameData.buyRayCost
+      gameData.rayGold += gameData.rayProfit
+      gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0)
+      gameData.rayNumber += 1
+   }
 }
 function buyMerger() {
-  if(gameData.gold >= gameData.buyMergerCost) {
-    gameData.gold -= gameData.buyMergerCost
-    gameData.mergerGold += gameData.mergerProfit
-    gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0)
-    gameData.mergerNumber += 1
-  }
+   if(gameData.gold >= gameData.buyMergerCost) {
+      gameData.gold -= gameData.buyMergerCost
+      gameData.mergerGold += gameData.mergerProfit
+      gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0)
+      gameData.mergerNumber += 1
+   }
 }
-*/
+
 //==========================================================
 //Upgrades
 //==========================================================
 /*
 var checkForUpgrades = window.setInterval(function() {
-  if (gameData.toolLevel >= 1 && gameData.a1 == 1) {
-    document.getElementById("a1").style.display = "block";
-  }
-  if (gameData.toolLevel >= 5 && gameData.a2 == 1) {
-    document.getElementById("a2").style.display = "block";
-  }
-  if (gameData.toolLevel >= 10 && gameData.a3 == 1) {
-    document.getElementById("a3").style.display = "block";
-  }
-  if (gameData.toolLevel >= 15 && gameData.a4 == 1) {
-    document.getElementById("a4").style.display = "block";
-  }
-  if (gameData.toolLevel >= 20 && gameData.a5 == 1) {
-    document.getElementById("a5").style.display = "block";
-  }
-  if (gameData.toolLevel >= 25 && gameData.a6 == 1) {
-    document.getElementById("a6").style.display = "block";
-  }
-  if (gameData.pickaxeNumber >= 1 && gameData.b1 == 1) {
-    document.getElementById("b1").style.display = "block";
-  }
-  if (gameData.pickaxeNumber >= 5 && gameData.b2 == 1) {
-    document.getElementById("b2").style.display = "block";
-  }
-  if (gameData.pickaxeNumber >= 10 && gameData.b3 == 1) {
-    document.getElementById("b3").style.display = "block";
-  }
-  if (gameData.pickaxeNumber >= 15 && gameData.b4 == 1) {
-    document.getElementById("b4").style.display = "block";
-  }
-  if (gameData.dwarfNumber >= 1 && gameData.c1 == 1) {
-    document.getElementById("c1").style.display = "block";
-  }
-  if (gameData.dwarfNumber >= 5 && gameData.c2 == 1) {
-    document.getElementById("c2").style.display = "block";
-  }
-  if (gameData.dwarfNumber >= 10 && gameData.c3 == 1) {
-    document.getElementById("c3").style.display = "block";
-  }
-  if (gameData.dwarfNumber >= 15 && gameData.c4 == 1) {
-    document.getElementById("c4").style.display = "block";
-  }
-  if (gameData.gooseNumber >= 1 && gameData.c01 == 1) {
-    document.getElementById("c01").style.display = "block";
-  }
-  if (gameData.gooseNumber >= 5 && gameData.c02 == 1) {
-    document.getElementById("c02").style.display = "block";
-  }
-  if (gameData.gooseNumber >= 10 && gameData.c03 == 1) {
-    document.getElementById("c03").style.display = "block";
-  }
-  if (gameData.gooseNumber >= 15 && gameData.c04 == 1) {
-    document.getElementById("c04").style.display = "block";
-  }
-  if (gameData.mineNumber >= 1 && gameData.d1 == 1) {
-    document.getElementById("d1").style.display = "block";
-  }
-  if (gameData.mineNumber >= 5 && gameData.d2 == 1) {
-    document.getElementById("d2").style.display = "block";
-  }
-  if (gameData.mineNumber >= 10 && gameData.d3 == 1) {
-    document.getElementById("d3").style.display = "block";
-  }
-  if (gameData.mineNumber >= 15 && gameData.d4 == 1) {
-    document.getElementById("d4").style.display = "block";
-  }
-  if (gameData.dragonNumber >= 1 && gameData.e1 == 1) {
-    document.getElementById("e1").style.display = "block";
-  }
-  if (gameData.dragonNumber >= 5 && gameData.e2 == 1) {
-    document.getElementById("e2").style.display = "block";
-  }
-  if (gameData.dragonNumber >= 10 && gameData.e3 == 1) {
-    document.getElementById("e3").style.display = "block";
-  }
-  if (gameData.dragonNumber >= 15 && gameData.e4 == 1) {
-    document.getElementById("e4").style.display = "block";
-  }
-  if (gameData.stoneNumber >= 1 && gameData.f1 == 1) {
-    document.getElementById("f1").style.display = "block";
-  }
-  if (gameData.stoneNumber >= 5 && gameData.f2 == 1) {
-    document.getElementById("f2").style.display = "block";
-  }
-  if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
-    document.getElementById("f3").style.display = "block";
-  }
+   if (gameData.toolLevel >= 1 && gameData.a1 == 1) {
+      document.getElementById("a1").style.display = "block";
+   }
+   if (gameData.toolLevel >= 5 && gameData.a2 == 1) {
+      document.getElementById("a2").style.display = "block";
+   }
+   if (gameData.toolLevel >= 10 && gameData.a3 == 1) {
+      document.getElementById("a3").style.display = "block";
+   }
+   if (gameData.toolLevel >= 15 && gameData.a4 == 1) {
+      document.getElementById("a4").style.display = "block";
+   }
+   if (gameData.toolLevel >= 20 && gameData.a5 == 1) {
+      document.getElementById("a5").style.display = "block";
+   }
+   if (gameData.toolLevel >= 25 && gameData.a6 == 1) {
+      document.getElementById("a6").style.display = "block";
+   }
+   if (gameData.pickaxeNumber >= 1 && gameData.b1 == 1) {
+      document.getElementById("b1").style.display = "block";
+   }
+   if (gameData.pickaxeNumber >= 5 && gameData.b2 == 1) {
+      document.getElementById("b2").style.display = "block";
+   }
+   if (gameData.pickaxeNumber >= 10 && gameData.b3 == 1) {
+      document.getElementById("b3").style.display = "block";
+   }
+   if (gameData.pickaxeNumber >= 15 && gameData.b4 == 1) {
+      document.getElementById("b4").style.display = "block";
+   }
+   if (gameData.dwarfNumber >= 1 && gameData.c1 == 1) {
+      document.getElementById("c1").style.display = "block";
+   }
+   if (gameData.dwarfNumber >= 5 && gameData.c2 == 1) {
+      document.getElementById("c2").style.display = "block";
+   }
+   if (gameData.dwarfNumber >= 10 && gameData.c3 == 1) {
+      document.getElementById("c3").style.display = "block";
+   }
+   if (gameData.dwarfNumber >= 15 && gameData.c4 == 1) {
+      document.getElementById("c4").style.display = "block";
+   }
+   if (gameData.gooseNumber >= 1 && gameData.c01 == 1) {
+      document.getElementById("c01").style.display = "block";
+   }
+   if (gameData.gooseNumber >= 5 && gameData.c02 == 1) {
+      document.getElementById("c02").style.display = "block";
+   }
+   if (gameData.gooseNumber >= 10 && gameData.c03 == 1) {
+      document.getElementById("c03").style.display = "block";
+   }
+   if (gameData.gooseNumber >= 15 && gameData.c04 == 1) {
+      document.getElementById("c04").style.display = "block";
+   }
+   if (gameData.mineNumber >= 1 && gameData.d1 == 1) {
+      document.getElementById("d1").style.display = "block";
+   }
+   if (gameData.mineNumber >= 5 && gameData.d2 == 1) {
+      document.getElementById("d2").style.display = "block";
+   }
+   if (gameData.mineNumber >= 10 && gameData.d3 == 1) {
+      document.getElementById("d3").style.display = "block";
+   }
+   if (gameData.mineNumber >= 15 && gameData.d4 == 1) {
+      document.getElementById("d4").style.display = "block";
+   }
+   if (gameData.dragonNumber >= 1 && gameData.e1 == 1) {
+      document.getElementById("e1").style.display = "block";
+   }
+   if (gameData.dragonNumber >= 5 && gameData.e2 == 1) {
+      document.getElementById("e2").style.display = "block";
+   }
+   if (gameData.dragonNumber >= 10 && gameData.e3 == 1) {
+      document.getElementById("e3").style.display = "block";
+   }
+   if (gameData.dragonNumber >= 15 && gameData.e4 == 1) {
+      document.getElementById("e4").style.display = "block";
+   }
+   if (gameData.stoneNumber >= 1 && gameData.f1 == 1) {
+      document.getElementById("f1").style.display = "block";
+   }
+   if (gameData.stoneNumber >= 5 && gameData.f2 == 1) {
+      document.getElementById("f2").style.display = "block";
+   }
+   if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
+      document.getElementById("f3").style.display = "block";
+   }
  /* if (gameData.stoneNumber >= 15 && gameData.f4 == 1) {
-    document.getElementById("f4").style.display = "block";
+      document.getElementById("f4").style.display = "block";
 }*/ /*
-  if (gameData.stationNumber >= 1 && gameData.g1 == 1) {
-    document.getElementById("g1").style.display = "block";
-  }
-  if (gameData.stationNumber >= 5 && gameData.g2 == 1) {
-    document.getElementById("g2").style.display = "block";
-  }
-  if (gameData.stationNumber >= 10 && gameData.g3 == 1) {
-    document.getElementById("g3").style.display = "block";
-  }
-  if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
-    document.getElementById("g4").style.display = "block";
-  }
-  if (gameData.leprechaunNumber >= 1 && gameData.h1 == 1) {
-    document.getElementById("h1").style.display = "block";
-  }
-  if (gameData.leprechaunNumber >= 5 && gameData.h2 == 1) {
-    document.getElementById("h2").style.display = "block";
-  }
+   if (gameData.stationNumber >= 1 && gameData.g1 == 1) {
+      document.getElementById("g1").style.display = "block";
+   }
+   if (gameData.stationNumber >= 5 && gameData.g2 == 1) {
+      document.getElementById("g2").style.display = "block";
+   }
+   if (gameData.stationNumber >= 10 && gameData.g3 == 1) {
+      document.getElementById("g3").style.display = "block";
+   }
+   if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
+      document.getElementById("g4").style.display = "block";
+   }
+   if (gameData.leprechaunNumber >= 1 && gameData.h1 == 1) {
+      document.getElementById("h1").style.display = "block";
+   }
+   if (gameData.leprechaunNumber >= 5 && gameData.h2 == 1) {
+      document.getElementById("h2").style.display = "block";
+   }
  /* if (gameData.leprechaunNumber >= 10 && gameData.h3 == 1) {
-    document.getElementById("h3").style.display = "block";
-  }
-  if (gameData.leprechaunNumber >= 15 && gameData.h4 == 1) {
-    document.getElementById("h4").style.display = "block";
+      document.getElementById("h3").style.display = "block";
+   }
+   if (gameData.leprechaunNumber >= 15 && gameData.h4 == 1) {
+      document.getElementById("h4").style.display = "block";
 }*/ /*
-  if (gameData.sheepNumber >= 1 && gameData.i1 == 1) {
-    document.getElementById("i1").style.display = "block";
-  }
-  if (gameData.sheepNumber >= 5 && gameData.i2 == 1) {
-    document.getElementById("i2").style.display = "block";
-  }
-  /*if (gameData.sheepNumber >= 10 && gameData.i3 == 1) {
-    document.getElementById("i3").style.display = "block";
-  }
-  if (gameData.sheepNumber >= 15 && gameData.i4 == 1) {
-    document.getElementById("i4").style.display = "block";
+   if (gameData.sheepNumber >= 1 && gameData.i1 == 1) {
+      document.getElementById("i1").style.display = "block";
+   }
+   if (gameData.sheepNumber >= 5 && gameData.i2 == 1) {
+      document.getElementById("i2").style.display = "block";
+   }
+   /*if (gameData.sheepNumber >= 10 && gameData.i3 == 1) {
+      document.getElementById("i3").style.display = "block";
+   }
+   if (gameData.sheepNumber >= 15 && gameData.i4 == 1) {
+      document.getElementById("i4").style.display = "block";
 }*/ /*
-  if (gameData.rayNumber >= 1 && gameData.j1 == 1) {
-    document.getElementById("j1").style.display = "block";
-  }
-  if (gameData.rayNumber >= 5 && gameData.j2 == 1) {
-    document.getElementById("j2").style.display = "block";
-  }
-  if (gameData.rayNumber >= 10 && gameData.j3 == 1) {
-    document.getElementById("j3").style.display = "block";
-  }
+   if (gameData.rayNumber >= 1 && gameData.j1 == 1) {
+      document.getElementById("j1").style.display = "block";
+   }
+   if (gameData.rayNumber >= 5 && gameData.j2 == 1) {
+      document.getElementById("j2").style.display = "block";
+   }
+   if (gameData.rayNumber >= 10 && gameData.j3 == 1) {
+      document.getElementById("j3").style.display = "block";
+   }
  /* if (gameData.rayNumber >= 15 && gameData.j4 == 1) {
-    document.getElementById("j4").style.display = "block";
+      document.getElementById("j4").style.display = "block";
 }*/ /*
-  if (gameData.mergerNumber >= 1 && gameData.k1 == 1) {
-    document.getElementById("k1").style.display = "block";
-  }
-  if (gameData.mergerNumber >= 5 && gameData.k2 == 1) {
-    document.getElementById("k2").style.display = "block";
-  }
-  if (gameData.mergerNumber >= 10 && gameData.k3 == 1) {
-    document.getElementById("k3").style.display = "block";
-  }
-  /*if (gameData.mergerNumber >= 15 && gameData.k4 == 1) {
-    document.getElementById("k4").style.display = "block";
+   if (gameData.mergerNumber >= 1 && gameData.k1 == 1) {
+      document.getElementById("k1").style.display = "block";
+   }
+   if (gameData.mergerNumber >= 5 && gameData.k2 == 1) {
+      document.getElementById("k2").style.display = "block";
+   }
+   if (gameData.mergerNumber >= 10 && gameData.k3 == 1) {
+      document.getElementById("k3").style.display = "block";
+   }
+   /*if (gameData.mergerNumber >= 15 && gameData.k4 == 1) {
+      document.getElementById("k4").style.display = "block";
 }*/ /*
-  if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
-    document.getElementById("otherworldPortal").style.display = "block";
-  }
+   if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
+      document.getElementById("otherworldPortal").style.display = "block";
+   }
 }, 3000)
 
 function a1() {
-  if (gameData.gold >= gameData.a1Price) {
-    gameData.gold -= gameData.a1Price
-    gameData.clickinGold *= 2
-    gameData.a1 = 2
-    document.getElementById("a1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.a1Price) {
+      gameData.gold -= gameData.a1Price
+      gameData.clickinGold *= 2
+      gameData.a1 = 2
+      document.getElementById("a1").style.display = "none";
+   }
 }
 function a2() {
-  if (gameData.gold >= gameData.a2Price) {
-    gameData.gold -= gameData.a2Price
-    gameData.clickinGold *= 2
-    gameData.a2 = 2
-    document.getElementById("a2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.a2Price) {
+      gameData.gold -= gameData.a2Price
+      gameData.clickinGold *= 2
+      gameData.a2 = 2
+      document.getElementById("a2").style.display = "none";
+   }
 }
 function a3() {
-  if (gameData.gold >= gameData.a3Price) {
-    gameData.gold -= gameData.a3Price
-    gameData.clickinGold *= gameData.pickaxeNumber
-    gameData.a3 = 2
-    document.getElementById("a3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.a3Price) {
+      gameData.gold -= gameData.a3Price
+      gameData.clickinGold *= gameData.pickaxeNumber
+      gameData.a3 = 2
+      document.getElementById("a3").style.display = "none";
+   }
 }
 function a4() {
-  if (gameData.gold >= gameData.a4Price) {
-    gameData.gold -= gameData.a4Price
-    gameData.clickinGold *= gameData.pickaxeNumber
-    gameData.a4 = 2
-    document.getElementById("a4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.a4Price) {
+      gameData.gold -= gameData.a4Price
+      gameData.clickinGold *= gameData.pickaxeNumber
+      gameData.a4 = 2
+      document.getElementById("a4").style.display = "none";
+   }
 }
 function a5() {
-  if (gameData.gold >= gameData.a5Price) {
-    gameData.gold -= gameData.a5Price
-    gameData.clickinGold *= gameData.pickaxeNumber
-    gameData.a5 = 2
-    document.getElementById("a5").style.display = "none";
-  }
+   if (gameData.gold >= gameData.a5Price) {
+      gameData.gold -= gameData.a5Price
+      gameData.clickinGold *= gameData.pickaxeNumber
+      gameData.a5 = 2
+      document.getElementById("a5").style.display = "none";
+   }
 }
 function a6() {
-  if (gameData.gold >= gameData.a6Price) {
-    gameData.gold -= gameData.a6Price
-    gameData.clickinGold *= gameData.pickaxeNumber
-    gameData.a6 = 2
-    document.getElementById("a6").style.display = "none";
-  }
+   if (gameData.gold >= gameData.a6Price) {
+      gameData.gold -= gameData.a6Price
+      gameData.clickinGold *= gameData.pickaxeNumber
+      gameData.a6 = 2
+      document.getElementById("a6").style.display = "none";
+   }
 }
 
 function b1() {
-  if (gameData.gold >= gameData.b1Price) {
-    gameData.gold -= gameData.b1Price
-    gameData.pickaxeProfit *= 2
-    gameData.pickaxeGold *= 2
-    gameData.b1 = 2
-    document.getElementById("b1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.b1Price) {
+      gameData.gold -= gameData.b1Price
+      gameData.pickaxeProfit *= 2
+      gameData.pickaxeGold *= 2
+      gameData.b1 = 2
+      document.getElementById("b1").style.display = "none";
+   }
 }
 function b2() {
-  if (gameData.gold >= gameData.b2Price) {
-    gameData.gold -= gameData.b2Price
-    gameData.pickaxeProfit *= 2
-    gameData.pickaxeGold *= 2
-    gameData.b2 = 2
-    document.getElementById("b2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.b2Price) {
+      gameData.gold -= gameData.b2Price
+      gameData.pickaxeProfit *= 2
+      gameData.pickaxeGold *= 2
+      gameData.b2 = 2
+      document.getElementById("b2").style.display = "none";
+   }
 }
 function b3() {
-  if (gameData.gold >= gameData.b3Price) {
-    gameData.gold -= gameData.b3Price
-    gameData.pickaxeProfit *= 2
-    gameData.pickaxeGold *= 2
-    gameData.b3 = 2
-    document.getElementById("b3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.b3Price) {
+      gameData.gold -= gameData.b3Price
+      gameData.pickaxeProfit *= 2
+      gameData.pickaxeGold *= 2
+      gameData.b3 = 2
+      document.getElementById("b3").style.display = "none";
+   }
 }
 function b4() {
-  if (gameData.gold >= gameData.b4Price) {
-    gameData.gold -= gameData.b4Price
-    gameData.pickaxeProfit *= 2
-    gameData.pickaxeGold *= 2
-    gameData.b4 = 2
-    document.getElementById("b4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.b4Price) {
+      gameData.gold -= gameData.b4Price
+      gameData.pickaxeProfit *= 2
+      gameData.pickaxeGold *= 2
+      gameData.b4 = 2
+      document.getElementById("b4").style.display = "none";
+   }
 }
 
 function c1() {
-  if (gameData.gold >= gameData.c1Price) {
-    gameData.gold -= gameData.c1Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
-    gameData.c1 = 2
-    document.getElementById("c1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c1Price) {
+      gameData.gold -= gameData.c1Price
+      gameData.dwarfProfit *= 2
+      gameData.dwarfGold *= 2
+      gameData.c1 = 2
+      document.getElementById("c1").style.display = "none";
+   }
 }
 function c2() {
-  if (gameData.gold >= gameData.c2Price) {
-    gameData.gold -= gameData.c2Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
-    gameData.c2 = 2
-    document.getElementById("c2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c2Price) {
+      gameData.gold -= gameData.c2Price
+      gameData.dwarfProfit *= 2
+      gameData.dwarfGold *= 2
+      gameData.c2 = 2
+      document.getElementById("c2").style.display = "none";
+   }
 }
 function c3() {
-  if (gameData.gold >= gameData.c3Price) {
-    gameData.gold -= gameData.c3Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
-    gameData.c3 = 2
-    document.getElementById("c3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c3Price) {
+      gameData.gold -= gameData.c3Price
+      gameData.dwarfProfit *= 2
+      gameData.dwarfGold *= 2
+      gameData.c3 = 2
+      document.getElementById("c3").style.display = "none";
+   }
 }
 function c4() {
-  if (gameData.gold >= gameData.c4Price) {
-    gameData.gold -= gameData.c4Price
-    gameData.dwarfProfit *= 2
-    gameData.dwarfGold *= 2
-    gameData.c4 = 2
-    document.getElementById("c4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c4Price) {
+      gameData.gold -= gameData.c4Price
+      gameData.dwarfProfit *= 2
+      gameData.dwarfGold *= 2
+      gameData.c4 = 2
+      document.getElementById("c4").style.display = "none";
+   }
 }
 
 function c01() {
-  if (gameData.gold >= gameData.c01Price) {
-    gameData.gold -= gameData.c01Price
-    gameData.gooseProfit *= 2
-    gameData.gooseGold *= 2
-    gameData.c01 = 2
-    document.getElementById("c01").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c01Price) {
+      gameData.gold -= gameData.c01Price
+      gameData.gooseProfit *= 2
+      gameData.gooseGold *= 2
+      gameData.c01 = 2
+      document.getElementById("c01").style.display = "none";
+   }
 }
 function c02() {
-  if (gameData.gold >= gameData.c02Price) {
-    gameData.gold -= gameData.c02Price
-    gameData.gooseProfit *= 2
-    gameData.gooseGold *= 2
-    gameData.c02 = 2
-    document.getElementById("c02").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c02Price) {
+      gameData.gold -= gameData.c02Price
+      gameData.gooseProfit *= 2
+      gameData.gooseGold *= 2
+      gameData.c02 = 2
+      document.getElementById("c02").style.display = "none";
+   }
 }
 function c03() {
-  if (gameData.gold >= gameData.c03Price) {
-    gameData.gold -= gameData.c03Price
-    gameData.gooseProfit *= 2
-    gameData.gooseGold *= 2
-    gameData.c03 = 2
-    document.getElementById("c03").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c03Price) {
+      gameData.gold -= gameData.c03Price
+      gameData.gooseProfit *= 2
+      gameData.gooseGold *= 2
+      gameData.c03 = 2
+      document.getElementById("c03").style.display = "none";
+   }
 }
 function c04() {
-  if (gameData.gold >= gameData.c04Price) {
-    gameData.gold -= gameData.c04Price
-    gameData.gooseProfit *= 2
-    gameData.gooseGold *= 2
-    gameData.c04 = 2
-    document.getElementById("c04").style.display = "none";
-  }
+   if (gameData.gold >= gameData.c04Price) {
+      gameData.gold -= gameData.c04Price
+      gameData.gooseProfit *= 2
+      gameData.gooseGold *= 2
+      gameData.c04 = 2
+      document.getElementById("c04").style.display = "none";
+   }
 }
 
 function d1() {
-  if (gameData.gold >= gameData.d1Price) {
-    gameData.gold -= gameData.d1Price
-    gameData.mineProfit *= 2
-    gameData.mineGold *= 2
-    gameData.d1 = 2
-    document.getElementById("d1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.d1Price) {
+      gameData.gold -= gameData.d1Price
+      gameData.mineProfit *= 2
+      gameData.mineGold *= 2
+      gameData.d1 = 2
+      document.getElementById("d1").style.display = "none";
+   }
 }
 function d2() {
-  if (gameData.gold >= gameData.d2Price) {
-    gameData.gold -= gameData.d2Price
-    gameData.mineProfit *= 2
-    gameData.mineGold *= 2
-    gameData.d2 = 2
-    document.getElementById("d2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.d2Price) {
+      gameData.gold -= gameData.d2Price
+      gameData.mineProfit *= 2
+      gameData.mineGold *= 2
+      gameData.d2 = 2
+      document.getElementById("d2").style.display = "none";
+   }
 }
 function d3() {
-  if (gameData.gold >= gameData.d3Price) {
-    gameData.gold -= gameData.d3Price
-    gameData.mineProfit *= 2
-    gameData.mineGold *= 2
-    gameData.d3 = 2
-    document.getElementById("d3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.d3Price) {
+      gameData.gold -= gameData.d3Price
+      gameData.mineProfit *= 2
+      gameData.mineGold *= 2
+      gameData.d3 = 2
+      document.getElementById("d3").style.display = "none";
+   }
 }
 function d4() {
-  if (gameData.gold >= gameData.d4Price) {
-    gameData.gold -= gameData.d4Price
-    gameData.mineProfit *= 2
-    gameData.mineGold *= 2
-    gameData.d4 = 2
-    document.getElementById("d4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.d4Price) {
+      gameData.gold -= gameData.d4Price
+      gameData.mineProfit *= 2
+      gameData.mineGold *= 2
+      gameData.d4 = 2
+      document.getElementById("d4").style.display = "none";
+   }
 }
 
 function e1() {
-  if (gameData.gold >= gameData.e1Price) {
-    gameData.gold -= gameData.e1Price
-    gameData.dragonProfit *= 2
-    gameData.dragonGold *= 2
-    gameData.e1 = 2
-    document.getElementById("e1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.e1Price) {
+      gameData.gold -= gameData.e1Price
+      gameData.dragonProfit *= 2
+      gameData.dragonGold *= 2
+      gameData.e1 = 2
+      document.getElementById("e1").style.display = "none";
+   }
 }
 function e2() {
-  if (gameData.gold >= gameData.e2Price) {
-    gameData.gold -= gameData.e2Price
-    gameData.dragonProfit *= 2
-    gameData.dragonGold *= 2
-    gameData.e2 = 2
-    document.getElementById("e2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.e2Price) {
+      gameData.gold -= gameData.e2Price
+      gameData.dragonProfit *= 2
+      gameData.dragonGold *= 2
+      gameData.e2 = 2
+      document.getElementById("e2").style.display = "none";
+   }
 }
 function e3() {
-  if (gameData.gold >= gameData.e3Price) {
-    gameData.gold -= gameData.e3Price
-    gameData.dragonProfit *= 2
-    gameData.dragonGold *= 2
-    gameData.e3 = 2
-    document.getElementById("e3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.e3Price) {
+      gameData.gold -= gameData.e3Price
+      gameData.dragonProfit *= 2
+      gameData.dragonGold *= 2
+      gameData.e3 = 2
+      document.getElementById("e3").style.display = "none";
+   }
 }
 function e4() {
-  if (gameData.gold >= gameData.e4Price) {
-    gameData.gold -= gameData.e4Price
-    gameData.dragonProfit *= 2
-    gameData.dragonGold *= 2
-    gameData.e4 = 2
-    document.getElementById("e4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.e4Price) {
+      gameData.gold -= gameData.e4Price
+      gameData.dragonProfit *= 2
+      gameData.dragonGold *= 2
+      gameData.e4 = 2
+      document.getElementById("e4").style.display = "none";
+   }
 }
 
 function f1() {
-  if (gameData.gold >= gameData.f1Price) {
-    gameData.gold -= gameData.f1Price
-    gameData.stoneProfit *= 2
-    gameData.stoneGold *= 2
-    gameData.f1 = 2
-    document.getElementById("f1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.f1Price) {
+      gameData.gold -= gameData.f1Price
+      gameData.stoneProfit *= 2
+      gameData.stoneGold *= 2
+      gameData.f1 = 2
+      document.getElementById("f1").style.display = "none";
+   }
 }
 function f2() {
-  if (gameData.gold >= gameData.f2Price) {
-    gameData.gold -= gameData.f2Price
-    gameData.stoneProfit *= 2
-    gameData.stoneGold *= 2
-    gameData.f2 = 2
-    document.getElementById("f2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.f2Price) {
+      gameData.gold -= gameData.f2Price
+      gameData.stoneProfit *= 2
+      gameData.stoneGold *= 2
+      gameData.f2 = 2
+      document.getElementById("f2").style.display = "none";
+   }
 }
 function f3() {
-  if (gameData.gold >= gameData.f3Price) {
-    gameData.gold -= gameData.f3Price
-    gameData.stoneProfit *= 2
-    gameData.stoneGold *= 2
-    gameData.f3 = 2
-    document.getElementById("f3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.f3Price) {
+      gameData.gold -= gameData.f3Price
+      gameData.stoneProfit *= 2
+      gameData.stoneGold *= 2
+      gameData.f3 = 2
+      document.getElementById("f3").style.display = "none";
+   }
 }
 function f4() {
-  if (gameData.gold >= gameData.f4Price) {
-    gameData.gold -= gameData.f4Price
-    gameData.stoneProfit *= 2
-    gameData.stoneGold *= 2
-    gameData.f4 = 2
-    document.getElementById("f4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.f4Price) {
+      gameData.gold -= gameData.f4Price
+      gameData.stoneProfit *= 2
+      gameData.stoneGold *= 2
+      gameData.f4 = 2
+      document.getElementById("f4").style.display = "none";
+   }
 }
 
 function g1() {
-  if (gameData.gold >= gameData.g1Price) {
-    gameData.gold -= gameData.g1Price
-    gameData.stationProfit *= 2
-    gameData.stationGold *= 2
-    gameData.g1 = 2
-    document.getElementById("g1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.g1Price) {
+      gameData.gold -= gameData.g1Price
+      gameData.stationProfit *= 2
+      gameData.stationGold *= 2
+      gameData.g1 = 2
+      document.getElementById("g1").style.display = "none";
+   }
 }
 function g2() {
-  if (gameData.gold >= gameData.g2Price) {
-    gameData.gold -= gameData.g2Price
-    gameData.stationProfit *= 2
-    gameData.stationGold *= 2
-    gameData.g2 = 2
-    document.getElementById("g2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.g2Price) {
+      gameData.gold -= gameData.g2Price
+      gameData.stationProfit *= 2
+      gameData.stationGold *= 2
+      gameData.g2 = 2
+      document.getElementById("g2").style.display = "none";
+   }
 }
 function g3() {
-  if (gameData.gold >= gameData.g3Price) {
-    gameData.gold -= gameData.g3Price
-    gameData.stationProfit *= 2
-    gameData.stationGold *= 2
-    gameData.g3 = 2
-    document.getElementById("g3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.g3Price) {
+      gameData.gold -= gameData.g3Price
+      gameData.stationProfit *= 2
+      gameData.stationGold *= 2
+      gameData.g3 = 2
+      document.getElementById("g3").style.display = "none";
+   }
 }
 function g4() {
-  if (gameData.gold >= gameData.g4Price) {
-    gameData.gold -= gameData.g4Price
-    gameData.stationProfit *= 2
-    gameData.stationGold *= 2
-    gameData.g4 = 2
-    document.getElementById("g4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.g4Price) {
+      gameData.gold -= gameData.g4Price
+      gameData.stationProfit *= 2
+      gameData.stationGold *= 2
+      gameData.g4 = 2
+      document.getElementById("g4").style.display = "none";
+   }
 }
 
 function h1() {
-  if (gameData.gold >= gameData.h1Price) {
-    gameData.gold -= gameData.h1Price
-    gameData.lepProfit *= 2
-    gameData.leprechaunGold *= 2
-    gameData.h1 = 2
-    document.getElementById("h1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.h1Price) {
+      gameData.gold -= gameData.h1Price
+      gameData.lepProfit *= 2
+      gameData.leprechaunGold *= 2
+      gameData.h1 = 2
+      document.getElementById("h1").style.display = "none";
+   }
 }
 function h2() {
-  if (gameData.gold >= gameData.h2Price) {
-    gameData.gold -= gameData.h2Price
-    gameData.lepProfit *= 2
-    gameData.leprechaunGold *= 2
-    gameData.h2 = 2
-    document.getElementById("h2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.h2Price) {
+      gameData.gold -= gameData.h2Price
+      gameData.lepProfit *= 2
+      gameData.leprechaunGold *= 2
+      gameData.h2 = 2
+      document.getElementById("h2").style.display = "none";
+   }
 }
 function h3() {
-  if (gameData.gold >= gameData.h3Price) {
-    gameData.gold -= gameData.h3Price
-    gameData.lepProfit *= 2
-    gameData.leprechaunGold *= 2
-    gameData.h3 = 2
-    document.getElementById("h3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.h3Price) {
+      gameData.gold -= gameData.h3Price
+      gameData.lepProfit *= 2
+      gameData.leprechaunGold *= 2
+      gameData.h3 = 2
+      document.getElementById("h3").style.display = "none";
+   }
 }
 function h4() {
-  if (gameData.gold >= gameData.h4Price) {
-    gameData.gold -= gameData.h4Price
-    gameData.lepProfit *= 2
-    gameData.leprechaunGold *= 2
-    gameData.h4 = 2
-    document.getElementById("h4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.h4Price) {
+      gameData.gold -= gameData.h4Price
+      gameData.lepProfit *= 2
+      gameData.leprechaunGold *= 2
+      gameData.h4 = 2
+      document.getElementById("h4").style.display = "none";
+   }
 }
 
 function i1() {
-  if (gameData.gold >= gameData.i1Price) {
-    gameData.gold -= gameData.i1Price
-    gameData.sheepProfit *= 2
-    gameData.sheepGold *= 2
-    gameData.i1 = 2
-    document.getElementById("i1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.i1Price) {
+      gameData.gold -= gameData.i1Price
+      gameData.sheepProfit *= 2
+      gameData.sheepGold *= 2
+      gameData.i1 = 2
+      document.getElementById("i1").style.display = "none";
+   }
 }
 function i2() {
-  if (gameData.gold >= gameData.i2Price) {
-    gameData.gold -= gameData.i2Price
-    gameData.sheepProfit *= 2
-    gameData.sheepGold *= 2
-    gameData.i2 = 2
-    document.getElementById("i2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.i2Price) {
+      gameData.gold -= gameData.i2Price
+      gameData.sheepProfit *= 2
+      gameData.sheepGold *= 2
+      gameData.i2 = 2
+      document.getElementById("i2").style.display = "none";
+   }
 }
 function i3() {
-  if (gameData.gold >= gameData.i3Price) {
-    gameData.gold -= gameData.i3Price
-    gameData.sheepProfit *= 2
-    gameData.sheepGold *= 2
-    gameData.i3 = 2
-    document.getElementById("i3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.i3Price) {
+      gameData.gold -= gameData.i3Price
+      gameData.sheepProfit *= 2
+      gameData.sheepGold *= 2
+      gameData.i3 = 2
+      document.getElementById("i3").style.display = "none";
+   }
 }
 function i4() {
-  if (gameData.gold >= gameData.i4Price) {
-    gameData.gold -= gameData.i4Price
-    gameData.sheepProfit *= 2
-    gameData.sheepGold *= 2
-    gameData.i4 = 2
-    document.getElementById("i4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.i4Price) {
+      gameData.gold -= gameData.i4Price
+      gameData.sheepProfit *= 2
+      gameData.sheepGold *= 2
+      gameData.i4 = 2
+      document.getElementById("i4").style.display = "none";
+   }
 }
 
 function j1() {
-  if (gameData.gold >= gameData.j1Price) {
-    gameData.gold -= gameData.j1Price
-    gameData.rayProfit *= 2
-    gameData.rayGold *= 2
-    gameData.j1 = 2
-    document.getElementById("j1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.j1Price) {
+      gameData.gold -= gameData.j1Price
+      gameData.rayProfit *= 2
+      gameData.rayGold *= 2
+      gameData.j1 = 2
+      document.getElementById("j1").style.display = "none";
+   }
 }
 function j2() {
-  if (gameData.gold >= gameData.j2Price) {
-    gameData.gold -= gameData.j2Price
-    gameData.rayProfit *= 2
-    gameData.rayGold *= 2
-    gameData.j2 = 2
-    document.getElementById("j2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.j2Price) {
+      gameData.gold -= gameData.j2Price
+      gameData.rayProfit *= 2
+      gameData.rayGold *= 2
+      gameData.j2 = 2
+      document.getElementById("j2").style.display = "none";
+   }
 }
 function j3() {
-  if (gameData.gold >= gameData.j3Price) {
-    gameData.gold -= gameData.j3Price
-    gameData.rayProfit *= 2
-    gameData.rayGold *= 2
-    gameData.j3 = 2
-    document.getElementById("j3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.j3Price) {
+      gameData.gold -= gameData.j3Price
+      gameData.rayProfit *= 2
+      gameData.rayGold *= 2
+      gameData.j3 = 2
+      document.getElementById("j3").style.display = "none";
+   }
 }
 function j4() {
-  if (gameData.gold >= gameData.j4Price) {
-    gameData.gold -= gameData.j4Price
-    gameData.rayProfit *= 2
-    gameData.rayGold *= 2
-    gameData.j4 = 2
-    document.getElementById("j4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.j4Price) {
+      gameData.gold -= gameData.j4Price
+      gameData.rayProfit *= 2
+      gameData.rayGold *= 2
+      gameData.j4 = 2
+      document.getElementById("j4").style.display = "none";
+   }
 }
 
 function k1() {
-  if (gameData.gold >= gameData.k1Price) {
-    gameData.gold -= gameData.k1Price
-    gameData.mergerProfit *= 2
-    gameData.mergerGold *= 2
-    gameData.k1 = 2
-    document.getElementById("k1").style.display = "none";
-  }
+   if (gameData.gold >= gameData.k1Price) {
+      gameData.gold -= gameData.k1Price
+      gameData.mergerProfit *= 2
+      gameData.mergerGold *= 2
+      gameData.k1 = 2
+      document.getElementById("k1").style.display = "none";
+   }
 }
 function k2() {
-  if (gameData.gold >= gameData.k2Price) {
-    gameData.gold -= gameData.k2Price
-    gameData.mergerProfit *= 2
-    gameData.mergerGold *= 2
-    gameData.k2 = 2
-    document.getElementById("k2").style.display = "none";
-  }
+   if (gameData.gold >= gameData.k2Price) {
+      gameData.gold -= gameData.k2Price
+      gameData.mergerProfit *= 2
+      gameData.mergerGold *= 2
+      gameData.k2 = 2
+      document.getElementById("k2").style.display = "none";
+   }
 }
 function k3() {
-  if (gameData.gold >= gameData.k3Price) {
-    gameData.gold -= gameData.k3Price
-    gameData.mergerProfit *= 2
-    gameData.mergerGold *= 2
-    gameData.k3 = 2
-    document.getElementById("k3").style.display = "none";
-  }
+   if (gameData.gold >= gameData.k3Price) {
+      gameData.gold -= gameData.k3Price
+      gameData.mergerProfit *= 2
+      gameData.mergerGold *= 2
+      gameData.k3 = 2
+      document.getElementById("k3").style.display = "none";
+   }
 }
 function k4() {
-  if (gameData.gold >= gameData.k4Price) {
-    gameData.gold -= gameData.k4Price
-    gameData.mergerProfit *= 2
-    gameData.mergerGold *= 2
-    gameData.k4 = 2
-    document.getElementById("k4").style.display = "none";
-  }
+   if (gameData.gold >= gameData.k4Price) {
+      gameData.gold -= gameData.k4Price
+      gameData.mergerProfit *= 2
+      gameData.mergerGold *= 2
+      gameData.k4 = 2
+      document.getElementById("k4").style.display = "none";
+   }
 }
 
 function otherworldPortal() {
-  if (gameData.gold >= gameData.otherworldPortalActivationCost) {
-    gameData.gold -= gameData.otherworldPortalActivationCost
-    window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#")
-  }
+   if (gameData.gold >= gameData.otherworldPortalActivationCost) {
+      gameData.gold -= gameData.otherworldPortalActivationCost
+      window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#")
+   }
 }
 */
 /*
@@ -1192,7 +1203,6 @@ function save() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }
 
-
 function dark() {
    // This changes the default colors for avalible and unavalible buildings
    regColor = "#454545";
@@ -1218,6 +1228,7 @@ function dark() {
    // Basic styling
    document.body.style.color = "#fff";
    document.body.style.background = "#383838";
+   document.getElementById("news").style.background = '#737373';
    document.getElementById("playerName").style.background = "#8f8d8d";
 }
 
