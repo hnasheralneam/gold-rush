@@ -1222,13 +1222,15 @@ function light() {
    // Reload page
    document.location.href = ("")
 }
-/*
+
+// Set var myAudio to audio file
 var myAudio = document.getElementById("myAudio");
 
 function music() {
+   // If audio is paused run, if it is playing, pause
   return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
-*/
+
 //==========================================================
 //News
 //==========================================================
