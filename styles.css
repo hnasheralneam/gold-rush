@@ -196,6 +196,7 @@ Section 3 | Shop
    display: flex;
    align-items: center;
    justify-content: center;
+   display: none;
 }
 
 .store-info {
@@ -219,6 +220,12 @@ Section 3 | Shop
 .store-item:hover .store-display {
    transform: scale(0);
    opacity: 0;
+}
+
+#wait-gif {
+   height: 50px;
+   width: auto;
+   margin: 15px auto;
 }
 
 /*==========================================================

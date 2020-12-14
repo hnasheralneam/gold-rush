@@ -5,6 +5,7 @@
 // Copyright Squirrel 2020 A.D.
 // If you continue you shall get the majority of the game spoiled for you. Also, it's a 'bit' messy
 // Solicitors will be relieved of their sanity
+// Beta version comes with commented code! Now I can know why I did what I did.
 
 //==========================================================
 //Game Data
@@ -94,7 +95,7 @@ var initialGameData = {
    mergerNumber: 0,
 
 //Player Name
-   playerName: 3,
+   playerName: null,
 
 //Time
    lastTick: Date.now()
@@ -1139,6 +1140,9 @@ var buildColorLoop = window.setInterval(function() {
    else {
       document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
    }
+   if (gameData.mergerNumber <= 0) {
+      document.getElementById("waiting").innerHTML = "<img id=\"wait-gif\" src=\"Images/wait.gif\">";
+   }
 }, 500)
 
 // Set game data to local Storage
@@ -1156,7 +1160,7 @@ if (savegame !== null) {
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
    document.title = gameData.gold + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = gameData.gold + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
+   document.getElementById("gold-owned").innerHTML = (gameData.gold).toFixed(0) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
 
 //==========================================================
@@ -1188,36 +1192,35 @@ function save() {
   localStorage.setItem("goldRushSave", JSON.stringify(gameData))
 }
 
-/*
+
 function dark() {
-   This changes the default colors for avalible and unavalible buildings
-  regColor = "#454545"
-  notEnoughColor = "#000"
+   // This changes the default colors for avalible and unavalible buildings
+   regColor = "#454545";
+   notEnoughColor = "#000";
 
-  var all = document.getElementsByClassName('info');
-  for (var i = 0; i < all.length; i++) {
-    all[i].style.color = '#fff';
-    all[i].style.fontFamily = 'times';
-    all[i].style.border = 'outset 5px lightblue';
-  }
+   // Class styling, I do not understand how this works
+   var storeItem = document.getElementsByClassName('store-item');
+   for (var i = 0; i < storeItem.length; i++) {
+      storeItem[i].style.color = '#fff';
+      storeItem[i].style.fontFamily = 'times';
+      storeItem[i].style.border = 'outset 5px lightblue';
+   }
+   var up = document.getElementsByClassName('UP');
+   for (var i = 0; i < up.length; i++) {
+      up[i].style.color = '#000';
+      up[i].style.backgroundColor = '#b3d0de';
+   }
+   var details = document.getElementsByTagName('details');
+   for (var i = 0; i < details.length; i++) {
+      details[i].style.background = '#737373';
+   }
 
-  var up = document.getElementsByClassName('UP');
-  for (var i = 0; i < up.length; i++) {
-    up[i].style.color = '#000';
-    up[i].style.backgroundColor = '#b3d0de';
-  }
-
-  var allo = document.getElementsByClassName('boxi');
-  for (var i = 0; i < allo.length; i++) {
-    allo[i].style.background = '#737373';
-  }
-
-  document.body.style.color = "#fff";
-  document.body.style.background = "#383838";
-  document.getElementById("playerrName").style.background = "#8f8d8d";
-  document.getElementById("gain").style.backgroundColor = "rgba(0, 0, 0, .2)";
+   // Basic styling
+   document.body.style.color = "#fff";
+   document.body.style.background = "#383838";
+   document.getElementById("playerName").style.background = "#8f8d8d";
 }
-*/
+
 function light() {
    // Reload page
    document.location.href = ("")
@@ -1228,7 +1231,7 @@ var myAudio = document.getElementById("myAudio");
 
 function music() {
    // If audio is paused run, if it is playing, pause
-  return myAudio.paused ? myAudio.play() : myAudio.pause();
+   return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
 
 //==========================================================
@@ -1455,7 +1458,7 @@ function gameLayout() {
    // Set player name
    document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
    // If no player name
-   if (gameData.playerName == 3) {
+   if (gameData.playerName == null) {
       // Run game setup
       gameSetup();
    }
@@ -1478,7 +1481,7 @@ function gameSetup() {
    // Ask for their name
    gameData.playerName = prompt("What is your name?(don't use your real name)");
    // Display name
-   document.getElementById("playerName").innerHTML = gameData.playerName + " 's Mine";
+   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
 }
 
 //==========================================================
