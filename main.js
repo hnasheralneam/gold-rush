@@ -723,17 +723,17 @@ function d2() {
    }
 }
 function d3() {
-   if (gameData.gold >= upgradeData.d3Price) {
-      gameData.gold -= upgradeData.d3Price;
-      gameData.mineProfit *= 2;
-      gameData.mineGold *= 2;
+   if (upgradeData.gold >= upgradeData.d3Price) {
+      upgradeData.gold -= upgradeData.d3Price;
+      upgradeData.mineProfit *= 2;
+      upgradeData.mineGold *= 2;
       upgradeData.d3 = 2;
       document.getElementById("d3").style.display = "none";
    }
 }
 function d4() {
-   if (gameData.gold >= upgradeData.d4Price) {
-      gameData.gold -= upgradeData.d4Price;
+   if (upgradeData.gold >= upgradeData.d4Price) {
+      upgradeData.gold -= upgradeData.d4Price;
       upgradeData.mineProfit *= 2;
       upgradeData.mineGold *= 2;
       upgradeData.d4 = 2;
@@ -742,8 +742,8 @@ function d4() {
 }
 
 function e1() {
-   if (gameData.gold >= upgradeData.e1Price) {
-      gameData.gold -= upgradeData.e1Price;
+   if (upgradeData.gold >= upgradeData.e1Price) {
+      upgradeData.gold -= upgradeData.e1Price;
       upgradeData.dragonProfit *= 2;
       upgradeData.dragonGold *= 2;
       upgradeData.e1 = 2;
@@ -751,8 +751,8 @@ function e1() {
    }
 }
 function e2() {
-   if (gameData.gold >= upgradeData.e2Price) {
-      gameData.gold -= upgradeData.e2Price;
+   if (upgradeData.gold >= upgradeData.e2Price) {
+      upgradeData.gold -= upgradeData.e2Price;
       upgradeData.dragonProfit *= 2;
       upgradeData.dragonGold *= 2;
       upgradeData.e2 = 2;
@@ -760,8 +760,8 @@ function e2() {
    }
 }
 function e3() {
-   if (gameData.gold >= upgradeData.e3Price) {
-      gameData.gold -= upgradeData.e3Price;
+   if (upgradeData.gold >= upgradeData.e3Price) {
+      upgradeData.gold -= upgradeData.e3Price;
       upgradeData.dragonProfit *= 2;
       upgradeData.dragonGold *= 2;
       upgradeData.e3 = 2;
@@ -769,8 +769,8 @@ function e3() {
    }
 }
 function e4() {
-   if (gameData.gold >= upgradeData.e4Price) {
-      gameData.gold -= upgradeData.e4Price;
+   if (upgradeData.gold >= upgradeData.e4Price) {
+      upgradeData.gold -= upgradeData.e4Price;
       upgradeData.dragonProfit *= 2;
       upgradeData.dragonGold *= 2;
       upgradeData.e4 = 2;
@@ -779,8 +779,8 @@ function e4() {
 }
 
 function f1() {
-   if (gameData.gold >= upgradeData.f1Price) {
-      gameData.gold -= upgradeData.f1Price;
+   if (upgradeData.gold >= upgradeData.f1Price) {
+      upgradeData.gold -= upgradeData.f1Price;
       upgradeData.stoneProfit *= 2;
       upgradeData.stoneGold *= 2;
       upgradeData.f1 = 2;
@@ -788,8 +788,8 @@ function f1() {
    }
 }
 function f2() {
-   if (gameData.gold >= upgradeData.f2Price) {
-      gameData.gold -= upgradeData.f2Price;
+   if (upgradeData.gold >= upgradeData.f2Price) {
+      upgradeData.gold -= upgradeData.f2Price;
       upgradeData.stoneProfit *= 2;
       upgradeData.stoneGold *= 2;
       upgradeData.f2 = 2;
@@ -797,8 +797,8 @@ function f2() {
    }
 }
 function f3() {
-   if (gameData.gold >= upgradeData.f3Price) {
-      gameData.gold -= upgradeData.f3Price;
+   if (upgradeData.gold >= upgradeData.f3Price) {
+      upgradeData.gold -= upgradeData.f3Price;
       upgradeData.stoneProfit *= 2;
       upgradeData.stoneGold *= 2;
       upgradeData.f3 = 2;
@@ -806,8 +806,8 @@ function f3() {
    }
 }
 function f4() {
-   if (gameData.gold >= upgradeData.f4Price) {
-      gameData.gold -= upgradeData.f4Price;
+   if (upgradeData.gold >= upgradeData.f4Price) {
+      upgradeData.gold -= upgradeData.f4Price;
       upgradeData.stoneProfit *= 2;
       upgradeData.stoneGold *= 2;
       upgradeData.f4 = 2;
@@ -816,8 +816,8 @@ function f4() {
 }
 
 function g1() {
-   if (gameData.gold >= upgradeData.g1Price) {
-      gameData.gold -= upgradeData.g1Price;
+   if (upgradeData.gold >= upgradeData.g1Price) {
+      upgradeData.gold -= upgradeData.g1Price;
       upgradeData.stationProfit *= 2;
       upgradeData.stationGold *= 2;
       upgradeData.g1 = 2;
@@ -825,8 +825,8 @@ function g1() {
    }
 }
 function g2() {
-   if (gameData.gold >= upgradeData.g2Price) {
-      gameData.gold -= upgradeData.g2Price;
+   if (upgradeData.gold >= upgradeData.g2Price) {
+      upgradeData.gold -= upgradeData.g2Price;
       upgradeData.stationProfit *= 2;
       upgradeData.stationGold *= 2;
       upgradeData.g2 = 2;
@@ -834,8 +834,8 @@ function g2() {
    }
 }
 function g3() {
-   if (gameData.gold >= upgradeData.g3Price) {
-      gameData.gold -= upgradeData.g3Price;
+   if (upgradeData.gold >= upgradeData.g3Price) {
+      upgradeData.gold -= upgradeData.g3Price;
       upgradeData.stationProfit *= 2;
       upgradeData.stationGold *= 2;
       upgradeData.g3 = 2;
@@ -843,8 +843,8 @@ function g3() {
    }
 }
 function g4() {
-   if (gameData.gold >= upgradeData.g4Price) {
-      gameData.gold -= upgradeData.g4Price;
+   if (upgradeData.gold >= upgradeData.g4Price) {
+      upgradeData.gold -= upgradeData.g4Price;
       upgradeData.stationProfit *= 2;
       upgradeData.stationGold *= 2;
       upgradeData.g4 = 2;
@@ -853,8 +853,8 @@ function g4() {
 }
 
 function h1() {
-   if (gameData.gold >= upgradeData.h1Price) {
-      gameData.gold -= upgradeData.h1Price;
+   if (upgradeData.gold >= upgradeData.h1Price) {
+      upgradeData.gold -= upgradeData.h1Price;
       upgradeData.lepProfit *= 2;
       upgradeData.leprechaunGold *= 2;
       upgradeData.h1 = 2;
@@ -862,8 +862,8 @@ function h1() {
    }
 }
 function h2() {
-   if (gameData.gold >= upgradeData.h2Price) {
-      gameData.gold -= upgradeData.h2Price;
+   if (upgradeData.gold >= upgradeData.h2Price) {
+      upgradeData.gold -= upgradeData.h2Price;
       upgradeData.lepProfit *= 2;
       upgradeData.leprechaunGold *= 2;
       upgradeData.h2 = 2;
@@ -871,8 +871,8 @@ function h2() {
    }
 }
 function h3() {
-   if (gameData.gold >= upgradeData.h3Price) {
-      gameData.gold -= upgradeData.h3Price;
+   if (upgradeData.gold >= upgradeData.h3Price) {
+      upgradeData.gold -= upgradeData.h3Price;
       upgradeData.lepProfit *= 2;
       upgradeData.leprechaunGold *= 2;
       upgradeData.h3 = 2;
@@ -880,8 +880,8 @@ function h3() {
    }
 }
 function h4() {
-   if (gameData.gold >= upgradeData.h4Price) {
-      gameData.gold -= upgradeData.h4Price;
+   if (upgradeData.gold >= upgradeData.h4Price) {
+      upgradeData.gold -= upgradeData.h4Price;
       upgradeData.lepProfit *= 2;
       upgradeData.leprechaunGold *= 2;
       upgradeData.h4 = 2;
@@ -890,8 +890,8 @@ function h4() {
 }
 
 function i1() {
-   if (gameData.gold >= upgradeData.i1Price) {
-      gameData.gold -= upgradeData.i1Price;
+   if (upgradeData.gold >= upgradeData.i1Price) {
+      upgradeData.gold -= upgradeData.i1Price;
       upgradeData.sheepProfit *= 2;
       upgradeData.sheepGold *= 2;
       upgradeData.i1 = 2;
@@ -899,8 +899,8 @@ function i1() {
    }
 }
 function i2() {
-   if (gameData.gold >= upgradeData.i2Price) {
-   gameeData.gold -= upgradeData.i2Price;
+   if (upgradeData.gold >= upgradeData.i2Price) {
+      upgradeData.gold -= upgradeData.i2Price;
       upgradeData.sheepProfit *= 2;
       upgradeData.sheepGold *= 2;
       upgradeData.i2 = 2;
@@ -908,8 +908,8 @@ function i2() {
    }
 }
 function i3() {
-   if (gameData.gold >= upgradeData.i3Price) {
-      gameData.gold -= upgradeData.i3Price;
+   if (upgradeData.gold >= upgradeData.i3Price) {
+      upgradeData.gold -= upgradeData.i3Price;
       upgradeData.sheepProfit *= 2;
       upgradeData.sheepGold *= 2;
       upgradeData.i3 = 2;
@@ -917,8 +917,8 @@ function i3() {
    }
 }
 function i4() {
-   if (gameData.gold >= upgradeData.i4Price) {
-      gameData.gold -= upgradeData.i4Price;
+   if (upgradeData.gold >= upgradeData.i4Price) {
+      upgradeData.gold -= upgradeData.i4Price;
       upgradeData.sheepProfit *= 2;
       upgradeData.sheepGold *= 2;
       upgradeData.i4 = 2;
@@ -1008,8 +1008,10 @@ function otherworldPortal() {
 }
 
 // This resets the values displayed in the shop
+// Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
    //Gold per Building
+   ///*
    document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + gameData.pickaxeGold + " GPS<br>A sturdy pickaxe to mine gold with";
    document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + gameData.dwarfProfit + " GPS each<br> Producing " + gameData.dwarfGold + " GPS<br>An assistant to help you mine gold";
    document.getElementById("goose-info").innerHTML = "Geese <br> " + gameData.gooseProfit + " GPS each<br> Producing " + gameData.gooseGold + " GPS<br>A nice goose that lays golden egg";
@@ -1021,9 +1023,11 @@ var updateStore = window.setInterval(function() {
    document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + gameData.sheepProfit + " GPS each<br> Producing " + gameData.sheepGold + " GPS<br>A cute round fluffy sheep with a golden fleece";
    document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + gameData.rayProfit + " GPS each<br> Producing " + gameData.rayGold + " GPS<br>Turns mass into gold";
    document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + gameData.mergerProfit + " GPS each<br> Producing " + gameData.mergerGold + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
+   //*/
 
    //Building Count
-   document.getElementById("tool-display").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
+   ///*
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
    document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
    document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
    document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
@@ -1035,6 +1039,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + gameData.hireSheepCost + " Gold";
    document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
    document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
+   //*/
 }, 500)
 
 //==========================================================
