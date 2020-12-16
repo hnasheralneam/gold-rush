@@ -353,29 +353,7 @@ function buyMerger() {
       gameData.mergerNumber += 1;
    }
 }
-/*
-// 1000 = 1 second | 60000 = 1 minute | 3600000 = 1 hour | 86500000 = 1 day
-// Here is the code for summoning circles
-function upgradeCircle1() {
-   if (gameData.otherstars >= circleData.lvl1Cost) {
-      gameData.gold -= circleData.lvl1Cost;
-      circleData.circleLevel += 1;
-      circleData.circleTimeUnit = 86500000s; // 1 day
-   }
-}
 
-function shortenCircleTime() {
-   if (gameData.otherstars >= circleData.shortenTimeCost) {
-      //circleData.circleTimeUnit -= (circleData.circleTimeUnit/20%); // 1 day
-   }
-}
-
-function increaseCircleReward() {
-   if (gameData.otherstars >= circleData.shortenTimeCost) {
-      circleData.circleProfit += 1;
-   }
-}
-*/
 //==========================================================
 //Upgrades
 //==========================================================
