@@ -1207,7 +1207,7 @@ function restart() {
          gameData = initialGameData;
          upgradeData =  initialGameData;
          // Set save as blank
-         localStorage.setItem("goldRushSave", JSON.stringify(gameData));
+         localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
          // Reload page
          document.location.href = ("");
