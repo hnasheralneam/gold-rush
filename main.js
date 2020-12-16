@@ -1028,7 +1028,9 @@ var mainGameLoop = window.setInterval(function() {
    // This code collets gold in player absence
    // Check how much time the've been gone
    diff = Date.now() - gameData.lastTick;
+   // Reset time
    gameData.lastTick = Date.now();
+   // Add gold they earned in abscence
    addGold(goldPerSecond() * (diff / 1000));
 
    // Display gold per second & gold per click
