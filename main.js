@@ -1191,9 +1191,18 @@ if (savegame !== null) {
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
-   document.title = (gameData.gold).toFixed(0) + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = (gameData.gold).toFixed(0) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
+   document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
+   document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
+
+//==========================================================
+//Math
+//==========================================================
+
+// Add commas to numbers
+function commas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 //==========================================================
 //Settings
