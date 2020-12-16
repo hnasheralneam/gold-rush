@@ -540,33 +540,33 @@ function a2() {
 }
 function a3() {
    if (gameData.gold >= upgradeData.a3Price) {
-      gameData.gold -= upgradeData.a3Price
-      gameData.clickinGold *= gameData.pickaxeNumber
-      upgradeData.a3 = 2
+      gameData.gold -= upgradeData.a3Price;
+      gameData.clickinGold *= gameData.pickaxeNumber;
+      upgradeData.a3 = 2;
       document.getElementById("a3").style.display = "none";
    }
 }
 function a4() {
    if (gameData.gold >= upgradeData.a4Price) {
-      gameData.gold -= upgradeData.a4Price
-      gameData.clickinGold *= gameData.pickaxeNumber
-      upgradeData.a4 = 2
+      gameData.gold -= upgradeData.a4Price;
+      gameData.clickinGold *= gameData.pickaxeNumber;
+      upgradeData.a4 = 2;
       document.getElementById("a4").style.display = "none";
    }
 }
 function a5() {
    if (gameData.gold >= upgradeData.a5Price) {
-      gameData.gold -= upgradeData.a5Price
-      gameData.clickinGold *= gameData.pickaxeNumber
-      upgradeData.a5 = 2
+      gameData.gold -= upgradeData.a5Price;
+      gameData.clickinGold *= gameData.pickaxeNumber;
+      upgradeData.a5 = 2;
       document.getElementById("a5").style.display = "none";
    }
 }
 function a6() {
    if (gameData.gold >= upgradeData.a6Price) {
-      gameData.gold -= upgradeData.a6Price
-      gameData.clickinGold *= gameData.pickaxeNumber
-      upgradeData.a6 = 2
+      gameData.gold -= upgradeData.a6Price;
+      gameData.clickinGold *= gameData.pickaxeNumber;
+      upgradeData.a6 = 2;
       document.getElementById("a6").style.display = "none";
    }
 }
@@ -1174,8 +1174,8 @@ var savegame = {
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
 }
 
-gameData = savegame.gameData;
 upgradeData = savegame.upgradeData;
+gameData = savegame.gameData;
 
 // If the savegame is empty set game data as savegame
 if (savegame !== null) {
