@@ -1185,7 +1185,7 @@ if (savegame !== null) {
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
-   document.title = gameData.gold + " Gold | Gold Rush";
+   document.title = (gameData.gold).toFixed(0) + " Gold | Gold Rush";
    document.getElementById("gold-owned").innerHTML = (gameData.gold).toFixed(0) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
 
