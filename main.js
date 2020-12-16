@@ -1026,6 +1026,7 @@ var updateStore = window.setInterval(function() {
 // Runs every second
 var mainGameLoop = window.setInterval(function() {
    // This code collets gold in player absence
+   // Check how much time the've been gone
    diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
    addGold(goldPerSecond() * (diff / 1000));
