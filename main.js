@@ -1,4 +1,4 @@
-game//==========================================================
+//==========================================================
 //Copyright and Opening Information
 //==========================================================
 
@@ -353,9 +353,15 @@ function buyMerger() {
       gameData.mergerNumber += 1;
    }
 }
+
 /*
 // 1000 = 1 second | 60000 = 1 minute | 3600000 = 1 hour | 86500000 = 1 day
 // Here is the code for summoning circles
+
+circleData = {
+   value: "assigned";
+}
+
 function upgradeCircle1() {
    if (gameData.otherstars >= circleData.lvl1Cost) {
       gameData.gold -= circleData.lvl1Cost;
@@ -376,6 +382,7 @@ function increaseCircleReward() {
    }
 }
 */
+
 //==========================================================
 //Upgrades
 //==========================================================
@@ -1008,6 +1015,7 @@ function otherworldPortal() {
 }
 
 // This resets the values displayed in the shop
+// Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
    //Gold per Building
    document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + gameData.pickaxeGold + " GPS<br>A sturdy pickaxe to mine gold with";
@@ -1023,7 +1031,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + gameData.mergerProfit + " GPS each<br> Producing " + gameData.mergerGold + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
 
    //Building Count
-   document.getElementById("tool-display").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
    document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
    document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
    document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
@@ -1058,7 +1066,7 @@ var mainGameLoop = window.setInterval(function() {
    document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
    document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
    // Issue with total gold, does not count gold gathered in absence
-   document.getElementById("totalGold").innerHTML = gameData.totalGold + " Lifetime Gold Profits";
+   document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
 }, 1000)
 
 // Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
@@ -1206,7 +1214,7 @@ if (savegame !== null) {
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
-   document.title = gameData.gold + " Gold | Gold Rush";
+   document.title = (gameData.gold).toFixed(0) + " Gold | Gold Rush";
    document.getElementById("gold-owned").innerHTML = (gameData.gold).toFixed(0) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
 
@@ -1228,7 +1236,7 @@ function restart() {
          gameData = initialGameData;
          upgradeData =  initialGameData;
          // Set save as blank
-         localStorage.setItem("goldRushSave", JSON.stringify(gameData));
+         localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
          // Reload page
          document.location.href = ("");
