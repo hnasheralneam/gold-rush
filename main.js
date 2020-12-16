@@ -361,155 +361,155 @@ function buyMerger() {
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
    // If player has enough of a certiant item, and has not bough it before
-   if (gameData.toolLevel >= 1 && gameData.a1 == 1) {
+   if (gameData.toolLevel >= 1 && upgradeData.a1 == 1) {
       // Display the upgrade for that amount
       document.getElementById("a1").style.display = "block";
    }
-   if (gameData.toolLevel >= 5 && gameData.a2 == 1) {
+   if (gameData.toolLevel >= 5 && upgradeData.a2 == 1) {
       document.getElementById("a2").style.display = "block";
    }
-   if (gameData.toolLevel >= 10 && gameData.a3 == 1) {
+   if (gameData.toolLevel >= 10 && upgradeData.a3 == 1) {
       document.getElementById("a3").style.display = "block";
    }
-   if (gameData.toolLevel >= 15 && gameData.a4 == 1) {
+   if (gameData.toolLevel >= 15 && upgradeData.a4 == 1) {
       document.getElementById("a4").style.display = "block";
    }
-   if (gameData.toolLevel >= 20 && gameData.a5 == 1) {
+   if (gameData.toolLevel >= 20 && upgradeData.a5 == 1) {
       document.getElementById("a5").style.display = "block";
    }
-   if (gameData.toolLevel >= 25 && gameData.a6 == 1) {
+   if (gameData.toolLevel >= 25 && upgradeData.a6 == 1) {
       document.getElementById("a6").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 1 && gameData.b1 == 1) {
+   if (gameData.pickaxeNumber >= 1 && upgradeData.b1 == 1) {
       document.getElementById("b1").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 5 && gameData.b2 == 1) {
+   if (gameData.pickaxeNumber >= 5 && upgradeData.b2 == 1) {
       document.getElementById("b2").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 10 && gameData.b3 == 1) {
+   if (gameData.pickaxeNumber >= 10 && upgradeData.b3 == 1) {
       document.getElementById("b3").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 15 && gameData.b4 == 1) {
+   if (gameData.pickaxeNumber >= 15 && upgradeData.b4 == 1) {
       document.getElementById("b4").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 1 && gameData.c1 == 1) {
+   if (gameData.dwarfNumber >= 1 && upgradeData.c1 == 1) {
       document.getElementById("c1").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 5 && gameData.c2 == 1) {
+   if (gameData.dwarfNumber >= 5 && upgradeData.c2 == 1) {
       document.getElementById("c2").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 10 && gameData.c3 == 1) {
+   if (gameData.dwarfNumber >= 10 && upgradeData.c3 == 1) {
       document.getElementById("c3").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 15 && gameData.c4 == 1) {
+   if (gameData.dwarfNumber >= 15 && upgradeData.c4 == 1) {
       document.getElementById("c4").style.display = "block";
    }
-   if (gameData.gooseNumber >= 1 && gameData.c01 == 1) {
+   if (gameData.gooseNumber >= 1 && upgradeData.c01 == 1) {
       document.getElementById("c01").style.display = "block";
    }
-   if (gameData.gooseNumber >= 5 && gameData.c02 == 1) {
+   if (gameData.gooseNumber >= 5 && upgradeData.c02 == 1) {
       document.getElementById("c02").style.display = "block";
    }
-   if (gameData.gooseNumber >= 10 && gameData.c03 == 1) {
+   if (gameData.gooseNumber >= 10 && upgradeData.c03 == 1) {
       document.getElementById("c03").style.display = "block";
    }
-   if (gameData.gooseNumber >= 15 && gameData.c04 == 1) {
+   if (gameData.gooseNumber >= 15 && upgradeData.c04 == 1) {
       document.getElementById("c04").style.display = "block";
    }
-   if (gameData.mineNumber >= 1 && gameData.d1 == 1) {
+   if (gameData.mineNumber >= 1 && upgradeData.d1 == 1) {
       document.getElementById("d1").style.display = "block";
    }
-   if (gameData.mineNumber >= 5 && gameData.d2 == 1) {
+   if (gameData.mineNumber >= 5 && upgradeData.d2 == 1) {
       document.getElementById("d2").style.display = "block";
    }
-   if (gameData.mineNumber >= 10 && gameData.d3 == 1) {
+   if (gameData.mineNumber >= 10 && upgradeData.d3 == 1) {
       document.getElementById("d3").style.display = "block";
    }
-   if (gameData.mineNumber >= 15 && gameData.d4 == 1) {
+   if (gameData.mineNumber >= 15 && upgradeData.d4 == 1) {
       document.getElementById("d4").style.display = "block";
    }
-   if (gameData.dragonNumber >= 1 && gameData.e1 == 1) {
+   if (gameData.dragonNumber >= 1 && upgradeData.e1 == 1) {
       document.getElementById("e1").style.display = "block";
    }
-   if (gameData.dragonNumber >= 5 && gameData.e2 == 1) {
+   if (gameData.dragonNumber >= 5 && upgradeData.e2 == 1) {
       document.getElementById("e2").style.display = "block";
    }
-   if (gameData.dragonNumber >= 10 && gameData.e3 == 1) {
+   if (gameData.dragonNumber >= 10 && upgradeData.e3 == 1) {
       document.getElementById("e3").style.display = "block";
    }
-   if (gameData.dragonNumber >= 15 && gameData.e4 == 1) {
+   if (gameData.dragonNumber >= 15 && upgradeData.e4 == 1) {
       document.getElementById("e4").style.display = "block";
    }
-   if (gameData.stoneNumber >= 1 && gameData.f1 == 1) {
+   if (gameData.stoneNumber >= 1 && upgradeData.f1 == 1) {
       document.getElementById("f1").style.display = "block";
    }
-   if (gameData.stoneNumber >= 5 && gameData.f2 == 1) {
+   if (gameData.stoneNumber >= 5 && upgradeData.f2 == 1) {
       document.getElementById("f2").style.display = "block";
    }
-   if (gameData.stoneNumber >= 10 && gameData.f3 == 1) {
+   if (gameData.stoneNumber >= 10 && upgradeData.f3 == 1) {
       document.getElementById("f3").style.display = "block";
    }
- /* if (gameData.stoneNumber >= 15 && gameData.f4 == 1) {
+ /* if (gameData.stoneNumber >= 15 && upgradeData.f4 == 1) {
       document.getElementById("f4").style.display = "block";
 }*/
-   if (gameData.stationNumber >= 1 && gameData.g1 == 1) {
+   if (gameData.stationNumber >= 1 && upgradeData.g1 == 1) {
       document.getElementById("g1").style.display = "block";
    }
-   if (gameData.stationNumber >= 5 && gameData.g2 == 1) {
+   if (gameData.stationNumber >= 5 && upgradeData.g2 == 1) {
       document.getElementById("g2").style.display = "block";
    }
-   if (gameData.stationNumber >= 10 && gameData.g3 == 1) {
+   if (gameData.stationNumber >= 10 && upgradeData.g3 == 1) {
       document.getElementById("g3").style.display = "block";
    }
-   if (gameData.stationNumber >= 15 && gameData.g4 == 1) {
+   if (gameData.stationNumber >= 15 && upgradeData.g4 == 1) {
       document.getElementById("g4").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 1 && gameData.h1 == 1) {
+   if (gameData.leprechaunNumber >= 1 && upgradeData.h1 == 1) {
       document.getElementById("h1").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 5 && gameData.h2 == 1) {
+   if (gameData.leprechaunNumber >= 5 && upgradeData.h2 == 1) {
       document.getElementById("h2").style.display = "block";
    }
- /* if (gameData.leprechaunNumber >= 10 && gameData.h3 == 1) {
+ /* if (gameData.leprechaunNumber >= 10 && upgradeData.h3 == 1) {
       document.getElementById("h3").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 15 && gameData.h4 == 1) {
+   if (gameData.leprechaunNumber >= 15 && upgradeData.h4 == 1) {
       document.getElementById("h4").style.display = "block";
 }*/
-   if (gameData.sheepNumber >= 1 && gameData.i1 == 1) {
+   if (gameData.sheepNumber >= 1 && upgradeData.i1 == 1) {
       document.getElementById("i1").style.display = "block";
    }
-   if (gameData.sheepNumber >= 5 && gameData.i2 == 1) {
+   if (gameData.sheepNumber >= 5 && upgradeData.i2 == 1) {
       document.getElementById("i2").style.display = "block";
    }
-   /*if (gameData.sheepNumber >= 10 && gameData.i3 == 1) {
+   /*if (gameData.sheepNumber >= 10 && upgradeData.i3 == 1) {
       document.getElementById("i3").style.display = "block";
    }
-   if (gameData.sheepNumber >= 15 && gameData.i4 == 1) {
+   if (gameData.sheepNumber >= 15 && upgradeData.i4 == 1) {
       document.getElementById("i4").style.display = "block";
 }*/
-   if (gameData.rayNumber >= 1 && gameData.j1 == 1) {
+   if (gameData.rayNumber >= 1 && upgradeData.j1 == 1) {
       document.getElementById("j1").style.display = "block";
    }
-   if (gameData.rayNumber >= 5 && gameData.j2 == 1) {
+   if (gameData.rayNumber >= 5 && upgradeData.j2 == 1) {
       document.getElementById("j2").style.display = "block";
    }
-   if (gameData.rayNumber >= 10 && gameData.j3 == 1) {
+   if (gameData.rayNumber >= 10 && upgradeData.j3 == 1) {
       document.getElementById("j3").style.display = "block";
    }
- /* if (gameData.rayNumber >= 15 && gameData.j4 == 1) {
+ /* if (gameData.rayNumber >= 15 && upgradeData.j4 == 1) {
       document.getElementById("j4").style.display = "block";
 }*/
-   if (gameData.mergerNumber >= 1 && gameData.k1 == 1) {
+   if (gameData.mergerNumber >= 1 && upgradeData.k1 == 1) {
       document.getElementById("k1").style.display = "block";
    }
-   if (gameData.mergerNumber >= 5 && gameData.k2 == 1) {
+   if (gameData.mergerNumber >= 5 && upgradeData.k2 == 1) {
       document.getElementById("k2").style.display = "block";
    }
-   if (gameData.mergerNumber >= 10 && gameData.k3 == 1) {
+   if (gameData.mergerNumber >= 10 && upgradeData.k3 == 1) {
       document.getElementById("k3").style.display = "block";
    }
-   /*if (gameData.mergerNumber >= 15 && gameData.k4 == 1) {
+   /*if (gameData.mergerNumber >= 15 && upgradeData.k4 == 1) {
       document.getElementById("k4").style.display = "block";
 }*/
    if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
