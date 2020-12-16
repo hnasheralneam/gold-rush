@@ -382,11 +382,9 @@ function increaseCircleReward() {
    }
 }
 */
-
 //==========================================================
 //Upgrades
 //==========================================================
-
 
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
@@ -1235,7 +1233,7 @@ function restart() {
       if (areYouReallySure == true) {
          // Set gameData to inital values
          gameData = initialGameData;
-         upgradeData =  initialGameData;
+         upgradeData = initialUpgradeData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
