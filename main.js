@@ -1,4 +1,4 @@
-//==========================================================
+game//==========================================================
 //Copyright and Opening Information
 //==========================================================
 
@@ -545,7 +545,7 @@ function a1() {
       // Substract the upgrade price
       gameData.gold -= upgradeData.a1Price;
       // Double the clicking reward
-      upgradeData.clickinGold *= 2;
+      gameData.clickinGold *= 2;
       // Do not appear again
       upgradeData.a1 = 2;
       // Remove display
@@ -553,374 +553,374 @@ function a1() {
    }
 }
 function a2() {
-   if (upgradeData.gold >= upgradeData.a2Price) {
-      upgradeData.gold -= upgradeData.a2Price;
-      upgradeData.clickinGold *= 2;
+   if (gameData.gold >= upgradeData.a2Price) {
+      gameData.gold -= upgradeData.a2Price;
+      gameData.clickinGold *= 2;
       upgradeData.a2 = 2;
       document.getElementById("a2").style.display = "none";
    }
 }
 function a3() {
-   if (upgradeData.gold >= upgradeData.a3Price) {
-      upgradeData.gold -= upgradeData.a3Price
-      upgradeData.clickinGold *= upgradeData.pickaxeNumber
+   if (gameData.gold >= upgradeData.a3Price) {
+      gameData.gold -= upgradeData.a3Price
+      gameData.clickinGold *= gameData.pickaxeNumber
       upgradeData.a3 = 2
       document.getElementById("a3").style.display = "none";
    }
 }
 function a4() {
-   if (upgradeData.gold >= upgradeData.a4Price) {
-      upgradeData.gold -= upgradeData.a4Price
-      upgradeData.clickinGold *= upgradeData.pickaxeNumber
+   if (gameData.gold >= upgradeData.a4Price) {
+      gameData.gold -= upgradeData.a4Price
+      gameData.clickinGold *= gameData.pickaxeNumber
       upgradeData.a4 = 2
       document.getElementById("a4").style.display = "none";
    }
 }
 function a5() {
-   if (upgradeData.gold >= upgradeData.a5Price) {
-      upgradeData.gold -= upgradeData.a5Price
-      upgradeData.clickinGold *= upgradeData.pickaxeNumber
+   if (gameData.gold >= upgradeData.a5Price) {
+      gameData.gold -= upgradeData.a5Price
+      gameData.clickinGold *= gameData.pickaxeNumber
       upgradeData.a5 = 2
       document.getElementById("a5").style.display = "none";
    }
 }
 function a6() {
-   if (upgradeData.gold >= upgradeData.a6Price) {
-      upgradeData.gold -= upgradeData.a6Price
-      upgradeData.clickinGold *= upgradeData.pickaxeNumber
+   if (gameData.gold >= upgradeData.a6Price) {
+      gameData.gold -= upgradeData.a6Price
+      gameData.clickinGold *= gameData.pickaxeNumber
       upgradeData.a6 = 2
       document.getElementById("a6").style.display = "none";
    }
 }
 
 function b1() {
-   if (upgradeData.gold >= upgradeData.b1Price) {
-      upgradeData.gold -= upgradeData.b1Price;
-      upgradeData.pickaxeProfit *= 2;
-      upgradeData.pickaxeGold *= 2;
+   if (gameData.gold >= upgradeData.b1Price) {
+      gameData.gold -= upgradeData.b1Price;
+      gameData.pickaxeProfit *= 2;
+      gameData.pickaxeGold *= 2;
       upgradeData.b1 = 2;
       document.getElementById("b1").style.display = "none";
    }
 }
 function b2() {
-   if (upgradeData.gold >= upgradeData.b2Price) {
-      upgradeData.gold -= upgradeData.b2Price;
-      upgradeData.pickaxeProfit *= 2;
-      upgradeData.pickaxeGold *= 2;
+   if (gameData.gold >= upgradeData.b2Price) {
+      gameData.gold -= upgradeData.b2Price;
+      gameData.pickaxeProfit *= 2;
+      gameData.pickaxeGold *= 2;
       upgradeData.b2 = 2;
       document.getElementById("b2").style.display = "none";
    }
 }
 function b3() {
-   if (upgradeData.gold >= upgradeData.b3Price) {
-      upgradeData.gold -= upgradeData.b3Price;
-      upgradeData.pickaxeProfit *= 2;
-      upgradeData.pickaxeGold *= 2;
+   if (gameData.gold >= upgradeData.b3Price) {
+      gameData.gold -= upgradeData.b3Price;
+      gameData.pickaxeProfit *= 2;
+      gameData.pickaxeGold *= 2;
       upgradeData.b3 = 2;
       document.getElementById("b3").style.display = "none";
    }
 }
 function b4() {
-   if (upgradeData.gold >= upgradeData.b4Price) {
-      upgradeData.gold -= upgradeData.b4Price;
-      upgradeData.pickaxeProfit *= 2;
-      upgradeData.pickaxeGold *= 2;
+   if (gameData.gold >= upgradeData.b4Price) {
+      gameData.gold -= upgradeData.b4Price;
+      gameData.pickaxeProfit *= 2;
+      gameData.pickaxeGold *= 2;
       upgradeData.b4 = 2;
       document.getElementById("b4").style.display = "none";
    }
 }
 
 function c1() {
-   if (upgradeData.gold >= upgradeData.c1Price) {
-      upgradeData.gold -= upgradeData.c1Price;
-      upgradeData.dwarfProfit *= 2;
-      upgradeData.dwarfGold *= 2;
+   if (gameData.gold >= upgradeData.c1Price) {
+      gameData.gold -= upgradeData.c1Price;
+      gameData.dwarfProfit *= 2;
+      gameData.dwarfGold *= 2;
       upgradeData.c1 = 2;
       document.getElementById("c1").style.display = "none";
    }
 }
 function c2() {
-   if (upgradeData.gold >= upgradeData.c2Price) {
-      upgradeData.gold -= upgradeData.c2Price;
-      upgradeData.dwarfProfit *= 2;
-      upgradeData.dwarfGold *= 2;
+   if (gameData.gold >= upgradeData.c2Price) {
+      gameData.gold -= upgradeData.c2Price;
+      gameData.dwarfProfit *= 2;
+      gameData.dwarfGold *= 2;
       upgradeData.c2 = 2;
       document.getElementById("c2").style.display = "none";
    }
 }
 function c3() {
-   if (upgradeData.gold >= upgradeData.c3Price) {
-      upgradeData.gold -= upgradeData.c3Price;
-      upgradeData.dwarfProfit *= 2;
-      upgradeData.dwarfGold *= 2;
+   if (gameData.gold >= upgradeData.c3Price) {
+      gameData.gold -= upgradeData.c3Price;
+      gameData.dwarfProfit *= 2;
+      gameData.dwarfGold *= 2;
       upgradeData.c3 = 2;
       document.getElementById("c3").style.display = "none";
    }
 }
 function c4() {
-   if (upgradeData.gold >= upgradeData.c4Price) {
-      upgradeData.gold -= upgradeData.c4Price;
-      upgradeData.dwarfProfit *= 2;
-      upgradeData.dwarfGold *= 2;
+   if (gameData.gold >= upgradeData.c4Price) {
+      gameData.gold -= upgradeData.c4Price;
+      gameData.dwarfProfit *= 2;
+      gameData.dwarfGold *= 2;
       upgradeData.c4 = 2;
       document.getElementById("c4").style.display = "none";
    }
 }
 
 function c01() {
-   if (upgradeData.gold >= upgradeData.c01Price) {
-      upgradeData.gold -= upgradeData.c01Price;
-      upgradeData.gooseProfit *= 2;
-      upgradeData.gooseGold *= 2;
+   if (gameData.gold >= upgradeData.c01Price) {
+      gameData.gold -= upgradeData.c01Price;
+      gameData.gooseProfit *= 2;
+      gameData.gooseGold *= 2;
       upgradeData.c01 = 2;
       document.getElementById("c01").style.display = "none";
    }
 }
 function c02() {
-   if (upgradeData.gold >= upgradeData.c02Price) {
-      upgradeData.gold -= upgradeData.c02Price;
-      upgradeData.gooseProfit *= 2;
-      upgradeData.gooseGold *= 2;
+   if (gameData.gold >= upgradeData.c02Price) {
+      gameData.gold -= upgradeData.c02Price;
+      gameData.gooseProfit *= 2;
+      gameData.gooseGold *= 2;
       upgradeData.c02 = 2;
       document.getElementById("c02").style.display = "none";
    }
 }
 function c03() {
-   if (upgradeData.gold >= upgradeData.c03Price) {
-      upgradeData.gold -= upgradeData.c03Price;
-      upgradeData.gooseProfit *= 2;
-      upgradeData.gooseGold *= 2;
+   if (gameData.gold >= upgradeData.c03Price) {
+      gameData.gold -= upgradeData.c03Price;
+      gameData.gooseProfit *= 2;
+      gameData.gooseGold *= 2;
       upgradeData.c03 = 2;
       document.getElementById("c03").style.display = "none";
    }
 }
 function c04() {
-   if (upgradeData.gold >= upgradeData.c04Price) {
-      upgradeData.gold -= upgradeData.c04Price;
-      upgradeData.gooseProfit *= 2;
-      upgradeData.gooseGold *= 2;
+   if (gameData.gold >= upgradeData.c04Price) {
+      gameData.gold -= upgradeData.c04Price;
+      gameData.gooseProfit *= 2;
+      gameData.gooseGold *= 2;
       upgradeData.c04 = 2;
       document.getElementById("c04").style.display = "none";
    }
 }
 
 function d1() {
-   if (upgradeData.gold >= upgradeData.d1Price) {
-      upgradeData.gold -= upgradeData.d1Price;
-      upgradeData.mineProfit *= 2;
-      upgradeData.mineGold *= 2;
+   if (gameData.gold >= upgradeData.d1Price) {
+      gameData.gold -= upgradeData.d1Price;
+      gameData.mineProfit *= 2;
+      gameData.mineGold *= 2;
       upgradeData.d1 = 2;
       document.getElementById("d1").style.display = "none";
    }
 }
 function d2() {
-   if (upgradeData.gold >= upgradeData.d2Price) {
-      upgradeData.gold -= upgradeData.d2Price;
-      upgradeData.mineProfit *= 2;
-      upgradeData.mineGold *= 2;
+   if (gameData.gold >= upgradeData.d2Price) {
+      gameData.gold -= upgradeData.d2Price;
+      gameData.mineProfit *= 2;
+      gameData.mineGold *= 2;
       upgradeData.d2 = 2;
       document.getElementById("d2").style.display = "none";
    }
 }
 function d3() {
-   if (upgradeData.gold >= upgradeData.d3Price) {
-      upgradeData.gold -= upgradeData.d3Price;
-      upgradeData.mineProfit *= 2;
-      upgradeData.mineGold *= 2;
+   if (gameData.gold >= upgradeData.d3Price) {
+      gameData.gold -= upgradeData.d3Price;
+      gameData.mineProfit *= 2;
+      gameData.mineGold *= 2;
       upgradeData.d3 = 2;
       document.getElementById("d3").style.display = "none";
    }
 }
 function d4() {
-   if (upgradeData.gold >= upgradeData.d4Price) {
-      upgradeData.gold -= upgradeData.d4Price;
-      upgradeData.mineProfit *= 2;
-      upgradeData.mineGold *= 2;
+   if (gameData.gold >= upgradeData.d4Price) {
+      gameData.gold -= upgradeData.d4Price;
+      gameData.mineProfit *= 2;
+      gameData.mineGold *= 2;
       upgradeData.d4 = 2;
       document.getElementById("d4").style.display = "none";
    }
 }
 
 function e1() {
-   if (upgradeData.gold >= upgradeData.e1Price) {
-      upgradeData.gold -= upgradeData.e1Price;
-      upgradeData.dragonProfit *= 2;
-      upgradeData.dragonGold *= 2;
+   if (gameData.gold >= upgradeData.e1Price) {
+      gameData.gold -= upgradeData.e1Price;
+      gameData.dragonProfit *= 2;
+      gameData.dragonGold *= 2;
       upgradeData.e1 = 2;
       document.getElementById("e1").style.display = "none";
    }
 }
 function e2() {
-   if (upgradeData.gold >= upgradeData.e2Price) {
-      upgradeData.gold -= upgradeData.e2Price;
-      upgradeData.dragonProfit *= 2;
-      upgradeData.dragonGold *= 2;
+   if (gameData.gold >= upgradeData.e2Price) {
+      gameData.gold -= upgradeData.e2Price;
+      gameData.dragonProfit *= 2;
+      gameData.dragonGold *= 2;
       upgradeData.e2 = 2;
       document.getElementById("e2").style.display = "none";
    }
 }
 function e3() {
-   if (upgradeData.gold >= upgradeData.e3Price) {
-      upgradeData.gold -= upgradeData.e3Price;
-      upgradeData.dragonProfit *= 2;
-      upgradeData.dragonGold *= 2;
+   if (gameData.gold >= upgradeData.e3Price) {
+      gameData.gold -= upgradeData.e3Price;
+      gameData.dragonProfit *= 2;
+      gameData.dragonGold *= 2;
       upgradeData.e3 = 2;
       document.getElementById("e3").style.display = "none";
    }
 }
 function e4() {
-   if (upgradeData.gold >= upgradeData.e4Price) {
-      upgradeData.gold -= upgradeData.e4Price;
-      upgradeData.dragonProfit *= 2;
-      upgradeData.dragonGold *= 2;
+   if (gameData.gold >= upgradeData.e4Price) {
+      gameData.gold -= upgradeData.e4Price;
+      gameData.dragonProfit *= 2;
+      gameData.dragonGold *= 2;
       upgradeData.e4 = 2;
       document.getElementById("e4").style.display = "none";
    }
 }
 
 function f1() {
-   if (upgradeData.gold >= upgradeData.f1Price) {
-      upgradeData.gold -= upgradeData.f1Price;
-      upgradeData.stoneProfit *= 2;
-      upgradeData.stoneGold *= 2;
+   if (gameData.gold >= upgradeData.f1Price) {
+      gameData.gold -= upgradeData.f1Price;
+      gameData.stoneProfit *= 2;
+      gameData.stoneGold *= 2;
       upgradeData.f1 = 2;
       document.getElementById("f1").style.display = "none";
    }
 }
 function f2() {
-   if (upgradeData.gold >= upgradeData.f2Price) {
-      upgradeData.gold -= upgradeData.f2Price;
-      upgradeData.stoneProfit *= 2;
-      upgradeData.stoneGold *= 2;
+   if (gameData.gold >= upgradeData.f2Price) {
+      gameData.gold -= upgradeData.f2Price;
+      gameData.stoneProfit *= 2;
+      gameData.stoneGold *= 2;
       upgradeData.f2 = 2;
       document.getElementById("f2").style.display = "none";
    }
 }
 function f3() {
-   if (upgradeData.gold >= upgradeData.f3Price) {
-      upgradeData.gold -= upgradeData.f3Price;
-      upgradeData.stoneProfit *= 2;
-      upgradeData.stoneGold *= 2;
+   if (gameData.gold >= upgradeData.f3Price) {
+      gameData.gold -= upgradeData.f3Price;
+      gameData.stoneProfit *= 2;
+      gameData.stoneGold *= 2;
       upgradeData.f3 = 2;
       document.getElementById("f3").style.display = "none";
    }
 }
 function f4() {
-   if (upgradeData.gold >= upgradeData.f4Price) {
-      upgradeData.gold -= upgradeData.f4Price;
-      upgradeData.stoneProfit *= 2;
-      upgradeData.stoneGold *= 2;
+   if (gameData.gold >= upgradeData.f4Price) {
+      gameData.gold -= upgradeData.f4Price;
+      gameData.stoneProfit *= 2;
+      gameData.stoneGold *= 2;
       upgradeData.f4 = 2;
       document.getElementById("f4").style.display = "none";
    }
 }
 
 function g1() {
-   if (upgradeData.gold >= upgradeData.g1Price) {
-      upgradeData.gold -= upgradeData.g1Price;
-      upgradeData.stationProfit *= 2;
-      upgradeData.stationGold *= 2;
+   if (gameData.gold >= upgradeData.g1Price) {
+      gameData.gold -= upgradeData.g1Price;
+      gameData.stationProfit *= 2;
+      gameData.stationGold *= 2;
       upgradeData.g1 = 2;
       document.getElementById("g1").style.display = "none";
    }
 }
 function g2() {
-   if (upgradeData.gold >= upgradeData.g2Price) {
-      upgradeData.gold -= upgradeData.g2Price;
-      upgradeData.stationProfit *= 2;
-      upgradeData.stationGold *= 2;
+   if (gameData.gold >= upgradeData.g2Price) {
+      gameData.gold -= upgradeData.g2Price;
+      gameData.stationProfit *= 2;
+      gameData.stationGold *= 2;
       upgradeData.g2 = 2;
       document.getElementById("g2").style.display = "none";
    }
 }
 function g3() {
-   if (upgradeData.gold >= upgradeData.g3Price) {
-      upgradeData.gold -= upgradeData.g3Price;
-      upgradeData.stationProfit *= 2;
-      upgradeData.stationGold *= 2;
+   if (gameData.gold >= upgradeData.g3Price) {
+      gameData.gold -= upgradeData.g3Price;
+      gameData.stationProfit *= 2;
+      gameData.stationGold *= 2;
       upgradeData.g3 = 2;
       document.getElementById("g3").style.display = "none";
    }
 }
 function g4() {
-   if (upgradeData.gold >= upgradeData.g4Price) {
-      upgradeData.gold -= upgradeData.g4Price;
-      upgradeData.stationProfit *= 2;
-      upgradeData.stationGold *= 2;
+   if (gameData.gold >= upgradeData.g4Price) {
+      gameData.gold -= upgradeData.g4Price;
+      gameData.stationProfit *= 2;
+      gameData.stationGold *= 2;
       upgradeData.g4 = 2;
       document.getElementById("g4").style.display = "none";
    }
 }
 
 function h1() {
-   if (upgradeData.gold >= upgradeData.h1Price) {
-      upgradeData.gold -= upgradeData.h1Price;
-      upgradeData.lepProfit *= 2;
-      upgradeData.leprechaunGold *= 2;
+   if (gameData.gold >= upgradeData.h1Price) {
+      gameData.gold -= upgradeData.h1Price;
+      gameData.lepProfit *= 2;
+      gameData.leprechaunGold *= 2;
       upgradeData.h1 = 2;
       document.getElementById("h1").style.display = "none";
    }
 }
 function h2() {
-   if (upgradeData.gold >= upgradeData.h2Price) {
-      upgradeData.gold -= upgradeData.h2Price;
-      upgradeData.lepProfit *= 2;
-      upgradeData.leprechaunGold *= 2;
+   if (gameData.gold >= upgradeData.h2Price) {
+      gameData.gold -= upgradeData.h2Price;
+      gameData.lepProfit *= 2;
+      gameData.leprechaunGold *= 2;
       upgradeData.h2 = 2;
       document.getElementById("h2").style.display = "none";
    }
 }
 function h3() {
    if (upgradeData.gold >= upgradeData.h3Price) {
-      upgradeData.gold -= upgradeData.h3Price;
-      upgradeData.lepProfit *= 2;
-      upgradeData.leprechaunGold *= 2;
+      gameData.gold -= upgradeData.h3Price;
+      gameData.lepProfit *= 2;
+      gameData.leprechaunGold *= 2;
       upgradeData.h3 = 2;
       document.getElementById("h3").style.display = "none";
    }
 }
 function h4() {
-   if (upgradeData.gold >= upgradeData.h4Price) {
-      upgradeData.gold -= upgradeData.h4Price;
-      upgradeData.lepProfit *= 2;
-      upgradeData.leprechaunGold *= 2;
+   if (gameData.gold >= upgradeData.h4Price) {
+      gameData.gold -= upgradeData.h4Price;
+      gameData.lepProfit *= 2;
+      gameData.leprechaunGold *= 2;
       upgradeData.h4 = 2;
       document.getElementById("h4").style.display = "none";
    }
 }
 
 function i1() {
-   if (upgradeData.gold >= upgradeData.i1Price) {
-      upgradeData.gold -= upgradeData.i1Price;
-      upgradeData.sheepProfit *= 2;
-      upgradeData.sheepGold *= 2;
+   if (gameData.gold >= upgradeData.i1Price) {
+      gameData.gold -= upgradeData.i1Price;
+      gameData.sheepProfit *= 2;
+      gameData.sheepGold *= 2;
       upgradeData.i1 = 2;
       document.getElementById("i1").style.display = "none";
    }
 }
 function i2() {
-   if (upgradeData.gold >= upgradeData.i2Price) {
-      upgradeData.gold -= upgradeData.i2Price;
-      upgradeData.sheepProfit *= 2;
-      upgradeData.sheepGold *= 2;
+   if (gameData.gold >= upgradeData.i2Price) {
+      gameData.gold -= upgradeData.i2Price;
+      gameData.sheepProfit *= 2;
+      gameData.sheepGold *= 2;
       upgradeData.i2 = 2;
       document.getElementById("i2").style.display = "none";
    }
 }
 function i3() {
-   if (upgradeData.gold >= upgradeData.i3Price) {
-      upgradeData.gold -= upgradeData.i3Price;
-      upgradeData.sheepProfit *= 2;
-      upgradeData.sheepGold *= 2;
+   if (gameData.gold >= upgradeData.i3Price) {
+      gameData.gold -= upgradeData.i3Price;
+      gameData.sheepProfit *= 2;
+      gameData.sheepGold *= 2;
       upgradeData.i3 = 2;
       document.getElementById("i3").style.display = "none";
    }
 }
 function i4() {
-   if (upgradeData.gold >= upgradeData.i4Price) {
-      upgradeData.gold -= upgradeData.i4Price;
-      upgradeData.sheepProfit *= 2;
-      upgradeData.sheepGold *= 2;
+   if (gameData.gold >= upgradeData.i4Price) {
+      gameData.gold -= upgradeData.i4Price;
+      gameData.sheepProfit *= 2;
+      gameData.sheepGold *= 2;
       upgradeData.i4 = 2;
       document.getElementById("i4").style.display = "none";
    }
@@ -929,8 +929,8 @@ function i4() {
 function j1() {
    if (gameData.gold >= upgradeData.j1Price) {
       gameData.gold -= upgradeData.j1Price;
-      upgradeData.rayProfit *= 2;
-      upgradeData.rayGold *= 2;
+      gameData.rayProfit *= 2;
+      gameData.rayGold *= 2;
       upgradeData.j1 = 2;
       document.getElementById("j1").style.display = "none";
    }
@@ -938,8 +938,8 @@ function j1() {
 function j2() {
    if (gameData.gold >= upgradeData.j2Price) {
       gameData.gold -= upgradeData.j2Price;
-      upgradeData.rayProfit *= 2;
-      upgradeData.rayGold *= 2;
+      gameData.rayProfit *= 2;
+      gameData.rayGold *= 2;
       upgradeData.j2 = 2;
       document.getElementById("j2").style.display = "none";
    }
@@ -947,8 +947,8 @@ function j2() {
 function j3() {
    if (gameData.gold >= upgradeData.j3Price) {
       gameData.gold -= upgradeData.j3Price;
-      upgradeData.rayProfit *= 2;
-      upgradeData.rayGold *= 2;
+      gameData.rayProfit *= 2;
+      gameData.rayGold *= 2;
       upgradeData.j3 = 2;
       document.getElementById("j3").style.display = "none";
    }
@@ -956,8 +956,8 @@ function j3() {
 function j4() {
    if (gameData.gold >= upgradeData.j4Price) {
       gameData.gold -= upgradeData.j4Price;
-      upgradeData.rayProfit *= 2;
-      upgradeData.rayGold *= 2;
+      gameData.rayProfit *= 2;
+      gameData.rayGold *= 2;
       upgradeData.j4 = 2;
       document.getElementById("j4").style.display = "none";
    }
@@ -966,8 +966,8 @@ function j4() {
 function k1() {
    if (gameData.gold >= upgradeData.k1Price) {
       gameData.gold -= upgradeData.k1Price
-      upgradeData.mergerProfit *= 2;
-      upgradeData.mergerGold *= 2;
+      gameData.mergerProfit *= 2;
+      gameData.mergerGold *= 2;
       upgradeData.k1 = 2;
       document.getElementById("k1").style.display = "none";
    }
@@ -975,8 +975,8 @@ function k1() {
 function k2() {
    if (gameData.gold >= upgradeData.k2Price) {
       gameData.gold -= upgradeData.k2Price;
-      upgradeData.mergerProfit *= 2;
-      upgradeData.mergerGold *= 2;
+      gameData.mergerProfit *= 2;
+      gameData.mergerGold *= 2;
       upgradeData.k2 = 2;
       document.getElementById("k2").style.display = "none";
    }
@@ -984,8 +984,8 @@ function k2() {
 function k3() {
    if (gameData.gold >= upgradeData.k3Price) {
       gameData.gold -= upgradeData.k3Price;
-      upgradeData.mergerProfit *= 2;
-      upgradeData.mergerGold *= 2;
+      gameData.mergerProfit *= 2;
+      gameData.mergerGold *= 2;
       upgradeData.k3 = 2;
       document.getElementById("k3").style.display = "none";
    }
@@ -993,8 +993,8 @@ function k3() {
 function k4() {
    if (gameData.gold >= upgradeData.k4Price) {
       gameData.gold -= upgradeData.k4Price;
-      upgradeData.mergerProfit *= 2;
-      upgradeData.mergerGold *= 2;
+      gameData.mergerProfit *= 2;
+      gameData.mergerGold *= 2;
       upgradeData.k4 = 2;
       document.getElementById("k4").style.display = "none";
    }
@@ -1008,7 +1008,6 @@ function otherworldPortal() {
 }
 
 // This resets the values displayed in the shop
-// Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
    //Gold per Building
    document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + gameData.pickaxeGold + " GPS<br>A sturdy pickaxe to mine gold with";
@@ -1024,7 +1023,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + gameData.mergerProfit + " GPS each<br> Producing " + gameData.mergerGold + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
 
    //Building Count
-   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
+   document.getElementById("tool-display").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
    document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
    document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
    document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
