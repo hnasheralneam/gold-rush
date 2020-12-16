@@ -1037,7 +1037,7 @@ var mainGameLoop = window.setInterval(function() {
    document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
    document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
    // Issue with total gold, does not count gold gathered in absence
-   document.getElementById("totalGold").innerHTML = gameData.totalGold + " Lifetime Gold Profits";
+   document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
 }, 1000)
 
 // Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
