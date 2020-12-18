@@ -382,15 +382,15 @@ initalCircleData = {
 
 // Profits and Such
    circleProfits: 1,
-   timeUnit: null, // Starts at 24 hours
+   timeUnit: 86500000, // Starts at 24 hours
    profit: null,
 }
 
 circleData = initalCircleData;
 
 function unlockCircle() {
-   if (otherData.otherstars >= 10000) {
-      otherData.otherstars -= 10000;
+   if (otherData.otherStars >= 10000) {
+      otherData.otherStars -= 10000;
       document.getElementById("otherstars").style.display = "block";
       document.getElementById("summoningCircle").style.display = "block";
    }
@@ -398,8 +398,9 @@ function unlockCircle() {
 
 // Upgrade the Summoning Circle
 function upgradeCircle() {
+   console.log("beep");
    if (circleData.circleLevel == 0) {
-      if (otherData.otherstars >= circleData.lvl1Cost) {
+      if (otherData.otherStars >= circleData.lvl1Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -407,7 +408,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 1) {
-      if (otherData.otherstars >= circleData.lvl2Cost) {
+      if (otherData.otherStars >= circleData.lvl2Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -415,7 +416,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 2) {
-      if (otherData.otherstars >= circleData.lvl3Cost) {
+      if (otherData.otherStars >= circleData.lvl3Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -423,7 +424,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 3) {
-      if (otherData.otherstars >= circleData.lvl4Cost) {
+      if (otherData.otherStars >= circleData.lvl4Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -431,7 +432,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 4) {
-      if (otherData.otherstars >= circleData.lvl5Cost) {
+      if (otherData.otherStars >= circleData.lvl5Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -439,7 +440,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 5) {
-      if (otherData.otherstars >= circleData.lvl6Cost) {
+      if (otherData.otherStars >= circleData.lvl6Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -447,7 +448,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 6) {
-      if (otherData.otherstars >= circleData.lvl7Cost) {
+      if (otherData.otherStars >= circleData.lvl7Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -455,7 +456,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 7) {
-      if (otherData.otherstars >= circleData.lvl8Cost) {
+      if (otherData.otherStars >= circleData.lvl8Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -463,7 +464,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 8) {
-      if (otherData.otherstars >= circleData.lvl9Cost) {
+      if (otherData.otherStars >= circleData.lvl9Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -471,7 +472,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 9) {
-      if (otherData.otherstars >= circleData.lvl110Cost) {
+      if (otherData.otherStars >= circleData.lvl110Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -479,7 +480,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 10) {
-      if (otherData.otherstars >= circleData.lvl11Cost) {
+      if (otherData.otherStars >= circleData.lvl11Cost) {
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -491,23 +492,6 @@ function upgradeCircle() {
       alert("Coming Soon!");
    }
 }
-
-/*
-function shortenCircleTime() {
-   if (gameData.otherstars >= circleData.shortenTimeCost) {
-      //circleData.timeUnit -= (circleData.timeUnit/20%); // 1 day
-   }
-}
-
-function increaseCircleReward() {
-   if (gameData.otherstars >= circleData.shortenTimeCost) {
-      circleData.circleProfit += 1;
-   }
-}
-
-// 1000 = 1 second | 60000 = 1 minute | 3600000 = 1 hour | 86500000 = 1 day
-
-*/
 
 //==========================================================
 //Upgrades
@@ -672,7 +656,7 @@ var checkForUpgrades = window.setInterval(function() {
    }
 
    // Summoning Circle
-   if (otherData.otherstars >= 1) {
+   if (otherData.otherStars >= 1) {
       document.getElementById("unlockCircle").style.display = "block";
    }
 }, 3000)
