@@ -231,6 +231,9 @@ var notEnoughColor = "#333";
 function collectGold() {
    addGold(gameData.clickinGold);
    gameData.clicks += 1;
+   // Make clink sounds
+   var clink = document.getElementById("clinck");
+   clink.play();
 }
 
 // Spacebar gold
@@ -382,6 +385,7 @@ function increaseCircleReward() {
    }
 }
 */
+
 //==========================================================
 //Upgrades
 //==========================================================
