@@ -10,7 +10,7 @@
 //==========================================================
 
 function gameSetup() {
-   alert("Welcome to the Otherworld. Have a nice trip.")
+   alert("Welcome to the Otherworld. Have a nice trip.");
    var username = prompt ("What shall you be called while you are in the Otherworld?");
    otherData.playerName = username;
    console.log("Hello, " + username);
@@ -50,15 +50,15 @@ var initialOtherData = {
   lastTick: Date.now()
 }
 
-var otherData = initialOtherData
+var otherData = initialOtherData;
 
 //==========================================================
 //Gain Profit
 //==========================================================
 
 function collectOtherStar() {
-  otherData.otherStars += 1
-  document.getElementById("otherStars").innerHTML = otherData.otherStars + " Otherstars"
+  otherData.otherStars += 1;
+  document.getElementById("otherStars").innerHTML = otherData.otherStars + " Otherstars";
 }
 
 //==========================================================
@@ -160,19 +160,19 @@ function exploreUniverse() {
 
 var saveGameLoop = window.setInterval(function() {
    // Building Count
-   document.getElementById("exploreSystem").innerHTML = "Solar System<br> (You have " + otherData.systemCount + ") <br>Cost: " + otherData.exploreSystemCost + " Otherstars";
-   document.getElementById("exploreSCluster").innerHTML = "Star Cluster<br> (You have " + otherData.sClusterCount + ") <br>Cost: " + otherData.exploreSClusterCost + " Otherstars";
-   document.getElementById("exploreNebula").innerHTML = "Nebula<br> (You have " + otherData.nebulaCount + ") <br>Cost: " + otherData.exploreNebulaCost + " Otherstars";
-   document.getElementById("exploreBlack").innerHTML = "Back Hole<br> (You have " + otherData.blackCount + ") <br>Cost: " + otherData.exploreBlackCost + " Otherstars";
-   document.getElementById("exploreGalaxy").innerHTML = "Galaxy<br> (You have " + otherData.galaxyCount + ") <br>Cost: " + otherData.exploreGalaxyCost + " Otherstars";
-   document.getElementById("explorePCluster").innerHTML = "Protocluster<br> (You have " + otherData.pClusterCount + ") <br>Cost: " + otherData.explorePClusterCost + " Otherstars";
-   document.getElementById("exploreGCluster").innerHTML = "Galaxy Cluster<br> (You have " + otherData.gClusterCount + ") <br>Cost: " + otherData.exploreGClusterCost + " Otherstars";
-   document.getElementById("exploreGSCluster").innerHTML = "Galaxy Supercluster<br> (You have " + otherData.gSClusterCount + ") <br>Cost: " + otherData.exploreGSClusterCost + " Otherstars";
-   document.getElementById("exploreGWall").innerHTML = "Galaxy Walls<br> (You have " + otherData.gWallCount + ") <br>Cost: " + otherData.exploreGWallCost + " Otherstars";
-   document.getElementById("exploreUniverse").innerHTML = "Universe <br> (You have " + otherData.universeCount + ") <br>Cost: " + otherData.exploreUniverseCost + " Otherstars";
+   document.getElementById("exploreSystem").innerHTML = "Solar System<br> (You have " + otherData.systemCount + ") <br>Cost: " + (otherData.exploreSystemCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreSCluster").innerHTML = "Star Cluster<br> (You have " + otherData.sClusterCount + ") <br>Cost: " + (otherData.exploreSClusterCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreNebula").innerHTML = "Nebula<br> (You have " + otherData.nebulaCount + ") <br>Cost: " + (otherData.exploreNebulaCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreBlack").innerHTML = "Back Hole<br> (You have " + otherData.blackCount + ") <br>Cost: " + (otherData.exploreBlackCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreGalaxy").innerHTML = "Galaxy<br> (You have " + otherData.galaxyCount + ") <br>Cost: " + (otherData.exploreGalaxyCost).toFixed(0) + " Otherstars";
+   document.getElementById("explorePCluster").innerHTML = "Protocluster<br> (You have " + otherData.pClusterCount + ") <br>Cost: " + (otherData.explorePClusterCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreGCluster").innerHTML = "Galaxy Cluster<br> (You have " + otherData.gClusterCount + ") <br>Cost: " + (otherData.exploreGClusterCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreGSCluster").innerHTML = "Galaxy Supercluster<br> (You have " + otherData.gSClusterCount + ") <br>Cost: " + (otherData.exploreGSClusterCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreGWall").innerHTML = "Galaxy Walls<br> (You have " + otherData.gWallCount + ") <br>Cost: " + (otherData.exploreGWallCost).toFixed(0) + " Otherstars";
+   document.getElementById("exploreUniverse").innerHTML = "Universe <br> (You have " + otherData.universeCount + ") <br>Cost: " + (otherData.exploreUniverseCost).toFixed(0) + " Otherstars";
 
    // Reset otherstar display
-   document.getElementById("otherStars").innerHTML = otherData.otherStars + " Otherstars";
+   document.getElementById("otherStars").innerHTML = (otherData.otherStars).toFixed(0) + " Otherstars";
 }, 500)
 
 //==========================================================
