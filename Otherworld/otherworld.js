@@ -190,7 +190,7 @@ var saveGameLoop = window.setInterval(function() {
    localStorage.setItem("otherworldSave", JSON.stringify(otherData));
 }, 15000)
 
-var savegame = JSON.parse(localStorage.getItem("otherworldSave"))
+var savegame = JSON.parse(localStorage.getItem("otherworldSave"));
 if (savegame !== null) {
    otherData = savegame;
 }

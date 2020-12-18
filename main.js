@@ -361,7 +361,7 @@ function buyMerger() {
 // Here is the code for summoning circles
 
 // All data about Summoning Circles
-circleData = {
+initalCircleData = {
    // Begins at lvl 0
    circleLevel: 0,
 
@@ -381,6 +381,8 @@ circleData = {
 
    // Next section
 }
+
+circleData = initalCircleData;
 
 function upgradeCircle() {
    if (circleData.circleLevel >= 1) {
@@ -1257,21 +1259,27 @@ var buildColorLoop = window.setInterval(function() {
 var saveGameLoop = window.setInterval(function() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
 }, 10000)
 
 // Retrive game data as savegame
 var savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
+   circleData: JSON.parse(localStorage.getItem("circleDataSave")),
+   otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
 }
 
 upgradeData = savegame.upgradeData;
 gameData = savegame.gameData;
+circleData = savegame.circleData;
+var otherData = savegame.otherworldSave;
 
 // If the savegame is empty set game data as savegame
 if (savegame !== null) {
    savegame.gameData = gameData;
    savegame.upgradeData = upgradeData;
+   savegame.circleData = circleData;
 }
 
 // Prevents decimals in gold
@@ -1297,9 +1305,11 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
+         circleData = initialCircleData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+         localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
          document.location.href = ("");
       }
@@ -1310,6 +1320,7 @@ function restart() {
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
 }
 
 function dark() {
