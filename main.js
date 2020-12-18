@@ -363,79 +363,139 @@ function buyMerger() {
 
 // All data about Summoning Circles
 initalCircleData = {
-   // Begins at lvl 0
+// Starts at lvl 0
    circleLevel: 0,
 
-   // Upgrade Costs
-   lvl1Cost: null,
-   lvl2Cost: null,
-   lvl3Cost: null,
-   lvl4Cost: null,
-   lvl5Cost: null,
-   lvl6Cost: null,
-   lvl7Cost: null,
-   lvl8Cost: null,
-   lvl9Cost: null,
-   lvl10Cost: null,
-   lvl11Cost: null,
+// Upgrade Costs
+   lvl1Cost: 100000000,
+   lvl2Cost: 2500000000,
+   lvl3Cost: 7500000000,
+   lvl4Cost: 25000000000,
+   lvl5Cost: 75000000000,
+   lvl6Cost: 100000000000,
+   lvl7Cost: 2500000000000,
+   lvl8Cost: 7500000000000,
+   lvl9Cost: 25000000000000,
+   lvl10Cost: 75000000000000,
+   lvl11Cost: 100000000000000,
    lvl12Cost: "Ohhh, mysterious, there are only 11 buildings",
 
-   // Next section
+// Profits and Such
+   circleProfits: 1,
+   timeUnit: null, // Starts at 24 hours
+   profit: null,
 }
 
 circleData = initalCircleData;
 
-/*
+function unlockCircle() {
+   if (otherData.otherstars >= 10000) {
+      otherData.otherstars -= 10000;
+      document.getElementById("otherstars").style.display = "block";
+      document.getElementById("summoningCircle").style.display = "block";
+   }
+}
+
+// Upgrade the Summoning Circle
 function upgradeCircle() {
-   if (circleData.circleLevel >= 1) {
-   if (gameData.otherstars)
+   if (circleData.circleLevel == 0) {
+      if (otherData.otherstars >= circleData.lvl1Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Pickaxe";
+      }
    }
-   if (circleData.circleLevel >= 2) {
-
+   if (circleData.circleLevel == 1) {
+      if (otherData.otherstars >= circleData.lvl2Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Dwarf";
+      }
    }
-   if (circleData.circleLevel >= 3) {
-
+   if (circleData.circleLevel == 2) {
+      if (otherData.otherstars >= circleData.lvl3Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Goosw";
+      }
    }
-   if (circleData.circleLevel >= 4) {
-
+   if (circleData.circleLevel == 3) {
+      if (otherData.otherstars >= circleData.lvl4Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Mine";
+      }
    }
-   if (circleData.circleLevel >= 5) {
-
+   if (circleData.circleLevel == 4) {
+      if (otherData.otherstars >= circleData.lvl5Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Dragon";
+      }
    }
-   if (circleData.circleLevel >= 6) {
-
+   if (circleData.circleLevel == 5) {
+      if (otherData.otherstars >= circleData.lvl6Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Stone";
+      }
    }
-   if (circleData.circleLevel >= 7) {
-
+   if (circleData.circleLevel == 6) {
+      if (otherData.otherstars >= circleData.lvl7Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Station";
+      }
    }
-   if (circleData.circleLevel >= 8) {
-
+   if (circleData.circleLevel == 7) {
+      if (otherData.otherstars >= circleData.lvl8Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Leprechaun";
+      }
    }
-   if (circleData.circleLevel >= 9) {
-
+   if (circleData.circleLevel == 8) {
+      if (otherData.otherstars >= circleData.lvl9Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Sheep";
+      }
    }
-   if (circleData.circleLevel >= 10) {
-
+   if (circleData.circleLevel == 9) {
+      if (otherData.otherstars >= circleData.lvl110Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Ray";
+      }
    }
-   if (circleData.circleLevel >= 11) {
-
+   if (circleData.circleLevel == 10) {
+      if (otherData.otherstars >= circleData.lvl11Cost) {
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Merger";
+      }
    }
-   if (circleData.circleLevel >= 12) {
-
+   if (circleData.circleLevel == 11) {
+      // I hate these popups
+      alert("Coming Soon!");
    }
 }
 
-function upgradeCircle1() {
-   if (gameData.otherstars >= circleData.lvl1Cost) {
-      gameData.gold -= circleData.lvl1Cost;
-      circleData.circleLevel += 1;
-      circleData.circleTimeUnit = 86500000s; // 1 day
-   }
-}
-
+/*
 function shortenCircleTime() {
    if (gameData.otherstars >= circleData.shortenTimeCost) {
-      //circleData.circleTimeUnit -= (circleData.circleTimeUnit/20%); // 1 day
+      //circleData.timeUnit -= (circleData.timeUnit/20%); // 1 day
    }
 }
 
@@ -592,9 +652,9 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.rayNumber >= 10 && upgradeData.j3 == 1) {
       document.getElementById("j3").style.display = "block";
    }
- /* if (gameData.rayNumber >= 15 && upgradeData.j4 == 1) {
+   if (gameData.rayNumber >= 15 && upgradeData.j4 == 1) {
       document.getElementById("j4").style.display = "block";
-}*/
+   }
    if (gameData.mergerNumber >= 1 && upgradeData.k1 == 1) {
       document.getElementById("k1").style.display = "block";
    }
@@ -609,6 +669,11 @@ var checkForUpgrades = window.setInterval(function() {
 }*/
    if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
       document.getElementById("otherworldPortal").style.display = "block";
+   }
+
+   // Summoning Circle
+   if (otherData.otherstars >= 1) {
+      document.getElementById("unlockCircle").style.display = "block";
    }
 }, 3000)
 
