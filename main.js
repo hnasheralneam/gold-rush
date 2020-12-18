@@ -386,7 +386,7 @@ initalCircleData = {
    profit: null,
 }
 
-circleData = initalCircleData;
+var circleData = initalCircleData;
 
 function unlockCircle() {
    if (otherData.otherStars >= 10000) {
