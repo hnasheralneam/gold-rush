@@ -1132,31 +1132,31 @@ function otherworldPortal() {
 // Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
    //Gold per Building
-   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + commas(gameData.pickaxeGold) + " GPS<br>A sturdy pickaxe to mine gold with";
-   document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + gameData.dwarfProfit + " GPS each<br> Producing " + commas(gameData.dwarfGold) + " GPS<br>An assistant to help you mine gold";
-   document.getElementById("goose-info").innerHTML = "Geese <br> " + gameData.gooseProfit + " GPS each<br> Producing " + commas(gameData.gooseGold) + " GPS<br>A nice goose that lays golden egg";
-   document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + gameData.mineProfit + " GPS each<br> Producing " + commas(gameData.mineGold) + " GPS<br>A new mine to mine gold in";
-   document.getElementById("dragon-info").innerHTML = "Dragon <br> " + gameData.dragonProfit + " GPS each<br> Producing " + commas(gameData.dragonGold) + " GPS<br>A nice dragon to steal gold and hoard it";
-   document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + gameData.stoneProfit + " GPS each<br> Producing " + commas(gameData.stoneGold) + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
-   document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + gameData.stationProfit + " GPS each<br> Producing " + commas(gameData.stationGold) + " GPS<br>A space station that mines astroids for gold";
-   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + gameData.lepProfit + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
-   document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + gameData.sheepProfit + " GPS each<br> Producing " + commas(gameData.sheepGold) + " GPS<br>A cute round fluffy sheep with a golden fleece";
-   document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + gameData.rayProfit + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
-   document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + gameData.mergerProfit + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
+   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + commas(gameData.pickaxeProfit) + " GPS <br> Producing " + commas(gameData.pickaxeGold) + " GPS<br>A sturdy pickaxe to mine gold with";
+   document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + commas(gameData.dwarfProfit) + " GPS each<br> Producing " + commas(gameData.dwarfGold) + " GPS<br>An assistant to help you mine gold";
+   document.getElementById("goose-info").innerHTML = "Geese <br> " + commas(gameData.gooseProfit) + " GPS each<br> Producing " + commas(gameData.gooseGold) + " GPS<br>A nice goose that lays golden egg";
+   document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + commas(gameData.mineProfit) + " GPS each<br> Producing " + commas(gameData.mineGold) + " GPS<br>A new mine to mine gold in";
+   document.getElementById("dragon-info").innerHTML = "Dragon <br> " + commas(gameData.dragonProfit) + " GPS each<br> Producing " + commas(gameData.dragonGold) + " GPS<br>A nice dragon to steal gold and hoard it";
+   document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + commas(gameData.stoneProfit) + " GPS each<br> Producing " + commas(gameData.stoneGold) + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
+   document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + commas(gameData.stationProfit) + " GPS each<br> Producing " + commas(gameData.stationGold) + " GPS<br>A space station that mines astroids for gold";
+   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + commas(gameData.lepProfit) + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
+   document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + commas(gameData.sheepProfit) + " GPS each<br> Producing " + commas(gameData.sheepGold) + " GPS<br>A cute round fluffy sheep with a golden fleece";
+   document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + commas(gameData.rayProfit) + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
+   document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + commas(gameData.mergerProfit) + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
 
    //Building Count
-   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
-   document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
-   document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
-   document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
-   document.getElementById("mine-display").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + gameData.openMineCost + " Gold";
-   document.getElementById("dragon-display").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + gameData.hireDragonCost + " Gold";
-   document.getElementById("stone-display").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + gameData.buyStoneCost + " Gold";
-   document.getElementById("station-display").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + gameData.openStationCost + " Gold";
-   document.getElementById("leprechaun-display").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + gameData.hireLeprechaunCost + " Gold";
-   document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + gameData.hireSheepCost + " Gold";
-   document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
-   document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + commas(gameData.toolLevel) + "<br> Cost: " + commas(gameData.bToolCost) + " Gold";
+   document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + commas(gameData.pickaxeNumber) + ") <br>Cost: " + commas(gameData.buyPickaxeCost) + " Gold";
+   document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + commas(gameData.dwarfNumber) + ") <br>Cost: " + commas(gameData.hireDwarfCost) + " Gold";
+   document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + commas(gameData.gooseNumber) + ") <br>Cost: " + commas(gameData.hireGooseCost) + " Gold";
+   document.getElementById("mine-display").innerHTML = "Gold Mine<br> (You have " + commas(gameData.mineNumber) + ") <br>Cost: " + commas(gameData.openMineCost) + " Gold";
+   document.getElementById("dragon-display").innerHTML = "Dragon<br> (You have " + commas(gameData.dragonNumber) + ") <br>Cost: " + commas(gameData.hireDragonCost) + " Gold";
+   document.getElementById("stone-display").innerHTML = "Philosopher's Stone<br> (You have " + commas(gameData.stoneNumber) + ") <br>Cost: " + commas(gameData.buyStoneCost) + " Gold";
+   document.getElementById("station-display").innerHTML = "Astroid-mining Station<br> (You have " + commas(gameData.stationNumber) + ") <br>Cost: " + commas(gameData.openStationCost) + " Gold";
+   document.getElementById("leprechaun-display").innerHTML = "Leprechaun<br> (You have " + commas(gameData.leprechaunNumber) + ") <br>Cost: " + commas(gameData.hireLeprechaunCost) + " Gold";
+   document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + commas(gameData.sheepNumber) + ") <br>Cost: " + commas(gameData.hireSheepCost) + " Gold";
+   document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + commas(gameData.rayNumber) + ") <br>Cost: " + commas(gameData.buyRayCost) + " Gold";
+   document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + commas(gameData.mergerNumber) + ") <br>Cost: " + commas(gameData.buyMergerCost) + " Gold";
 }, 500)
 
 //==========================================================
@@ -1171,7 +1171,8 @@ var mainGameLoop = window.setInterval(function() {
    addGold(goldPerSecond() * (diff / 1000));
 
    // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = goldPerSecond() + " Gold per Second<br>" + gameData.clickinGold + " Gold per Second<br>";
+   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Second<br>";
+
    // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
    document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
