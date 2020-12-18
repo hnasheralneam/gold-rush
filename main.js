@@ -398,16 +398,24 @@ function unlockCircle() {
 
 // Upgrade the Summoning Circle
 function upgradeCircle() {
+   // Depending on what level the player is on, run a certiant part of the function
    if (circleData.circleLevel == 0) {
+      // Check there is enough otherstars
       if (otherData.otherStars >= circleData.lvl1Cost) {
+         // Substract that amount of otherstars
+         otherData.otherStars -= circleData.lvl1Cost;
+         // Add one to the level
          circleData.circleLevel += 1;
+         // Reset the profits and unit of time
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
+         // Set product as whatever level it is
          circleData.product = "Pickaxe";
       }
    }
    if (circleData.circleLevel == 1) {
       if (otherData.otherStars >= circleData.lvl2Cost) {
+         otherData.otherStars -= circleData.lvl2Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -416,6 +424,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 2) {
       if (otherData.otherStars >= circleData.lvl3Cost) {
+         otherData.otherStars -= circleData.lvl3Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -424,6 +433,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 3) {
       if (otherData.otherStars >= circleData.lvl4Cost) {
+         otherData.otherStars -= circleData.lvl4Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -432,6 +442,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 4) {
       if (otherData.otherStars >= circleData.lvl5Cost) {
+         otherData.otherStars -= circleData.lvl5Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -440,6 +451,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 5) {
       if (otherData.otherStars >= circleData.lvl6Cost) {
+         otherData.otherStars -= circleData.lvl6Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -448,6 +460,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 6) {
       if (otherData.otherStars >= circleData.lvl7Cost) {
+         otherData.otherStars -= circleData.lvl7Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -456,6 +469,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 7) {
       if (otherData.otherStars >= circleData.lvl8Cost) {
+         otherData.otherStars -= circleData.lvl8Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -464,6 +478,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 8) {
       if (otherData.otherStars >= circleData.lvl9Cost) {
+         otherData.otherStars -= circleData.lvl9Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -471,7 +486,8 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 9) {
-      if (otherData.otherStars >= circleData.lvl110Cost) {
+      if (otherData.otherStars >= circleData.lvl110Cost)
+      otherData.otherStars -= circleData.lvl10Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -480,6 +496,7 @@ function upgradeCircle() {
    }
    if (circleData.circleLevel == 10) {
       if (otherData.otherStars >= circleData.lvl11Cost) {
+         otherData.otherStars -= circleData.lvl11Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
          circleData.timeUnit = 86500000;
@@ -1169,6 +1186,12 @@ var mainGameLoop = window.setInterval(function() {
    diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
    addGold(goldPerSecond() * (diff / 1000));
+
+   // Display summoning circle
+   if (circleData.circleLevel >= 1) {
+      document.getElementById("otherstars").style.display = "block";
+      document.getElementById("summoningCircle").style.display = "block";
+   }
 
    // Display gold per second & gold per click
    document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Second<br>";
