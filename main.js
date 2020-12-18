@@ -486,7 +486,7 @@ function upgradeCircle() {
       }
    }
    if (circleData.circleLevel == 9) {
-      if (otherData.otherStars >= circleData.lvl110Cost)
+      if (otherData.otherStars >= circleData.lvl110Cost) {
       otherData.otherStars -= circleData.lvl10Cost;
          circleData.circleLevel += 1;
          circleData.circleProfits = 1;
