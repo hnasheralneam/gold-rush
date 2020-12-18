@@ -357,8 +357,9 @@ function buyMerger() {
    }
 }
 
-/*
-// Here is the code for summoning circles
+//==========================================================
+//Summoning Circles
+//==========================================================
 
 // All data about Summoning Circles
 initalCircleData = {
@@ -384,6 +385,7 @@ initalCircleData = {
 
 circleData = initalCircleData;
 
+/*
 function upgradeCircle() {
    if (circleData.circleLevel >= 1) {
    if (gameData.otherstars)
