@@ -358,11 +358,67 @@ function buyMerger() {
 }
 
 /*
-// 1000 = 1 second | 60000 = 1 minute | 3600000 = 1 hour | 86500000 = 1 day
 // Here is the code for summoning circles
 
+// All data about Summoning Circles
 circleData = {
-   value: "assigned";
+   // Begins at lvl 0
+   circleLevel: 0,
+
+   // Upgrade Costs
+   lvl1Cost: null,
+   lvl2Cost: null,
+   lvl3Cost: null,
+   lvl4Cost: null,
+   lvl5Cost: null,
+   lvl6Cost: null,
+   lvl7Cost: null,
+   lvl8Cost: null,
+   lvl9Cost: null,
+   lvl10Cost: null,
+   lvl11Cost: null,
+   lvl12Cost: "Ohhh, mysterious, there are only 11 buildings",
+
+   // Next section
+}
+
+function upgradeCircle() {
+   if (circleData.circleLevel >= 1) {
+   if (gameData.otherstars)
+   }
+   if (circleData.circleLevel >= 2) {
+
+   }
+   if (circleData.circleLevel >= 3) {
+
+   }
+   if (circleData.circleLevel >= 4) {
+
+   }
+   if (circleData.circleLevel >= 5) {
+
+   }
+   if (circleData.circleLevel >= 6) {
+
+   }
+   if (circleData.circleLevel >= 7) {
+
+   }
+   if (circleData.circleLevel >= 8) {
+
+   }
+   if (circleData.circleLevel >= 9) {
+
+   }
+   if (circleData.circleLevel >= 10) {
+
+   }
+   if (circleData.circleLevel >= 11) {
+
+   }
+   if (circleData.circleLevel >= 12) {
+
+   }
 }
 
 function upgradeCircle1() {
@@ -384,6 +440,9 @@ function increaseCircleReward() {
       circleData.circleProfit += 1;
    }
 }
+
+// 1000 = 1 second | 60000 = 1 minute | 3600000 = 1 hour | 86500000 = 1 day
+
 */
 
 //==========================================================
