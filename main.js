@@ -386,7 +386,8 @@ initalCircleData = {
    profit: null,
 }
 
-var circleData = initalCircleData;
+var circleData;
+circleData = initalCircleData;
 
 function unlockCircle() {
    if (otherData.otherStars >= 10000) {
@@ -1388,7 +1389,7 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         circleData = initialCircleData;
+         circleData = initalCircleData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
