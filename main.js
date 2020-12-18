@@ -398,7 +398,6 @@ function unlockCircle() {
 
 // Upgrade the Summoning Circle
 function upgradeCircle() {
-   console.log("beep");
    if (circleData.circleLevel == 0) {
       if (otherData.otherStars >= circleData.lvl1Cost) {
          circleData.circleLevel += 1;
