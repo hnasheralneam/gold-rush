@@ -5,7 +5,7 @@
 // Copyright Squirrel 2020 A.D.
 // If you continue you shall get the majority of the game spoiled for you. Also, it's a 'bit' messy
 // Solicitors will be relieved of their sanity
-// Beta version comes with commented code! Now I can know why I did what I did.
+// Version 1.0.0 comes with commented code! Now I can know why I did what I did.
 
 //==========================================================
 //Game Data
@@ -251,6 +251,17 @@ function addGold(gold) {
 }
 
 //==========================================================
+//Multiple buying
+//==========================================================
+
+document.addEventListener("keydown", function(event) {
+   if (event.altKey && event.keyCode == 83) {
+      alert('Alt + X pressed!');
+      event.preventDefault();
+   }
+});
+
+//==========================================================
 //Purchase Buildings
 //==========================================================
 
@@ -276,12 +287,22 @@ function buyPickaxe() {
       gameData.pickaxeNumber += 1;
    }
 }
-function hireDwarf() {
+document.getElementById("hireDwarf").onclick = function hireDwarf(event) {
    if(gameData.gold >= gameData.hireDwarfCost) {
-      gameData.gold -= gameData.hireDwarfCost;
-      gameData.dwarfGold += gameData.dwarfProfit;
-      gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0);
-      gameData.dwarfNumber += 1;
+      if (event.ctrlKey) {
+         while (gameData.gold >= gameData.hireDwarfCost) {
+            gameData.gold -= gameData.hireDwarfCost;
+            gameData.dwarfGold += gameData.dwarfProfit;
+            gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0);
+            gameData.dwarfNumber += 1;
+         }
+      }
+      else {
+         gameData.gold -= gameData.hireDwarfCost;
+         gameData.dwarfGold += gameData.dwarfProfit;
+         gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0);
+         gameData.dwarfNumber += 1;
+      }
    }
 }
 function hireGoose() {
@@ -1195,7 +1216,7 @@ var mainGameLoop = window.setInterval(function() {
    }
 
    // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Second<br>";
+   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
 
    // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
@@ -1406,6 +1427,17 @@ function save() {
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
    localStorage.setItem("circleDataSave", JSON.stringify(circleData));
 }
+
+// Save by ctrl + S
+document.addEventListener("keydown", function(e) {
+   // If player is on a Mac, use cmd + S
+   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
+      // Prevent default
+      e.preventDefault();
+      // Run save function
+      save();
+   }
+}, false);
 
 function dark() {
    // This changes the default colors for avalible and unavalible buildings
