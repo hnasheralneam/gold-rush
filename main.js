@@ -10,9 +10,11 @@
 //==========================================================
 //Game Data
 //==========================================================
+// Use strict mode
+// 'use strict';
 
 // Default values
-var initialGameData = {
+const initialGameData = {
 //Gold
    gold: 0,
    totalGold: 0,
@@ -100,7 +102,7 @@ var initialGameData = {
 //Time
    lastTick: Date.now()
 }
-var initialUpgradeData = {
+const initialUpgradeData = {
    a1: 1,
    a1Price: 200,
    a2: 1,
@@ -211,17 +213,15 @@ var initialUpgradeData = {
 }
 
 // Assigning defaults to individual player values
-var gameData = initialGameData;
-var upgradeData = initialUpgradeData;
+let gameData = initialGameData;
+let upgradeData = initialUpgradeData;
 
 // All building gold added together
-function goldPerSecond() {
-  return gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold;
-}
+let goldPerSecond = goldPerSecond => gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold;
 
 // Colors for avilibe or unavalibe buildings
-var regColor = "#ffffbd";
-var notEnoughColor = "#333";
+let regColor = "#ffffbd";
+let notEnoughColor = "#333";
 
 //==========================================================
 //Gain Profit
@@ -238,7 +238,7 @@ function collectGold() {
 
 // Spacebar gold
 document.body.onkeyup = function(e){
-   if(e.keyCode == 32){
+   if(e.keyCode === 32){
       event.preventDefault();
       addGold(gameData.clickinGold);
    }
@@ -255,7 +255,7 @@ function addGold(gold) {
 //==========================================================
 
 document.addEventListener("keydown", function(event) {
-   if (event.altKey && event.keyCode == 83) {
+   if (event.altKey && event.keyCode === 83) {
       alert('Alt + X pressed!');
       event.preventDefault();
    }
@@ -282,7 +282,7 @@ function buyPickaxe() {
       // Add the amount of gold par pickaxe to the gold pickaxes are producing
       gameData.pickaxeGold += gameData.pickaxeProfit;
       // Multiply the cost by 1.15 and the amount of pciakxes
-      gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0);
+      gameData.buyPickaxeCost = (58 * 1.15 ** gameData.pickaxeNumber).toFixed(0);
       // Add one to the pickaxes owned
       gameData.pickaxeNumber += 1;
    }
@@ -293,14 +293,14 @@ document.getElementById("hireDwarf").onclick = function hireDwarf(event) {
          while (gameData.gold >= gameData.hireDwarfCost) {
             gameData.gold -= gameData.hireDwarfCost;
             gameData.dwarfGold += gameData.dwarfProfit;
-            gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0);
+            gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
             gameData.dwarfNumber += 1;
          }
       }
       else {
          gameData.gold -= gameData.hireDwarfCost;
          gameData.dwarfGold += gameData.dwarfProfit;
-         gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0);
+         gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
          gameData.dwarfNumber += 1;
       }
    }
@@ -309,7 +309,7 @@ function hireGoose() {
    if(gameData.gold >= gameData.hireGooseCost) {
       gameData.gold -= gameData.hireGooseCost;
       gameData.gooseGold += gameData.gooseProfit;
-      gameData.hireGooseCost = (10127 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0);
+      gameData.hireGooseCost = (10127 * 1.15 ** gameData.gooseNumber).toFixed(0);
       gameData.gooseNumber += 1;
    }
 }
@@ -317,7 +317,7 @@ function openMine() {
    if(gameData.gold >= gameData.openMineCost) {
       gameData.gold -= gameData.openMineCost;
       gameData.mineGold += gameData.mineProfit;
-      gameData.openMineCost = (28351 * Math.pow(1.15, gameData.mineNumber)).toFixed(0);
+      gameData.openMineCost = (28351 * 1.15 ** gameData.mineNumber).toFixed(0);
       gameData.mineNumber += 1;
    }
 }
@@ -325,7 +325,7 @@ function hireDragon() {
    if(gameData.gold >= gameData.hireDragonCost) {
       gameData.gold -= gameData.hireDragonCost;
       gameData.dragonGold += gameData.dragonProfit;
-      gameData.hireDragonCost = (201648 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0);
+      gameData.hireDragonCost = (201648 * 1.15 ** gameData.dragonNumber).toFixed(0);
       gameData.dragonNumber += 1;
    }
 }
@@ -333,7 +333,7 @@ function buyStone() {
    if(gameData.gold >= gameData.buyStoneCost) {
       gameData.gold -= gameData.buyStoneCost;
       gameData.stoneGold += gameData.stoneProfit;
-      gameData.buyStoneCost = (3752186 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0);
+      gameData.buyStoneCost = (3752186 * 1.15 ** gameData.stoneNumber).toFixed(0);
       gameData.stoneNumber += 1;
    }
 }
@@ -341,7 +341,7 @@ function openStation() {
    if(gameData.gold >= gameData.openStationCost) {
       gameData.gold -= gameData.openStationCost;
       gameData.stationGold += gameData.stationProfit;
-      gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0);
+      gameData.openStationCost = (250000000 * 1.15 ** gameData.stationNumber).toFixed(0);
       gameData.stationNumber += 1;
    }
 }
@@ -349,7 +349,7 @@ function hireLeprechaun() {
    if(gameData.gold >= gameData.hireLeprechaunCost) {
       gameData.gold -= gameData.hireLeprechaunCost;
       gameData.leprechaunGold += gameData.lepProfit;
-      gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0);
+      gameData.hireLeprechaunCost = (1000000000 * 1.15 ** gameData.leprechaunNumber).toFixed(0);
       gameData.leprechaunNumber += 1;
    }
 }
@@ -357,7 +357,7 @@ function hireSheep() {
    if(gameData.gold >= gameData.hireSheepCost) {
       gameData.gold -= gameData.hireSheepCost;
       gameData.sheepGold += gameData.sheepProfit;
-      gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0);
+      gameData.hireSheepCost = (250000000000 * 1.15 ** gameData.sheepNumber).toFixed(0);
       gameData.sheepNumber += 1;
    }
 }
@@ -365,7 +365,7 @@ function buyRay() {
    if(gameData.gold >= gameData.buyRayCost) {
       gameData.gold -= gameData.buyRayCost;
       gameData.rayGold += gameData.rayProfit;
-      gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0);
+      gameData.buyRayCost = (2000000000000 * 1.15 ** gameData.rayNumber).toFixed(0);
       gameData.rayNumber += 1;
    }
 }
@@ -373,7 +373,7 @@ function buyMerger() {
    if(gameData.gold >= gameData.buyMergerCost) {
       gameData.gold -= gameData.buyMergerCost;
       gameData.mergerGold += gameData.mergerProfit;
-      gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0);
+      gameData.buyMergerCost = (200000000000000 * 1.15 ** gameData.mergerNumber).toFixed(0);
       gameData.mergerNumber += 1;
    }
 }
@@ -383,7 +383,7 @@ function buyMerger() {
 //==========================================================
 
 // All data about Summoning Circles
-initalCircleData = {
+const initalCircleData = {
 // Starts at lvl 0
    circleLevel: 0,
 
@@ -407,8 +407,7 @@ initalCircleData = {
    profit: null,
 }
 
-var circleData;
-circleData = initalCircleData;
+let circleData = initalCircleData;
 
 function unlockCircle() {
    if (otherData.otherStars >= 10000) {
@@ -421,7 +420,7 @@ function unlockCircle() {
 // Upgrade the Summoning Circle
 function upgradeCircle() {
    // Depending on what level the player is on, run a certiant part of the function
-   if (circleData.circleLevel == 0) {
+   if (circleData.circleLevel === 0) {
       // Check there is enough otherstars
       if (otherData.otherStars >= circleData.lvl1Cost) {
          // Substract that amount of otherstars
@@ -435,7 +434,7 @@ function upgradeCircle() {
          circleData.product = "Pickaxe";
       }
    }
-   if (circleData.circleLevel == 1) {
+   if (circleData.circleLevel === 1) {
       if (otherData.otherStars >= circleData.lvl2Cost) {
          otherData.otherStars -= circleData.lvl2Cost;
          circleData.circleLevel += 1;
@@ -444,7 +443,7 @@ function upgradeCircle() {
          circleData.product = "Dwarf";
       }
    }
-   if (circleData.circleLevel == 2) {
+   if (circleData.circleLevel === 2) {
       if (otherData.otherStars >= circleData.lvl3Cost) {
          otherData.otherStars -= circleData.lvl3Cost;
          circleData.circleLevel += 1;
@@ -453,7 +452,7 @@ function upgradeCircle() {
          circleData.product = "Goosw";
       }
    }
-   if (circleData.circleLevel == 3) {
+   if (circleData.circleLevel === 3) {
       if (otherData.otherStars >= circleData.lvl4Cost) {
          otherData.otherStars -= circleData.lvl4Cost;
          circleData.circleLevel += 1;
@@ -462,7 +461,7 @@ function upgradeCircle() {
          circleData.product = "Mine";
       }
    }
-   if (circleData.circleLevel == 4) {
+   if (circleData.circleLevel === 4) {
       if (otherData.otherStars >= circleData.lvl5Cost) {
          otherData.otherStars -= circleData.lvl5Cost;
          circleData.circleLevel += 1;
@@ -471,7 +470,7 @@ function upgradeCircle() {
          circleData.product = "Dragon";
       }
    }
-   if (circleData.circleLevel == 5) {
+   if (circleData.circleLevel === 5) {
       if (otherData.otherStars >= circleData.lvl6Cost) {
          otherData.otherStars -= circleData.lvl6Cost;
          circleData.circleLevel += 1;
@@ -480,7 +479,7 @@ function upgradeCircle() {
          circleData.product = "Stone";
       }
    }
-   if (circleData.circleLevel == 6) {
+   if (circleData.circleLevel === 6) {
       if (otherData.otherStars >= circleData.lvl7Cost) {
          otherData.otherStars -= circleData.lvl7Cost;
          circleData.circleLevel += 1;
@@ -489,7 +488,7 @@ function upgradeCircle() {
          circleData.product = "Station";
       }
    }
-   if (circleData.circleLevel == 7) {
+   if (circleData.circleLevel === 7) {
       if (otherData.otherStars >= circleData.lvl8Cost) {
          otherData.otherStars -= circleData.lvl8Cost;
          circleData.circleLevel += 1;
@@ -498,7 +497,7 @@ function upgradeCircle() {
          circleData.product = "Leprechaun";
       }
    }
-   if (circleData.circleLevel == 8) {
+   if (circleData.circleLevel === 8) {
       if (otherData.otherStars >= circleData.lvl9Cost) {
          otherData.otherStars -= circleData.lvl9Cost;
          circleData.circleLevel += 1;
@@ -507,7 +506,7 @@ function upgradeCircle() {
          circleData.product = "Sheep";
       }
    }
-   if (circleData.circleLevel == 9) {
+   if (circleData.circleLevel === 9) {
       if (otherData.otherStars >= circleData.lvl110Cost) {
       otherData.otherStars -= circleData.lvl10Cost;
          circleData.circleLevel += 1;
@@ -516,7 +515,7 @@ function upgradeCircle() {
          circleData.product = "Ray";
       }
    }
-   if (circleData.circleLevel == 10) {
+   if (circleData.circleLevel === 10) {
       if (otherData.otherStars >= circleData.lvl11Cost) {
          otherData.otherStars -= circleData.lvl11Cost;
          circleData.circleLevel += 1;
@@ -525,7 +524,7 @@ function upgradeCircle() {
          circleData.product = "Merger";
       }
    }
-   if (circleData.circleLevel == 11) {
+   if (circleData.circleLevel === 11) {
       // I hate these popups
       alert("Coming Soon!");
    }
@@ -538,155 +537,155 @@ function upgradeCircle() {
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
    // If player has enough of a certiant item, and has not bough it before
-   if (gameData.toolLevel >= 1 && upgradeData.a1 == 1) {
+   if (gameData.toolLevel >= 1 && upgradeData.a1 === 1) {
       // Display the upgrade for that amount
       document.getElementById("a1").style.display = "block";
    }
-   if (gameData.toolLevel >= 5 && upgradeData.a2 == 1) {
+   if (gameData.toolLevel >= 5 && upgradeData.a2 === 1) {
       document.getElementById("a2").style.display = "block";
    }
-   if (gameData.toolLevel >= 10 && upgradeData.a3 == 1) {
+   if (gameData.toolLevel >= 10 && upgradeData.a3 === 1) {
       document.getElementById("a3").style.display = "block";
    }
-   if (gameData.toolLevel >= 15 && upgradeData.a4 == 1) {
+   if (gameData.toolLevel >= 15 && upgradeData.a4 === 1) {
       document.getElementById("a4").style.display = "block";
    }
-   if (gameData.toolLevel >= 20 && upgradeData.a5 == 1) {
+   if (gameData.toolLevel >= 20 && upgradeData.a5 === 1) {
       document.getElementById("a5").style.display = "block";
    }
-   if (gameData.toolLevel >= 25 && upgradeData.a6 == 1) {
+   if (gameData.toolLevel >= 25 && upgradeData.a6 === 1) {
       document.getElementById("a6").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 1 && upgradeData.b1 == 1) {
+   if (gameData.pickaxeNumber >= 1 && upgradeData.b1 === 1) {
       document.getElementById("b1").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 5 && upgradeData.b2 == 1) {
+   if (gameData.pickaxeNumber >= 5 && upgradeData.b2 === 1) {
       document.getElementById("b2").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 10 && upgradeData.b3 == 1) {
+   if (gameData.pickaxeNumber >= 10 && upgradeData.b3 === 1) {
       document.getElementById("b3").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 15 && upgradeData.b4 == 1) {
+   if (gameData.pickaxeNumber >= 15 && upgradeData.b4 === 1) {
       document.getElementById("b4").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 1 && upgradeData.c1 == 1) {
+   if (gameData.dwarfNumber >= 1 && upgradeData.c1 === 1) {
       document.getElementById("c1").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 5 && upgradeData.c2 == 1) {
+   if (gameData.dwarfNumber >= 5 && upgradeData.c2 === 1) {
       document.getElementById("c2").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 10 && upgradeData.c3 == 1) {
+   if (gameData.dwarfNumber >= 10 && upgradeData.c3 === 1) {
       document.getElementById("c3").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 15 && upgradeData.c4 == 1) {
+   if (gameData.dwarfNumber >= 15 && upgradeData.c4 === 1) {
       document.getElementById("c4").style.display = "block";
    }
-   if (gameData.gooseNumber >= 1 && upgradeData.c01 == 1) {
+   if (gameData.gooseNumber >= 1 && upgradeData.c01 === 1) {
       document.getElementById("c01").style.display = "block";
    }
-   if (gameData.gooseNumber >= 5 && upgradeData.c02 == 1) {
+   if (gameData.gooseNumber >= 5 && upgradeData.c02 === 1) {
       document.getElementById("c02").style.display = "block";
    }
-   if (gameData.gooseNumber >= 10 && upgradeData.c03 == 1) {
+   if (gameData.gooseNumber >= 10 && upgradeData.c03 === 1) {
       document.getElementById("c03").style.display = "block";
    }
-   if (gameData.gooseNumber >= 15 && upgradeData.c04 == 1) {
+   if (gameData.gooseNumber >= 15 && upgradeData.c04 === 1) {
       document.getElementById("c04").style.display = "block";
    }
-   if (gameData.mineNumber >= 1 && upgradeData.d1 == 1) {
+   if (gameData.mineNumber >= 1 && upgradeData.d1 === 1) {
       document.getElementById("d1").style.display = "block";
    }
-   if (gameData.mineNumber >= 5 && upgradeData.d2 == 1) {
+   if (gameData.mineNumber >= 5 && upgradeData.d2 === 1) {
       document.getElementById("d2").style.display = "block";
    }
-   if (gameData.mineNumber >= 10 && upgradeData.d3 == 1) {
+   if (gameData.mineNumber >= 10 && upgradeData.d3 === 1) {
       document.getElementById("d3").style.display = "block";
    }
-   if (gameData.mineNumber >= 15 && upgradeData.d4 == 1) {
+   if (gameData.mineNumber >= 15 && upgradeData.d4 === 1) {
       document.getElementById("d4").style.display = "block";
    }
-   if (gameData.dragonNumber >= 1 && upgradeData.e1 == 1) {
+   if (gameData.dragonNumber >= 1 && upgradeData.e1 === 1) {
       document.getElementById("e1").style.display = "block";
    }
-   if (gameData.dragonNumber >= 5 && upgradeData.e2 == 1) {
+   if (gameData.dragonNumber >= 5 && upgradeData.e2 === 1) {
       document.getElementById("e2").style.display = "block";
    }
-   if (gameData.dragonNumber >= 10 && upgradeData.e3 == 1) {
+   if (gameData.dragonNumber >= 10 && upgradeData.e3 === 1) {
       document.getElementById("e3").style.display = "block";
    }
-   if (gameData.dragonNumber >= 15 && upgradeData.e4 == 1) {
+   if (gameData.dragonNumber >= 15 && upgradeData.e4 === 1) {
       document.getElementById("e4").style.display = "block";
    }
-   if (gameData.stoneNumber >= 1 && upgradeData.f1 == 1) {
+   if (gameData.stoneNumber >= 1 && upgradeData.f1 === 1) {
       document.getElementById("f1").style.display = "block";
    }
-   if (gameData.stoneNumber >= 5 && upgradeData.f2 == 1) {
+   if (gameData.stoneNumber >= 5 && upgradeData.f2 === 1) {
       document.getElementById("f2").style.display = "block";
    }
-   if (gameData.stoneNumber >= 10 && upgradeData.f3 == 1) {
+   if (gameData.stoneNumber >= 10 && upgradeData.f3 === 1) {
       document.getElementById("f3").style.display = "block";
    }
- /* if (gameData.stoneNumber >= 15 && upgradeData.f4 == 1) {
+ /* if (gameData.stoneNumber >= 15 && upgradeData.f4 === 1) {
       document.getElementById("f4").style.display = "block";
 }*/
-   if (gameData.stationNumber >= 1 && upgradeData.g1 == 1) {
+   if (gameData.stationNumber >= 1 && upgradeData.g1 === 1) {
       document.getElementById("g1").style.display = "block";
    }
-   if (gameData.stationNumber >= 5 && upgradeData.g2 == 1) {
+   if (gameData.stationNumber >= 5 && upgradeData.g2 === 1) {
       document.getElementById("g2").style.display = "block";
    }
-   if (gameData.stationNumber >= 10 && upgradeData.g3 == 1) {
+   if (gameData.stationNumber >= 10 && upgradeData.g3 === 1) {
       document.getElementById("g3").style.display = "block";
    }
-   if (gameData.stationNumber >= 15 && upgradeData.g4 == 1) {
+   if (gameData.stationNumber >= 15 && upgradeData.g4 === 1) {
       document.getElementById("g4").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 1 && upgradeData.h1 == 1) {
+   if (gameData.leprechaunNumber >= 1 && upgradeData.h1 === 1) {
       document.getElementById("h1").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 5 && upgradeData.h2 == 1) {
+   if (gameData.leprechaunNumber >= 5 && upgradeData.h2 === 1) {
       document.getElementById("h2").style.display = "block";
    }
- /* if (gameData.leprechaunNumber >= 10 && upgradeData.h3 == 1) {
+ /* if (gameData.leprechaunNumber >= 10 && upgradeData.h3 === 1) {
       document.getElementById("h3").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 15 && upgradeData.h4 == 1) {
+   if (gameData.leprechaunNumber >= 15 && upgradeData.h4 === 1) {
       document.getElementById("h4").style.display = "block";
 }*/
-   if (gameData.sheepNumber >= 1 && upgradeData.i1 == 1) {
+   if (gameData.sheepNumber >= 1 && upgradeData.i1 === 1) {
       document.getElementById("i1").style.display = "block";
    }
-   if (gameData.sheepNumber >= 5 && upgradeData.i2 == 1) {
+   if (gameData.sheepNumber >= 5 && upgradeData.i2 === 1) {
       document.getElementById("i2").style.display = "block";
    }
-   /*if (gameData.sheepNumber >= 10 && upgradeData.i3 == 1) {
+   /*if (gameData.sheepNumber >= 10 && upgradeData.i3 === 1) {
       document.getElementById("i3").style.display = "block";
    }
-   if (gameData.sheepNumber >= 15 && upgradeData.i4 == 1) {
+   if (gameData.sheepNumber >= 15 && upgradeData.i4 === 1) {
       document.getElementById("i4").style.display = "block";
 }*/
-   if (gameData.rayNumber >= 1 && upgradeData.j1 == 1) {
+   if (gameData.rayNumber >= 1 && upgradeData.j1 === 1) {
       document.getElementById("j1").style.display = "block";
    }
-   if (gameData.rayNumber >= 5 && upgradeData.j2 == 1) {
+   if (gameData.rayNumber >= 5 && upgradeData.j2 === 1) {
       document.getElementById("j2").style.display = "block";
    }
-   if (gameData.rayNumber >= 10 && upgradeData.j3 == 1) {
+   if (gameData.rayNumber >= 10 && upgradeData.j3 === 1) {
       document.getElementById("j3").style.display = "block";
    }
-   if (gameData.rayNumber >= 15 && upgradeData.j4 == 1) {
+   if (gameData.rayNumber >= 15 && upgradeData.j4 === 1) {
       document.getElementById("j4").style.display = "block";
    }
-   if (gameData.mergerNumber >= 1 && upgradeData.k1 == 1) {
+   if (gameData.mergerNumber >= 1 && upgradeData.k1 === 1) {
       document.getElementById("k1").style.display = "block";
    }
-   if (gameData.mergerNumber >= 5 && upgradeData.k2 == 1) {
+   if (gameData.mergerNumber >= 5 && upgradeData.k2 === 1) {
       document.getElementById("k2").style.display = "block";
    }
-   if (gameData.mergerNumber >= 10 && upgradeData.k3 == 1) {
+   if (gameData.mergerNumber >= 10 && upgradeData.k3 === 1) {
       document.getElementById("k3").style.display = "block";
    }
-   /*if (gameData.mergerNumber >= 15 && upgradeData.k4 == 1) {
+   /*if (gameData.mergerNumber >= 15 && upgradeData.k4 === 1) {
       document.getElementById("k4").style.display = "block";
 }*/
    if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
@@ -1205,7 +1204,7 @@ var updateStore = window.setInterval(function() {
 // Runs every second
 var mainGameLoop = window.setInterval(function() {
    // This code collets gold in player absence
-   diff = Date.now() - gameData.lastTick;
+   let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
    addGold(goldPerSecond() * (diff / 1000));
 
@@ -1241,7 +1240,7 @@ var buildColorLoop = window.setInterval(function() {
       // Make the color the avalible color
       document.getElementById("bTool").style.backgroundColor = regColor;
    }
-   // If not
+   // Otherwise
    else {
       // Make it the unavalible color
       document.getElementById("bTool").style.backgroundColor = notEnoughColor;
@@ -1359,7 +1358,7 @@ var saveGameLoop = window.setInterval(function() {
 }, 10000)
 
 // Retrive game data as savegame
-var savegame = {
+let savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
    circleData: JSON.parse(localStorage.getItem("circleDataSave")),
@@ -1369,7 +1368,7 @@ var savegame = {
 upgradeData = savegame.upgradeData;
 gameData = savegame.gameData;
 circleData = savegame.circleData;
-var otherData = savegame.otherworldSave;
+let otherData = savegame.otherworldSave;
 
 // If the savegame is empty set game data as savegame
 if (savegame !== null) {
@@ -1431,7 +1430,7 @@ function save() {
 // Save by ctrl + S
 document.addEventListener("keydown", function(e) {
    // If player is on a Mac, use cmd + S
-   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
+   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
       // Prevent default
       e.preventDefault();
       // Run save function
@@ -1473,8 +1472,8 @@ function light() {
    document.location.href = ("")
 }
 
-// Set var myAudio to audio file
-var myAudio = document.getElementById("myAudio");
+// Set myAudio to audio file
+let myAudio = document.getElementById("myAudio");
 
 function music() {
    // If audio is paused run, if it is playing, pause
@@ -1486,7 +1485,7 @@ function music() {
 //==========================================================
 
 // This is all of the news
-var allNews = [
+let allNews = [
    'You go mining sometimes',
    'You like the shiny twinkle of gold',
    'When you feel sad, you look at your hoard of gold. ',
@@ -1496,7 +1495,7 @@ var allNews = [
    //'News: ',
    //'News: ',
 ]
-var pickaxeNews = [
+let pickaxeNews = [
    'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
    'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
    'News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"',
@@ -1506,7 +1505,7 @@ var pickaxeNews = [
    //'News: ',
    //'News: ',
 ]
-var dwarfNews = [
+let dwarfNews = [
    'News: Dwarfs stop human miners from going to work, "They only get in the way."',
    'News: Reports of "Little people weilding pickaxes" increasing daily',
    'News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner',
@@ -1516,7 +1515,7 @@ var dwarfNews = [
    'News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "it\'s suprising how threatening a mob of tiny people can be" admits journalist',
    'News: Peaceful dwarf protests recived with violent reprisal!',
 ]
-var gooseNews = [
+let gooseNews = [
    'News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.',
    //'News: ',
    //'News: ',
@@ -1526,7 +1525,7 @@ var gooseNews = [
    //'News: ',
    //'News: ',
 ]
-var mineNews = [
+let mineNews = [
    'News: Mines opening everywhere, environmentalists worried.',
    'News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what\'s so special about coal?"',
    'News: "Maybe we should stop drilling holes in the earth." says random man.',
@@ -1536,7 +1535,7 @@ var mineNews = [
    //'News: ',
    //'News: ',
 ]
-var dragonNews = [
+let dragonNews = [
    'News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"',
    'News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.',
    'News: Scientist warn people to stay indoors during dragon breeding season."It\'s for your own overall health."',
@@ -1546,7 +1545,7 @@ var dragonNews = [
    'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
    'News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"',
 ]
-var stoneNews = [
+let stoneNews = [
    'News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
    'News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"',
    //'News: ',
@@ -1556,7 +1555,7 @@ var stoneNews = [
    //'News: ',
    //'News: ',
 ]
-var stationNews = [
+let stationNews = [
    'News: Major astroid mining station slams into Earth! Impacted country enraged!',
    //'News: ',
    //'News: ',
@@ -1566,7 +1565,7 @@ var stationNews = [
    //'News: ',
    //'News: ',
 ]
-var lepNews = [
+let lepNews = [
    'News: Leprechaun becomes politician, world leaders upset.',
    'News: Rainbows occuring more and more often, leprechaun suspected.',
    'News: Three leaved clovers become rare due to the large amount of four leaved clovers.',
@@ -1578,7 +1577,7 @@ var lepNews = [
    //'News: ',
    //'News: ',
 ]
-var sheepNews = [
+let sheepNews = [
    'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
    'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
    'News: Pet golden sheeps becoming more popular, causing the intorduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.',
@@ -1590,7 +1589,7 @@ var sheepNews = [
    //'News: ',
    //'News: ',
 ]
-var rayNews = [
+let rayNews = [
    'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
    'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
    'News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it\'s illegal, but I hope they keep doing it. Wait... are you a reporter?!"',
@@ -1600,7 +1599,7 @@ var rayNews = [
    //'News: ',
    //'News: ',
 ]
-var mergerNews = [
+let mergerNews = [
    'News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."',
    'News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants. ',
    'News: Scientist explains how neutron star mergers work to ' + gameData.playerName + '\'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.',
@@ -1611,17 +1610,17 @@ var mergerNews = [
    //'News: ',
    //'News: ',
 ]
-var richNews = [
+let richNews = [
    'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
    'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
    'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
    'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
    'News: New podcast about ' + gameData.playerName + '\'s amazing rise to success coming out! Don\'t miss it!',
-   'News: Studies show that ' + gameData.playerName + ' has made a total ' + gameData.totalGold + ' Gold. "That\'s a lot of shiny" says researcher',
+   `News: Studies show that ${gameData.playerName} has made a total of ${commas(gameData.totalGold)} Gold. "That's a lot of shiny" says researcher`,
    'News: Gold\'s economic worth dramatically reduced, stock market looking for subsitude.',
    //'News: ',
 ]
-var otherNews = [
+let otherNews = [
    'News: Rumered discoveries of Otherworld portals disrupting world peace.',
    'News: Lost children suspected to have stumbled throught Otherworld portals.',
    'News: Freak weather causing havoc and destruction, traced to Otherworld portals.',
@@ -1632,7 +1631,7 @@ var otherNews = [
    //'News: ',
    //'News: ',
 ]
-var summoningNews = [
+let summoningNews = [
    'News: Summoing circles rising in popularity, allowing for personal summoning circle fad.'
    //'News: ',
    //'News: ',
@@ -1644,7 +1643,7 @@ var summoningNews = [
 ]
 
 // Decides which news to display
-var news = window.setInterval(function (){
+let news = window.setInterval(function (){
    // Set var that contains all displayale news to default
    var trueNews = allNews;
    // If the player has 1 of a certiant building
