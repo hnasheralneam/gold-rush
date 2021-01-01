@@ -1499,7 +1499,7 @@ let pickaxeNews = [
    `News: New type of pickaxe coming out, looks suspiciously like normal iron.`,
    `News: Purchases of pickaxes on the rise for both practical and decorative purposes.`,
    `News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"`,
-   //`News: `,
+   `Ad: You looking for a good sturdy pickaxe for some backyard mining? We've got just the thing for you! Get our heavy-duty all-purpose pickaxes today!`,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -1511,13 +1511,13 @@ let dwarfNews = [
    `News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner`,
    `News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.`,
    `News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.`,
-   `News: Gold mine collapses, dwarfs demand `afer workplaces.`,
+   `News: Gold mine collapses, dwarfs demand safer workplaces.`,
    `News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "It's suprising how threatening a mob of tiny people can be" admits journalist`,
    `News: Peaceful dwarf protests recived with violent reprisal!`,
 ]
 let gooseNews = [
    `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
-   //`News: `,
+   `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -1531,7 +1531,7 @@ let mineNews = [
    `News: "Maybe we should stop drilling holes in the earth." says random man.`,
    `News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.`,
    `News: As the gold industry gradualy gains control of the government, new laws are passed in the favor of mining.`,
-   `News: "Aren't you worried about the enviroment?" ask journalist, ${gameData.playerName}'s cheif mining officer says "I'll be gone by the time it gets bad enough."`,
+   `News: "Aren't you worried about the enviroment?" ask journalist, ${gameData.playerName}'s cheif mining officer says "I'll be gone by the time it gets bad."`,
    //`News: `,
    //`News: `,
 ]
@@ -1548,7 +1548,7 @@ let dragonNews = [
 let stoneNews = [
    `News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"`,
    `News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Locals thoroughly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"`,
-   //`News: `,
+   `News: "NO, these philosophers stones DO NOT give longer lives." say exasperated representative of ${gameData.playerName} Industries to over enthusiastic crowd.`,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -1580,8 +1580,8 @@ let lepNews = [
 let sheepNews = [
    `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
    `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
-   `News: Pet golden sheeps becoming more popular, causing the intorduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
-   //`News: `,
+   `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
+   `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -1590,8 +1590,8 @@ let sheepNews = [
    //`News: `,
 ]
 let rayNews = [
-   `News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)`,
-   `News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.`,
+   `Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)`,
+   `News: Mass rays wreak havoc, turning multiple minor plantets into soild gold, astronomers enraged`,
    `News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing it. Wait... are you a reporter?!"`,
    //`News: `,
    //`News: `,
@@ -1601,7 +1601,7 @@ let rayNews = [
 ]
 let mergerNews = [
    `News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."`,
-   `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants. `,
+   `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants.`,
    `News: Scientist explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
    //`News: `,
    //`News: `,
@@ -1618,7 +1618,7 @@ let richNews = [
    `News: New podcast about ${gameData.playerName}'s amazing rise to success coming out! Don't miss it!`,
    `News: Studies show that ${gameData.playerName} has made a total of ${commas(gameData.totalGold)} Gold. "That's a lot of shiny" says researcher`,
    `News: Gold's economic worth dramatically reduced, stock market looking for subsitude.`,
-   //`News: `,
+   `News: Philosophers agree that gold is the true meaning of life. "What's truly amazing is they agreed on something." says reporter`,
 ]
 let otherNews = [
    `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
@@ -1632,8 +1632,8 @@ let otherNews = [
    //`News: `,
 ]
 let summoningNews = [
-   `News: Summoing circles rising in popularity, allowing for personal summoning circle fad.`,
-   //`News: `,
+   `News: Summoing circles rising in popularity, creating personal summoning circle fad.`,
+   `Bestselling Book: "Barbarian chanting: A guide on maximizing summoning circle efficacy"`,
    //`News: `,
    //`News: `,
    //`News: `,
