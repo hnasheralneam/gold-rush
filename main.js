@@ -635,7 +635,7 @@ var mainGameLoop = window.setInterval(function() {
    addGold(goldPerSecond() * (diff / 1000));
 
    // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = goldPerSecond() + " Gold per Second<br>" + gameData.clickinGold + " Gold per Second<br>";
+   document.getElementById("gold-profits").innerHTML = goldPerSecond() + " Gold per Second<br>" + gameData.clickinGold + " Gold per Click<br>";
    // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
    document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
