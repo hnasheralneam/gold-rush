@@ -113,93 +113,93 @@ var initialUpgradeData = {
    a5Price: 80000,
    a6: 1,
    a6Price: 280000,
-   b1: 1,
+   b1: false,
    b1Price: 750,
-   b2: 1,
+   b2: false,
    b2Price: 2000,
-   b3: 1,
+   b3: false,
    b3Price: 5000,
-   b4: 1,
+   b4: false,
    b4Price: 8000,
-   c1: 1,
+   c1: false,
    c1Price: 1250,
-   c2: 1,
+   c2: false,
    c2Price: 3200,
-   c3: 1,
+   c3: false,
    c3Price: 5000,
-   c4: 1,
+   c4: false,
    c4Price: 15000,
-   c01: 1,
+   c01: false,
    c01Price: 25000,
-   c02: 1,
+   c02: false,
    c02Price: 50000,
-   c03: 1,
+   c03: false,
    c03Price: 80000,
-   c04: 1,
+   c04: false,
    c04Price: 160000,
-   d1: 1,
+   d1: false,
    d1Price: 60000,
-   d2: 1,
+   d2: false,
    d2Price: 120000,
-   d3: 1,
+   d3: false,
    d3Price: 240000,
-   d4: 1,
+   d4: false,
    d4Price: 500000,
-   e1: 1,
+   e1: false,
    e1Price: 500000,
-   e2: 1,
+   e2: false,
    e2Price: 1000000,
-   e3: 1,
+   e3: false,
    e3Price: 2000000,
-   e4: 1,
+   e4: false,
    e4Price: 5000000,
-   f1: 1,
+   f1: false,
    f1Price: 8000000,
-   f2: 1,
+   f2: false,
    f2Price: 16000000,
-   f3: 1,
+   f3: false,
    f3Price: 32000000,
-   f4: 1,
+   f4: false,
    f4Price: 70000000,
-   g1: 1,
+   g1: false,
    g1Price: 500000000,
-   g2: 1,
+   g2: false,
    g2Price: 1000000000,
-   g3: 1,
+   g3: false,
    g3Price: 2000000000,
-   g4: 1,
+   g4: false,
    g4Price: 5000000000,
-   h1: 1,
+   h1: false,
    h1Price: 1600000000,
-   h2: 1,
+   h2: false,
    h2Price: 2400000000,
-   h3: 1,
+   h3: false,
    h3Price: 4800000000,
-   h4: 1,
+   h4: false,
    h4Price: 10000000000,
-   i1: 1,
+   i1: false,
    i1Price: 200000000000,
-   i2: 1,
+   i2: false,
    i2Price: 400000000000,
-   i3: 1,
+   i3: false,
    i3Price: 800000000000,
-   i4: 1,
+   i4: false,
    i4Price: 1600000000000,
-   j1: 1,
+   j1: false,
    j1Price: 4000000000000,
-   j2: 1,
+   j2: false,
    j2Price: 8000000000000,
-   j3: 1,
+   j3: false,
    j3Price: 16000000000000,
-   j4: 1,
+   j4: false,
    j4Price: 32000000000000,
-   k1: 1,
+   k1: false,
    k1Price: 50000000000000,
-   k2: 1,
+   k2: false,
    k2Price: 100000000000000,
-   k3: 1,
+   k3: false,
    k3Price: 200000000000000,
-   k4: 1,
+   k4: false,
    k4Price: 500000000000000,
 
    l1: 1,
@@ -383,142 +383,153 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.toolLevel >= 25 && upgradeData.a6 == 1) {
       document.getElementById("a6").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 1 && upgradeData.b1 == 1) {
+   if (gameData.pickaxeNumber >= 1 && !upgradeData.b1) {
       document.getElementById("b1").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 5 && upgradeData.b2 == 1) {
+   if (gameData.pickaxeNumber >= 5 && !upgradeData.b2) {
       document.getElementById("b2").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 10 && upgradeData.b3 == 1) {
+   if (gameData.pickaxeNumber >= 10 && !upgradeData.b3) {
       document.getElementById("b3").style.display = "block";
    }
-   if (gameData.pickaxeNumber >= 15 && upgradeData.b4 == 1) {
+   if (gameData.pickaxeNumber >= 15 && !upgradeData.b4) {
       document.getElementById("b4").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 1 && upgradeData.c1 == 1) {
+   if (gameData.dwarfNumber >= 1 && !upgradeData.c1) {
       document.getElementById("c1").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 5 && upgradeData.c2 == 1) {
+   if (gameData.dwarfNumber >= 5 && !upgradeData.c2) {
       document.getElementById("c2").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 10 && upgradeData.c3 == 1) {
+   if (gameData.dwarfNumber >= 10 && !upgradeData.c3) {
       document.getElementById("c3").style.display = "block";
    }
-   if (gameData.dwarfNumber >= 15 && upgradeData.c4 == 1) {
+   if (gameData.dwarfNumber >= 15 && !upgradeData.c4) {
       document.getElementById("c4").style.display = "block";
    }
-   if (gameData.gooseNumber >= 1 && upgradeData.c01 == 1) {
+   if (gameData.gooseNumber >= 1 && !upgradeData.c01) {
       document.getElementById("c01").style.display = "block";
    }
-   if (gameData.gooseNumber >= 5 && upgradeData.c02 == 1) {
+   if (gameData.gooseNumber >= 5 && !upgradeData.c02) {
       document.getElementById("c02").style.display = "block";
    }
-   if (gameData.gooseNumber >= 10 && upgradeData.c03 == 1) {
+   if (gameData.gooseNumber >= 10 && !upgradeData.c03) {
       document.getElementById("c03").style.display = "block";
    }
-   if (gameData.gooseNumber >= 15 && upgradeData.c04 == 1) {
+   if (gameData.gooseNumber >= 15 && !upgradeData.c04) {
       document.getElementById("c04").style.display = "block";
    }
-   if (gameData.mineNumber >= 1 && upgradeData.d1 == 1) {
+   if (gameData.mineNumber >= 1 && !upgradeData.d1) {
       document.getElementById("d1").style.display = "block";
    }
-   if (gameData.mineNumber >= 5 && upgradeData.d2 == 1) {
+   if (gameData.mineNumber >= 5 && !upgradeData.d2) {
       document.getElementById("d2").style.display = "block";
    }
-   if (gameData.mineNumber >= 10 && upgradeData.d3 == 1) {
+   if (gameData.mineNumber >= 10 && !upgradeData.d3) {
       document.getElementById("d3").style.display = "block";
    }
-   if (gameData.mineNumber >= 15 && upgradeData.d4 == 1) {
+   if (gameData.mineNumber >= 15 && !upgradeData.d4) {
       document.getElementById("d4").style.display = "block";
    }
-   if (gameData.dragonNumber >= 1 && upgradeData.e1 == 1) {
+   if (gameData.dragonNumber >= 1 && !upgradeData.e1) {
       document.getElementById("e1").style.display = "block";
    }
-   if (gameData.dragonNumber >= 5 && upgradeData.e2 == 1) {
+   if (gameData.dragonNumber >= 5 && !upgradeData.e2) {
       document.getElementById("e2").style.display = "block";
    }
-   if (gameData.dragonNumber >= 10 && upgradeData.e3 == 1) {
+   if (gameData.dragonNumber >= 10 && !upgradeData.e3) {
       document.getElementById("e3").style.display = "block";
    }
-   if (gameData.dragonNumber >= 15 && upgradeData.e4 == 1) {
+   if (gameData.dragonNumber >= 15 && !upgradeData.e4) {
       document.getElementById("e4").style.display = "block";
    }
-   if (gameData.stoneNumber >= 1 && upgradeData.f1 == 1) {
+   if (gameData.stoneNumber >= 1 && !upgradeData.f1) {
       document.getElementById("f1").style.display = "block";
    }
-   if (gameData.stoneNumber >= 5 && upgradeData.f2 == 1) {
+   if (gameData.stoneNumber >= 5 && !upgradeData.f2) {
       document.getElementById("f2").style.display = "block";
    }
-   if (gameData.stoneNumber >= 10 && upgradeData.f3 == 1) {
+   if (gameData.stoneNumber >= 10 && !upgradeData.f3) {
       document.getElementById("f3").style.display = "block";
    }
- /* if (gameData.stoneNumber >= 15 && upgradeData.f4 == 1) {
+ /* if (gameData.stoneNumber >= 15 && !upgradeData.f4) {
       document.getElementById("f4").style.display = "block";
 }*/
-   if (gameData.stationNumber >= 1 && upgradeData.g1 == 1) {
+   if (gameData.stationNumber >= 1 && !upgradeData.g1) {
       document.getElementById("g1").style.display = "block";
    }
-   if (gameData.stationNumber >= 5 && upgradeData.g2 == 1) {
+   if (gameData.stationNumber >= 5 && !upgradeData.g2) {
       document.getElementById("g2").style.display = "block";
    }
-   if (gameData.stationNumber >= 10 && upgradeData.g3 == 1) {
+   if (gameData.stationNumber >= 10 && !upgradeData.g3) {
       document.getElementById("g3").style.display = "block";
    }
-   if (gameData.stationNumber >= 15 && upgradeData.g4 == 1) {
+   if (gameData.stationNumber >= 15 && !upgradeData.g4) {
       document.getElementById("g4").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 1 && upgradeData.h1 == 1) {
+   if (gameData.leprechaunNumber >= 1 && !upgradeData.h1) {
       document.getElementById("h1").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 5 && upgradeData.h2 == 1) {
+   if (gameData.leprechaunNumber >= 5 && !upgradeData.h2) {
       document.getElementById("h2").style.display = "block";
    }
- /* if (gameData.leprechaunNumber >= 10 && upgradeData.h3 == 1) {
+ /* if (gameData.leprechaunNumber >= 10 && !upgradeData.h3) {
       document.getElementById("h3").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 15 && upgradeData.h4 == 1) {
+   if (gameData.leprechaunNumber >= 15 && !upgradeData.h4) {
       document.getElementById("h4").style.display = "block";
 }*/
-   if (gameData.sheepNumber >= 1 && upgradeData.i1 == 1) {
+   if (gameData.sheepNumber >= 1 && !upgradeData.i1) {
       document.getElementById("i1").style.display = "block";
    }
-   if (gameData.sheepNumber >= 5 && upgradeData.i2 == 1) {
+   if (gameData.sheepNumber >= 5 && !upgradeData.i2) {
       document.getElementById("i2").style.display = "block";
    }
-   /*if (gameData.sheepNumber >= 10 && upgradeData.i3 == 1) {
+   /*if (gameData.sheepNumber >= 10 && !upgradeData.i3) {
       document.getElementById("i3").style.display = "block";
    }
-   if (gameData.sheepNumber >= 15 && upgradeData.i4 == 1) {
+   if (gameData.sheepNumber >= 15 && !upgradeData.i4) {
       document.getElementById("i4").style.display = "block";
 }*/
-   if (gameData.rayNumber >= 1 && upgradeData.j1 == 1) {
+   if (gameData.rayNumber >= 1 && !upgradeData.j1) {
       document.getElementById("j1").style.display = "block";
    }
-   if (gameData.rayNumber >= 5 && upgradeData.j2 == 1) {
+   if (gameData.rayNumber >= 5 && !upgradeData.j2) {
       document.getElementById("j2").style.display = "block";
    }
-   if (gameData.rayNumber >= 10 && upgradeData.j3 == 1) {
+   if (gameData.rayNumber >= 10 && !upgradeData.j3) {
       document.getElementById("j3").style.display = "block";
    }
- /* if (gameData.rayNumber >= 15 && upgradeData.j4 == 1) {
+ /* if (gameData.rayNumber >= 15 && !upgradeData.j4) {
       document.getElementById("j4").style.display = "block";
 }*/
-   if (gameData.mergerNumber >= 1 && upgradeData.k1 == 1) {
+   if (gameData.mergerNumber >= 1 && !upgradeData.k1) {
       document.getElementById("k1").style.display = "block";
    }
-   if (gameData.mergerNumber >= 5 && upgradeData.k2 == 1) {
+   if (gameData.mergerNumber >= 5 && !upgradeData.k2) {
       document.getElementById("k2").style.display = "block";
    }
-   if (gameData.mergerNumber >= 10 && upgradeData.k3 == 1) {
+   if (gameData.mergerNumber >= 10 && !upgradeData.k3) {
       document.getElementById("k3").style.display = "block";
    }
-   /*if (gameData.mergerNumber >= 15 && upgradeData.k4 == 1) {
+   /*if (gameData.mergerNumber >= 15 && !upgradeData.k4) {
       document.getElementById("k4").style.display = "block";
 }*/
    if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
       document.getElementById("otherworldPortal").style.display = "block";
    }
 }, 3000)
+
+// Communal Upgrade Function
+function research(number, building) {
+   if (gameData.gold >= upgradeData[number + "Price"]) {
+      gameData.gold -= upgradeData[number + "Price"];
+      gameData[building + "Profit"] *= 2;
+      gameData[building + "Gold"] *= 2;
+      upgradeData[number] = true;
+      document.getElementById(number).style.display = "none";
+   }
+}
 
 function a1() {
    // If player has enough gold
@@ -571,413 +582,6 @@ function a6() {
       gameData.clickinGold *= gameData.pickaxeNumber;
       upgradeData.a6 = 2;
       document.getElementById("a6").style.display = "none";
-   }
-}
-
-function b1() {
-   if (gameData.gold >= upgradeData.b1Price) {
-      gameData.gold -= upgradeData.b1Price;
-      gameData.pickaxeProfit *= 2;
-      gameData.pickaxeGold *= 2;
-      upgradeData.b1 = 2;
-      document.getElementById("b1").style.display = "none";
-   }
-}
-function b2() {
-   if (gameData.gold >= upgradeData.b2Price) {
-      gameData.gold -= upgradeData.b2Price;
-      gameData.pickaxeProfit *= 2;
-      gameData.pickaxeGold *= 2;
-      upgradeData.b2 = 2;
-      document.getElementById("b2").style.display = "none";
-   }
-}
-function b3() {
-   if (gameData.gold >= upgradeData.b3Price) {
-      gameData.gold -= upgradeData.b3Price;
-      gameData.pickaxeProfit *= 2;
-      gameData.pickaxeGold *= 2;
-      upgradeData.b3 = 2;
-      document.getElementById("b3").style.display = "none";
-   }
-}
-function b4() {
-   if (gameData.gold >= upgradeData.b4Price) {
-      gameData.gold -= upgradeData.b4Price;
-      gameData.pickaxeProfit *= 2;
-      gameData.pickaxeGold *= 2;
-      upgradeData.b4 = 2;
-      document.getElementById("b4").style.display = "none";
-   }
-}
-
-function c1() {
-   if (gameData.gold >= upgradeData.c1Price) {
-      gameData.gold -= upgradeData.c1Price;
-      gameData.dwarfProfit *= 2;
-      gameData.dwarfGold *= 2;
-      upgradeData.c1 = 2;
-      document.getElementById("c1").style.display = "none";
-   }
-}
-function c2() {
-   if (gameData.gold >= upgradeData.c2Price) {
-      gameData.gold -= upgradeData.c2Price;
-      gameData.dwarfProfit *= 2;
-      gameData.dwarfGold *= 2;
-      upgradeData.c2 = 2;
-      document.getElementById("c2").style.display = "none";
-   }
-}
-function c3() {
-   if (gameData.gold >= upgradeData.c3Price) {
-      gameData.gold -= upgradeData.c3Price;
-      gameData.dwarfProfit *= 2;
-      gameData.dwarfGold *= 2;
-      upgradeData.c3 = 2;
-      document.getElementById("c3").style.display = "none";
-   }
-}
-function c4() {
-   if (gameData.gold >= upgradeData.c4Price) {
-      gameData.gold -= upgradeData.c4Price;
-      gameData.dwarfProfit *= 2;
-      gameData.dwarfGold *= 2;
-      upgradeData.c4 = 2;
-      document.getElementById("c4").style.display = "none";
-   }
-}
-
-function c01() {
-   if (gameData.gold >= upgradeData.c01Price) {
-      gameData.gold -= upgradeData.c01Price;
-      gameData.gooseProfit *= 2;
-      gameData.gooseGold *= 2;
-      upgradeData.c01 = 2;
-      document.getElementById("c01").style.display = "none";
-   }
-}
-function c02() {
-   if (gameData.gold >= upgradeData.c02Price) {
-      gameData.gold -= upgradeData.c02Price;
-      gameData.gooseProfit *= 2;
-      gameData.gooseGold *= 2;
-      upgradeData.c02 = 2;
-      document.getElementById("c02").style.display = "none";
-   }
-}
-function c03() {
-   if (gameData.gold >= upgradeData.c03Price) {
-      gameData.gold -= upgradeData.c03Price;
-      gameData.gooseProfit *= 2;
-      gameData.gooseGold *= 2;
-      upgradeData.c03 = 2;
-      document.getElementById("c03").style.display = "none";
-   }
-}
-function c04() {
-   if (gameData.gold >= upgradeData.c04Price) {
-      gameData.gold -= upgradeData.c04Price;
-      gameData.gooseProfit *= 2;
-      gameData.gooseGold *= 2;
-      upgradeData.c04 = 2;
-      document.getElementById("c04").style.display = "none";
-   }
-}
-
-function d1() {
-   if (gameData.gold >= upgradeData.d1Price) {
-      gameData.gold -= upgradeData.d1Price;
-      gameData.mineProfit *= 2;
-      gameData.mineGold *= 2;
-      upgradeData.d1 = 2;
-      document.getElementById("d1").style.display = "none";
-   }
-}
-function d2() {
-   if (gameData.gold >= upgradeData.d2Price) {
-      gameData.gold -= upgradeData.d2Price;
-      gameData.mineProfit *= 2;
-      gameData.mineGold *= 2;
-      upgradeData.d2 = 2;
-      document.getElementById("d2").style.display = "none";
-   }
-}
-function d3() {
-   if (gameData.gold >= upgradeData.d3Price) {
-      gameData.gold -= upgradeData.d3Price;
-      gameData.mineProfit *= 2;
-      gameData.mineGold *= 2;
-      upgradeData.d3 = 2;
-      document.getElementById("d3").style.display = "none";
-   }
-}
-function d4() {
-   if (gameData.gold >= upgradeData.d4Price) {
-      gameData.gold -= upgradeData.d4Price;
-      gameData.mineProfit *= 2;
-      gameData.mineGold *= 2;
-      upgradeData.d4 = 2;
-      document.getElementById("d4").style.display = "none";
-   }
-}
-
-function e1() {
-   if (gameData.gold >= upgradeData.e1Price) {
-      gameData.gold -= upgradeData.e1Price;
-      gameData.dragonProfit *= 2;
-      gameData.dragonGold *= 2;
-      upgradeData.e1 = 2;
-      document.getElementById("e1").style.display = "none";
-   }
-}
-function e2() {
-   if (gameData.gold >= upgradeData.e2Price) {
-      gameData.gold -= upgradeData.e2Price;
-      gameData.dragonProfit *= 2;
-      gameData.dragonGold *= 2;
-      upgradeData.e2 = 2;
-      document.getElementById("e2").style.display = "none";
-   }
-}
-function e3() {
-   if (gameData.gold >= upgradeData.e3Price) {
-      gameData.gold -= upgradeData.e3Price;
-      gameData.dragonProfit *= 2;
-      gameData.dragonGold *= 2;
-      upgradeData.e3 = 2;
-      document.getElementById("e3").style.display = "none";
-   }
-}
-function e4() {
-   if (gameData.gold >= upgradeData.e4Price) {
-      gameData.gold -= upgradeData.e4Price;
-      gameData.dragonProfit *= 2;
-      gameData.dragonGold *= 2;
-      upgradeData.e4 = 2;
-      document.getElementById("e4").style.display = "none";
-   }
-}
-
-function f1() {
-   if (gameData.gold >= upgradeData.f1Price) {
-      gameData.gold -= upgradeData.f1Price;
-      gameData.stoneProfit *= 2;
-      gameData.stoneGold *= 2;
-      upgradeData.f1 = 2;
-      document.getElementById("f1").style.display = "none";
-   }
-}
-function f2() {
-   if (gameData.gold >= upgradeData.f2Price) {
-      gameData.gold -= upgradeData.f2Price;
-      gameData.stoneProfit *= 2;
-      gameData.stoneGold *= 2;
-      upgradeData.f2 = 2;
-      document.getElementById("f2").style.display = "none";
-   }
-}
-function f3() {
-   if (gameData.gold >= upgradeData.f3Price) {
-      gameData.gold -= upgradeData.f3Price;
-      gameData.stoneProfit *= 2;
-      gameData.stoneGold *= 2;
-      upgradeData.f3 = 2;
-      document.getElementById("f3").style.display = "none";
-   }
-}
-function f4() {
-   if (gameData.gold >= upgradeData.f4Price) {
-      gameData.gold -= upgradeData.f4Price;
-      gameData.stoneProfit *= 2;
-      gameData.stoneGold *= 2;
-      upgradeData.f4 = 2;
-      document.getElementById("f4").style.display = "none";
-   }
-}
-
-function g1() {
-   if (gameData.gold >= upgradeData.g1Price) {
-      gameData.gold -= upgradeData.g1Price;
-      gameData.stationProfit *= 2;
-      gameData.stationGold *= 2;
-      upgradeData.g1 = 2;
-      document.getElementById("g1").style.display = "none";
-   }
-}
-function g2() {
-   if (gameData.gold >= upgradeData.g2Price) {
-      gameData.gold -= upgradeData.g2Price;
-      gameData.stationProfit *= 2;
-      gameData.stationGold *= 2;
-      upgradeData.g2 = 2;
-      document.getElementById("g2").style.display = "none";
-   }
-}
-function g3() {
-   if (gameData.gold >= upgradeData.g3Price) {
-      gameData.gold -= upgradeData.g3Price;
-      gameData.stationProfit *= 2;
-      gameData.stationGold *= 2;
-      upgradeData.g3 = 2;
-      document.getElementById("g3").style.display = "none";
-   }
-}
-function g4() {
-   if (gameData.gold >= upgradeData.g4Price) {
-      gameData.gold -= upgradeData.g4Price;
-      gameData.stationProfit *= 2;
-      gameData.stationGold *= 2;
-      upgradeData.g4 = 2;
-      document.getElementById("g4").style.display = "none";
-   }
-}
-
-function h1() {
-   if (gameData.gold >= upgradeData.h1Price) {
-      gameData.gold -= upgradeData.h1Price;
-      gameData.lepProfit *= 2;
-      gameData.leprechaunGold *= 2;
-      upgradeData.h1 = 2;
-      document.getElementById("h1").style.display = "none";
-   }
-}
-function h2() {
-   if (gameData.gold >= upgradeData.h2Price) {
-      gameData.gold -= upgradeData.h2Price;
-      gameData.lepProfit *= 2;
-      gameData.leprechaunGold *= 2;
-      upgradeData.h2 = 2;
-      document.getElementById("h2").style.display = "none";
-   }
-}
-function h3() {
-   if (upgradeData.gold >= upgradeData.h3Price) {
-      gameData.gold -= upgradeData.h3Price;
-      gameData.lepProfit *= 2;
-      gameData.leprechaunGold *= 2;
-      upgradeData.h3 = 2;
-      document.getElementById("h3").style.display = "none";
-   }
-}
-function h4() {
-   if (gameData.gold >= upgradeData.h4Price) {
-      gameData.gold -= upgradeData.h4Price;
-      gameData.lepProfit *= 2;
-      gameData.leprechaunGold *= 2;
-      upgradeData.h4 = 2;
-      document.getElementById("h4").style.display = "none";
-   }
-}
-
-function i1() {
-   if (gameData.gold >= upgradeData.i1Price) {
-      gameData.gold -= upgradeData.i1Price;
-      gameData.sheepProfit *= 2;
-      gameData.sheepGold *= 2;
-      upgradeData.i1 = 2;
-      document.getElementById("i1").style.display = "none";
-   }
-}
-function i2() {
-   if (gameData.gold >= upgradeData.i2Price) {
-      gameData.gold -= upgradeData.i2Price;
-      gameData.sheepProfit *= 2;
-      gameData.sheepGold *= 2;
-      upgradeData.i2 = 2;
-      document.getElementById("i2").style.display = "none";
-   }
-}
-function i3() {
-   if (gameData.gold >= upgradeData.i3Price) {
-      gameData.gold -= upgradeData.i3Price;
-      gameData.sheepProfit *= 2;
-      gameData.sheepGold *= 2;
-      upgradeData.i3 = 2;
-      document.getElementById("i3").style.display = "none";
-   }
-}
-function i4() {
-   if (gameData.gold >= upgradeData.i4Price) {
-      gameData.gold -= upgradeData.i4Price;
-      gameData.sheepProfit *= 2;
-      gameData.sheepGold *= 2;
-      upgradeData.i4 = 2;
-      document.getElementById("i4").style.display = "none";
-   }
-}
-
-function j1() {
-   if (gameData.gold >= upgradeData.j1Price) {
-      gameData.gold -= upgradeData.j1Price;
-      gameData.rayProfit *= 2;
-      gameData.rayGold *= 2;
-      upgradeData.j1 = 2;
-      document.getElementById("j1").style.display = "none";
-   }
-}
-function j2() {
-   if (gameData.gold >= upgradeData.j2Price) {
-      gameData.gold -= upgradeData.j2Price;
-      gameData.rayProfit *= 2;
-      gameData.rayGold *= 2;
-      upgradeData.j2 = 2;
-      document.getElementById("j2").style.display = "none";
-   }
-}
-function j3() {
-   if (gameData.gold >= upgradeData.j3Price) {
-      gameData.gold -= upgradeData.j3Price;
-      gameData.rayProfit *= 2;
-      gameData.rayGold *= 2;
-      upgradeData.j3 = 2;
-      document.getElementById("j3").style.display = "none";
-   }
-}
-function j4() {
-   if (gameData.gold >= upgradeData.j4Price) {
-      gameData.gold -= upgradeData.j4Price;
-      gameData.rayProfit *= 2;
-      gameData.rayGold *= 2;
-      upgradeData.j4 = 2;
-      document.getElementById("j4").style.display = "none";
-   }
-}
-
-function k1() {
-   if (gameData.gold >= upgradeData.k1Price) {
-      gameData.gold -= upgradeData.k1Price
-      gameData.mergerProfit *= 2;
-      gameData.mergerGold *= 2;
-      upgradeData.k1 = 2;
-      document.getElementById("k1").style.display = "none";
-   }
-}
-function k2() {
-   if (gameData.gold >= upgradeData.k2Price) {
-      gameData.gold -= upgradeData.k2Price;
-      gameData.mergerProfit *= 2;
-      gameData.mergerGold *= 2;
-      upgradeData.k2 = 2;
-      document.getElementById("k2").style.display = "none";
-   }
-}
-function k3() {
-   if (gameData.gold >= upgradeData.k3Price) {
-      gameData.gold -= upgradeData.k3Price;
-      gameData.mergerProfit *= 2;
-      gameData.mergerGold *= 2;
-      upgradeData.k3 = 2;
-      document.getElementById("k3").style.display = "none";
-   }
-}
-function k4() {
-   if (gameData.gold >= upgradeData.k4Price) {
-      gameData.gold -= upgradeData.k4Price;
-      gameData.mergerProfit *= 2;
-      gameData.mergerGold *= 2;
-      upgradeData.k4 = 2;
-      document.getElementById("k4").style.display = "none";
    }
 }
 
@@ -1193,7 +797,7 @@ var setThingsRight = window.setInterval(function() {
 }, 20)
 
 //==========================================================
-//Settings
+// Settings
 //==========================================================
 
 //Wipe Save
@@ -1267,7 +871,43 @@ function music() {
 };
 
 //==========================================================
-//News
+// Right Click Button
+//==========================================================
+
+let rightClickMenu = document.getElementById("menu").style;
+if (document.addEventListener) {
+   document.addEventListener('contextmenu', function(e) {
+      var posX = e.clientX;
+      var posY = e.clientY;
+      menu(posX, posY);
+      e.preventDefault();
+   }, false);
+   document.addEventListener('click', function(e) {
+      rightClickMenu.display = "none";
+   }, false);
+}
+else {
+   document.attachEvent('oncontextmenu', function(e) {
+      var posX = e.clientX;
+      var posY = e.clientY;
+      menu(posX, posY);
+      e.preventDefault();
+   });
+   document.attachEvent('onclick', function(e) {
+      setTimeout(function() {
+         rightClickMenu.display = "none";
+      }, 501);
+   });
+}
+
+function menu(x, y) {
+   rightClickMenu.top = y + "px";
+   rightClickMenu.left = x + "px";
+   rightClickMenu.display = "block";
+}
+
+//==========================================================
+// News
 //==========================================================
 
 // This is all of the news
