@@ -381,7 +381,7 @@ function buyMerger() {
 //==========================================================
 //Summoning Circles
 //==========================================================
-
+/*
 // All data about Summoning Circles
 const initalCircleData = {
 // Starts at lvl 0
@@ -529,7 +529,7 @@ function upgradeCircle() {
       alert("Coming Soon!");
    }
 }
-
+*/
 //==========================================================
 //Upgrades
 //==========================================================
@@ -692,10 +692,10 @@ var checkForUpgrades = window.setInterval(function() {
       document.getElementById("otherworldPortal").style.display = "block";
    }
 
-   // Summoning Circle
-   if (otherData.otherStars >= 1) {
-      document.getElementById("unlockCircle").style.display = "block";
-   }
+   // // Summoning Circle
+   // if (otherData.otherStars >= 1) {
+   //    document.getElementById("unlockCircle").style.display = "block";
+   // }
 }, 3000)
 
 // Communal Upgrade Function
@@ -819,7 +819,7 @@ var mainGameLoop = window.setInterval(function() {
       document.getElementById("otherstars").style.display = "block";
       document.getElementById("summoningCircle").style.display = "block";
    }
-  
+
      // Display gold per second & gold per click
    document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
 
