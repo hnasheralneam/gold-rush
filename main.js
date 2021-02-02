@@ -73,7 +73,7 @@ const initialGameData = {
    stationNumber: 0,
 
 //Leprechauns
-   lepProfit: 600000,
+   leprechaunProfit: 600000,
    leprechaunGold: 0,
    hireLeprechaunCost: 1000000000,
    leprechaunNumber: 0,
@@ -254,12 +254,25 @@ function addGold(gold) {
 //Multiple buying
 //==========================================================
 
-document.addEventListener("keydown", function(event) {
-   if (event.altKey && event.keyCode === 83) {
-      alert('Alt + X pressed!');
-      event.preventDefault();
-   }
-});
+// document.addEventListener("keydown", function(event) {
+//    if (event.altKey && event.keyCode === 83) {
+//       alert('Alt + X pressed!');
+//       event.preventDefault();
+//    }
+// });
+
+// if (event.ctrlKey) {
+//    while (gameData.gold >= gameData.hireDwarfCost) {
+//       gameData.gold -= gameData.hireDwarfCost;
+//       gameData.dwarfGold += gameData.dwarfProfit;
+//       gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
+//       gameData.dwarfNumber += 1;
+//    }
+// }
+
+for (let i = 0; i > 6; i++) {
+   console.log("Repeat" + i);
+}
 
 //==========================================================
 //Purchase Buildings
@@ -272,109 +285,22 @@ function bTool() {
       gameData.bToolCost *= 2;
       gameData.toolLevel += 1;
    }
+   while (i > 6) {
+      console.log("Repeat" + i);
+   }
 }
 
-function buyPickaxe() {
+function acquireAsset(asset, assetCost, costMultiplier) {
    // If player has enough gold
-   if (gameData.gold >= gameData.buyPickaxeCost) {
+   if (gameData.gold >= gameData[assetCost + "Cost"]) {
       // Substract the price from their gold
-      gameData.gold -= gameData.buyPickaxeCost;
-      // Add the amount of gold par pickaxe to the gold pickaxes are producing
-      gameData.pickaxeGold += gameData.pickaxeProfit;
-      // Multiply the cost by 1.15 and the amount of pciakxes
-      gameData.buyPickaxeCost = (58 * 1.15 ** gameData.pickaxeNumber).toFixed(0);
-      // Add one to the pickaxes owned
-      gameData.pickaxeNumber += 1;
-   }
-}
-document.getElementById("hireDwarf").onclick = function hireDwarf(event) {
-   if(gameData.gold >= gameData.hireDwarfCost) {
-      if (event.ctrlKey) {
-         while (gameData.gold >= gameData.hireDwarfCost) {
-            gameData.gold -= gameData.hireDwarfCost;
-            gameData.dwarfGold += gameData.dwarfProfit;
-            gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
-            gameData.dwarfNumber += 1;
-         }
-      }
-      else {
-         gameData.gold -= gameData.hireDwarfCost;
-         gameData.dwarfGold += gameData.dwarfProfit;
-         gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
-         gameData.dwarfNumber += 1;
-      }
-   }
-}
-function hireGoose() {
-   if(gameData.gold >= gameData.hireGooseCost) {
-      gameData.gold -= gameData.hireGooseCost;
-      gameData.gooseGold += gameData.gooseProfit;
-      gameData.hireGooseCost = (10127 * 1.15 ** gameData.gooseNumber).toFixed(0);
-      gameData.gooseNumber += 1;
-   }
-}
-function openMine() {
-   if(gameData.gold >= gameData.openMineCost) {
-      gameData.gold -= gameData.openMineCost;
-      gameData.mineGold += gameData.mineProfit;
-      gameData.openMineCost = (28351 * 1.15 ** gameData.mineNumber).toFixed(0);
-      gameData.mineNumber += 1;
-   }
-}
-function hireDragon() {
-   if(gameData.gold >= gameData.hireDragonCost) {
-      gameData.gold -= gameData.hireDragonCost;
-      gameData.dragonGold += gameData.dragonProfit;
-      gameData.hireDragonCost = (201648 * 1.15 ** gameData.dragonNumber).toFixed(0);
-      gameData.dragonNumber += 1;
-   }
-}
-function buyStone() {
-   if(gameData.gold >= gameData.buyStoneCost) {
-      gameData.gold -= gameData.buyStoneCost;
-      gameData.stoneGold += gameData.stoneProfit;
-      gameData.buyStoneCost = (3752186 * 1.15 ** gameData.stoneNumber).toFixed(0);
-      gameData.stoneNumber += 1;
-   }
-}
-function openStation() {
-   if(gameData.gold >= gameData.openStationCost) {
-      gameData.gold -= gameData.openStationCost;
-      gameData.stationGold += gameData.stationProfit;
-      gameData.openStationCost = (250000000 * 1.15 ** gameData.stationNumber).toFixed(0);
-      gameData.stationNumber += 1;
-   }
-}
-function hireLeprechaun() {
-   if(gameData.gold >= gameData.hireLeprechaunCost) {
-      gameData.gold -= gameData.hireLeprechaunCost;
-      gameData.leprechaunGold += gameData.lepProfit;
-      gameData.hireLeprechaunCost = (1000000000 * 1.15 ** gameData.leprechaunNumber).toFixed(0);
-      gameData.leprechaunNumber += 1;
-   }
-}
-function hireSheep() {
-   if(gameData.gold >= gameData.hireSheepCost) {
-      gameData.gold -= gameData.hireSheepCost;
-      gameData.sheepGold += gameData.sheepProfit;
-      gameData.hireSheepCost = (250000000000 * 1.15 ** gameData.sheepNumber).toFixed(0);
-      gameData.sheepNumber += 1;
-   }
-}
-function buyRay() {
-   if(gameData.gold >= gameData.buyRayCost) {
-      gameData.gold -= gameData.buyRayCost;
-      gameData.rayGold += gameData.rayProfit;
-      gameData.buyRayCost = (2000000000000 * 1.15 ** gameData.rayNumber).toFixed(0);
-      gameData.rayNumber += 1;
-   }
-}
-function buyMerger() {
-   if(gameData.gold >= gameData.buyMergerCost) {
-      gameData.gold -= gameData.buyMergerCost;
-      gameData.mergerGold += gameData.mergerProfit;
-      gameData.buyMergerCost = (200000000000000 * 1.15 ** gameData.mergerNumber).toFixed(0);
-      gameData.mergerNumber += 1;
+      gameData.gold -= gameData[assetCost + "Cost"];
+      // Add the amount of gold per item to the gold that item is producing
+      gameData[asset + "Gold"] += gameData[asset + "Profit"];
+      // Multiply the cost by 1.15 and the amount of the item owned
+      gameData[assetCost + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
+      // Add one to the amount of that item owned
+      gameData[asset + "Number"] += 1;
    }
 }
 
@@ -536,6 +462,7 @@ function upgradeCircle() {
 
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
+   // Try to change this into a loop
    // If player has enough of a certiant item, and has not bough it before
    if (gameData.toolLevel >= 1 && upgradeData.a1 == 1) {
       // Display the upgrade for that amount
@@ -625,9 +552,9 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.stoneNumber >= 10 && !upgradeData.f3) {
       document.getElementById("f3").style.display = "block";
    }
- /* if (gameData.stoneNumber >= 15 && !upgradeData.f4) {
+   if (gameData.stoneNumber >= 15 && !upgradeData.f4) {
       document.getElementById("f4").style.display = "block";
-}*/
+   }
    if (gameData.stationNumber >= 1 && !upgradeData.g1) {
       document.getElementById("g1").style.display = "block";
    }
@@ -646,10 +573,10 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.leprechaunNumber >= 5 && !upgradeData.h2) {
       document.getElementById("h2").style.display = "block";
    }
- /* if (gameData.leprechaunNumber >= 10 && !upgradeData.h3) {
+  if (gameData.leprechaunNumber >= 10 && !upgradeData.h3) {
       document.getElementById("h3").style.display = "block";
    }
-   if (gameData.leprechaunNumber >= 15 && !upgradeData.h4) {
+   /*if (gameData.leprechaunNumber >= 15 && !upgradeData.h4) {
       document.getElementById("h4").style.display = "block";
 }*/
    if (gameData.sheepNumber >= 1 && !upgradeData.i1) {
@@ -673,9 +600,9 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.rayNumber >= 10 && !upgradeData.j3) {
       document.getElementById("j3").style.display = "block";
    }
- /* if (gameData.rayNumber >= 15 && !upgradeData.j4) {
+   if (gameData.rayNumber >= 15 && !upgradeData.j4) {
       document.getElementById("j4").style.display = "block";
-}*/
+   }
    if (gameData.mergerNumber >= 1 && !upgradeData.k1) {
       document.getElementById("k1").style.display = "block";
    }
@@ -685,17 +612,12 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.mergerNumber >= 10 && !upgradeData.k3) {
       document.getElementById("k3").style.display = "block";
    }
-   /*if (gameData.mergerNumber >= 15 && !upgradeData.k4) {
+   if (gameData.mergerNumber >= 15 && !upgradeData.k4) {
       document.getElementById("k4").style.display = "block";
-}*/
+   }
    if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
       document.getElementById("otherworldPortal").style.display = "block";
    }
-
-   // // Summoning Circle
-   // if (otherData.otherStars >= 1) {
-   //    document.getElementById("unlockCircle").style.display = "block";
-   // }
 }, 3000)
 
 // Communal Upgrade Function
@@ -709,43 +631,15 @@ function research(number, building) {
    }
 }
 
-function a1() {
-   // If player has enough gold
-   if (gameData.gold >= upgradeData.a1Price) {
-      // Substract the upgrade price
-      gameData.gold -= upgradeData.a1Price;
-      // Double the clicking reward
+function aResearch(num) {
+   if (gameData.gold >= upgradeData["a" + num + "Price"]) {
+      gameData.gold -= upgradeData["a" + num + "Price"];
       gameData.clickinGold *= 2;
-      // Do not appear again
-      upgradeData.a1 = 2;
-      // Remove display
-      document.getElementById("a1").style.display = "none";
+      upgradeData["a" + num] = 2;
+      document.getElementById("a" + num).style.display = "none";
    }
 }
-function a2() {
-   if (gameData.gold >= upgradeData.a2Price) {
-      gameData.gold -= upgradeData.a2Price;
-      gameData.clickinGold *= 2;
-      upgradeData.a2 = 2;
-      document.getElementById("a2").style.display = "none";
-   }
-}
-function a3() {
-   if (gameData.gold >= upgradeData.a3Price) {
-      gameData.gold -= upgradeData.a3Price;
-      gameData.clickinGold *= gameData.pickaxeNumber;
-      upgradeData.a3 = 2;
-      document.getElementById("a3").style.display = "none";
-   }
-}
-function a4() {
-   if (gameData.gold >= upgradeData.a4Price) {
-      gameData.gold -= upgradeData.a4Price;
-      gameData.clickinGold *= gameData.pickaxeNumber;
-      upgradeData.a4 = 2;
-      document.getElementById("a4").style.display = "none";
-   }
-}
+
 function a5() {
    if (gameData.gold >= upgradeData.a5Price) {
       gameData.gold -= upgradeData.a5Price;
@@ -780,7 +674,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("dragon-info").innerHTML = "Dragon <br> " + commas(gameData.dragonProfit) + " GPS each<br> Producing " + commas(gameData.dragonGold) + " GPS<br>A nice dragon to steal gold and hoard it";
    document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + commas(gameData.stoneProfit) + " GPS each<br> Producing " + commas(gameData.stoneGold) + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
    document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + commas(gameData.stationProfit) + " GPS each<br> Producing " + commas(gameData.stationGold) + " GPS<br>A space station that mines astroids for gold";
-   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + commas(gameData.lepProfit) + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
+   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + commas(gameData.leprechaunProfit) + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
    document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + commas(gameData.sheepProfit) + " GPS each<br> Producing " + commas(gameData.sheepGold) + " GPS<br>A cute round fluffy sheep with a golden fleece";
    document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + commas(gameData.rayProfit) + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
    document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + commas(gameData.mergerProfit) + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
@@ -815,10 +709,10 @@ var mainGameLoop = window.setInterval(function() {
 
 
    // Display summoning circle
-   if (circleData.circleLevel >= 1) {
-      document.getElementById("otherstars").style.display = "block";
-      document.getElementById("summoningCircle").style.display = "block";
-   }
+   // if (circleData.circleLevel >= 1) {
+   //    document.getElementById("otherstars").style.display = "block";
+   //    document.getElementById("summoningCircle").style.display = "block";
+   // }
 
      // Display gold per second & gold per click
    document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
@@ -1004,7 +898,8 @@ function commas(x) {
 
 document.addEventListener("keyup", function(event) {
    if (event.ctrlKey && event.keyCode === 83) {
-       save();
+      event.preventDefault();
+      save();
    }
 });
 
@@ -1031,7 +926,7 @@ function restart() {
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
          localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
-         document.location.href = ("");
+         document.location.href = ("#");
       }
    }
 }
@@ -1131,6 +1026,30 @@ function menu(x, y) {
    rightClickMenu.left = x + "px";
    rightClickMenu.display = "block";
 }
+
+//==========================================================
+// Dissasters & Enchancments
+//==========================================================
+
+let luckyRoll = window.setInterval(function() {
+   let rand = Math.random();
+   if (rand > .95) {
+      console.log("There was a 5% chance this would be logged.");
+   }
+   if (rand > .85) {
+      console.log("There was a 15% chance this would be logged.");
+   }
+   if (rand > .92) {
+      console.log("There was a 8% chance this would be logged.");
+   }
+   if (rand > .98) {
+      console.log("There was a 2% chance this would be logged.");
+   }
+   if (rand > .99) {
+      console.log("There was a 1% chance this would be logged.");
+   }
+   console.log("End");
+}, 300000)
 
 //==========================================================
 // News

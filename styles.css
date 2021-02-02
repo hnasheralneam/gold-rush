@@ -5,6 +5,8 @@ Go away please. Anyway, what are you doing looking at this code?
 
 * {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -21,7 +23,7 @@ body {
 
 .section {
    border: outset #ab0c07 10px;
-   margin: .2vh 5px;
+   margin: 1vh 5px;
    padding: 0px 1% 1% 1%;
    height: 88vh;
    position: relative;
@@ -315,14 +317,12 @@ a {
    background-color: #000;
    font-family: monospace;
    color: #fff;
-   padding: 2px 5px 5px 5px;
+   padding: 5px;
    position: fixed;
    bottom: 0;
    right: 0;
    left: 0;
-   margin-bottom: -2px;
    height: 4vh;
-   font-weight: bolder;
 }
 
 /*==========================================================
