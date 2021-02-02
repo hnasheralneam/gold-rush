@@ -83,6 +83,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
                   <li aria-label="Cost 100 Gold" id="l1" onclick="l1()" class="UP">Gold Monopoly!<p class="why">Mine, ALL MINE!(pun intended)</p><p class="more">All profits x2</p></li>
                   <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
                   <li aria-label="Cost 120,000,000,000,000 Gold" id="otherworldPortal" onclick="otherworldPortal()" class="UP">The Otherworld Portal<p class="why">A whole new world! (Terms and Conditions may apply)</p><p class="more">Don't do it.</p></li>
+
+                  <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li>
                   <br><br>
                </ul>
             </div>
@@ -174,9 +176,14 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="store-info" id="merger-info">Neutron Star Merger<br> 10,000,000,000 GPS each<br> Producing 0 GPS<br> Merges neutron stars to create gold (find what you want at it's source :).</p>
          </div>
          <div id="waiting"></div>
-         <a href="https://squirrel-314.github.io/vegetable-dash/Game/index.html">
-            <img class="vegetable-ad" src="Images/vegetable-dash-ad.gif" alt="">
-         </a>
+         <p id="otherstars">0 Otherstars</p>
+         <div id="summoningCircle">
+            <h3>Summoning Circle</h3>
+            <h5>Level 0</h5>
+            <p class="upgrade">Increase profit</p>
+            <p class="upgrade">Decrease time</p>
+            <p onclick="upgradeCircle()">Upgrade</p>
+         </div>
       </div>
       <p id="copyright"><a href="https://hillside-township.github.io/">Hillside Township</a> | <a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a> | Copyright © <span id="copE-right">16/11/2020</span> Meeeeee | <img class="help" src="Icons/helps.png"></p>
    </body>

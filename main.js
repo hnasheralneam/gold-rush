@@ -5,14 +5,16 @@
 // Copyright Squirrel 2020 A.D.
 // If you continue you shall get the majority of the game spoiled for you. Also, it's a 'bit' messy
 // Solicitors will be relieved of their sanity
-// Beta version comes with commented code! Now I can know why I did what I did.
+// Version 1.0.0 comes with commented code! Now I can know why I did what I did.
 
 //==========================================================
 //Game Data
 //==========================================================
+// Use strict mode
+// 'use strict';
 
 // Default values
-var initialGameData = {
+const initialGameData = {
 //Gold
    gold: 0,
    totalGold: 0,
@@ -100,7 +102,7 @@ var initialGameData = {
 //Time
    lastTick: Date.now()
 }
-var initialUpgradeData = {
+const initialUpgradeData = {
    a1: 1,
    a1Price: 200,
    a2: 1,
@@ -211,17 +213,15 @@ var initialUpgradeData = {
 }
 
 // Assigning defaults to individual player values
-var gameData = initialGameData;
-var upgradeData = initialUpgradeData;
+let gameData = initialGameData;
+let upgradeData = initialUpgradeData;
 
 // All building gold added together
-function goldPerSecond() {
-  return gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold;
-}
+let goldPerSecond = goldPerSecond => gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold;
 
 // Colors for avilibe or unavalibe buildings
-var regColor = "#ffffbd";
-var notEnoughColor = "#333";
+let regColor = "#ffffbd";
+let notEnoughColor = "#333";
 
 //==========================================================
 //Gain Profit
@@ -238,7 +238,7 @@ function collectGold() {
 
 // Spacebar gold
 document.body.onkeyup = function(e){
-   if(e.keyCode == 32){
+   if(e.keyCode === 32){
       event.preventDefault();
       addGold(gameData.clickinGold);
    }
@@ -249,6 +249,17 @@ function addGold(gold) {
    gameData.gold = gameData.gold + gold;
    gameData.totalGold = gameData.totalGold + gold;
 }
+
+//==========================================================
+//Multiple buying
+//==========================================================
+
+document.addEventListener("keydown", function(event) {
+   if (event.altKey && event.keyCode === 83) {
+      alert('Alt + X pressed!');
+      event.preventDefault();
+   }
+});
 
 //==========================================================
 //Purchase Buildings
@@ -271,24 +282,34 @@ function buyPickaxe() {
       // Add the amount of gold par pickaxe to the gold pickaxes are producing
       gameData.pickaxeGold += gameData.pickaxeProfit;
       // Multiply the cost by 1.15 and the amount of pciakxes
-      gameData.buyPickaxeCost = (58 * Math.pow(1.15, gameData.pickaxeNumber)).toFixed(0);
+      gameData.buyPickaxeCost = (58 * 1.15 ** gameData.pickaxeNumber).toFixed(0);
       // Add one to the pickaxes owned
       gameData.pickaxeNumber += 1;
    }
 }
-function hireDwarf() {
+document.getElementById("hireDwarf").onclick = function hireDwarf(event) {
    if(gameData.gold >= gameData.hireDwarfCost) {
-      gameData.gold -= gameData.hireDwarfCost;
-      gameData.dwarfGold += gameData.dwarfProfit;
-      gameData.hireDwarfCost = (279 * Math.pow(1.15, gameData.dwarfNumber)).toFixed(0);
-      gameData.dwarfNumber += 1;
+      if (event.ctrlKey) {
+         while (gameData.gold >= gameData.hireDwarfCost) {
+            gameData.gold -= gameData.hireDwarfCost;
+            gameData.dwarfGold += gameData.dwarfProfit;
+            gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
+            gameData.dwarfNumber += 1;
+         }
+      }
+      else {
+         gameData.gold -= gameData.hireDwarfCost;
+         gameData.dwarfGold += gameData.dwarfProfit;
+         gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
+         gameData.dwarfNumber += 1;
+      }
    }
 }
 function hireGoose() {
    if(gameData.gold >= gameData.hireGooseCost) {
       gameData.gold -= gameData.hireGooseCost;
       gameData.gooseGold += gameData.gooseProfit;
-      gameData.hireGooseCost = (10127 * Math.pow(1.15, gameData.gooseNumber)).toFixed(0);
+      gameData.hireGooseCost = (10127 * 1.15 ** gameData.gooseNumber).toFixed(0);
       gameData.gooseNumber += 1;
    }
 }
@@ -296,7 +317,7 @@ function openMine() {
    if(gameData.gold >= gameData.openMineCost) {
       gameData.gold -= gameData.openMineCost;
       gameData.mineGold += gameData.mineProfit;
-      gameData.openMineCost = (28351 * Math.pow(1.15, gameData.mineNumber)).toFixed(0);
+      gameData.openMineCost = (28351 * 1.15 ** gameData.mineNumber).toFixed(0);
       gameData.mineNumber += 1;
    }
 }
@@ -304,7 +325,7 @@ function hireDragon() {
    if(gameData.gold >= gameData.hireDragonCost) {
       gameData.gold -= gameData.hireDragonCost;
       gameData.dragonGold += gameData.dragonProfit;
-      gameData.hireDragonCost = (201648 * Math.pow(1.15, gameData.dragonNumber)).toFixed(0);
+      gameData.hireDragonCost = (201648 * 1.15 ** gameData.dragonNumber).toFixed(0);
       gameData.dragonNumber += 1;
    }
 }
@@ -312,7 +333,7 @@ function buyStone() {
    if(gameData.gold >= gameData.buyStoneCost) {
       gameData.gold -= gameData.buyStoneCost;
       gameData.stoneGold += gameData.stoneProfit;
-      gameData.buyStoneCost = (3752186 * Math.pow(1.15, gameData.stoneNumber)).toFixed(0);
+      gameData.buyStoneCost = (3752186 * 1.15 ** gameData.stoneNumber).toFixed(0);
       gameData.stoneNumber += 1;
    }
 }
@@ -320,7 +341,7 @@ function openStation() {
    if(gameData.gold >= gameData.openStationCost) {
       gameData.gold -= gameData.openStationCost;
       gameData.stationGold += gameData.stationProfit;
-      gameData.openStationCost = (250000000 * Math.pow(1.15, gameData.stationNumber)).toFixed(0);
+      gameData.openStationCost = (250000000 * 1.15 ** gameData.stationNumber).toFixed(0);
       gameData.stationNumber += 1;
    }
 }
@@ -328,7 +349,7 @@ function hireLeprechaun() {
    if(gameData.gold >= gameData.hireLeprechaunCost) {
       gameData.gold -= gameData.hireLeprechaunCost;
       gameData.leprechaunGold += gameData.lepProfit;
-      gameData.hireLeprechaunCost = (1000000000 * Math.pow(1.15, gameData.leprechaunNumber)).toFixed(0);
+      gameData.hireLeprechaunCost = (1000000000 * 1.15 ** gameData.leprechaunNumber).toFixed(0);
       gameData.leprechaunNumber += 1;
    }
 }
@@ -336,7 +357,7 @@ function hireSheep() {
    if(gameData.gold >= gameData.hireSheepCost) {
       gameData.gold -= gameData.hireSheepCost;
       gameData.sheepGold += gameData.sheepProfit;
-      gameData.hireSheepCost = (250000000000 * Math.pow(1.15, gameData.sheepNumber)).toFixed(0);
+      gameData.hireSheepCost = (250000000000 * 1.15 ** gameData.sheepNumber).toFixed(0);
       gameData.sheepNumber += 1;
    }
 }
@@ -344,7 +365,7 @@ function buyRay() {
    if(gameData.gold >= gameData.buyRayCost) {
       gameData.gold -= gameData.buyRayCost;
       gameData.rayGold += gameData.rayProfit;
-      gameData.buyRayCost = (2000000000000 * Math.pow(1.15, gameData.rayNumber)).toFixed(0);
+      gameData.buyRayCost = (2000000000000 * 1.15 ** gameData.rayNumber).toFixed(0);
       gameData.rayNumber += 1;
    }
 }
@@ -352,8 +373,160 @@ function buyMerger() {
    if(gameData.gold >= gameData.buyMergerCost) {
       gameData.gold -= gameData.buyMergerCost;
       gameData.mergerGold += gameData.mergerProfit;
-      gameData.buyMergerCost = (200000000000000 * Math.pow(1.15, gameData.mergerNumber)).toFixed(0);
+      gameData.buyMergerCost = (200000000000000 * 1.15 ** gameData.mergerNumber).toFixed(0);
       gameData.mergerNumber += 1;
+   }
+}
+
+//==========================================================
+//Summoning Circles
+//==========================================================
+
+// All data about Summoning Circles
+const initalCircleData = {
+// Starts at lvl 0
+   circleLevel: 0,
+
+// Upgrade Costs
+   lvl1Cost: 100000000,
+   lvl2Cost: 2500000000,
+   lvl3Cost: 7500000000,
+   lvl4Cost: 25000000000,
+   lvl5Cost: 75000000000,
+   lvl6Cost: 100000000000,
+   lvl7Cost: 2500000000000,
+   lvl8Cost: 7500000000000,
+   lvl9Cost: 25000000000000,
+   lvl10Cost: 75000000000000,
+   lvl11Cost: 100000000000000,
+   lvl12Cost: "Ohhh, mysterious, there are only 11 buildings",
+
+// Profits and Such
+   circleProfits: 1,
+   timeUnit: 86500000, // Starts at 24 hours
+   profit: null,
+}
+
+let circleData = initalCircleData;
+
+function unlockCircle() {
+   if (otherData.otherStars >= 10000) {
+      otherData.otherStars -= 10000;
+      document.getElementById("otherstars").style.display = "block";
+      document.getElementById("summoningCircle").style.display = "block";
+   }
+}
+
+// Upgrade the Summoning Circle
+function upgradeCircle() {
+   // Depending on what level the player is on, run a certiant part of the function
+   if (circleData.circleLevel === 0) {
+      // Check there is enough otherstars
+      if (otherData.otherStars >= circleData.lvl1Cost) {
+         // Substract that amount of otherstars
+         otherData.otherStars -= circleData.lvl1Cost;
+         // Add one to the level
+         circleData.circleLevel += 1;
+         // Reset the profits and unit of time
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         // Set product as whatever level it is
+         circleData.product = "Pickaxe";
+      }
+   }
+   if (circleData.circleLevel === 1) {
+      if (otherData.otherStars >= circleData.lvl2Cost) {
+         otherData.otherStars -= circleData.lvl2Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Dwarf";
+      }
+   }
+   if (circleData.circleLevel === 2) {
+      if (otherData.otherStars >= circleData.lvl3Cost) {
+         otherData.otherStars -= circleData.lvl3Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Goosw";
+      }
+   }
+   if (circleData.circleLevel === 3) {
+      if (otherData.otherStars >= circleData.lvl4Cost) {
+         otherData.otherStars -= circleData.lvl4Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Mine";
+      }
+   }
+   if (circleData.circleLevel === 4) {
+      if (otherData.otherStars >= circleData.lvl5Cost) {
+         otherData.otherStars -= circleData.lvl5Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Dragon";
+      }
+   }
+   if (circleData.circleLevel === 5) {
+      if (otherData.otherStars >= circleData.lvl6Cost) {
+         otherData.otherStars -= circleData.lvl6Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Stone";
+      }
+   }
+   if (circleData.circleLevel === 6) {
+      if (otherData.otherStars >= circleData.lvl7Cost) {
+         otherData.otherStars -= circleData.lvl7Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Station";
+      }
+   }
+   if (circleData.circleLevel === 7) {
+      if (otherData.otherStars >= circleData.lvl8Cost) {
+         otherData.otherStars -= circleData.lvl8Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Leprechaun";
+      }
+   }
+   if (circleData.circleLevel === 8) {
+      if (otherData.otherStars >= circleData.lvl9Cost) {
+         otherData.otherStars -= circleData.lvl9Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Sheep";
+      }
+   }
+   if (circleData.circleLevel === 9) {
+      if (otherData.otherStars >= circleData.lvl110Cost) {
+      otherData.otherStars -= circleData.lvl10Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Ray";
+      }
+   }
+   if (circleData.circleLevel === 10) {
+      if (otherData.otherStars >= circleData.lvl11Cost) {
+         otherData.otherStars -= circleData.lvl11Cost;
+         circleData.circleLevel += 1;
+         circleData.circleProfits = 1;
+         circleData.timeUnit = 86500000;
+         circleData.product = "Merger";
+      }
+   }
+   if (circleData.circleLevel === 11) {
+      // I hate these popups
+      alert("Coming Soon!");
    }
 }
 
@@ -518,6 +691,11 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
       document.getElementById("otherworldPortal").style.display = "block";
    }
+
+   // Summoning Circle
+   if (otherData.otherStars >= 1) {
+      document.getElementById("unlockCircle").style.display = "block";
+   }
 }, 3000)
 
 // Communal Upgrade Function
@@ -593,34 +771,33 @@ function otherworldPortal() {
 }
 
 // This resets the values displayed in the shop
-// Trouble with both sections not working simoulatiously
 var updateStore = window.setInterval(function() {
    //Gold per Building
-   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + gameData.pickaxeProfit + " GPS <br> Producing " + gameData.pickaxeGold + " GPS<br>A sturdy pickaxe to mine gold with";
-   document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + gameData.dwarfProfit + " GPS each<br> Producing " + gameData.dwarfGold + " GPS<br>An assistant to help you mine gold";
-   document.getElementById("goose-info").innerHTML = "Geese <br> " + gameData.gooseProfit + " GPS each<br> Producing " + gameData.gooseGold + " GPS<br>A nice goose that lays golden eggs";
-   document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + gameData.mineProfit + " GPS each<br> Producing " + gameData.mineGold + " GPS<br>A new mine to mine gold in";
-   document.getElementById("dragon-info").innerHTML = "Dragon <br> " + gameData.dragonProfit + " GPS each<br> Producing " + gameData.dragonGold + " GPS<br>A nice dragon to steal gold and hoard it";
-   document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + gameData.stoneProfit + " GPS each<br> Producing " + gameData.stoneGold + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
-   document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + gameData.stationProfit + " GPS each<br> Producing " + gameData.stationGold + " GPS<br>A space station that mines astroids for gold";
-   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + gameData.lepProfit + " GPS each<br> Producing " + gameData.leprechaunGold + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
-   document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + gameData.sheepProfit + " GPS each<br> Producing " + gameData.sheepGold + " GPS<br>A cute round fluffy sheep with a golden fleece";
-   document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + gameData.rayProfit + " GPS each<br> Producing " + gameData.rayGold + " GPS<br>Turns mass into gold";
-   document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + gameData.mergerProfit + " GPS each<br> Producing " + gameData.mergerGold + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
+   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + commas(gameData.pickaxeProfit) + " GPS <br> Producing " + commas(gameData.pickaxeGold) + " GPS<br>A sturdy pickaxe to mine gold with";
+   document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + commas(gameData.dwarfProfit) + " GPS each<br> Producing " + commas(gameData.dwarfGold) + " GPS<br>An assistant to help you mine gold";
+   document.getElementById("goose-info").innerHTML = "Geese <br> " + commas(gameData.gooseProfit) + " GPS each<br> Producing " + commas(gameData.gooseGold) + " GPS<br>A nice goose that lays golden egg";
+   document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + commas(gameData.mineProfit) + " GPS each<br> Producing " + commas(gameData.mineGold) + " GPS<br>A new mine to mine gold in";
+   document.getElementById("dragon-info").innerHTML = "Dragon <br> " + commas(gameData.dragonProfit) + " GPS each<br> Producing " + commas(gameData.dragonGold) + " GPS<br>A nice dragon to steal gold and hoard it";
+   document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + commas(gameData.stoneProfit) + " GPS each<br> Producing " + commas(gameData.stoneGold) + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
+   document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + commas(gameData.stationProfit) + " GPS each<br> Producing " + commas(gameData.stationGold) + " GPS<br>A space station that mines astroids for gold";
+   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + commas(gameData.lepProfit) + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
+   document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + commas(gameData.sheepProfit) + " GPS each<br> Producing " + commas(gameData.sheepGold) + " GPS<br>A cute round fluffy sheep with a golden fleece";
+   document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + commas(gameData.rayProfit) + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
+   document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + commas(gameData.mergerProfit) + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
 
    //Building Count
-   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + gameData.toolLevel + "<br> Cost: " + gameData.bToolCost + " Gold";
-   document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + gameData.pickaxeNumber + ") <br>Cost: " + gameData.buyPickaxeCost + " Gold";
-   document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + gameData.dwarfNumber + ") <br>Cost: " + gameData.hireDwarfCost + " Gold";
-   document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + gameData.gooseNumber + ") <br>Cost: " + gameData.hireGooseCost + " Gold";
-   document.getElementById("mine-display").innerHTML = "Gold Mine<br> (You have " + gameData.mineNumber + ") <br>Cost: " + gameData.openMineCost + " Gold";
-   document.getElementById("dragon-display").innerHTML = "Dragon<br> (You have " + gameData.dragonNumber + ") <br>Cost: " + gameData.hireDragonCost + " Gold";
-   document.getElementById("stone-display").innerHTML = "Philosopher's Stone<br> (You have " + gameData.stoneNumber + ") <br>Cost: " + gameData.buyStoneCost + " Gold";
-   document.getElementById("station-display").innerHTML = "Astroid-mining Station<br> (You have " + gameData.stationNumber + ") <br>Cost: " + gameData.openStationCost + " Gold";
-   document.getElementById("leprechaun-display").innerHTML = "Leprechaun<br> (You have " + gameData.leprechaunNumber + ") <br>Cost: " + gameData.hireLeprechaunCost + " Gold";
-   document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + gameData.sheepNumber + ") <br>Cost: " + gameData.hireSheepCost + " Gold";
-   document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + gameData.rayNumber + ") <br>Cost: " + gameData.buyRayCost + " Gold";
-   document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + gameData.mergerNumber + ") <br>Cost: " + gameData.buyMergerCost + " Gold";
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + commas(gameData.toolLevel) + "<br> Cost: " + commas(gameData.bToolCost) + " Gold";
+   document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + commas(gameData.pickaxeNumber) + ") <br>Cost: " + commas(gameData.buyPickaxeCost) + " Gold";
+   document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + commas(gameData.dwarfNumber) + ") <br>Cost: " + commas(gameData.hireDwarfCost) + " Gold";
+   document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + commas(gameData.gooseNumber) + ") <br>Cost: " + commas(gameData.hireGooseCost) + " Gold";
+   document.getElementById("mine-display").innerHTML = "Gold Mine<br> (You have " + commas(gameData.mineNumber) + ") <br>Cost: " + commas(gameData.openMineCost) + " Gold";
+   document.getElementById("dragon-display").innerHTML = "Dragon<br> (You have " + commas(gameData.dragonNumber) + ") <br>Cost: " + commas(gameData.hireDragonCost) + " Gold";
+   document.getElementById("stone-display").innerHTML = "Philosopher's Stone<br> (You have " + commas(gameData.stoneNumber) + ") <br>Cost: " + commas(gameData.buyStoneCost) + " Gold";
+   document.getElementById("station-display").innerHTML = "Astroid-mining Station<br> (You have " + commas(gameData.stationNumber) + ") <br>Cost: " + commas(gameData.openStationCost) + " Gold";
+   document.getElementById("leprechaun-display").innerHTML = "Leprechaun<br> (You have " + commas(gameData.leprechaunNumber) + ") <br>Cost: " + commas(gameData.hireLeprechaunCost) + " Gold";
+   document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + commas(gameData.sheepNumber) + ") <br>Cost: " + commas(gameData.hireSheepCost) + " Gold";
+   document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + commas(gameData.rayNumber) + ") <br>Cost: " + commas(gameData.buyRayCost) + " Gold";
+   document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + commas(gameData.mergerNumber) + ") <br>Cost: " + commas(gameData.buyMergerCost) + " Gold";
 }, 500)
 
 //==========================================================
@@ -629,16 +806,23 @@ var updateStore = window.setInterval(function() {
 
 // Runs every second
 var mainGameLoop = window.setInterval(function() {
-   // This code collets gold in player absence
    // Check how much time the've been gone
-   diff = Date.now() - gameData.lastTick;
+   let diff = Date.now() - gameData.lastTick;
    // Reset time
    gameData.lastTick = Date.now();
    // Add gold they earned in abscence
    addGold(goldPerSecond() * (diff / 1000));
 
-   // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = goldPerSecond() + " Gold per Second<br>" + gameData.clickinGold + " Gold per Click<br>";
+
+   // Display summoning circle
+   if (circleData.circleLevel >= 1) {
+      document.getElementById("otherstars").style.display = "block";
+      document.getElementById("summoningCircle").style.display = "block";
+   }
+  
+     // Display gold per second & gold per click
+   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
+
    // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
    document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
@@ -662,7 +846,7 @@ var buildColorLoop = window.setInterval(function() {
       // Make the color the avalible color
       document.getElementById("bTool").style.backgroundColor = regColor;
    }
-   // If not
+   // Otherwise
    else {
       // Make it the unavalible color
       document.getElementById("bTool").style.backgroundColor = notEnoughColor;
@@ -776,21 +960,27 @@ var buildColorLoop = window.setInterval(function() {
 var saveGameLoop = window.setInterval(function() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
 }, 10000)
 
 // Retrive game data as savegame
-var savegame = {
+let savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
+   circleData: JSON.parse(localStorage.getItem("circleDataSave")),
+   otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
 }
 
 upgradeData = savegame.upgradeData;
 gameData = savegame.gameData;
+circleData = savegame.circleData;
+let otherData = savegame.otherworldSave;
 
 // If the savegame is empty set game data as savegame
 if (savegame !== null) {
    savegame.gameData = gameData;
    savegame.upgradeData = upgradeData;
+   savegame.circleData = circleData;
 }
 
 // Prevents decimals in gold
@@ -800,16 +990,26 @@ var setThingsRight = window.setInterval(function() {
 }, 20)
 
 //==========================================================
-//Math
+// Math
 //==========================================================
 
 // Add commas to numbers
 function commas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 //==========================================================
-//Settings
+// Shortcuts
+//==========================================================
+
+document.addEventListener("keyup", function(event) {
+   if (event.ctrlKey && event.keyCode === 83) {
+       save();
+   }
+});
+
+//==========================================================
+// Settings
 //==========================================================
 
 //Wipe Save
@@ -825,9 +1025,11 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
+         circleData = initalCircleData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+         localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
          document.location.href = ("");
       }
@@ -838,7 +1040,19 @@ function restart() {
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
 }
+
+// Save by ctrl + S
+document.addEventListener("keydown", function(e) {
+   // If player is on a Mac, use cmd + S
+   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
+      // Prevent default
+      e.preventDefault();
+      // Run save function
+      save();
+   }
+}, false);
 
 function dark() {
    // This changes the default colors for avalible and unavalible buildings
@@ -874,8 +1088,8 @@ function light() {
    document.location.href = ("")
 }
 
-// Set var myAudio to audio file
-var myAudio = document.getElementById("myAudio");
+// Set myAudio to audio file
+let myAudio = document.getElementById("myAudio");
 
 function music() {
    // If audio is paused run, if it is playing, pause
@@ -923,170 +1137,170 @@ function menu(x, y) {
 //==========================================================
 
 // This is all of the news
-var allNews = [
-   'You go mining sometimes',
-   'You like the shiny twinkle of gold',
-   'When you feel sad, you look at your hoard of gold. ',
-   'You dream of golden sheep in a golden meadow eating golden grass.',
-   'You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let allNews = [
+   `You go mining sometimes`,
+   `You like the shiny twinkle of gold`,
+   `When you feel sad, you look at your hoard of gold.`,
+   `You dream of golden sheep in a golden meadow eating golden grass.`,
+   `You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.`,
+   `Breaking News: Under threat of closing the press, journalist tells the semi-truth!`,
+   //`News: `,
+   //`News: `,
 ]
-var pickaxeNews = [
-   'News: New type of pickaxe coming out, looks suspiciously like normal iron.',
-   'News: Purchases of pickaxes on the rise for both practical and decorative purposes.',
-   'News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let pickaxeNews = [
+   `News: New type of pickaxe coming out, looks suspiciously like normal iron.`,
+   `News: Purchases of pickaxes on the rise for both practical and decorative purposes.`,
+   `News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"`,
+   `Ad: You looking for a good sturdy pickaxe for some backyard mining? We've got just the thing for you! Get our heavy-duty all-purpose pickaxes today!`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var dwarfNews = [
-   'News: Dwarfs stop human miners from going to work, "They only get in the way."',
-   'News: Reports of "Little people weilding pickaxes" increasing daily',
-   'News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner',
-   'News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.',
-   'News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.',
-   'News: Gold mine collapses, dwarfs demand safer workplaces.',
-   'News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "it\'s suprising how threatening a mob of tiny people can be" admits journalist',
-   'News: Peaceful dwarf protests recived with violent reprisal!',
+let dwarfNews = [
+   `News: Dwarfs stop human miners from going to work, "They only get in the way."`,
+   `News: Reports of "Little people weilding pickaxes" increasing daily`,
+   `News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner`,
+   `News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.`,
+   `News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.`,
+   `News: Gold mine collapses, dwarfs demand safer workplaces.`,
+   `News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "It's suprising how threatening a mob of tiny people can be" admits journalist`,
+   `News: Peaceful dwarf protests recived with violent reprisal!`,
 ]
-var gooseNews = [
-   'News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let gooseNews = [
+   `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
+   `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var mineNews = [
-   'News: Mines opening everywhere, environmentalists worried.',
-   'News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what\'s so special about coal?"',
-   'News: "Maybe we should stop drilling holes in the earth." says random man.',
-   'News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.',
-   'News: As the gold industry gradualy gains control of the government, new laws are passed in the favor of mining.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let mineNews = [
+   `News: Mines opening everywhere, environmentalists worried.`,
+   `News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what's so special about coal?"`,
+   `News: "Maybe we should stop drilling holes in the earth." says random man.`,
+   `News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.`,
+   `News: As the gold industry gradualy gains control of the government, new laws are passed in the favor of mining.`,
+   `News: "Aren't you worried about the enviroment?" ask journalist, ${gameData.playerName}'s cheif mining officer says "I'll be gone by the time it gets bad."`,
+   //`News: `,
+   //`News: `,
 ]
-var dragonNews = [
-   'News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"',
-   'News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.',
-   'News: Scientist warn people to stay indoors during dragon breeding season."It\'s for your own overall health."',
-   'News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.',
-   'New: Dragon babysitters needed becase all parents busy hoarding gold.',
-   'News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.',
-   'News: Grass-fed dragon milk, new lactose-free substitute to cow milk.',
-   'News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"',
+let dragonNews = [
+   `News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"`,
+   `News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.`,
+   `News: Scientist warn people to stay indoors during dragon breeding season."It's for your own overall health."`,
+   `News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.`,
+   `New: Dragon babysitters needed becase all parents busy hoarding gold.`,
+   `News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.`,
+   `News: Grass-fed dragon milk, new lactose-free substitute to cow milk.`,
+   `News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"`,
 ]
-var stoneNews = [
-   'News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"',
-   'News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Localist extreamly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let stoneNews = [
+   `News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"`,
+   `News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Locals thoroughly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"`,
+   `News: "NO, these philosophers stones DO NOT give longer lives." say exasperated representative of ${gameData.playerName} Industries to over enthusiastic crowd.`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var stationNews = [
-   'News: Major astroid mining station slams into Earth! Impacted country enraged!',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let stationNews = [
+   `News: Major astroid mining station slams into Earth, impacted country enraged!`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var lepNews = [
-   'News: Leprechaun becomes politician, world leaders upset.',
-   'News: Rainbows occuring more and more often, leprechaun suspected.',
-   'News: Three leaved clovers become rare due to the large amount of four leaved clovers.',
-   'News: "Don\'t trust the gold at the end of them leprechaun rainbows" says scientist, "Who knows what nasty tricks they have up there sleaves!" "Ehm ehm" says leprechaun with camera.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let lepNews = [
+   `News: Leprechaun becomes politician, world leaders upset.`,
+   `News: Rainbows occuring more and more often, leprechaun suspected.`,
+   `News: Three leaved clovers become rare due to the large amount of four leaved clovers.`,
+   `News: "Don't trust the gold at the end of leprechaun rainbows" says athoritiy, "Who knows what nasty tricks they have up there sleaves!" "Ehm ehm" says leprechaun with camera.`,
+   `News: Semi-decent laws are made to protect people from Leprechauns, and vice versa.`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var sheepNews = [
-   'News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.',
-   'News: Market sees a dramatic upturn in the sales of golden fleece jackets.',
-   'News: Pet golden sheeps becoming more popular, causing the intorduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let sheepNews = [
+   `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
+   `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
+   `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
+   `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var rayNews = [
-   'News: Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)',
-   'News: Mass rays wreak havoc, turning multiple minor plantets into soild gold.',
-   'News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it\'s illegal, but I hope they keep doing it. Wait... are you a reporter?!"',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let rayNews = [
+   `Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)`,
+   `News: Mass rays wreak havoc, turning multiple minor plantets into soild gold, astronomers enraged`,
+   `News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing it. Wait... are you a reporter?!"`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var mergerNews = [
-   'News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."',
-   'News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants. ',
-   'News: Scientist explains how neutron star mergers work to ' + gameData.playerName + '\'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let mergerNews = [
+   `News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."`,
+   `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants.`,
+   `News: Scientist explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var richNews = [
-   'News: Ordinary household items more commonly made of gold to deal with gold surplus.',
-   'News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.',
-   'News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.',
-   'News: Personal golden planets becoming fashinble, causing imennse golden solar systems.',
-   'News: New podcast about ' + gameData.playerName + '\'s amazing rise to success coming out! Don\'t miss it!',
-   'News: Studies show that ' + gameData.playerName + ' has made a total ' + gameData.totalGold + ' Gold. "That\'s a lot of shiny" says researcher',
-   'News: Gold\'s economic worth dramatically reduced, stock market looking for subsitude.',
-   //'News: ',
+let richNews = [
+   `News: Ordinary household items more commonly made of gold to deal with gold surplus.`,
+   `News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.`,
+   `News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.`,
+   `News: Personal golden planets becoming fashinble, causing imennse golden solar systems.`,
+   `News: New podcast about ${gameData.playerName}'s amazing rise to success coming out! Don't miss it!`,
+   `News: Studies show that ${gameData.playerName} has made a total of ${commas(gameData.totalGold)} Gold. "That's a lot of shiny" says researcher`,
+   `News: Gold's economic worth dramatically reduced, stock market looking for subsitude.`,
+   `News: Philosophers agree that gold is the true meaning of life. "What's truly amazing is they agreed on something." says reporter`,
 ]
-var otherNews = [
-   'News: Rumered discoveries of Otherworld portals disrupting world peace.',
-   'News: Lost children suspected to have stumbled throught Otherworld portals.',
-   'News: Freak weather causing havoc and destruction, traced to Otherworld portals.',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let otherNews = [
+   `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
+   `News: Lost children suspected to have stumbled throught Otherworld portals.`,
+   `News: Freak weather causing havoc and destruction, traced to Otherworld portals.`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
-var summoningNews = [
-   'News: Summoing circles rising in popularity, allowing for personal summoning circle fad.'
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
-   //'News: ',
+let summoningNews = [
+   `News: Summoing circles rising in popularity, creating personal summoning circle fad.`,
+   `Bestselling Book: "Barbarian chanting: A guide on maximizing summoning circle efficacy"`,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
+   //`News: `,
 ]
 
 // Decides which news to display
-var news = window.setInterval(function (){
+let news = window.setInterval(function (){
    // Set var that contains all displayale news to default
    var trueNews = allNews;
    // If the player has 1 of a certiant building
    if (gameData.pickaxeNumber >= 1) {
-      // Add the news for that building  tothe displayable news
+      // Add the news for that building to the displayable news
       trueNews = trueNews.concat(pickaxeNews);
    }
    if (gameData.dwarfNumber >= 1) {
