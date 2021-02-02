@@ -630,8 +630,11 @@ var updateStore = window.setInterval(function() {
 // Runs every second
 var mainGameLoop = window.setInterval(function() {
    // This code collets gold in player absence
+   // Check how much time the've been gone
    diff = Date.now() - gameData.lastTick;
+   // Reset time
    gameData.lastTick = Date.now();
+   // Add gold they earned in abscence
    addGold(goldPerSecond() * (diff / 1000));
 
    // Display gold per second & gold per click
@@ -792,12 +795,21 @@ if (savegame !== null) {
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
-   document.title = (gameData.gold).toFixed(0) + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = (gameData.gold).toFixed(0) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
+   document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
+   document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
 }, 20)
 
 //==========================================================
-// Settings
+//Math
+//==========================================================
+
+// Add commas to numbers
+function commas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+//==========================================================
+//Settings
 //==========================================================
 
 //Wipe Save
