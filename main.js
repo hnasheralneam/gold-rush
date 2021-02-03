@@ -290,158 +290,6 @@ function acquireAsset(asset, assetCost, costMultiplier) {
 }
 
 //==========================================================
-// Summoning Circles
-//==========================================================
-/*
-// All data about Summoning Circles
-const initalCircleData = {
-// Starts at lvl 0
-   circleLevel: 0,
-
-// Upgrade Costs
-   lvl1Cost: 100000000,
-   lvl2Cost: 2500000000,
-   lvl3Cost: 7500000000,
-   lvl4Cost: 25000000000,
-   lvl5Cost: 75000000000,
-   lvl6Cost: 100000000000,
-   lvl7Cost: 2500000000000,
-   lvl8Cost: 7500000000000,
-   lvl9Cost: 25000000000000,
-   lvl10Cost: 75000000000000,
-   lvl11Cost: 100000000000000,
-   lvl12Cost: "Ohhh, mysterious, there are only 11 buildings",
-
-// Profits and Such
-   circleProfits: 1,
-   timeUnit: 86500000, // Starts at 24 hours
-   profit: null,
-}
-
-let circleData = initalCircleData;
-
-function unlockCircle() {
-   if (otherData.otherStars >= 10000) {
-      otherData.otherStars -= 10000;
-      document.getElementById("otherstars").style.display = "block";
-      document.getElementById("summoningCircle").style.display = "block";
-   }
-}
-
-// Upgrade the Summoning Circle
-function upgradeCircle() {
-   // Depending on what level the player is on, run a certiant part of the function
-   if (circleData.circleLevel === 0) {
-      // Check there is enough otherstars
-      if (otherData.otherStars >= circleData.lvl1Cost) {
-         // Substract that amount of otherstars
-         otherData.otherStars -= circleData.lvl1Cost;
-         // Add one to the level
-         circleData.circleLevel += 1;
-         // Reset the profits and unit of time
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         // Set product as whatever level it is
-         circleData.product = "Pickaxe";
-      }
-   }
-   if (circleData.circleLevel === 1) {
-      if (otherData.otherStars >= circleData.lvl2Cost) {
-         otherData.otherStars -= circleData.lvl2Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Dwarf";
-      }
-   }
-   if (circleData.circleLevel === 2) {
-      if (otherData.otherStars >= circleData.lvl3Cost) {
-         otherData.otherStars -= circleData.lvl3Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Goosw";
-      }
-   }
-   if (circleData.circleLevel === 3) {
-      if (otherData.otherStars >= circleData.lvl4Cost) {
-         otherData.otherStars -= circleData.lvl4Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Mine";
-      }
-   }
-   if (circleData.circleLevel === 4) {
-      if (otherData.otherStars >= circleData.lvl5Cost) {
-         otherData.otherStars -= circleData.lvl5Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Dragon";
-      }
-   }
-   if (circleData.circleLevel === 5) {
-      if (otherData.otherStars >= circleData.lvl6Cost) {
-         otherData.otherStars -= circleData.lvl6Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Stone";
-      }
-   }
-   if (circleData.circleLevel === 6) {
-      if (otherData.otherStars >= circleData.lvl7Cost) {
-         otherData.otherStars -= circleData.lvl7Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Station";
-      }
-   }
-   if (circleData.circleLevel === 7) {
-      if (otherData.otherStars >= circleData.lvl8Cost) {
-         otherData.otherStars -= circleData.lvl8Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Leprechaun";
-      }
-   }
-   if (circleData.circleLevel === 8) {
-      if (otherData.otherStars >= circleData.lvl9Cost) {
-         otherData.otherStars -= circleData.lvl9Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Sheep";
-      }
-   }
-   if (circleData.circleLevel === 9) {
-      if (otherData.otherStars >= circleData.lvl110Cost) {
-      otherData.otherStars -= circleData.lvl10Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Ray";
-      }
-   }
-   if (circleData.circleLevel === 10) {
-      if (otherData.otherStars >= circleData.lvl11Cost) {
-         otherData.otherStars -= circleData.lvl11Cost;
-         circleData.circleLevel += 1;
-         circleData.circleProfits = 1;
-         circleData.timeUnit = 86500000;
-         circleData.product = "Merger";
-      }
-   }
-   if (circleData.circleLevel === 11) {
-      // I hate these popups
-      alert("Coming Soon!");
-   }
-}
-*/
-//==========================================================
 // Upgrades
 //==========================================================
 
@@ -729,27 +577,23 @@ var buildColorLoop = window.setInterval(function() {
 var saveGameLoop = window.setInterval(function() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
 }, 10000)
 
 // Retrive game data as savegame
 let savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
-   circleData: JSON.parse(localStorage.getItem("circleDataSave")),
    otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
 }
 
 upgradeData = savegame.upgradeData;
 gameData = savegame.gameData;
-circleData = savegame.circleData;
 let otherData = savegame.otherworldSave;
 
 // If the savegame is empty set game data as savegame
 if (savegame !== null) {
    savegame.gameData = gameData;
    savegame.upgradeData = upgradeData;
-   savegame.circleData = circleData;
 }
 
 // Prevents decimals in gold
@@ -799,11 +643,9 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         // circleData = initalCircleData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-         // localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
          document.location.href = ("#");
       }
@@ -814,7 +656,6 @@ function restart() {
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
    let savedAlert = document.querySelector(".saved-alert");
    savedAlert.style.opacity = "1";
    savedAlert.textContent = `Game Saved!`;
@@ -1070,16 +911,6 @@ let otherNews = [
    `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
    `News: Lost children suspected to have stumbled throught Otherworld portals.`,
    `News: Freak weather causing havoc and destruction, traced to Otherworld portals.`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let summoningNews = [
-   `News: Summoing circles rising in popularity, creating personal summoning circle fad.`,
-   `Bestselling Book: "Barbarian chanting: A guide on maximizing summoning circle efficacy"`,
    //`News: `,
    //`News: `,
    //`News: `,
