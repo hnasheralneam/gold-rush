@@ -692,6 +692,15 @@ var updateStore = window.setInterval(function() {
    document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + commas(gameData.sheepNumber) + ") <br>Cost: " + commas(gameData.hireSheepCost) + " Gold";
    document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + commas(gameData.rayNumber) + ") <br>Cost: " + commas(gameData.buyRayCost) + " Gold";
    document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + commas(gameData.mergerNumber) + ") <br>Cost: " + commas(gameData.buyMergerCost) + " Gold";
+
+   // Display gold per minuite, hour, day, month, and year
+   document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
+   document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
+   document.getElementById("gpd").innerHTML = goldPerSecond() * 60 * 60 * 24 + " Gold Per Day";
+   document.getElementById("gpw").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 + " Gold Per Week";
+   document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
+   document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
+   document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
 }, 500)
 
 //==========================================================
@@ -706,26 +715,8 @@ var mainGameLoop = window.setInterval(function() {
    gameData.lastTick = Date.now();
    // Add gold they earned in abscence
    addGold(goldPerSecond() * (diff / 1000));
-
-
-   // Display summoning circle
-   // if (circleData.circleLevel >= 1) {
-   //    document.getElementById("otherstars").style.display = "block";
-   //    document.getElementById("summoningCircle").style.display = "block";
-   // }
-
-     // Display gold per second & gold per click
+   // Display gold per second & gold per click
    document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
-
-   // Display gold per minuite, hour, day, month, and year
-   document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
-   document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
-   document.getElementById("gpd").innerHTML = goldPerSecond() * 60 * 60 * 24 + " Gold Per Day";
-   document.getElementById("gpw").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 + " Gold Per Week";
-   document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
-   document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
-   // Issue with total gold, does not count gold gathered in absence
-   document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
 }, 1000)
 
 // Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
@@ -1284,6 +1275,14 @@ function gameLayout() {
    var today = new Date();
    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
    document.getElementById("copE-right").innerHTML = date;
+
+   // Display amount earned in abscence
+   let diff = Date.now() - gameData.lastTick;
+   gameData.lastTick = Date.now();
+   let whileGone = document.querySelector(".while-gone");
+   whileGone.style.opacity = "1";
+   whileGone.textContent = `While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`;
+   setTimeout(whileGone.style.opacity = "0",  8000);
 }
 
 window.onload = gameLayout;

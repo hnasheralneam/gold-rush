@@ -35,6 +35,22 @@ body {
    margin: 75px auto 15px auto;
 }
 
+.while-gone {
+   position: absolute;
+   bottom: 10%;
+   right: 5%;
+   height: 80px;
+   width: 180px;
+   background-color: #000;
+   color: #f5f5f5;
+   border: outset #ab0c07 5px;
+   border-radius: 5px;
+   padding: 8px;
+   font-family: Helvetica, sans-serif;
+   opacity: 0;
+   transition: 0.5s;
+}
+
 /*==========================================================
 Right Click Menu
 ==========================================================*/
