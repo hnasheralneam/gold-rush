@@ -35,7 +35,7 @@ body {
    margin: 75px auto 15px auto;
 }
 
-.while-gone, .saved-alert {
+.alert {
    position: absolute;
    bottom: 10%;
    right: 5%;
@@ -52,6 +52,51 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+}
+
+/* Welcome */
+.dark-shadow {
+   position: fixed;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   background-color: rgba(0, 0, 0, 0.89);
+   display: none;
+}
+
+.welcome {
+   position: absolute;
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   display: none;
+}
+
+.welcome-content {
+   box-sizing: border-box;
+   height: 90%;
+   width: 75%;
+   background-color: #f9f9f9;
+   border-radius: 10px;
+   padding: 25px;
+   box-shadow: 0 0 10px #fff;
+   z-index: 1;
+   font-family: 'Nunito Sans', sans-serif;
+}
+
+.welcome-content p {
+   margin: 25px;
+   font-size: 125%;
+}
+
+.name-input {
+   height: 75px;
+   width: 175px;
+   font-size: 50px;
 }
 
 /*==========================================================

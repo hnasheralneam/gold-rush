@@ -6,6 +6,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
    <head>
       <!-- Google Fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
       <!-- Basic -->
       <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon"/>
       <link rel="stylesheet" href="styles.css">
@@ -345,7 +347,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <summary>Settings</summary>
             <div id="settings">
                <div class="set-div" onclick="save()">SAVE
-                  <p class="set-info">Manually save your progress (autosaves every 10 seconds)</p>
+                  <p class="set-info">Manually save your progress (autosaves every 60 seconds)</p>
                </div>
                <div class="set-div" onclick="restart()">RESTART
                   <p class="set-info">Undo all your progress, permanantly. This is irreverable.</p>
@@ -427,8 +429,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p onclick="upgradeCircle()">Upgrade</p>
          </div>
       </div>
-      <div class="while-gone"></div>
-      <div class="saved-alert"></div>
+      <div class="alert"></div>
       <p id="copyright"><a title="About many things" href="https://meetsquirrel.github.io">Learn More</a> | <a title="You should definitly check this out" href="https://squirrel-314.github.io/vegetable-dash/index.html">Vegetable Dash!</a> | <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/">Hillside Township</a> | <a title="See the code" href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a> | Copyright © <span id="copE-right">16/11/2020</span> Meeeeee</p>
    </body>
    <div id="menu">
@@ -438,6 +439,15 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          <li>Probably.</li>
          <hr>
          <li class="menu-links"><a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a></li>
+   </div>
+   <div class="dark-shadow"></div>
+   <div class="welcome">
+      <div class="welcome-content">
+         <h1>Welcome to Gold Rush!</h1>
+         <p>This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.</p>
+         <p>What is your name? <br> (don't use your real name)</p>
+         <input class="name-input">
+      </div>
    </div>
    <script src="https://www.w3counter.com/tracker.js?id=134512"></script>
    <script src="main.js" charset="utf-8"></script>

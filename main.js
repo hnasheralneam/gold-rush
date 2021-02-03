@@ -11,7 +11,7 @@
 // Game Data
 //==========================================================
 // Use strict mode
-// 'use strict';
+'use strict';
 
 // Default values
 const initialGameData = {
@@ -207,6 +207,8 @@ let goldPerSecond = goldPerSecond => gameData.pickaxeGold + gameData.dwarfGold +
 // Colors for avilibe or unavalibe buildings
 let regColor = "#ffffbd";
 let notEnoughColor = "#333";
+
+let alert = document.querySelector(".alert");
 
 //==========================================================
 // Gain Profit
@@ -599,8 +601,6 @@ var mainGameLoop = window.setInterval(function() {
    gameData.lastTick = Date.now();
    // Add gold they earned in abscence
    addGold(goldPerSecond() * (diff / 1000));
-   // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
 }, 1000)
 
 // Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
@@ -725,65 +725,37 @@ var buildColorLoop = window.setInterval(function() {
    }
 }, 500)
 
-// Set game data to local Storage
-var saveGameLoop = window.setInterval(function() {
-   localStorage.setItem("gameDataSave", JSON.stringify(gameData));
-   localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
-}, 10000)
+
+let circleData;
+let otherData;
 
 // Retrive game data as savegame
 let savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
-   circleData: JSON.parse(localStorage.getItem("circleDataSave")),
-   otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
+   // circleData: JSON.parse(localStorage.getItem("circleDataSave")),
+   // otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
 }
 
-upgradeData = savegame.upgradeData;
-gameData = savegame.gameData;
-circleData = savegame.circleData;
-let otherData = savegame.otherworldSave;
-
 // If the savegame is empty set game data as savegame
-if (savegame !== null) {
+if (savegame === null) {
    savegame.gameData = gameData;
    savegame.upgradeData = upgradeData;
-   savegame.circleData = circleData;
 }
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
    document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
    document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
+   // Display gold per second & gold per click
+   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
 }, 20)
 
-//==========================================================
-// Math
-//==========================================================
-
 // Add commas to numbers
-function commas(x) {
-   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+function commas(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 
 //==========================================================
-// Shortcuts
-//==========================================================
-
-// Save by ctrl + S
-document.addEventListener("keydown", function(e) {
-   // If player is on a Mac, use cmd + S
-   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
-      // Prevent default
-      e.preventDefault();
-      // Run save function
-      save();
-   }
-}, false);
-
-//==========================================================
-// Settings
+// Settings & Shortcuts
 //==========================================================
 
 //Wipe Save
@@ -799,13 +771,13 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         // circleData = initalCircleData;
+         circleData = initalCircleData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
          // localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
-         document.location.href = ("#");
+         location.reload();
       }
    }
 }
@@ -814,13 +786,11 @@ function restart() {
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   localStorage.setItem("circleDataSave", JSON.stringify(circleData));
-   let savedAlert = document.querySelector(".saved-alert");
-   savedAlert.style.opacity = "1";
-   savedAlert.textContent = `Game Saved!`;
+   alert.style.opacity = "1";
+   alert.textContent = `Game Saved!`;
    setTimeout(saveAlert, 2000);
    function saveAlert() {
-      savedAlert.style.opacity = "0";
+      alert.style.opacity = "0";
    }
 }
 
@@ -831,18 +801,18 @@ function dark() {
 
    // Class styling, I do not understand how this works
    var storeItem = document.getElementsByClassName('store-item');
-   for (var i = 0; i < storeItem.length; i++) {
+   for (let i = 0; i < storeItem.length; i++) {
       storeItem[i].style.color = '#fff';
       storeItem[i].style.fontFamily = 'times';
       storeItem[i].style.border = 'outset 5px lightblue';
    }
    var up = document.getElementsByClassName('UP');
-   for (var i = 0; i < up.length; i++) {
+   for (let i = 0; i < up.length; i++) {
       up[i].style.color = '#000';
       up[i].style.backgroundColor = '#b3d0de';
    }
    var details = document.getElementsByTagName('details');
-   for (var i = 0; i < details.length; i++) {
+   for (let i = 0; i < details.length; i++) {
       details[i].style.background = '#737373';
    }
 
@@ -865,6 +835,17 @@ function music() {
    // If audio is paused run, if it is playing, pause
    return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
+
+// Save by ctrl + S
+document.addEventListener("keydown", function(e) {
+   // If player is on a Mac, use cmd + S
+   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
+      // Prevent default
+      e.preventDefault();
+      // Run save function
+      save();
+   }
+}, false);
 
 //==========================================================
 // Right Click Button
@@ -1147,28 +1128,26 @@ let news = window.setInterval(function (){
 
 // This all runs the moment the page is loaded
 function gameLayout() {
-   // Set player name
-   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
-   // If no player name
-   if (gameData.playerName == null) {
-      // Run game setup
+   if (false) {
       gameSetup();
    }
-
+   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+   setInterval(save, 60000);
+   // Set varibles
+   gameData = savegame.gameData;
+   upgradeData = savegame.upgradeData;
    // Get date and set it as copyright time
    var today = new Date();
    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
    document.getElementById("copE-right").innerHTML = date;
-
    // Display amount earned in abscence
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
-   let whileGone = document.querySelector(".while-gone");
-   whileGone.style.opacity = "1";
-   whileGone.textContent = `While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`;
+   alert.style.opacity = "1";
+   alert.textContent = `While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`;
    setTimeout(whileGoneEarned, 6000);
    function whileGoneEarned() {
-      whileGone.style.opacity = "0";
+      alert.style.opacity = "0";
    }
 }
 
@@ -1179,12 +1158,17 @@ window.onload = gameLayout;
 //==========================================================
 
 function gameSetup() {
-   // Tell them the basics
-   alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.");
-   // Ask for their name
-   gameData.playerName = prompt("What is your name?(don't use your real name)");
-   // Display name
-   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+   document.querySelector(".dark-shadow").style.display = "block";
+   document.querySelector(".welcome").style.display = "flex";
+   document.querySelector(".name-input").addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+         event.preventDefault();
+         gameData.playerName = document.querySelector(".name-input").value;
+         document.querySelector(".dark-shadow").style.display = "none";
+         document.querySelector(".welcome").style.display = "none";
+         document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+      }
+   });
 }
 
 //==========================================================
