@@ -157,6 +157,10 @@ summary {
    display: none;
 }
 
+#a2 {
+   display: block;
+}
+
 ul {
    list-style-type: none;
    margin: 0;

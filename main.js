@@ -1,5 +1,5 @@
 //==========================================================
-//Copyright and Opening Information
+// Copyright and Opening Information
 //==========================================================
 
 // Copyright Squirrel 2020 A.D.
@@ -8,98 +8,83 @@
 // Version 1.0.0 comes with commented code! Now I can know why I did what I did.
 
 //==========================================================
-//Game Data
+// Game Data
 //==========================================================
 // Use strict mode
 // 'use strict';
 
 // Default values
 const initialGameData = {
-//Gold
+// Gold
    gold: 0,
    totalGold: 0,
-
-//Clicks
+// Clicks
    clickinGold: 1,
    upgradeClickCost: 100,
    goldPerClick: 0,
    clicks: 0,
-
-//Tools
+// Tools
    bToolCost: 10,
    toolLevel: 1,
-
-//Pickaxes
+// Pickaxes
    pickaxeProfit: 0.5,
    pickaxeGold: 0,
    buyPickaxeCost: 50,
    pickaxeNumber: 0,
-
-//Dwarfs
+// Dwarfs
    dwarfProfit: 2,
    dwarfGold: 0,
    hireDwarfCost: 250,
    dwarfNumber: 0,
-
-//Geese
+// Geese
    gooseProfit: 10,
    gooseGold: 0,
    hireGooseCost: 10000,
    gooseNumber: 0,
-
-//Gold mines
+// Gold mines
    mineProfit: 60,
    mineGold: 0,
    openMineCost: 28000,
    mineNumber: 0,
-
-//Dragons
+// Dragons
    dragonProfit: 2000,
    dragonGold: 0,
    hireDragonCost: 200000,
    dragonNumber: 0,
-
-//Philosopher's Stones
+// Philosopher's Stones
    stoneProfit: 10000,
    stoneGold: 0,
    buyStoneCost: 3750000,
    stoneNumber: 0,
    upgradeStoneCost: 3000000,
-
-//Astroid-mining Station
+// Astroid-mining Station
    stationProfit: 85000,
    stationGold: 0,
    openStationCost: 250000000,
    stationNumber: 0,
-
-//Leprechauns
+// Leprechauns
    leprechaunProfit: 600000,
    leprechaunGold: 0,
    hireLeprechaunCost: 1000000000,
    leprechaunNumber: 0,
-
-//Golden Sheep
+// Golden Sheep
    sheepProfit: 10000000,
    sheepGold: 0,
    hireSheepCost: 250000000000,
    sheepNumber: 0,
-
-//Mass rays
+// Mass rays
    rayProfit: 1000000000,
    rayGold: 0,
    buyRayCost: 2000000000000,
    rayNumber: 0,
-
-//Neutron Star Mergers
+// Neutron Star Mergers
    mergerProfit: 10000000000,
    mergerGold: 0,
    buyMergerCost: 200000000000000,
    mergerNumber: 0,
-
-//Player Name
+// Player Name
    playerName: null,
-
-//Time
+// Time
    lastTick: Date.now()
 }
 const initialUpgradeData = {
@@ -224,7 +209,7 @@ let regColor = "#ffffbd";
 let notEnoughColor = "#333";
 
 //==========================================================
-//Gain Profit
+// Gain Profit
 //==========================================================
 
 // Add gold by clicking the asteroid
@@ -251,7 +236,7 @@ function addGold(gold) {
 }
 
 //==========================================================
-//Multiple buying
+// Multiple buying
 //==========================================================
 
 // document.addEventListener("keydown", function(event) {
@@ -275,7 +260,7 @@ for (let i = 0; i > 6; i++) {
 }
 
 //==========================================================
-//Purchase Buildings
+// Purchase Buildings
 //==========================================================
 
 function bTool() {
@@ -305,7 +290,7 @@ function acquireAsset(asset, assetCost, costMultiplier) {
 }
 
 //==========================================================
-//Summoning Circles
+// Summoning Circles
 //==========================================================
 /*
 // All data about Summoning Circles
@@ -457,168 +442,67 @@ function upgradeCircle() {
 }
 */
 //==========================================================
-//Upgrades
+// Upgrades
 //==========================================================
 
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
    // Try to change this into a loop
-   // If player has enough of a certiant item, and has not bough it before
-   if (gameData.toolLevel >= 1 && upgradeData.a1 == 1) {
-      // Display the upgrade for that amount
-      document.getElementById("a1").style.display = "block";
-   }
-   if (gameData.toolLevel >= 5 && upgradeData.a2 == 1) {
-      document.getElementById("a2").style.display = "block";
-   }
-   if (gameData.toolLevel >= 10 && upgradeData.a3 == 1) {
-      document.getElementById("a3").style.display = "block";
-   }
-   if (gameData.toolLevel >= 15 && upgradeData.a4 == 1) {
-      document.getElementById("a4").style.display = "block";
-   }
-   if (gameData.toolLevel >= 20 && upgradeData.a5 == 1) {
-      document.getElementById("a5").style.display = "block";
-   }
-   if (gameData.toolLevel >= 25 && upgradeData.a6 == 1) {
-      document.getElementById("a6").style.display = "block";
-   }
-   if (gameData.pickaxeNumber >= 1 && !upgradeData.b1) {
-      document.getElementById("b1").style.display = "block";
-   }
-   if (gameData.pickaxeNumber >= 5 && !upgradeData.b2) {
-      document.getElementById("b2").style.display = "block";
-   }
-   if (gameData.pickaxeNumber >= 10 && !upgradeData.b3) {
-      document.getElementById("b3").style.display = "block";
-   }
-   if (gameData.pickaxeNumber >= 15 && !upgradeData.b4) {
-      document.getElementById("b4").style.display = "block";
-   }
-   if (gameData.dwarfNumber >= 1 && !upgradeData.c1) {
-      document.getElementById("c1").style.display = "block";
-   }
-   if (gameData.dwarfNumber >= 5 && !upgradeData.c2) {
-      document.getElementById("c2").style.display = "block";
-   }
-   if (gameData.dwarfNumber >= 10 && !upgradeData.c3) {
-      document.getElementById("c3").style.display = "block";
-   }
-   if (gameData.dwarfNumber >= 15 && !upgradeData.c4) {
-      document.getElementById("c4").style.display = "block";
-   }
-   if (gameData.gooseNumber >= 1 && !upgradeData.c01) {
-      document.getElementById("c01").style.display = "block";
-   }
-   if (gameData.gooseNumber >= 5 && !upgradeData.c02) {
-      document.getElementById("c02").style.display = "block";
-   }
-   if (gameData.gooseNumber >= 10 && !upgradeData.c03) {
-      document.getElementById("c03").style.display = "block";
-   }
-   if (gameData.gooseNumber >= 15 && !upgradeData.c04) {
-      document.getElementById("c04").style.display = "block";
-   }
-   if (gameData.mineNumber >= 1 && !upgradeData.d1) {
-      document.getElementById("d1").style.display = "block";
-   }
-   if (gameData.mineNumber >= 5 && !upgradeData.d2) {
-      document.getElementById("d2").style.display = "block";
-   }
-   if (gameData.mineNumber >= 10 && !upgradeData.d3) {
-      document.getElementById("d3").style.display = "block";
-   }
-   if (gameData.mineNumber >= 15 && !upgradeData.d4) {
-      document.getElementById("d4").style.display = "block";
-   }
-   if (gameData.dragonNumber >= 1 && !upgradeData.e1) {
-      document.getElementById("e1").style.display = "block";
-   }
-   if (gameData.dragonNumber >= 5 && !upgradeData.e2) {
-      document.getElementById("e2").style.display = "block";
-   }
-   if (gameData.dragonNumber >= 10 && !upgradeData.e3) {
-      document.getElementById("e3").style.display = "block";
-   }
-   if (gameData.dragonNumber >= 15 && !upgradeData.e4) {
-      document.getElementById("e4").style.display = "block";
-   }
-   if (gameData.stoneNumber >= 1 && !upgradeData.f1) {
-      document.getElementById("f1").style.display = "block";
-   }
-   if (gameData.stoneNumber >= 5 && !upgradeData.f2) {
-      document.getElementById("f2").style.display = "block";
-   }
-   if (gameData.stoneNumber >= 10 && !upgradeData.f3) {
-      document.getElementById("f3").style.display = "block";
-   }
-   if (gameData.stoneNumber >= 15 && !upgradeData.f4) {
-      document.getElementById("f4").style.display = "block";
-   }
-   if (gameData.stationNumber >= 1 && !upgradeData.g1) {
-      document.getElementById("g1").style.display = "block";
-   }
-   if (gameData.stationNumber >= 5 && !upgradeData.g2) {
-      document.getElementById("g2").style.display = "block";
-   }
-   if (gameData.stationNumber >= 10 && !upgradeData.g3) {
-      document.getElementById("g3").style.display = "block";
-   }
-   if (gameData.stationNumber >= 15 && !upgradeData.g4) {
-      document.getElementById("g4").style.display = "block";
-   }
-   if (gameData.leprechaunNumber >= 1 && !upgradeData.h1) {
-      document.getElementById("h1").style.display = "block";
-   }
-   if (gameData.leprechaunNumber >= 5 && !upgradeData.h2) {
-      document.getElementById("h2").style.display = "block";
-   }
-  if (gameData.leprechaunNumber >= 10 && !upgradeData.h3) {
-      document.getElementById("h3").style.display = "block";
-   }
-   /*if (gameData.leprechaunNumber >= 15 && !upgradeData.h4) {
-      document.getElementById("h4").style.display = "block";
-}*/
-   if (gameData.sheepNumber >= 1 && !upgradeData.i1) {
-      document.getElementById("i1").style.display = "block";
-   }
-   if (gameData.sheepNumber >= 5 && !upgradeData.i2) {
-      document.getElementById("i2").style.display = "block";
-   }
-   /*if (gameData.sheepNumber >= 10 && !upgradeData.i3) {
-      document.getElementById("i3").style.display = "block";
-   }
-   if (gameData.sheepNumber >= 15 && !upgradeData.i4) {
-      document.getElementById("i4").style.display = "block";
-}*/
-   if (gameData.rayNumber >= 1 && !upgradeData.j1) {
-      document.getElementById("j1").style.display = "block";
-   }
-   if (gameData.rayNumber >= 5 && !upgradeData.j2) {
-      document.getElementById("j2").style.display = "block";
-   }
-   if (gameData.rayNumber >= 10 && !upgradeData.j3) {
-      document.getElementById("j3").style.display = "block";
-   }
-   if (gameData.rayNumber >= 15 && !upgradeData.j4) {
-      document.getElementById("j4").style.display = "block";
-   }
-   if (gameData.mergerNumber >= 1 && !upgradeData.k1) {
-      document.getElementById("k1").style.display = "block";
-   }
-   if (gameData.mergerNumber >= 5 && !upgradeData.k2) {
-      document.getElementById("k2").style.display = "block";
-   }
-   if (gameData.mergerNumber >= 10 && !upgradeData.k3) {
-      document.getElementById("k3").style.display = "block";
-   }
-   if (gameData.mergerNumber >= 15 && !upgradeData.k4) {
-      document.getElementById("k4").style.display = "block";
-   }
-   if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
-      document.getElementById("otherworldPortal").style.display = "block";
-   }
-}, 3000)
+   if (gameData.toolLevel >= 1 && upgradeData.a1 == 1) { document.getElementById("a1").style.display = "block"; }
+   if (gameData.toolLevel >= 5 && upgradeData.a2 == 1) { document.getElementById("a2").style.display = "block"; }
+   if (gameData.toolLevel >= 10 && upgradeData.a3 == 1) { document.getElementById("a3").style.display = "block"; }
+   if (gameData.toolLevel >= 15 && upgradeData.a4 == 1) { document.getElementById("a4").style.display = "block"; }
+   if (gameData.toolLevel >= 20 && upgradeData.a5 == 1) { document.getElementById("a5").style.display = "block"; }
+   if (gameData.toolLevel >= 25 && upgradeData.a6 == 1) { document.getElementById("a6").style.display = "block"; }
+   if (gameData.pickaxeNumber >= 1 && !upgradeData.b1) { document.getElementById("b1").style.display = "block"; }
+   if (gameData.pickaxeNumber >= 5 && !upgradeData.b2) { document.getElementById("b2").style.display = "block"; }
+   if (gameData.pickaxeNumber >= 10 && !upgradeData.b3) { document.getElementById("b3").style.display = "block"; }
+   if (gameData.pickaxeNumber >= 15 && !upgradeData.b4) { document.getElementById("b4").style.display = "block"; }
+   if (gameData.dwarfNumber >= 1 && !upgradeData.c1) { document.getElementById("c1").style.display = "block"; }
+   if (gameData.dwarfNumber >= 5 && !upgradeData.c2) { document.getElementById("c2").style.display = "block"; }
+   if (gameData.dwarfNumber >= 10 && !upgradeData.c3) { document.getElementById("c3").style.display = "block"; }
+   if (gameData.dwarfNumber >= 15 && !upgradeData.c4) { document.getElementById("c4").style.display = "block"; }
+   if (gameData.gooseNumber >= 1 && !upgradeData.c01) { document.getElementById("c01").style.display = "block"; }
+   if (gameData.gooseNumber >= 5 && !upgradeData.c02) { document.getElementById("c02").style.display = "block"; }
+   if (gameData.gooseNumber >= 10 && !upgradeData.c03) { document.getElementById("c03").style.display = "block"; }
+   if (gameData.gooseNumber >= 15 && !upgradeData.c04) { document.getElementById("c04").style.display = "block"; }
+   if (gameData.mineNumber >= 1 && !upgradeData.d1) { document.getElementById("d1").style.display = "block"; }
+   if (gameData.mineNumber >= 5 && !upgradeData.d2) { document.getElementById("d2").style.display = "block"; }
+   if (gameData.mineNumber >= 10 && !upgradeData.d3) { document.getElementById("d3").style.display = "block"; }
+   if (gameData.mineNumber >= 15 && !upgradeData.d4) { document.getElementById("d4").style.display = "block"; }
+   if (gameData.dragonNumber >= 1 && !upgradeData.e1) { document.getElementById("e1").style.display = "block"; }
+   if (gameData.dragonNumber >= 5 && !upgradeData.e2) { document.getElementById("e2").style.display = "block"; }
+   if (gameData.dragonNumber >= 10 && !upgradeData.e3) { document.getElementById("e3").style.display = "block"; }
+   if (gameData.dragonNumber >= 15 && !upgradeData.e4) { document.getElementById("e4").style.display = "block"; }
+   if (gameData.stoneNumber >= 1 && !upgradeData.f1) { document.getElementById("f1").style.display = "block"; }
+   if (gameData.stoneNumber >= 5 && !upgradeData.f2) { document.getElementById("f2").style.display = "block"; }
+   if (gameData.stoneNumber >= 10 && !upgradeData.f3) { document.getElementById("f3").style.display = "block"; }
+   if (gameData.stoneNumber >= 15 && !upgradeData.f4) { document.getElementById("f4").style.display = "block"; }
+   if (gameData.stationNumber >= 1 && !upgradeData.g1) { document.getElementById("g1").style.display = "block"; }
+   if (gameData.stationNumber >= 5 && !upgradeData.g2) { document.getElementById("g2").style.display = "block"; }
+   if (gameData.stationNumber >= 10 && !upgradeData.g3) { document.getElementById("g3").style.display = "block"; }
+   if (gameData.stationNumber >= 15 && !upgradeData.g4) { document.getElementById("g4").style.display = "block"; }
+   if (gameData.leprechaunNumber >= 1 && !upgradeData.h1) { document.getElementById("h1").style.display = "block"; }
+   if (gameData.leprechaunNumber >= 5 && !upgradeData.h2) { document.getElementById("h2").style.display = "block"; }
+   if (gameData.leprechaunNumber >= 10 && !upgradeData.h3) { document.getElementById("h3").style.display = "block"; }
+   /* if (gameData.leprechaunNumber >= 15 && !upgradeData.h4) { document.getElementById("h4").style.display = "block"; } */
+   if (gameData.sheepNumber >= 1 && !upgradeData.i1) { document.getElementById("i1").style.display = "block"; }
+   if (gameData.sheepNumber >= 5 && !upgradeData.i2) { document.getElementById("i2").style.display = "block"; }
+   /* if (gameData.sheepNumber >= 10 && !upgradeData.i3) { document.getElementById("i3").style.display = "block"; } */
+   /* if (gameData.sheepNumber >= 15 && !upgradeData.i4) { document.getElementById("i4").style.display = "block"; } */
+   if (gameData.rayNumber >= 1 && !upgradeData.j1) { document.getElementById("j1").style.display = "block"; }
+   if (gameData.rayNumber >= 5 && !upgradeData.j2) { document.getElementById("j2").style.display = "block"; }
+   if (gameData.rayNumber >= 10 && !upgradeData.j3) { document.getElementById("j3").style.display = "block"; }
+   if (gameData.rayNumber >= 15 && !upgradeData.j4) { document.getElementById("j4").style.display = "block"; }
+   if (gameData.mergerNumber >= 1 && !upgradeData.k1) { document.getElementById("k1").style.display = "block"; }
+   if (gameData.mergerNumber >= 5 && !upgradeData.k2) { document.getElementById("k2").style.display = "block"; }
+   if (gameData.mergerNumber >= 10 && !upgradeData.k3) { document.getElementById("k3").style.display = "block"; }
+   if (gameData.mergerNumber >= 15 && !upgradeData.k4) { document.getElementById("k4").style.display = "block"; }
+
+   // if (gameData.mergerNumber >= 15 && gameData.rayNumber >= 15 && gameData.sheepNumber >= 15 && gameData.leprechaunNumber >= 15 && gameData.stationNumber >= 15 && gameData.stoneNumber >= 15 && gameData.dragonNumber >= 15 && gameData.mineNumber >= 15 && gameData.gooseNumber >= 15 && gameData.dwarfNumber >= 15 && gameData.pickaxeNumber >= 15) {
+   //    document.getElementById("otherworldPortal").style.display = "block";
+   // }
+}, 500)
 
 // Communal Upgrade Function
 function research(number, building) {
@@ -666,7 +550,7 @@ function otherworldPortal() {
 
 // This resets the values displayed in the shop
 var updateStore = window.setInterval(function() {
-   //Gold per Building
+   // Gold per Building
    document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + commas(gameData.pickaxeProfit) + " GPS <br> Producing " + commas(gameData.pickaxeGold) + " GPS<br>A sturdy pickaxe to mine gold with";
    document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + commas(gameData.dwarfProfit) + " GPS each<br> Producing " + commas(gameData.dwarfGold) + " GPS<br>An assistant to help you mine gold";
    document.getElementById("goose-info").innerHTML = "Geese <br> " + commas(gameData.gooseProfit) + " GPS each<br> Producing " + commas(gameData.gooseGold) + " GPS<br>A nice goose that lays golden egg";
@@ -679,7 +563,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + commas(gameData.rayProfit) + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
    document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + commas(gameData.mergerProfit) + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
 
-   //Building Count
+   // Building Count
    document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + commas(gameData.toolLevel) + "<br> Cost: " + commas(gameData.bToolCost) + " Gold";
    document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + commas(gameData.pickaxeNumber) + ") <br>Cost: " + commas(gameData.buyPickaxeCost) + " Gold";
    document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + commas(gameData.dwarfNumber) + ") <br>Cost: " + commas(gameData.hireDwarfCost) + " Gold";
@@ -704,7 +588,7 @@ var updateStore = window.setInterval(function() {
 }, 500)
 
 //==========================================================
-//Main Game Loop
+// Main Game Loop
 //==========================================================
 
 // Runs every second
@@ -1258,7 +1142,7 @@ let news = window.setInterval(function (){
 }, 12000)
 
 //==========================================================
-//Onload
+// Onload
 //==========================================================
 
 // This all runs the moment the page is loaded
@@ -1291,7 +1175,7 @@ function gameLayout() {
 window.onload = gameLayout;
 
 //==========================================================
-//Welcome Instructions
+// Welcome Instructions
 //==========================================================
 
 function gameSetup() {
@@ -1304,7 +1188,7 @@ function gameSetup() {
 }
 
 //==========================================================
-//Console
+// Console
 //==========================================================
 
 // Make them feel uneasy
