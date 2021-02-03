@@ -285,9 +285,9 @@ function bTool() {
       gameData.bToolCost *= 2;
       gameData.toolLevel += 1;
    }
-   while (i > 6) {
-      console.log("Repeat" + i);
-   }
+   // while (i > 6) {
+   //    console.log("Repeat" + i);
+   // }
 }
 
 function acquireAsset(asset, assetCost, costMultiplier) {
@@ -887,12 +887,16 @@ function commas(x) {
 // Shortcuts
 //==========================================================
 
-document.addEventListener("keyup", function(event) {
-   if (event.ctrlKey && event.keyCode === 83) {
-      event.preventDefault();
+// Save by ctrl + S
+document.addEventListener("keydown", function(e) {
+   // If player is on a Mac, use cmd + S
+   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
+      // Prevent default
+      e.preventDefault();
+      // Run save function
       save();
    }
-});
+}, false);
 
 //==========================================================
 // Settings
@@ -911,11 +915,11 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         circleData = initalCircleData;
+         // circleData = initalCircleData;
          // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-         localStorage.setItem("circleDataSave", JSON.stringify(circleData));
+         // localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
          document.location.href = ("#");
       }
@@ -927,18 +931,14 @@ function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
    localStorage.setItem("circleDataSave", JSON.stringify(circleData));
-}
-
-// Save by ctrl + S
-document.addEventListener("keydown", function(e) {
-   // If player is on a Mac, use cmd + S
-   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
-      // Prevent default
-      e.preventDefault();
-      // Run save function
-      save();
+   let savedAlert = document.querySelector(".saved-alert");
+   savedAlert.style.opacity = "1";
+   savedAlert.textContent = `Game Saved!`;
+   setTimeout(saveAlert, 2000);
+   function saveAlert() {
+      savedAlert.style.opacity = "0";
    }
-}, false);
+}
 
 function dark() {
    // This changes the default colors for avalible and unavalible buildings
@@ -1282,7 +1282,10 @@ function gameLayout() {
    let whileGone = document.querySelector(".while-gone");
    whileGone.style.opacity = "1";
    whileGone.textContent = `While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`;
-   setTimeout(whileGone.style.opacity = "0",  8000);
+   setTimeout(whileGoneEarned, 6000);
+   function whileGoneEarned() {
+      whileGone.style.opacity = "0";
+   }
 }
 
 window.onload = gameLayout;
