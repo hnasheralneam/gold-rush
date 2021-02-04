@@ -209,6 +209,7 @@ let regColor = "#ffffbd";
 let notEnoughColor = "#333";
 
 let alert = document.querySelector(".alert");
+let bonusNumber = 1;
 
 //==========================================================
 // Gain Profit
@@ -257,9 +258,9 @@ function addGold(gold) {
 //    }
 // }
 
-for (let i = 0; i > 6; i++) {
-   console.log("Repeat" + i);
-}
+// for (let i = 0; i > 6; i++) {
+//    console.log("Repeat" + i);
+// }
 
 //==========================================================
 // Purchase Buildings
@@ -515,7 +516,6 @@ function research(number, building) {
       document.getElementById(number).style.display = "none";
    }
 }
-
 function aResearch(num) {
    if (gameData.gold >= upgradeData["a" + num + "Price"]) {
       gameData.gold -= upgradeData["a" + num + "Price"];
@@ -556,7 +556,7 @@ var mainGameLoop = window.setInterval(function() {
    // Current time minus one second ago, set one second ago to now, and add gold for that time
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
-   addGold(goldPerSecond() * (diff / 1000));
+   addGold((goldPerSecond() * (diff / 1000) * bonusNumber));
 }, 1000)
 
 // Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
@@ -579,81 +579,31 @@ var buildColorLoop = window.setInterval(function() {
    if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) { gooseBox.style.display = "flex";  }
    if (gameData.gold >= gameData.hireGooseCost) { gooseBox.style.backgroundColor = regColor; }
    else { gooseBox.style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
-      document.getElementById("openMine").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.openMineCost) {
-      document.getElementById("openMine").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("openMine").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
-      document.getElementById("hireDragon").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireDragonCost) {
-      document.getElementById("hireDragon").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireDragon").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
-      document.getElementById("buyStone").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyStoneCost) {
-      document.getElementById("buyStone").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyStone").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
-      document.getElementById("openStation").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.openStationCost) {
-      document.getElementById("openStation").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("openStation").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
-      document.getElementById("hireLeprechaun").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireLeprechaunCost) {
-      document.getElementById("hireLeprechaun").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
-      document.getElementById("hireSheep").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireSheepCost) {
-      document.getElementById("hireSheep").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireSheep").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
-      document.getElementById("buyRay").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyRayCost) {
-      document.getElementById("buyRay").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyRay").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
-      document.getElementById("buyMerger").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyMergerCost) {
-      document.getElementById("buyMerger").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.mergerNumber <= 0) {
-      document.getElementById("waiting").innerHTML = "<img id=\"wait-gif\" src=\"Images/wait.gif\">";
-   }
+   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) { document.getElementById("openMine").style.display = "flex"; }
+   if (gameData.gold >= gameData.openMineCost) { document.getElementById("openMine").style.backgroundColor = regColor; }
+   else { document.getElementById("openMine").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) { document.getElementById("hireDragon").style.display = "flex"; }
+   if (gameData.gold >= gameData.hireDragonCost) { document.getElementById("hireDragon").style.backgroundColor = regColor; }
+   else { document.getElementById("hireDragon").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) { document.getElementById("buyStone").style.display = "flex"; }
+   if (gameData.gold >= gameData.buyStoneCost) { document.getElementById("buyStone").style.backgroundColor = regColor; }
+   else { document.getElementById("buyStone").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) { document.getElementById("openStation").style.display = "flex"; }
+   if (gameData.gold >= gameData.openStationCost) { document.getElementById("openStation").style.backgroundColor = regColor; }
+   else { document.getElementById("openStation").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) { document.getElementById("hireLeprechaun").style.display = "flex"; }
+   if (gameData.gold >= gameData.hireLeprechaunCost) { document.getElementById("hireLeprechaun").style.backgroundColor = regColor; }
+   else { document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) { document.getElementById("hireSheep").style.display = "flex"; }
+   if (gameData.gold >= gameData.hireSheepCost) { document.getElementById("hireSheep").style.backgroundColor = regColor; }
+   else { document.getElementById("hireSheep").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) { document.getElementById("buyRay").style.display = "flex"; }
+   if (gameData.gold >= gameData.buyRayCost) { document.getElementById("buyRay").style.backgroundColor = regColor; }
+   else { document.getElementById("buyRay").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) { document.getElementById("buyMerger").style.display = "flex"; }
+   if (gameData.gold >= gameData.buyMergerCost) { document.getElementById("buyMerger").style.backgroundColor = regColor; }
+   else { document.getElementById("buyMerger").style.backgroundColor = notEnoughColor; }
+   if (gameData.mergerNumber <= 0) { document.getElementById("waiting").innerHTML = "<img id=\"wait-gif\" src=\"Images/wait.gif\">"; }
 }, 500)
 
 // Prevents decimals in gold
@@ -862,6 +812,8 @@ let luckyRoll = window.setInterval(function() {
    }
    if (rand > .85) {
       console.log("There was a 15% chance this would be logged.");
+      console.log((["Large underground gold reserve found! Gold earnings tempararily x1.5!", "Old Ican temple with vast stores of gold found! Gold earnings tempararily x1.5!"][Math.floor(Math.random() * 2)]));
+      bonusNumber = 1.5;
    }
    if (rand > .92) {
       console.log("There was a 8% chance this would be logged.");
@@ -1085,13 +1037,14 @@ let news = window.setInterval(function (){
 }, 12000)
 
 //==========================================================
-// Onload
+// Onload & Game Setup
 //==========================================================
 
-// This all runs the moment the page is loaded
-function gameLayout() {
-   // Set varible
-   if (!gameData.playerName) {
+// This all runs the moment the page is loaded, and sets up the game
+window.onload = function() {
+   gameData = savegame.gameData;
+   upgradeData = savegame.upgradeData;
+   if (gameData.gold < 2) {
       // Set gameData to inital values
       gameData = initialGameData;
       upgradeData = initialUpgradeData;
@@ -1119,12 +1072,6 @@ function gameLayout() {
    }
 }
 
-window.onload = gameLayout;
-
-//==========================================================
-// Welcome Instructions
-//==========================================================
-
 function gameSetup() {
    document.querySelector(".dark-shadow").style.display = "block";
    document.querySelector(".welcome").style.display = "flex";
@@ -1143,5 +1090,6 @@ function gameSetup() {
 // Console
 //==========================================================
 
-// Make them feel uneasy
-console.log("Look behind you.")
+// Log somthing sarcastic
+let consoleMessage = ["Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?"][Math.floor(Math.random() * 3)];
+console.log(consoleMessage)
