@@ -574,7 +574,7 @@ var setThingsRight = window.setInterval(function() {
    document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
    document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src='Images/retro-coin.gif' alt='Gold!' class='retro-coin'>";
    // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
+   document.getElementById("gold-profits").innerHTML = commas((goldPerSecond() * bonusNumber)) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
 }, 20)
 
 // Add commas to numbers
@@ -620,7 +620,7 @@ var updateStore = window.setInterval(function() {
 }, 500)
 
 //==========================================================
-// Save ----------------------------------------------------
+// Save
 //==========================================================
 
 // Retrive game data as savegame
@@ -764,13 +764,17 @@ function menu(x, y) {
 
 let luckyRoll = window.setInterval(function() {
    let rand = Math.random();
+   // 15% chance
    if (rand > .85) {
-      console.log("There was a 15% chance this would be logged.");
-      console.log((["Large underground gold reserve found! Gold earnings tempararily x1.5!", "Old Ican temple with vast stores of gold found! Gold earnings tempararily x1.5!"][Math.floor(Math.random() * 2)]));
+      console.log((["Large underground gold reserve found! Gold earnings x1.5 for 30 seconds!", "Old Ican temple with vast stores of gold found! Gold earnings x1.5 for 30 seconds!"][Math.floor(Math.random() * 2)]));
       bonusNumber = 1.5;
+      setTimeout(resetBonus, 30000);
+      function resetBonus() {
+         bonusNumber = 1;
+      }
    }
    console.log("End");
-}, 300000)
+}, 300000) // 5 minutes
 
 //==========================================================
 // News
