@@ -710,13 +710,13 @@ var updateStore = window.setInterval(function() {
 // Save
 //==========================================================
 
-// Retrive game data as savegame SAVE
+// Retrive game data as savegame
 let savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
 }
 
-// If the savegame is empty set game data as savegame SAVE
+// If the savegame is empty set game data as savegame
 if (savegame.gameData === null) {
    savegame.gameData = gameData;
    savegame.upgradeData = upgradeData;
@@ -725,10 +725,6 @@ if (savegame.gameData === null) {
 var saveLoop = window.setInterval(function() {
    save();
 }, 60000)
-
-//==========================================================
-// Settings & Shortcuts
-//==========================================================
 
 //Wipe Save
 function restart() {
@@ -743,7 +739,7 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         // Set save as blank SAVE
+         // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
          // Reload page
@@ -752,7 +748,7 @@ function restart() {
    }
 }
 
-// Set game data to local Storage SAVE
+// Save, and set save alert
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
@@ -763,6 +759,10 @@ function save() {
       alert.style.opacity = "0";
    }
 }
+
+//==========================================================
+// Settings & Shortcuts
+//==========================================================
 
 // Change Theme
 function dark() {
@@ -807,7 +807,7 @@ function music() {
 
 // Save by ctrl + S
 document.addEventListener("keydown", function(e) {
-   // If player is on a Mac, use cmd + S
+   // If player is on a Mac, use Cmd + S
    if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
       // Prevent default
       e.preventDefault();
@@ -845,7 +845,6 @@ else {
       }, 501);
    });
 }
-
 function menu(x, y) {
    rightClickMenu.top = y + "px";
    rightClickMenu.left = x + "px";
@@ -1091,20 +1090,18 @@ let news = window.setInterval(function (){
 
 // This all runs the moment the page is loaded
 function gameLayout() {
-   // Set varibles SAVE
-   gameData = savegame.gameData;
-   upgradeData = savegame.upgradeData;
+   // Set varible
    if (!gameData.playerName) {
       // Set gameData to inital values
       gameData = initialGameData;
       upgradeData = initialUpgradeData;
       gameSetup();
-      // Set save as blank SAVE
+      // Set save as blank
       localStorage.setItem("gameDataSave", JSON.stringify(gameData));
       localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
    }
    document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
-   // Set varibles SAVE
+   // Set varibles
    gameData = savegame.gameData;
    upgradeData = savegame.upgradeData;
    // Get date and set it as copyright time
