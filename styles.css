@@ -4,9 +4,11 @@ Go away please. Anyway, what are you doing looking at this code?
 ==========================================================*/
 
 * {
-  text-align: center;
-  margin: 0;
-  padding: 0;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+   cursor: url("Images/Normal.cur"), default;
+   cursor: url("Images/Normal.cur"), pointer;
 }
 
 body {
@@ -377,6 +379,7 @@ Copyright
 ==========================================================*/
 
 a {
+   cursor: url("Images/Link.cur"), default;
    text-decoration: none;
    color: #fff;
 }

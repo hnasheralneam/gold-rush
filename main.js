@@ -764,22 +764,10 @@ function menu(x, y) {
 
 let luckyRoll = window.setInterval(function() {
    let rand = Math.random();
-   if (rand > .95) {
-      console.log("There was a 5% chance this would be logged.");
-   }
    if (rand > .85) {
       console.log("There was a 15% chance this would be logged.");
       console.log((["Large underground gold reserve found! Gold earnings tempararily x1.5!", "Old Ican temple with vast stores of gold found! Gold earnings tempararily x1.5!"][Math.floor(Math.random() * 2)]));
       bonusNumber = 1.5;
-   }
-   if (rand > .92) {
-      console.log("There was a 8% chance this would be logged.");
-   }
-   if (rand > .98) {
-      console.log("There was a 2% chance this would be logged.");
-   }
-   if (rand > .99) {
-      console.log("There was a 1% chance this would be logged.");
    }
    console.log("End");
 }, 300000)
@@ -1013,10 +1001,5 @@ function gameSetup() {
    });
 }
 
-//==========================================================
-// Console
-//==========================================================
-
 // Log somthing sarcastic
-let consoleMessage = ["Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?"][Math.floor(Math.random() * 3)];
-console.log(consoleMessage)
+console.log(["Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?"][Math.floor(Math.random() * 3)])
