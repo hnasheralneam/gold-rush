@@ -446,7 +446,6 @@ function upgradeCircle() {
 //==========================================================
 // Upgrades
 //==========================================================
-
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
    // Try to change this into a loop
@@ -525,7 +524,6 @@ function aResearch(num) {
       document.getElementById("a" + num).style.display = "none";
    }
 }
-
 function a5() {
    if (gameData.gold >= upgradeData.a5Price) {
       gameData.gold -= upgradeData.a5Price;
@@ -550,104 +548,37 @@ function otherworldPortal() {
    }
 }
 
-// This resets the values displayed in the shop
-var updateStore = window.setInterval(function() {
-   // Gold per Building
-   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + commas(gameData.pickaxeProfit) + " GPS <br> Producing " + commas(gameData.pickaxeGold) + " GPS<br>A sturdy pickaxe to mine gold with";
-   document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + commas(gameData.dwarfProfit) + " GPS each<br> Producing " + commas(gameData.dwarfGold) + " GPS<br>An assistant to help you mine gold";
-   document.getElementById("goose-info").innerHTML = "Geese <br> " + commas(gameData.gooseProfit) + " GPS each<br> Producing " + commas(gameData.gooseGold) + " GPS<br>A nice goose that lays golden egg";
-   document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + commas(gameData.mineProfit) + " GPS each<br> Producing " + commas(gameData.mineGold) + " GPS<br>A new mine to mine gold in";
-   document.getElementById("dragon-info").innerHTML = "Dragon <br> " + commas(gameData.dragonProfit) + " GPS each<br> Producing " + commas(gameData.dragonGold) + " GPS<br>A nice dragon to steal gold and hoard it";
-   document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + commas(gameData.stoneProfit) + " GPS each<br> Producing " + commas(gameData.stoneGold) + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
-   document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + commas(gameData.stationProfit) + " GPS each<br> Producing " + commas(gameData.stationGold) + " GPS<br>A space station that mines astroids for gold";
-   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + commas(gameData.leprechaunProfit) + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
-   document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + commas(gameData.sheepProfit) + " GPS each<br> Producing " + commas(gameData.sheepGold) + " GPS<br>A cute round fluffy sheep with a golden fleece";
-   document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + commas(gameData.rayProfit) + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
-   document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + commas(gameData.mergerProfit) + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
-
-   // Building Count
-   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + commas(gameData.toolLevel) + "<br> Cost: " + commas(gameData.bToolCost) + " Gold";
-   document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + commas(gameData.pickaxeNumber) + ") <br>Cost: " + commas(gameData.buyPickaxeCost) + " Gold";
-   document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + commas(gameData.dwarfNumber) + ") <br>Cost: " + commas(gameData.hireDwarfCost) + " Gold";
-   document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + commas(gameData.gooseNumber) + ") <br>Cost: " + commas(gameData.hireGooseCost) + " Gold";
-   document.getElementById("mine-display").innerHTML = "Gold Mine<br> (You have " + commas(gameData.mineNumber) + ") <br>Cost: " + commas(gameData.openMineCost) + " Gold";
-   document.getElementById("dragon-display").innerHTML = "Dragon<br> (You have " + commas(gameData.dragonNumber) + ") <br>Cost: " + commas(gameData.hireDragonCost) + " Gold";
-   document.getElementById("stone-display").innerHTML = "Philosopher's Stone<br> (You have " + commas(gameData.stoneNumber) + ") <br>Cost: " + commas(gameData.buyStoneCost) + " Gold";
-   document.getElementById("station-display").innerHTML = "Astroid-mining Station<br> (You have " + commas(gameData.stationNumber) + ") <br>Cost: " + commas(gameData.openStationCost) + " Gold";
-   document.getElementById("leprechaun-display").innerHTML = "Leprechaun<br> (You have " + commas(gameData.leprechaunNumber) + ") <br>Cost: " + commas(gameData.hireLeprechaunCost) + " Gold";
-   document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + commas(gameData.sheepNumber) + ") <br>Cost: " + commas(gameData.hireSheepCost) + " Gold";
-   document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + commas(gameData.rayNumber) + ") <br>Cost: " + commas(gameData.buyRayCost) + " Gold";
-   document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + commas(gameData.mergerNumber) + ") <br>Cost: " + commas(gameData.buyMergerCost) + " Gold";
-
-   // Display gold per minuite, hour, day, month, and year
-   document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
-   document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
-   document.getElementById("gpd").innerHTML = goldPerSecond() * 60 * 60 * 24 + " Gold Per Day";
-   document.getElementById("gpw").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 + " Gold Per Week";
-   document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
-   document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
-   document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
-}, 500)
-
 //==========================================================
-// Main Game Loop
+// Game Core
 //==========================================================
-
 // Runs every second
 var mainGameLoop = window.setInterval(function() {
-   // Check how much time the've been gone
+   // Current time minus one second ago, set one second ago to now, and add gold for that time
    let diff = Date.now() - gameData.lastTick;
-   // Reset time
    gameData.lastTick = Date.now();
-   // Add gold they earned in abscence
    addGold(goldPerSecond() * (diff / 1000));
 }, 1000)
 
 // Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
 var buildColorLoop = window.setInterval(function() {
-   // If you have half the gold to buy the item
-   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
-      // Make it visible
-      document.getElementById("bTool").style.display = "flex";
-   }
-   // If you have enough gold to buy the item
-   if (gameData.gold >= gameData.bToolCost) {
-      // Make the color the avalible color
-      document.getElementById("bTool").style.backgroundColor = regColor;
-   }
-   // Otherwise
-   else {
-      // Make it the unavalible color
-      document.getElementById("bTool").style.backgroundColor = notEnoughColor;
-   }
-   // These repeat the same proccess
-   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
-      document.getElementById("buyPickaxe").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyPickaxeCost) {
-      document.getElementById("buyPickaxe").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyPickaxe").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
-      document.getElementById("hireDwarf").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireDwarfCost) {
-      document.getElementById("hireDwarf").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireDwarf").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) {
-      document.getElementById("hireGoose").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireGooseCost) {
-      document.getElementById("hireGoose").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireGoose").style.backgroundColor = notEnoughColor;
-   }
+   // If you have half the gold to buy the item, make it visible
+   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) { document.getElementById("bTool").style.display = "flex"; }
+   // If you have enough gold to buy the item, make the color the avalible color
+   if (gameData.gold >= gameData.bToolCost) { document.getElementById("bTool").style.backgroundColor = regColor; }
+   // Otherwise, make it the unavalible color
+   else { document.getElementById("bTool").style.backgroundColor = notEnoughColor; }
+   let pickaxeBox = document.getElementById("buyPickaxe");
+   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) { pickaxeBox.style.display = "flex"; }
+   if (gameData.gold >= gameData.buyPickaxeCost) { pickaxeBox.style.backgroundColor = regColor; }
+   else { pickaxeBox.style.backgroundColor = notEnoughColor; }
+   let dwarfBox = document.getElementById("hireDwarf");
+   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) { dwarfBox.style.display = "flex"; }
+   if (gameData.gold >= gameData.hireDwarfCost) { dwarfBox.style.backgroundColor = regColor; }
+   else { dwarfBox.style.backgroundColor = notEnoughColor; }
+   let gooseBox = document.getElementById("hireGoose");
+   if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) { gooseBox.style.display = "flex";  }
+   if (gameData.gold >= gameData.hireGooseCost) { gooseBox.style.backgroundColor = regColor; }
+   else { gooseBox.style.backgroundColor = notEnoughColor; }
    if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
       document.getElementById("openMine").style.display = "flex";
    }
@@ -725,24 +656,6 @@ var buildColorLoop = window.setInterval(function() {
    }
 }, 500)
 
-
-let circleData;
-let otherData;
-
-// Retrive game data as savegame
-let savegame = {
-   gameData: JSON.parse(localStorage.getItem("gameDataSave")),
-   upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
-   // circleData: JSON.parse(localStorage.getItem("circleDataSave")),
-   // otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
-}
-
-// If the savegame is empty set game data as savegame
-if (savegame === null) {
-   savegame.gameData = gameData;
-   savegame.upgradeData = upgradeData;
-}
-
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
    document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
@@ -753,6 +666,65 @@ var setThingsRight = window.setInterval(function() {
 
 // Add commas to numbers
 function commas(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+
+// This resets the values displayed in the shop
+var updateStore = window.setInterval(function() {
+   // Gold per Building
+   document.getElementById("pickaxe-info").innerHTML = "Pickaxe <br> " + commas(gameData.pickaxeProfit) + " GPS <br> Producing " + commas(gameData.pickaxeGold) + " GPS<br>A sturdy pickaxe to mine gold with";
+   document.getElementById("dwarf-info").innerHTML = "Dwarf  <br> " + commas(gameData.dwarfProfit) + " GPS each<br> Producing " + commas(gameData.dwarfGold) + " GPS<br>An assistant to help you mine gold";
+   document.getElementById("goose-info").innerHTML = "Geese <br> " + commas(gameData.gooseProfit) + " GPS each<br> Producing " + commas(gameData.gooseGold) + " GPS<br>A nice goose that lays golden egg";
+   document.getElementById("mine-info").innerHTML = "Gold Mine <br> " + commas(gameData.mineProfit) + " GPS each<br> Producing " + commas(gameData.mineGold) + " GPS<br>A new mine to mine gold in";
+   document.getElementById("dragon-info").innerHTML = "Dragon <br> " + commas(gameData.dragonProfit) + " GPS each<br> Producing " + commas(gameData.dragonGold) + " GPS<br>A nice dragon to steal gold and hoard it";
+   document.getElementById("stone-info").innerHTML = "Philosopher's Stone <br> " + commas(gameData.stoneProfit) + " GPS each<br> Producing " + commas(gameData.stoneGold) + " GPS<br>An alchemy stone that turns ordinary rocks into gold";
+   document.getElementById("station-info").innerHTML = "Astroid-mining Station <br> " + commas(gameData.stationProfit) + " GPS each<br> Producing " + commas(gameData.stationGold) + " GPS<br>A space station that mines astroids for gold";
+   document.getElementById("leprechaun-info").innerHTML = "Leprechaun <br> " + commas(gameData.leprechaunProfit) + " GPS each<br> Producing " + commas(gameData.leprechaunGold) + " GPS<br>Uses magical leprechaun powers to find gold at the end of rainbows";
+   document.getElementById("sheep-info").innerHTML = "Golden Sheep <br> " + commas(gameData.sheepProfit) + " GPS each<br> Producing " + commas(gameData.sheepGold) + " GPS<br>A cute round fluffy sheep with a golden fleece";
+   document.getElementById("ray-info").innerHTML = "Mass Ray <br> " + commas(gameData.rayProfit) + " GPS each<br> Producing " + commas(gameData.rayGold) + " GPS<br>Turns mass into gold";
+   document.getElementById("merger-info").innerHTML = "Neutron Star Merger<br> " + commas(gameData.mergerProfit) + " GPS each<br> Producing " + commas(gameData.mergerGold) + " GPS<br>Merges neutron stars to create gold (find what you want at it's source ;).";
+
+   // Building Count
+   document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + commas(gameData.toolLevel) + "<br> Cost: " + commas(gameData.bToolCost) + " Gold";
+   document.getElementById("pickaxe-display").innerHTML = "Pickaxe<br> (You have " + commas(gameData.pickaxeNumber) + ") <br>Cost: " + commas(gameData.buyPickaxeCost) + " Gold";
+   document.getElementById("dwarf-display").innerHTML = "Dwarf<br> (You have " + commas(gameData.dwarfNumber) + ") <br>Cost: " + commas(gameData.hireDwarfCost) + " Gold";
+   document.getElementById("goose-display").innerHTML = "Geese<br> (You have " + commas(gameData.gooseNumber) + ") <br>Cost: " + commas(gameData.hireGooseCost) + " Gold";
+   document.getElementById("mine-display").innerHTML = "Gold Mine<br> (You have " + commas(gameData.mineNumber) + ") <br>Cost: " + commas(gameData.openMineCost) + " Gold";
+   document.getElementById("dragon-display").innerHTML = "Dragon<br> (You have " + commas(gameData.dragonNumber) + ") <br>Cost: " + commas(gameData.hireDragonCost) + " Gold";
+   document.getElementById("stone-display").innerHTML = "Philosopher's Stone<br> (You have " + commas(gameData.stoneNumber) + ") <br>Cost: " + commas(gameData.buyStoneCost) + " Gold";
+   document.getElementById("station-display").innerHTML = "Astroid-mining Station<br> (You have " + commas(gameData.stationNumber) + ") <br>Cost: " + commas(gameData.openStationCost) + " Gold";
+   document.getElementById("leprechaun-display").innerHTML = "Leprechaun<br> (You have " + commas(gameData.leprechaunNumber) + ") <br>Cost: " + commas(gameData.hireLeprechaunCost) + " Gold";
+   document.getElementById("sheep-display").innerHTML = "Golden Sheep<br> (You have " + commas(gameData.sheepNumber) + ") <br>Cost: " + commas(gameData.hireSheepCost) + " Gold";
+   document.getElementById("ray-display").innerHTML = "Mass Ray<br> (You have " + commas(gameData.rayNumber) + ") <br>Cost: " + commas(gameData.buyRayCost) + " Gold";
+   document.getElementById("merger-display").innerHTML = "Neutron Star Merger<br> (You have " + commas(gameData.mergerNumber) + ") <br>Cost: " + commas(gameData.buyMergerCost) + " Gold";
+
+   // Display gold per minuite, hour, day, month, and year
+   document.getElementById("gpm").innerHTML = goldPerSecond() * 60 + " Gold Per Minute";
+   document.getElementById("g0pher").innerHTML = goldPerSecond() * 60 * 60 + " Gold Per Hour";
+   document.getElementById("gpd").innerHTML = goldPerSecond() * 60 * 60 * 24 + " Gold Per Day";
+   document.getElementById("gpw").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 + " Gold Per Week";
+   document.getElementById("gpM").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 + " Gold Per Month";
+   document.getElementById("gpy").innerHTML = goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12 + " Gold Per Year";
+   document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
+}, 500)
+
+//==========================================================
+// Save
+//==========================================================
+
+// Retrive game data as savegame SAVE
+let savegame = {
+   gameData: JSON.parse(localStorage.getItem("gameDataSave")),
+   upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
+}
+
+// If the savegame is empty set game data as savegame SAVE
+if (savegame.gameData === null) {
+   savegame.gameData = gameData;
+   savegame.upgradeData = upgradeData;
+}
+
+var saveLoop = window.setInterval(function() {
+   save();
+}, 60000)
 
 //==========================================================
 // Settings & Shortcuts
@@ -771,18 +743,16 @@ function restart() {
          // Set gameData to inital values
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         circleData = initalCircleData;
-         // Set save as blank
+         // Set save as blank SAVE
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-         // localStorage.setItem("circleDataSave", JSON.stringify(circleData));
          // Reload page
          location.reload();
       }
    }
 }
 
-// Set game data to local Storage
+// Set game data to local Storage SAVE
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
@@ -794,12 +764,13 @@ function save() {
    }
 }
 
+// Change Theme
 function dark() {
    // This changes the default colors for avalible and unavalible buildings
    regColor = "#454545";
    notEnoughColor = "#000";
 
-   // Class styling, I do not understand how this works
+   // Class styling
    var storeItem = document.getElementsByClassName('store-item');
    for (let i = 0; i < storeItem.length; i++) {
       storeItem[i].style.color = '#fff';
@@ -822,7 +793,6 @@ function dark() {
    document.getElementById("news").style.background = '#737373';
    document.getElementById("playerName").style.background = "#8f8d8d";
 }
-
 function light() {
    // Reload page
    document.location.href = ("")
@@ -830,7 +800,6 @@ function light() {
 
 // Set myAudio to audio file
 let myAudio = document.getElementById("myAudio");
-
 function music() {
    // If audio is paused run, if it is playing, pause
    return myAudio.paused ? myAudio.play() : myAudio.pause();
@@ -884,7 +853,7 @@ function menu(x, y) {
 }
 
 //==========================================================
-// Dissasters & Enchancments
+// Disasters & Enchancments
 //==========================================================
 
 let luckyRoll = window.setInterval(function() {
@@ -1001,16 +970,12 @@ let lepNews = [
    //`News: `,
    //`News: `,
    //`News: `,
-   //`News: `,
-   //`News: `,
 ]
 let sheepNews = [
    `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
    `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
    `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
    `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
-   //`News: `,
-   //`News: `,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -1035,7 +1000,6 @@ let mergerNews = [
    //`News: `,
    //`News: `,
    //`News: `,
-   //`News: `,
 ]
 let richNews = [
    `News: Ordinary household items more commonly made of gold to deal with gold surplus.`,
@@ -1051,7 +1015,6 @@ let otherNews = [
    `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
    `News: Lost children suspected to have stumbled throught Otherworld portals.`,
    `News: Freak weather causing havoc and destruction, traced to Otherworld portals.`,
-   //`News: `,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -1128,12 +1091,20 @@ let news = window.setInterval(function (){
 
 // This all runs the moment the page is loaded
 function gameLayout() {
-   if (false) {
+   // Set varibles SAVE
+   gameData = savegame.gameData;
+   upgradeData = savegame.upgradeData;
+   if (!gameData.playerName) {
+      // Set gameData to inital values
+      gameData = initialGameData;
+      upgradeData = initialUpgradeData;
       gameSetup();
+      // Set save as blank SAVE
+      localStorage.setItem("gameDataSave", JSON.stringify(gameData));
+      localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
    }
    document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
-   setInterval(save, 60000);
-   // Set varibles
+   // Set varibles SAVE
    gameData = savegame.gameData;
    upgradeData = savegame.upgradeData;
    // Get date and set it as copyright time
