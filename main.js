@@ -8,11 +8,8 @@
 // Version 1.0.0 comes with commented code! Now I can know why I did what I did.
 
 //==========================================================
-// Game Data
+// Important Varibles
 //==========================================================
-// Use strict mode
-'use strict';
-
 // Default values
 const initialGameData = {
 // Gold
@@ -220,14 +217,13 @@ function collectGold() {
    addGold(gameData.clickinGold);
    gameData.clicks += 1;
    // Make clink sounds
-   var clink = document.getElementById("clinck");
-   clink.play();
+   document.getElementById("clinck").play();
 }
 
 // Spacebar gold
 document.body.onkeyup = function(e){
    if(e.keyCode === 32){
-      event.preventDefault();
+      e.preventDefault();
       addGold(gameData.clickinGold);
    }
 }
@@ -239,31 +235,7 @@ function addGold(gold) {
 }
 
 //==========================================================
-// Multiple buying
-//==========================================================
-
-// document.addEventListener("keydown", function(event) {
-//    if (event.altKey && event.keyCode === 83) {
-//       alert('Alt + X pressed!');
-//       event.preventDefault();
-//    }
-// });
-
-// if (event.ctrlKey) {
-//    while (gameData.gold >= gameData.hireDwarfCost) {
-//       gameData.gold -= gameData.hireDwarfCost;
-//       gameData.dwarfGold += gameData.dwarfProfit;
-//       gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
-//       gameData.dwarfNumber += 1;
-//    }
-// }
-
-// for (let i = 0; i > 6; i++) {
-//    console.log("Repeat" + i);
-// }
-
-//==========================================================
-// Purchase Buildings
+// Acquire Business Assets
 //==========================================================
 
 function bTool() {
@@ -273,9 +245,6 @@ function bTool() {
       gameData.bToolCost *= 2;
       gameData.toolLevel += 1;
    }
-   // while (i > 6) {
-   //    console.log("Repeat" + i);
-   // }
 }
 
 function acquireAsset(asset, assetCost, costMultiplier) {
@@ -1044,7 +1013,7 @@ let news = window.setInterval(function (){
 window.onload = function() {
    gameData = savegame.gameData;
    upgradeData = savegame.upgradeData;
-   if (gameData.gold < 2) {
+   if (gameData.gold < 2 && gameData.toolLevel > 1) {
       // Set gameData to inital values
       gameData = initialGameData;
       upgradeData = initialUpgradeData;
