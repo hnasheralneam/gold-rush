@@ -510,18 +510,11 @@ function a6() {
    }
 }
 
-function otherworldPortal() {
-   if (gameData.gold >= gameData.otherworldPortalActivationCost) {
-      gameData.gold -= gameData.otherworldPortalActivationCost;
-      window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#");
-   }
-}
-
 //==========================================================
 // Game Core
 //==========================================================
 // Runs every second
-var mainGameLoop = window.setInterval(function() {
+var goldPerSecondLoop = window.setInterval(function() {
    // Current time minus one second ago, set one second ago to now, and add gold for that time
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
@@ -577,8 +570,9 @@ var buildColorLoop = window.setInterval(function() {
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
+   // Set document title as the amount of gold
    document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
+   document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src='Images/retro-coin.gif' alt='Gold!' class='retro-coin'>";
    // Display gold per second & gold per click
    document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
 }, 20)
@@ -626,7 +620,7 @@ var updateStore = window.setInterval(function() {
 }, 500)
 
 //==========================================================
-// Save
+// Save ----------------------------------------------------
 //==========================================================
 
 // Retrive game data as savegame
@@ -655,13 +649,11 @@ function restart() {
       var areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
       // If restart is still confirmed
       if (areYouReallySure == true) {
-         // Set gameData to inital values
+         // Set gameData to inital values, and reload
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-         // Reload page
          location.reload();
       }
    }
@@ -688,7 +680,6 @@ function dark() {
    // This changes the default colors for avalible and unavalible buildings
    regColor = "#454545";
    notEnoughColor = "#000";
-
    // Class styling
    var storeItem = document.getElementsByClassName('store-item');
    for (let i = 0; i < storeItem.length; i++) {
@@ -705,7 +696,6 @@ function dark() {
    for (let i = 0; i < details.length; i++) {
       details[i].style.background = '#737373';
    }
-
    // Basic styling
    document.body.style.color = "#fff";
    document.body.style.background = "#383838";
@@ -714,13 +704,12 @@ function dark() {
 }
 function light() {
    // Reload page
-   document.location.href = ("")
+   location.reload();
 }
 
 // Set myAudio to audio file
 let myAudio = document.getElementById("myAudio");
 function music() {
-   // If audio is paused run, if it is playing, pause
    return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
 
@@ -728,9 +717,8 @@ function music() {
 document.addEventListener("keydown", function(e) {
    // If player is on a Mac, use Cmd + S
    if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
-      // Prevent default
+      // Prevent default, then save
       e.preventDefault();
-      // Run save function
       save();
    }
 }, false);
@@ -956,52 +944,22 @@ let summoningNews = [
 let news = window.setInterval(function (){
    // Set var that contains all displayale news to default
    var trueNews = allNews;
-   // If the player has 1 of a certiant building
-   if (gameData.pickaxeNumber >= 1) {
-      // Add the news for that building to the displayable news
-      trueNews = trueNews.concat(pickaxeNews);
-   }
-   if (gameData.dwarfNumber >= 1) {
-      trueNews = trueNews.concat(dwarfNews);
-   }
-   if (gameData.gooseNumber >= 1) {
-      trueNews = trueNews.concat(gooseNews);
-   }
-   if (gameData.mineNumber >= 1) {
-      trueNews = trueNews.concat(mineNews);
-   }
-   if (gameData.dragonNumber >= 1) {
-      trueNews = trueNews.concat(dragonNews);
-   }
-   if (gameData.stoneNumber >= 1) {
-      trueNews = trueNews.concat(stoneNews);
-   }
-   if (gameData.stationNumber >= 1) {
-      trueNews = trueNews.concat(stationNews);
-   }
-   if (gameData.leprechaunNumber >= 1) {
-      trueNews = trueNews.concat(lepNews);
-   }
-   if (gameData.sheepNumber >= 1) {
-      trueNews = trueNews.concat(sheepNews);
-   }
-   if (gameData.rayNumber >= 1) {
-      trueNews = trueNews.concat(rayNews);
-   }
-   if (gameData.mergerNumber >= 1) {
-      trueNews = trueNews.concat(mergerNews);
-   }
-   // If you have enough gold
-   if (gameData.gold >= 1000000) {
-      // Add richNews to trueNews
-      trueNews = trueNews.concat(richNews);
-   }
-   if (gameData.mergerNumber >= 10 && gameData.gold >= 1000000000000) {
-      trueNews = trueNews.concat(otherNews);
-   }
-   // Randomly chooses a piece of news from trueNews
+   // If the player has 1 of a certiant building, add the news for that building to the displayable news
+   if (gameData.pickaxeNumber >= 1) { trueNews = trueNews.concat(pickaxeNews); }
+   if (gameData.dwarfNumber >= 1) { trueNews = trueNews.concat(dwarfNews); }
+   if (gameData.gooseNumber >= 1) { trueNews = trueNews.concat(gooseNews); }
+   if (gameData.mineNumber >= 1) { trueNews = trueNews.concat(mineNews); }
+   if (gameData.dragonNumber >= 1) { trueNews = trueNews.concat(dragonNews); }
+   if (gameData.stoneNumber >= 1) { trueNews = trueNews.concat(stoneNews); }
+   if (gameData.stationNumber >= 1) { trueNews = trueNews.concat(stationNews); }
+   if (gameData.leprechaunNumber >= 1) { trueNews = trueNews.concat(lepNews); }
+   if (gameData.sheepNumber >= 1) { trueNews = trueNews.concat(sheepNews); }
+   if (gameData.rayNumber >= 1) { trueNews = trueNews.concat(rayNews); }
+   if (gameData.mergerNumber >= 1) { trueNews = trueNews.concat(mergerNews); }
+   if (gameData.gold >= 1000000) { trueNews = trueNews.concat(richNews); }
+   if (gameData.mergerNumber >= 10 && gameData.gold >= 1000000000000) { trueNews = trueNews.concat(otherNews); }
+   // Randomly chooses a piece of news from trueNews, then display
    var randomNews = trueNews[Math.floor(Math.random() * trueNews.length)];
-   // Dispalys the random piece of news
    document.getElementById("news").innerHTML = randomNews;
 }, 12000)
 
