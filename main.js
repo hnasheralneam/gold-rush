@@ -8,11 +8,8 @@
 // Version 1.0.0 comes with commented code! Now I can know why I did what I did.
 
 //==========================================================
-// Game Data
+// Important Varibles
 //==========================================================
-// Use strict mode
-// 'use strict';
-
 // Default values
 const initialGameData = {
 // Gold
@@ -208,6 +205,9 @@ let goldPerSecond = goldPerSecond => gameData.pickaxeGold + gameData.dwarfGold +
 let regColor = "#ffffbd";
 let notEnoughColor = "#333";
 
+let alert = document.querySelector(".alert");
+let bonusNumber = 1;
+
 //==========================================================
 // Gain Profit
 //==========================================================
@@ -217,14 +217,13 @@ function collectGold() {
    addGold(gameData.clickinGold);
    gameData.clicks += 1;
    // Make clink sounds
-   var clink = document.getElementById("clinck");
-   clink.play();
+   document.getElementById("clinck").play();
 }
 
 // Spacebar gold
 document.body.onkeyup = function(e){
    if(e.keyCode === 32){
-      event.preventDefault();
+      e.preventDefault();
       addGold(gameData.clickinGold);
    }
 }
@@ -236,31 +235,7 @@ function addGold(gold) {
 }
 
 //==========================================================
-// Multiple buying
-//==========================================================
-
-// document.addEventListener("keydown", function(event) {
-//    if (event.altKey && event.keyCode === 83) {
-//       alert('Alt + X pressed!');
-//       event.preventDefault();
-//    }
-// });
-
-// if (event.ctrlKey) {
-//    while (gameData.gold >= gameData.hireDwarfCost) {
-//       gameData.gold -= gameData.hireDwarfCost;
-//       gameData.dwarfGold += gameData.dwarfProfit;
-//       gameData.hireDwarfCost = (279 * 1.15 ** gameData.dwarfNumber).toFixed(0);
-//       gameData.dwarfNumber += 1;
-//    }
-// }
-
-for (let i = 0; i > 6; i++) {
-   console.log("Repeat" + i);
-}
-
-//==========================================================
-// Purchase Buildings
+// Acquire Business Assets
 //==========================================================
 
 function bTool() {
@@ -270,9 +245,6 @@ function bTool() {
       gameData.bToolCost *= 2;
       gameData.toolLevel += 1;
    }
-   // while (i > 6) {
-   //    console.log("Repeat" + i);
-   // }
 }
 
 function acquireAsset(asset, assetCost, costMultiplier) {
@@ -285,14 +257,13 @@ function acquireAsset(asset, assetCost, costMultiplier) {
       // Multiply the cost by 1.15 and the amount of the item owned
       gameData[assetCost + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
       // Add one to the amount of that item owned
-      gameData[asset + "Number"] += 1;
+      gameData[asset + "Number"]++;
    }
 }
 
 //==========================================================
 // Upgrades
 //==========================================================
-
 // Checks wether to display upgrades
 var checkForUpgrades = window.setInterval(function() {
    // Try to change this into a loop
@@ -362,7 +333,6 @@ function research(number, building) {
       document.getElementById(number).style.display = "none";
    }
 }
-
 function aResearch(num) {
    if (gameData.gold >= upgradeData["a" + num + "Price"]) {
       gameData.gold -= upgradeData["a" + num + "Price"];
@@ -371,7 +341,6 @@ function aResearch(num) {
       document.getElementById("a" + num).style.display = "none";
    }
 }
-
 function a5() {
    if (gameData.gold >= upgradeData.a5Price) {
       gameData.gold -= upgradeData.a5Price;
@@ -389,12 +358,75 @@ function a6() {
    }
 }
 
-function otherworldPortal() {
-   if (gameData.gold >= gameData.otherworldPortalActivationCost) {
-      gameData.gold -= gameData.otherworldPortalActivationCost;
-      window.open("https://squirrel-314.github.io/Otherworld/otherworld.html#");
-   }
-}
+//==========================================================
+// Game Core
+//==========================================================
+// Runs every second
+var goldPerSecondLoop = window.setInterval(function() {
+   // Current time minus one second ago, set one second ago to now, and add gold for that time
+   let diff = Date.now() - gameData.lastTick;
+   gameData.lastTick = Date.now();
+   addGold((goldPerSecond() * (diff / 1000) * bonusNumber));
+}, 1000)
+
+// Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
+var buildColorLoop = window.setInterval(function() {
+   // If you have half the gold to buy the item, make it visible
+   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) { document.getElementById("bTool").style.display = "flex"; }
+   // If you have enough gold to buy the item, make the color the avalible color
+   if (gameData.gold >= gameData.bToolCost) { document.getElementById("bTool").style.backgroundColor = regColor; }
+   // Otherwise, make it the unavalible color
+   else { document.getElementById("bTool").style.backgroundColor = notEnoughColor; }
+   let pickaxeBox = document.getElementById("buyPickaxe");
+   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) { pickaxeBox.style.display = "flex"; }
+   if (gameData.gold >= gameData.buyPickaxeCost) { pickaxeBox.style.backgroundColor = regColor; }
+   else { pickaxeBox.style.backgroundColor = notEnoughColor; }
+   let dwarfBox = document.getElementById("hireDwarf");
+   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) { dwarfBox.style.display = "flex"; }
+   if (gameData.gold >= gameData.hireDwarfCost) { dwarfBox.style.backgroundColor = regColor; }
+   else { dwarfBox.style.backgroundColor = notEnoughColor; }
+   let gooseBox = document.getElementById("hireGoose");
+   if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) { gooseBox.style.display = "flex";  }
+   if (gameData.gold >= gameData.hireGooseCost) { gooseBox.style.backgroundColor = regColor; }
+   else { gooseBox.style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) { document.getElementById("openMine").style.display = "flex"; }
+   if (gameData.gold >= gameData.openMineCost) { document.getElementById("openMine").style.backgroundColor = regColor; }
+   else { document.getElementById("openMine").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) { document.getElementById("hireDragon").style.display = "flex"; }
+   if (gameData.gold >= gameData.hireDragonCost) { document.getElementById("hireDragon").style.backgroundColor = regColor; }
+   else { document.getElementById("hireDragon").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) { document.getElementById("buyStone").style.display = "flex"; }
+   if (gameData.gold >= gameData.buyStoneCost) { document.getElementById("buyStone").style.backgroundColor = regColor; }
+   else { document.getElementById("buyStone").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) { document.getElementById("openStation").style.display = "flex"; }
+   if (gameData.gold >= gameData.openStationCost) { document.getElementById("openStation").style.backgroundColor = regColor; }
+   else { document.getElementById("openStation").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) { document.getElementById("hireLeprechaun").style.display = "flex"; }
+   if (gameData.gold >= gameData.hireLeprechaunCost) { document.getElementById("hireLeprechaun").style.backgroundColor = regColor; }
+   else { document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) { document.getElementById("hireSheep").style.display = "flex"; }
+   if (gameData.gold >= gameData.hireSheepCost) { document.getElementById("hireSheep").style.backgroundColor = regColor; }
+   else { document.getElementById("hireSheep").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) { document.getElementById("buyRay").style.display = "flex"; }
+   if (gameData.gold >= gameData.buyRayCost) { document.getElementById("buyRay").style.backgroundColor = regColor; }
+   else { document.getElementById("buyRay").style.backgroundColor = notEnoughColor; }
+   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) { document.getElementById("buyMerger").style.display = "flex"; }
+   if (gameData.gold >= gameData.buyMergerCost) { document.getElementById("buyMerger").style.backgroundColor = regColor; }
+   else { document.getElementById("buyMerger").style.backgroundColor = notEnoughColor; }
+   if (gameData.mergerNumber <= 0) { document.getElementById("waiting").innerHTML = "<img id=\"wait-gif\" src=\"Images/wait.gif\">"; }
+}, 500)
+
+// Prevents decimals in gold
+var setThingsRight = window.setInterval(function() {
+   // Set document title as the amount of gold
+   document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
+   document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src='Images/retro-coin.gif' alt='Gold!' class='retro-coin'>";
+   // Display gold per second & gold per click
+   document.getElementById("gold-profits").innerHTML = commas((goldPerSecond() * bonusNumber)) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
+}, 20)
+
+// Add commas to numbers
+function commas(num) { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
 
 // This resets the values displayed in the shop
 var updateStore = window.setInterval(function() {
@@ -435,200 +467,31 @@ var updateStore = window.setInterval(function() {
    document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
 }, 500)
 
+function callAlert(text) {
+   alert.style.opacity = "1";
+   alert.textContent = text;
+   setTimeout(hideAlert => alert.style.opacity = "0", 6000);
+}
+
 //==========================================================
-// Main Game Loop
+// Save
 //==========================================================
-
-// Runs every second
-var mainGameLoop = window.setInterval(function() {
-   // Check how much time the've been gone
-   let diff = Date.now() - gameData.lastTick;
-   // Reset time
-   gameData.lastTick = Date.now();
-   // Add gold they earned in abscence
-   addGold(goldPerSecond() * (diff / 1000));
-   // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = commas(goldPerSecond()) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
-}, 1000)
-
-// Displays buildings if gold is at a certiant amount, and in a diffrent color if affordable
-var buildColorLoop = window.setInterval(function() {
-   // If you have half the gold to buy the item
-   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) {
-      // Make it visible
-      document.getElementById("bTool").style.display = "flex";
-   }
-   // If you have enough gold to buy the item
-   if (gameData.gold >= gameData.bToolCost) {
-      // Make the color the avalible color
-      document.getElementById("bTool").style.backgroundColor = regColor;
-   }
-   // Otherwise
-   else {
-      // Make it the unavalible color
-      document.getElementById("bTool").style.backgroundColor = notEnoughColor;
-   }
-   // These repeat the same proccess
-   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) {
-      document.getElementById("buyPickaxe").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyPickaxeCost) {
-      document.getElementById("buyPickaxe").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyPickaxe").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) {
-      document.getElementById("hireDwarf").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireDwarfCost) {
-      document.getElementById("hireDwarf").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireDwarf").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) {
-      document.getElementById("hireGoose").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireGooseCost) {
-      document.getElementById("hireGoose").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireGoose").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) {
-      document.getElementById("openMine").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.openMineCost) {
-      document.getElementById("openMine").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("openMine").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) {
-      document.getElementById("hireDragon").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireDragonCost) {
-      document.getElementById("hireDragon").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireDragon").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) {
-      document.getElementById("buyStone").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyStoneCost) {
-      document.getElementById("buyStone").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyStone").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) {
-      document.getElementById("openStation").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.openStationCost) {
-      document.getElementById("openStation").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("openStation").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) {
-      document.getElementById("hireLeprechaun").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireLeprechaunCost) {
-      document.getElementById("hireLeprechaun").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) {
-      document.getElementById("hireSheep").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.hireSheepCost) {
-      document.getElementById("hireSheep").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("hireSheep").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) {
-      document.getElementById("buyRay").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyRayCost) {
-      document.getElementById("buyRay").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyRay").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) {
-      document.getElementById("buyMerger").style.display = "flex";
-   }
-   if (gameData.gold >= gameData.buyMergerCost) {
-      document.getElementById("buyMerger").style.backgroundColor = regColor;
-   }
-   else {
-      document.getElementById("buyMerger").style.backgroundColor = notEnoughColor;
-   }
-   if (gameData.mergerNumber <= 0) {
-      document.getElementById("waiting").innerHTML = "<img id=\"wait-gif\" src=\"Images/wait.gif\">";
-   }
-}, 500)
-
-// Set game data to local Storage
-var saveGameLoop = window.setInterval(function() {
-   localStorage.setItem("gameDataSave", JSON.stringify(gameData));
-   localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-}, 10000)
 
 // Retrive game data as savegame
 let savegame = {
    gameData: JSON.parse(localStorage.getItem("gameDataSave")),
    upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
-   otherworldSave: JSON.parse(localStorage.getItem("otherworldSave")),
 }
 
-upgradeData = savegame.upgradeData;
-gameData = savegame.gameData;
-let otherData = savegame.otherworldSave;
-
 // If the savegame is empty set game data as savegame
-if (savegame !== null) {
+if (savegame.gameData === null) {
    savegame.gameData = gameData;
    savegame.upgradeData = upgradeData;
 }
 
-// Prevents decimals in gold
-var setThingsRight = window.setInterval(function() {
-   document.title = commas((gameData.gold).toFixed(0)) + " Gold | Gold Rush";
-   document.getElementById("gold-owned").innerHTML = commas((gameData.gold).toFixed(0)) + " Gold <img src=\"Images/retro-coin.gif\" alt=\"Gold!\" class=\"retro-coin\">";
-}, 20)
-
-//==========================================================
-// Math
-//==========================================================
-
-// Add commas to numbers
-function commas(x) {
-   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-//==========================================================
-// Shortcuts
-//==========================================================
-
-// Save by ctrl + S
-document.addEventListener("keydown", function(e) {
-   // If player is on a Mac, use cmd + S
-   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
-      // Prevent default
-      e.preventDefault();
-      // Run save function
-      save();
-   }
-}, false);
-
-//==========================================================
-// Settings
-//==========================================================
+var saveLoop = window.setInterval(function() {
+   save();
+}, 60000)
 
 //Wipe Save
 function restart() {
@@ -640,72 +503,74 @@ function restart() {
       var areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
       // If restart is still confirmed
       if (areYouReallySure == true) {
-         // Set gameData to inital values
+         // Set gameData to inital values, and reload
          gameData = initialGameData;
          upgradeData = initialUpgradeData;
-         // Set save as blank
          localStorage.setItem("gameDataSave", JSON.stringify(gameData));
          localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-         // Reload page
-         document.location.href = ("#");
+         location.reload();
       }
    }
 }
 
-// Set game data to local Storage
+// Save, and set save alert
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   let savedAlert = document.querySelector(".saved-alert");
-   savedAlert.style.opacity = "1";
-   savedAlert.textContent = `Game Saved!`;
-   setTimeout(saveAlert, 2000);
-   function saveAlert() {
-      savedAlert.style.opacity = "0";
-   }
+   callAlert(`Game Saved!`);
 }
 
+//==========================================================
+// Settings & Shortcuts
+//==========================================================
+
+// Change Theme
 function dark() {
    // This changes the default colors for avalible and unavalible buildings
    regColor = "#454545";
    notEnoughColor = "#000";
-
-   // Class styling, I do not understand how this works
+   // Class styling
    var storeItem = document.getElementsByClassName('store-item');
-   for (var i = 0; i < storeItem.length; i++) {
+   for (let i = 0; i < storeItem.length; i++) {
       storeItem[i].style.color = '#fff';
       storeItem[i].style.fontFamily = 'times';
       storeItem[i].style.border = 'outset 5px lightblue';
    }
    var up = document.getElementsByClassName('UP');
-   for (var i = 0; i < up.length; i++) {
+   for (let i = 0; i < up.length; i++) {
       up[i].style.color = '#000';
       up[i].style.backgroundColor = '#b3d0de';
    }
    var details = document.getElementsByTagName('details');
-   for (var i = 0; i < details.length; i++) {
+   for (let i = 0; i < details.length; i++) {
       details[i].style.background = '#737373';
    }
-
    // Basic styling
    document.body.style.color = "#fff";
    document.body.style.background = "#383838";
    document.getElementById("news").style.background = '#737373';
    document.getElementById("playerName").style.background = "#8f8d8d";
 }
-
 function light() {
    // Reload page
-   document.location.href = ("")
+   location.reload();
 }
 
 // Set myAudio to audio file
 let myAudio = document.getElementById("myAudio");
-
 function music() {
-   // If audio is paused run, if it is playing, pause
    return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
+
+// Save by ctrl + S
+document.addEventListener("keydown", function(e) {
+   // If player is on a Mac, use Cmd + S
+   if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode === 83) {
+      // Prevent default, then save
+      e.preventDefault();
+      save();
+   }
+}, false);
 
 //==========================================================
 // Right Click Button
@@ -736,7 +601,6 @@ else {
       }, 501);
    });
 }
-
 function menu(x, y) {
    rightClickMenu.top = y + "px";
    rightClickMenu.left = x + "px";
@@ -744,28 +608,34 @@ function menu(x, y) {
 }
 
 //==========================================================
-// Dissasters & Enchancments
+// Disasters & Enchancments
 //==========================================================
 
 let luckyRoll = window.setInterval(function() {
    let rand = Math.random();
-   if (rand > .95) {
-      console.log("There was a 5% chance this would be logged.");
-   }
-   if (rand > .85) {
-      console.log("There was a 15% chance this would be logged.");
-   }
+   let bonusAmount = [1.5, 2, 2.5][Math.floor(Math.random() * 3)];
+   let dwarvesLost = Math.floor(gameData.dwarfNumber / 8);
+   // Bad Luck(8% chance)
    if (rand > .92) {
-      console.log("There was a 8% chance this would be logged.");
+      callAlert(`A mine shaft collapsed! ${dwarvesLost} dwarfs perished.`);
+      gameData.dwarfGold -= gameData.dwarfProfit;
+      gameData.dwarfNumber -= dwarvesLost;
    }
-   if (rand > .98) {
-      console.log("There was a 2% chance this would be logged.");
-   }
-   if (rand > .99) {
-      console.log("There was a 1% chance this would be logged.");
+   // Good Luck (15% chance)
+   else if (rand > .85) {
+      callAlert(`${["Large underground gold reserve found!", "Old Ican temple with vast stores of gold found!"][Math.floor(Math.random() * 2)]} Gold earnings x${bonusAmount} for 30 seconds!`);
+      document.getElementsByClassName("basic-info")[0].classList.add("basic-info-pumped");
+      document.getElementsByClassName("basic-info")[1].classList.add("basic-info-pumped");
+      bonusNumber = bonusAmount;
+      setTimeout(resetBonus, 30000);
+      function resetBonus() {
+         bonusNumber = 1;
+         document.getElementsByClassName("basic-info")[0].classList.remove("basic-info-pumped");
+         document.getElementsByClassName("basic-info")[1].classList.remove("basic-info-pumped");
+      }
    }
    console.log("End");
-}, 300000)
+}, 300000) // 5 minutes
 
 //==========================================================
 // News
@@ -861,16 +731,12 @@ let lepNews = [
    //`News: `,
    //`News: `,
    //`News: `,
-   //`News: `,
-   //`News: `,
 ]
 let sheepNews = [
    `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
    `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
    `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
    `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
-   //`News: `,
-   //`News: `,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -890,7 +756,6 @@ let mergerNews = [
    `News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."`,
    `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants.`,
    `News: Scientist explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
-   //`News: `,
    //`News: `,
    //`News: `,
    //`News: `,
@@ -916,111 +781,75 @@ let otherNews = [
    //`News: `,
    //`News: `,
    //`News: `,
-   //`News: `,
 ]
 
 // Decides which news to display
 let news = window.setInterval(function (){
    // Set var that contains all displayale news to default
    var trueNews = allNews;
-   // If the player has 1 of a certiant building
-   if (gameData.pickaxeNumber >= 1) {
-      // Add the news for that building to the displayable news
-      trueNews = trueNews.concat(pickaxeNews);
-   }
-   if (gameData.dwarfNumber >= 1) {
-      trueNews = trueNews.concat(dwarfNews);
-   }
-   if (gameData.gooseNumber >= 1) {
-      trueNews = trueNews.concat(gooseNews);
-   }
-   if (gameData.mineNumber >= 1) {
-      trueNews = trueNews.concat(mineNews);
-   }
-   if (gameData.dragonNumber >= 1) {
-      trueNews = trueNews.concat(dragonNews);
-   }
-   if (gameData.stoneNumber >= 1) {
-      trueNews = trueNews.concat(stoneNews);
-   }
-   if (gameData.stationNumber >= 1) {
-      trueNews = trueNews.concat(stationNews);
-   }
-   if (gameData.leprechaunNumber >= 1) {
-      trueNews = trueNews.concat(lepNews);
-   }
-   if (gameData.sheepNumber >= 1) {
-      trueNews = trueNews.concat(sheepNews);
-   }
-   if (gameData.rayNumber >= 1) {
-      trueNews = trueNews.concat(rayNews);
-   }
-   if (gameData.mergerNumber >= 1) {
-      trueNews = trueNews.concat(mergerNews);
-   }
-   // If you have enough gold
-   if (gameData.gold >= 1000000) {
-      // Add richNews to trueNews
-      trueNews = trueNews.concat(richNews);
-   }
-   if (gameData.mergerNumber >= 10 && gameData.gold >= 1000000000000) {
-      trueNews = trueNews.concat(otherNews);
-   }
-   // Randomly chooses a piece of news from trueNews
+   // If the player has 1 of a certiant building, add the news for that building to the displayable news
+   if (gameData.pickaxeNumber >= 1) { trueNews = trueNews.concat(pickaxeNews); }
+   if (gameData.dwarfNumber >= 1) { trueNews = trueNews.concat(dwarfNews); }
+   if (gameData.gooseNumber >= 1) { trueNews = trueNews.concat(gooseNews); }
+   if (gameData.mineNumber >= 1) { trueNews = trueNews.concat(mineNews); }
+   if (gameData.dragonNumber >= 1) { trueNews = trueNews.concat(dragonNews); }
+   if (gameData.stoneNumber >= 1) { trueNews = trueNews.concat(stoneNews); }
+   if (gameData.stationNumber >= 1) { trueNews = trueNews.concat(stationNews); }
+   if (gameData.leprechaunNumber >= 1) { trueNews = trueNews.concat(lepNews); }
+   if (gameData.sheepNumber >= 1) { trueNews = trueNews.concat(sheepNews); }
+   if (gameData.rayNumber >= 1) { trueNews = trueNews.concat(rayNews); }
+   if (gameData.mergerNumber >= 1) { trueNews = trueNews.concat(mergerNews); }
+   if (gameData.gold >= 1000000) { trueNews = trueNews.concat(richNews); }
+   if (gameData.mergerNumber >= 10 && gameData.gold >= 1000000000000) { trueNews = trueNews.concat(otherNews); }
+   // Randomly chooses a piece of news from trueNews, then display
    var randomNews = trueNews[Math.floor(Math.random() * trueNews.length)];
-   // Dispalys the random piece of news
    document.getElementById("news").innerHTML = randomNews;
 }, 12000)
 
 //==========================================================
-// Onload
+// Onload & Game Setup
 //==========================================================
 
-// This all runs the moment the page is loaded
-function gameLayout() {
-   // Set player name
-   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
-   // If no player name
-   if (gameData.playerName == null) {
-      // Run game setup
+// This all runs the moment the page is loaded, and sets up the game
+window.onload = function() {
+   gameData = savegame.gameData;
+   upgradeData = savegame.upgradeData;
+   if (gameData.gold < 2 && !gameData.playerName) {
+      // Set gameData to inital values
+      gameData = initialGameData;
+      upgradeData = initialUpgradeData;
       gameSetup();
+      // Set save as blank
+      localStorage.setItem("gameDataSave", JSON.stringify(gameData));
+      localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
    }
-
+   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+   // Set varibles
+   gameData = savegame.gameData;
+   upgradeData = savegame.upgradeData;
    // Get date and set it as copyright time
    var today = new Date();
    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
    document.getElementById("copE-right").innerHTML = date;
-
    // Display amount earned in abscence
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
-   let whileGone = document.querySelector(".while-gone");
-   whileGone.style.opacity = "1";
-   whileGone.textContent = `While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`;
-   setTimeout(whileGoneEarned, 6000);
-   function whileGoneEarned() {
-      whileGone.style.opacity = "0";
-   }
+   callAlert(`While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
 }
-
-window.onload = gameLayout;
-
-//==========================================================
-// Welcome Instructions
-//==========================================================
 
 function gameSetup() {
-   // Tell them the basics
-   alert("This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.");
-   // Ask for their name
-   gameData.playerName = prompt("What is your name?(don't use your real name)");
-   // Display name
-   document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+   document.querySelector(".dark-shadow").style.display = "block";
+   document.querySelector(".welcome").style.display = "flex";
+   document.querySelector(".name-input").addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+         event.preventDefault();
+         gameData.playerName = document.querySelector(".name-input").value;
+         document.querySelector(".dark-shadow").style.display = "none";
+         document.querySelector(".welcome").style.display = "none";
+         document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+      }
+   });
 }
 
-//==========================================================
-// Console
-//==========================================================
-
-// Make them feel uneasy
-console.log("Look behind you.")
+// Log somthing sarcastic
+console.log(["Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?"][Math.floor(Math.random() * 3)])
