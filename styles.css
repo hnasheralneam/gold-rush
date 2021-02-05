@@ -7,8 +7,8 @@ Go away please. Anyway, what are you doing looking at this code?
    text-align: center;
    margin: 0;
    padding: 0;
-   cursor: url("Images/Normal.cur"), default;
-   cursor: url("Images/Normal.cur"), pointer;
+   cursor: url("Images/default.cur"), default;
+   cursor: url("Images/default.cur"), pointer;
 }
 
 body {
@@ -21,6 +21,10 @@ body {
 
 ::-webkit-scrollbar {
    display: none;
+}
+
+::selection {
+   background-color: transparent;
 }
 
 .section {
@@ -161,6 +165,20 @@ Section 1 | Astroid and Player Information
    background-size: 100% auto;
    text-shadow: -2px 2px 2px #262626;
    color: lightyellow;
+}
+
+.basic-info-pumped {
+   animation: flashgold-text .5s infinite alternate;
+   text-shadow: none;
+}
+
+@keyframes flashgold-text {
+   0% {
+      text-shadow: 0 0 2px #ffdf00;
+   }
+   100% {
+      text-shadow: 0 0 6px #ffdf00;
+   }
 }
 
 #gold-profits {
@@ -379,7 +397,7 @@ Copyright
 ==========================================================*/
 
 a {
-   cursor: url("Images/Link.cur"), default;
+   cursor: url("Images/link.cur"), default;
    text-decoration: none;
    color: #fff;
 }

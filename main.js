@@ -257,7 +257,7 @@ function acquireAsset(asset, assetCost, costMultiplier) {
       // Multiply the cost by 1.15 and the amount of the item owned
       gameData[assetCost + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
       // Add one to the amount of that item owned
-      gameData[asset + "Number"] += 1;
+      gameData[asset + "Number"]++;
    }
 }
 
@@ -619,6 +619,12 @@ var updateStore = window.setInterval(function() {
    document.getElementById("totalGold").innerHTML = (gameData.totalGold).toFixed(0) + " Lifetime Gold Profits";
 }, 500)
 
+function callAlert(text) {
+   alert.style.opacity = "1";
+   alert.textContent = text;
+   setTimeout(hideAlert => alert.style.opacity = "0", 6000);
+}
+
 //==========================================================
 // Save
 //==========================================================
@@ -663,12 +669,7 @@ function restart() {
 function save() {
    localStorage.setItem("gameDataSave", JSON.stringify(gameData));
    localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   alert.style.opacity = "1";
-   alert.textContent = `Game Saved!`;
-   setTimeout(saveAlert, 2000);
-   function saveAlert() {
-      alert.style.opacity = "0";
-   }
+   callAlert(`Game Saved!`);
 }
 
 //==========================================================
@@ -764,13 +765,25 @@ function menu(x, y) {
 
 let luckyRoll = window.setInterval(function() {
    let rand = Math.random();
-   // 15% chance
-   if (rand > .85) {
-      console.log((["Large underground gold reserve found! Gold earnings x1.5 for 30 seconds!", "Old Ican temple with vast stores of gold found! Gold earnings x1.5 for 30 seconds!"][Math.floor(Math.random() * 2)]));
-      bonusNumber = 1.5;
+   let bonusAmount = [1.5, 2, 2.5][Math.floor(Math.random() * 3)];
+   let dwarvesLost = Math.floor(gameData.dwarfNumber / 8);
+   // Bad Luck(8% chance)
+   if (rand > .92) {
+      callAlert(`A mine shaft collapsed! ${dwarvesLost} dwarfs perished.`);
+      gameData.dwarfGold -= gameData.dwarfProfit;
+      gameData.dwarfNumber -= dwarvesLost;
+   }
+   // Good Luck (15% chance)
+   else if (rand > .85) {
+      callAlert(`${["Large underground gold reserve found!", "Old Ican temple with vast stores of gold found!"][Math.floor(Math.random() * 2)]} Gold earnings x${bonusAmount} for 30 seconds!`);
+      document.getElementsByClassName("basic-info")[0].classList.add("basic-info-pumped");
+      document.getElementsByClassName("basic-info")[1].classList.add("basic-info-pumped");
+      bonusNumber = bonusAmount;
       setTimeout(resetBonus, 30000);
       function resetBonus() {
          bonusNumber = 1;
+         document.getElementsByClassName("basic-info")[0].classList.remove("basic-info-pumped");
+         document.getElementsByClassName("basic-info")[1].classList.remove("basic-info-pumped");
       }
    }
    console.log("End");
@@ -963,7 +976,7 @@ let news = window.setInterval(function (){
 window.onload = function() {
    gameData = savegame.gameData;
    upgradeData = savegame.upgradeData;
-   if (gameData.gold < 2 && gameData.toolLevel > 1) {
+   if (gameData.gold < 2 && !gameData.playerName) {
       // Set gameData to inital values
       gameData = initialGameData;
       upgradeData = initialUpgradeData;
@@ -983,12 +996,7 @@ window.onload = function() {
    // Display amount earned in abscence
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
-   alert.style.opacity = "1";
-   alert.textContent = `While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`;
-   setTimeout(whileGoneEarned, 6000);
-   function whileGoneEarned() {
-      alert.style.opacity = "0";
-   }
+   callAlert(`While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
 }
 
 function gameSetup() {
