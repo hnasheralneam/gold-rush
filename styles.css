@@ -363,36 +363,6 @@ Section 3 | Shop
 }
 
 /*==========================================================
-Summoning Circle
-==========================================================*/
-
-#otherstars {
-   font-family: Helvetica;
-   color: #fff;
-   background-color: #000;
-   padding: 5px 50px;
-   border: groove 3px #219729;
-   display: none;
-}
-
-#summoningCircle {
-   border: ridge 5px gold;
-   margin: auto;
-   width: 90%;
-   background-color: #000;
-   color: #fff;
-   display: none;
-}
-
-#summoningCircle .upgrade {
-   display: inline-block;
-   border: ridge 3px silver;
-   width: 40%;
-   height: 75px;
-   margin: 10px 5px;
-}
-
-/*==========================================================
 Copyright
 ==========================================================*/
 
