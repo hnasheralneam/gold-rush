@@ -277,7 +277,7 @@ summary {
   position: absolute;
   bottom: 100%;
   left: 50%;
-  margin-left: -5px;
+  margin-left: -8px;
   border-width: 8px;
   border-style: outset;
   border-color: transparent transparent lightblue transparent;
@@ -452,13 +452,48 @@ a {
 #copyright {
    background-color: #000;
    font-family: monospace;
+   font-size: 145%;
    color: #fff;
    padding: 5px;
    position: fixed;
    bottom: 0;
    right: 0;
    left: 0;
-   height: 4vh;
+}
+
+#copyright a {
+   position: relative;
+}
+
+#copyright a .copyright-tooltip {
+   opacity: 0;
+   width: 100%;
+   background-color: #000;
+   border-radius: 6px;
+   position: absolute;
+   z-index: 1;
+   bottom: 155%;
+   right: 0;
+   padding: 5px;
+   font-size: 75%;
+   border: outset 2px gold;
+   transition: 0.5s;
+   pointer-events: none;
+}
+
+#copyright a .copyright-tooltip::after {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -5px;
+   border-width: 5px;
+   border-style: outset;
+   border-color: gold transparent transparent transparent;
+}
+
+#copyright a:hover .copyright-tooltip {
+   opacity: 1;
 }
 
 /*==========================================================
@@ -479,6 +514,5 @@ Mobile
    #copyright {
       padding: 2px 5px 15px 5px;
       margin-bottom: -2px;
-      height: 4vh;
    }
 }
