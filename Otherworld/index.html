@@ -4,15 +4,16 @@
       <meta charset="utf-8">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@700&display=swap" rel="stylesheet">
-      <script src="otherworld.js" type="text/javascript"></script>
-      <link rel="stylesheet" href="otherworld.css">
+      <script src="main.js" type="text/javascript"></script>
+      <link rel="stylesheet" href="styles.css">
       <title>The Otherworld</title>
    </head>
    <body>
       <!-- Click -->
       <div class="third" id="click">
          <p id="playerrName">Hail Lord </p>
-         <p id="otherStars">0 Otherstars</p>
+         <p class="otherStars" id="otherStars">0 Otherstars</p>
+         <p class="otherStars OPL">0 OPL</p>
          <img id="galaxy" title="The Otherworldian Galaxy" alt="Galaxy" src="../Images/galaxy.jpg" alt="Click for Otherstars!" onclick="collectOtherStar()"></img>
       </div>
       <!-- Words -->
@@ -20,17 +21,19 @@
          <div id="titles">
             <div id="titlecontent">
                <h1 class="center">Welcome</h1>
-               <p>You have made it to the Otherworld, somthing totaly seperate and diffrent from the world you have come from. (no, this is not a parallel dimesion or alternate universe.)</p>
-               <p>Here you can gain currency that will be infinitly powerful in the world in which you have come. However, you may choose to never return to that <a href="../index.html">lesser place</a>. Please enjoy your stay. . . .</p>
+               <p>You have made it to the Otherworld, something totally separate and different from the world you have come from. (no, this is not a parallel dimension or alternate universe.)</p>
+               <p>Here you can gain currency that will be infinitely powerful in the world in which you have come. However, you may choose to never return to that <a href="../index.html">lesser place</a>. Please enjoy your stay. . . .</p>
                <br><br><br><br><br><br><br><br><br><br>
-               <p>You made a mistake coming here, for now you shall have to listen to my commentary, and when I'm done you'll probaly regret ever coming here...</p>
+               <p>You made a mistake coming here, for now you shall have to listen to my commentary, and when I'm done you'll regret ever coming here...</p>
                <p>Did you know that this is actually the star wars effect recreated by some random person on the internet and copied by me? I actually don't know how half of this works...</p>
                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-               <p>Did you think I was done? If so, you were wrong, and should be advised that if there is not enough content I will probaly put this on repeat.</p>
+               <p>Did you think I was done? If so, you were wrong, and should be advised that if there is not enough content I will put this on repeat.</p>
                <br><br><br><br><br>
                <p>You cannot escape the ever scrolling effect that will haunt your dreams forever...</p>
                <br><br><br><br><br>
-               <p>Did you relise that one of the sentances I wrote was a run on sentance? Can you remember which one it was? If not, you'll have to wait until it comes around again!</p>
+               <p>Did you realise that one of the sentences I wrote was a run on sentence? Can you remember which one it was? If not, you'll have to wait until it comes around again!</p>
+               <br><br><br><br><br>
+               <p>What do you think of this effect? How about the hover effects? Most if it was not too hard, and the code is extreamly short. This is the most simple incremental game I've ever seen, but it is one of the best, in my biased opinion.</p>
             </div>
          </div>
       </div>
@@ -43,15 +46,15 @@
       </div>
       <!-- Space -->
       <div class="third" id="space">
-         <div class="object" onclick="exploreSystem()">
+         <div class="object" onclick="exploreAsset('System', 'system', 5)">
             <p class="info" id="exploreSystem">Solar System <br>(You have 0) <br>Cost: 100 Otherstars</p>
             <p class="text" id="sorry">Solar System <br> 5 OPL(Otherstars Per Lightyear) <br> A solar system to collect otherstars in</p>
          </div>
-         <div class="object" onclick="exploreSCluster()">
+         <div class="object" onclick="exploreAsset('SCluster', 'sCluster', 10)">
             <p class="info" id="exploreSCluster">Star Cluster <br>(You have 0) <br>Cost: 500 Otherstars</p><br>
-            <p class="text">Star Cluster <br> 15 OPL <br> A cluster of otherstars</p>
+            <p class="text">Star Cluster <br> 10 OPL <br> A cluster of otherstars</p>
          </div>
-         <div class="object" onclick="exploreNebula()">
+         <div class="object" onclick="exploreAsset('Nebula', 'nebula', 50)">
             <p class="info" id="exploreNebula">Nebula <br>(You have 0) <br>Cost: 1,000 Otherstars</p><br>
             <p class="text">Nebula <br> 50 OPL<br> Where otherstars are made</p>
          </div>

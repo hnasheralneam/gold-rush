@@ -29,6 +29,7 @@ body {
 
 .section {
    border: outset #ab0c07 10px;
+   border-radius: 4px;
    margin: 1vh 5px;
    padding: 0px 1% 1% 1%;
    height: 88vh;
@@ -103,6 +104,26 @@ body {
    height: 75px;
    width: 175px;
    font-size: 50px;
+}
+
+.flip-rotate-alert {
+   animation: flip-rotate-alert 6s;
+   pointer-events: none;
+}
+
+@keyframes flip-rotate-alert {
+   0% {
+      transform: rotate(0deg) translate(0px) scale(1);
+      opacity: 1;
+   }
+   25% {
+      transform: rotate(-35deg) translate(-100px, -250px) scale(.6);
+      opacity: 0;
+   }
+   100% {
+      transform: rotate(0deg) translate(0px) scale(1);
+      opacity: 0;
+   }
 }
 
 /*==========================================================
@@ -208,6 +229,7 @@ details, #news {
    margin-top: 5px;
    font-family: merriweather-serif;
    padding: 5px;
+   z-index: -1;
 }
 
 summary {
@@ -215,11 +237,55 @@ summary {
 }
 
 .UP {
-   border: outset 4px #4a4a4a;
-   margin: 5px;
+   border: outset 4px #e8e8e8;
+   border-radius: 2px;
+   background-color: #f5f5f5;
+   margin: 5px 0;
+   padding: 2px;
    font-size: 1.4em;
-   background-color: rgba(186, 235, 255, 0.8);
    display: none;
+   transition: 0.5s;
+   position: relative;
+   z-index: -.8;
+}
+
+.UP:hover {
+   transform: scale(.98);
+   box-shadow: 0 0 4px #262626;
+   z-index: 1;
+}
+
+.UP .UP-tooltip {
+  opacity: 0;
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: -1;
+  top: 115%;
+  right: 0;
+  margin-left: -60px;
+  border: outset 3px lightblue;
+  transition: 0.2s;
+}
+
+.UP .UP-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: outset;
+  border-color: transparent transparent lightblue transparent;
+}
+
+.UP:hover .UP-tooltip {
+  opacity: 1;
+  z-index: 1;
 }
 
 #a2 {
@@ -245,28 +311,9 @@ ul {
    margin: 0;
 }
 
-li:hover {
-   position: relative;
-}
-
-li[aria-label]:hover:after {
-   visibility: visible;
-   z-index: 100;
-   transition: .8s linear;
-      content: attr(aria-label);
-      border: outset gold 4px;
-      background-color: #000;
-      color: #fff;
-      padding: 2px 5px;
-      position: absolute;
-      left: 0;
-      top: 100%;
-      z-index: 20;
-}
-
 /* Gold Profits */
 
-#gpm, #g0pher, #gpd, #gpw, #gpM, #gpy, #totalGold {
+.goldPer {
    font-family: monospace;
 }
 
@@ -375,13 +422,48 @@ a {
 #copyright {
    background-color: #000;
    font-family: monospace;
+   font-size: 145%;
    color: #fff;
    padding: 5px;
    position: fixed;
    bottom: 0;
    right: 0;
    left: 0;
-   height: 4vh;
+}
+
+#copyright a {
+   position: relative;
+}
+
+#copyright a .copyright-tooltip {
+   opacity: 0;
+   width: 100%;
+   background-color: #000;
+   border-radius: 6px;
+   position: absolute;
+   z-index: 1;
+   bottom: 155%;
+   right: 0;
+   padding: 5px;
+   font-size: 75%;
+   border: outset 2px gold;
+   transition: 0.5s;
+   pointer-events: none;
+}
+
+#copyright a .copyright-tooltip::after {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -5px;
+   border-width: 5px;
+   border-style: outset;
+   border-color: gold transparent transparent transparent;
+}
+
+#copyright a:hover .copyright-tooltip {
+   opacity: 1;
 }
 
 /*==========================================================
@@ -402,6 +484,5 @@ Mobile
    #copyright {
       padding: 2px 5px 15px 5px;
       margin-bottom: -2px;
-      height: 4vh;
    }
 }

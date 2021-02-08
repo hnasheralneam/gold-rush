@@ -11,7 +11,7 @@
 
 function gameSetup() {
    alert("Welcome to the Otherworld. Have a nice trip.");
-   var username = prompt ("What shall you be called while you are in the Otherworld?");
+   let username = prompt ("What shall you be called while you are in the Otherworld?");
    otherData.playerName = username;
    console.log("Hello, " + username);
    document.getElementById("playerrName").innerHTML = "Hail Lord " + otherData.playerName;
@@ -21,7 +21,7 @@ function gameSetup() {
 //Game Data
 //==========================================================
 
-var initialOtherData = {
+let initialOtherData = {
   otherStars: 0,
   otherStarsPerSecond: 0,
 
@@ -50,7 +50,7 @@ var initialOtherData = {
   lastTick: Date.now()
 }
 
-var otherData = initialOtherData;
+let otherData = initialOtherData;
 
 //==========================================================
 //Gain Profit
@@ -65,38 +65,15 @@ function collectOtherStar() {
 //Purchase Buildings
 //==========================================================
 
-function exploreSystem() {
-   if (otherData.otherStars >= otherData.exploreSystemCost) {
-      otherData.otherStars -= otherData.exploreSystemCost;
-      otherData.otherStarsPerSecond += 5;
-      otherData.exploreSystemCost *= 1.5;
-      otherData.systemCount += 1;
-;   }
-}
-function exploreSCluster() {
-   if (otherData.otherStars >= otherData.exploreSClusterCost) {
-      otherData.otherStars -= otherData.exploreSClusterCost;
-      otherData.otherStarsPerSecond += 10;
-      otherData.exploreSClusterCost *= 1.5;
-      otherData.sClusterCount += 1;
+function exploreAsset(asset, assetCount, amount) {
+   if (otherData.otherStars >= otherData["explore" + asset + "Cost"]) {
+      otherData.otherStars -= otherData["explore" + asset + "Cost"];
+      otherData.otherStarsPerSecond += amount;
+      otherData["explore" + asset + "Cost"] *= 1.5;
+      otherData[assetCount + "Count"]++;
    }
 }
-function exploreSCluster() {
-   if(otherData.otherStars >= otherData.exploreSClusterCost) {
-      otherData.otherStars -= otherData.exploreSClusterCost;
-      otherData.otherStarsPerSecond += 15;
-      otherData.exploreSClusterCost *= 1.5;
-      otherData.sClusterCount += 1;
-   }
-}
-function exploreNebula() {
-   if (otherData.otherStars >= otherData.exploreNebulaCost) {
-      otherData.otherStars -= otherData.exploreNebulaCost;
-      otherData.otherStarsPerSecond += 50;
-      otherData.exploreNebulaCost *= 1.5;
-      otherData.nebulaCount += 1;
-   }
-}
+
 function exploreBlack() {
    if (otherData.otherStars >= otherData.exploreBlackCost) {
       otherData.otherStars -= otherData.exploreBlackCost;
@@ -158,7 +135,7 @@ function exploreUniverse() {
 //Set Basic Values
 //==========================================================
 
-var saveGameLoop = window.setInterval(function() {
+let infoLoop = window.setInterval(function() {
    // Building Count
    document.getElementById("exploreSystem").innerHTML = "Solar System<br> (You have " + otherData.systemCount + ") <br>Cost: " + (otherData.exploreSystemCost).toFixed(0) + " Otherstars";
    document.getElementById("exploreSCluster").innerHTML = "Star Cluster<br> (You have " + otherData.sClusterCount + ") <br>Cost: " + (otherData.exploreSClusterCost).toFixed(0) + " Otherstars";
@@ -173,24 +150,25 @@ var saveGameLoop = window.setInterval(function() {
 
    // Reset otherstar display
    document.getElementById("otherStars").innerHTML = (otherData.otherStars).toFixed(0) + " Otherstars";
+   document.querySelector(".OPL").textContent = (otherData.otherStarsPerSecond).toFixed(0) + " Otherstars";
 }, 500)
 
 //==========================================================
 //Main Game Loop
 //==========================================================
 
-var mainGameLoop = window.setInterval(function() {
+let mainGameLoop = window.setInterval(function() {
    diff = Date.now() - otherData.lastTick;
    otherData.lastTick = Date.now();
    otherData.otherStars += Math.round(otherData.otherStarsPerSecond  * (diff / 1000));
    document.getElementById("otherStars").innerHTML = Math.round(otherData.otherStars) + " Otherstars";
 }, 1000)
 
-var saveGameLoop = window.setInterval(function() {
+let saveGameLoop = window.setInterval(function() {
    localStorage.setItem("otherworldSave", JSON.stringify(otherData));
 }, 15000)
 
-var savegame = JSON.parse(localStorage.getItem("otherworldSave"));
+let savegame = JSON.parse(localStorage.getItem("otherworldSave"));
 if (savegame !== null) {
    otherData = savegame;
 }
@@ -200,9 +178,9 @@ if (savegame !== null) {
 //==========================================================
 
 function restart() {
-   var areYouSure = confirm("Are you SURE you want to restart? This will wipe all your progress!");
+   let areYouSure = confirm("Are you SURE you want to restart? This will wipe all your progress!");
    if (areYouSure == true) {
-      var areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
+      let areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
       if (areYouReallySure == true) {
          otherData = initialOtherData;
          localStorage.setItem("otherworldSave", JSON.stringify(otherData));

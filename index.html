@@ -31,294 +31,344 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <summary>Research</summary>
             <div id="upgrades">
                <ul>
-                  <li aria-label="Cost 200 Gold" id="a1" onclick="aResearch(1)" class="UP">
+                  <li id="a1" onclick="aResearch(1)" class="UP">
+                     <span class="UP-tooltip">Cost 200 Gold</span>
                      <img class="icon" src="Icons/hand.png">
                      Hand of Fate!
                      <p class="why">Fate is with you!</p>
                      <p class="more">Clicking revenue x2</p>
                   </li>
-                  <li aria-label="Cost 500 Gold" id="a2" onclick="aResearch(2)" class="UP">
+                  <li id="a2" onclick="aResearch(2)" class="UP">
+                     <span class="UP-tooltip">Cost: 500 Gold</span>
                      <img class="icon" src="Icons/uptool.png">
                      New Tool Material!
                      <p class="why">Complete with dubius origins!</p>
                      <p class="more">Clicking revenue x2</p>
                   </li>
-                  <li aria-label="Cost 2,000 Gold" id="a3" onclick="aResearch(3)" class="UP">
+                  <li id="a3" onclick="aResearch(3)" class="UP">
+                     <span class="UP-tooltip">Cost: 2,000 Gold</span>
                      <img class="icon" src="Icons/hand.png">
                      Golden Fingers!
                      <p class="why">Clicking gold with gold!</p>
                      <p class="more">Clicking revenue x2</p>
                   </li>
-                  <li aria-label="Cost 8,000 Gold" id="a4" onclick="aResearch(4)" class="UP">
+                  <li id="a4" onclick="aResearch(4)" class="UP">
+                     <span class="UP-tooltip">Cost: 8,000 Gold</span>
                      <img class="icon" src="Icons/hands.png">
                      Both Hands!
                      <p class="why">Double the efficancy!</p>
                      <p class="more">Clicking revenue x2</p>
                   </li>
-                  <li aria-label="Cost 80,000 Gold" id="a5" onclick="a5()" class="UP">
+                  <li id="a5" onclick="a5()" class="UP">
+                     <span class="UP-tooltip">Cost: 80,000 Gold</span>
                      <img class="icon" src="Icons/math.png">
                      Pickaxe Exponents!
                      <p class="why">Clicking to the nth power!</p>
                      <p class="more">Clicking revenue x pickaxe count</p>
                   </li>
-                  <li aria-label="Cost 280,000 Gold" id="a6" onclick="a6()" class="UP">
+                  <li id="a6" onclick="a6()" class="UP">
+                     <span class="UP-tooltip">Cost: 280,000 Gold</span>
                      <img class="icon" src="Icons/question.png">
                      Clicking Conundrum!
                      <p class="why">A complicated math problem that increases efficancy(don't ask me)!</p>
                      <p class="more">Clicking revenue x pickaxe count</p>
                   </li>
 
-                  <li aria-label="Cost 750 Gold" id="b1" onclick="research('b1', 'pickaxe')" class="UP">
+                  <li id="b1" onclick="research('b1', 'pickaxe')" class="UP">
+                     <span class="UP-tooltip">Cost: 750 Gold</span>
                      <img class="icon" src="Icons/check.png">
                      Sharper Pickaxes!
                      <p class="why">This statment has not been evaluated by the Food and Drug Admisistration!</p>
                      <p class="more">Pickaxe profit x2</p>
                   </li>
-                  <li aria-label="Cost 2,000 Gold" id="b2" onclick="research('b2', 'pickaxe')" class="UP">
+                  <li id="b2" onclick="research('b2', 'pickaxe')" class="UP">
+                     <span class="UP-tooltip">Cost: 2,000 Gold</span>
                      <img class="icon" src="Icons/neww.png">
                      New Element!
                      <p class="why">Pickaxium works 3x better than competing brands!</p>
                      <p class="more">Pickaxe profit x2</p>
                   </li>
-                  <li aria-label="Cost 5,000 Gold" id="b3" onclick="research('b3', 'pickaxe')" class="UP">
+                  <li id="b3" onclick="research('b3', 'pickaxe')" class="UP">
+                     <span class="UP-tooltip">Cost: 5,000 Gold</span>
                      <img class="icon" src="Icons/set.png">
                      Automatic Mechanisms!
                      <p class="why">These pickaxes will mine by themself!(watching them work may be slightly disconcerting)</p>
                      <p class="more">Pickaxe profit x2</p>
                   </li>
-                  <li aria-label="Cost 8,000 Gold" id="b4" onclick="research('b4', 'pickaxe')" class="UP">
+                  <li id="b4" onclick="research('b4', 'pickaxe')" class="UP">
+                     <span class="UP-tooltip">Cost: 8,000 Gold</span>
                      <img class="icon" src="Icons/gear.png">
                      Self-oiling Gears!
                      <p class="why">Make them work so fast they blur!(safty gear recomended)</p>
                      <p class="more">Pickaxe profit x2</p>
                   </li>
 
-                  <li aria-label="Cost 1,250 Gold" id="c1" onclick="research('c1', 'dwarf')" class="UP">
+                  <li id="c1" onclick="research('c1', 'dwarf')" class="UP">
+                     <span class="UP-tooltip">Cost: 1,250 Gold</span>
                      <img class="icon" src="Icons/school.png">
                      Dwarf Academy!
                      <p class="why">Complete with posh students!</p>
                      <p class="more">Dwarf profits x2</p>
                   </li>
-                  <li aria-label="Cost 3,200 Gold" id="c2" onclick="research('c2', 'dwarf')" class="UP">
+                  <li id="c2" onclick="research('c2', 'dwarf')" class="UP">
+                     <span class="UP-tooltip">Cost: 3,200 Gold</span>
                      <img class="icon" src="Icons/manager.png">
                      Dwarf Managers!
                      <p class="why">Down with the worker unions!</p>
                      <p class="more">Dwarf profits x2</p>
                   </li>
-                  <li aria-label="Cost 5,000 Gold" id="c3" onclick="research('c3', 'dwarf')" class="UP">
+                  <li id="c3" onclick="research('c3', 'dwarf')" class="UP">
+                     <span class="UP-tooltip">Cost: 5,000 Gold</span>
                      <img class="icon" src="Icons/caf.png">
                      Mysterious Cafeteria Food!
                      <p class="why">Your workers will become mysteriously obedient!</p>
                      <p class="more">Dwarf profits x2</p>
                   </li>
-                  <li aria-label="Cost 15,000 Gold" id="c4" onclick="research('c4', 'dwarf')" class="UP">
+                  <li id="c4" onclick="research('c4', 'dwarf')" class="UP">
+                     <span class="UP-tooltip">Cost: 15,000 Gold</span>
                      <img class="icon" src="Icons/holiday.png">
                      Paid Holidays!
                      <p class="why">There's nothing someone won't do when you give them paid holidays!</p>
                      <p class="more">Dwarf profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 25,000 Gold" id="c01" onclick="research('c01', 'goose')" class="UP">
+                  <li id="c01" onclick="research('c01', 'goose')" class="UP">
+                     <span class="UP-tooltip">Cost: 25,000 Gold</span>
                      <img class="icon" src="Icons/food.png">
                      Healthier Diets!
                      <p class="why">Make sure they get all the nutrients they need!</p>
                      <p class="more">Geese profits x2</p>
                   </li>
-                  <li aria-label="Cost 50,000 Gold" id="c02" onclick="research('c02', 'goose')" class="UP">
+                  <li id="c02" onclick="research('c02', 'goose')" class="UP">
+                     <span class="UP-tooltip">Cost: 50,000 Gold</span>
                      Larger Flocks!
                      <p class="why">More geese, more eggs!</p>
                      <p class="more">Geese profits x2</p>
                   </li>
-                  <li aria-label="Cost 80,000 Gold" id="c03" onclick="research('c03', 'goose')" class="UP">
+                  <li id="c03" onclick="research('c03', 'goose')" class="UP">
+                     <span class="UP-tooltip">Cost: 80,000 Gold</span>
                      <img class="icon" src="Icons/mind.png">
                      Advanced Mental Abilites!
                      <p class="why">Dark magic is your greatest friend!</p><p class="more">Geese profits x2</p>
                   </li>
-                  <li aria-label="Cost 160,000 Gold" id="c04" onclick="research('c04', 'goose')" class="UP">
+                  <li id="c04" onclick="research('c04', 'goose')" class="UP">
+                     <span class="UP-tooltip">Cost: 160,000 Gold</span>
                      <img class="icon" src="Icons/box.png">
                      Bigger Nesting Boxes!
                      <p class="why">I don't even know how this will help!</p>
                      <p class="more">Geese profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 60,000 Gold" id="d1" onclick="research('d1', 'mine')" class="UP">
+                  <li id="d1" onclick="research('d1', 'mine')" class="UP">
+                     <span class="UP-tooltip">Cost: 60,000 Gold</span>
                      Deeper Mines!
                      <p class="why">Far over, the misty mountians cold...</p>
                      <p class="more">Mine profits x2</p>
                   </li>
-                  <li aria-label="Cost 120,000 Gold" id="d2" onclick="research('d2', 'mine')" class="UP">
+                  <li id="d2" onclick="research('d2', 'mine')" class="UP">
+                     <span class="UP-tooltip">Cost: 120,000 Gold</span>
                      <img class="icon" src="Icons/new.png">
                      Wider Mine-Shafts!
                      <p class="why">Five feet wide the door and three may walk abreast...</p>
                      <p class="more">Mine profits x2</p>
                   </li>
-                  <li aria-label="Cost 240,000 Gold" id="d3" onclick="research('d3', 'mine')" class="UP">
+                  <li id="d3" onclick="research('d3', 'mine')" class="UP">
+                     <span class="UP-tooltip">Cost: 240,000  Gold</span>
                      <img class="icon" src="Icons/globe.png">
                      Journy to the Center of the Earth!
                      <p class="why">(let's hope that isn't copyrighted)</p>
                      <p class="more">Mine profits x2</p>
                   </li>
-                  <li aria-label="Cost 500,000 Gold" id="d4" onclick="research('d4', 'mine')" class="UP">
+                  <li id="d4" onclick="research('d4', 'mine')" class="UP">
+                     <span class="UP-tooltip">Cost: 500,000 Gold</span>
                      <img class="icon" src="Icons/globe.png">
                      Holy Earth!
                      <p class="why">The Earth is now so riddled with holes, the ground is constantly being teared apart by earthquakes!</p>
                      <p class="more">Mine profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 500,000 Gold" id="e1" onclick="research('e1', 'dragon')" class="UP">
+                  <li id="e1" onclick="research('e1', 'dragon')" class="UP">
+                     <span class="UP-tooltip">Cost: 500,000 Gold Gold</span>
                      <img class="icon" src="Icons/insurance.png">
                      Dragon Gold Insurance!
                      <p class="why">Switch to dragon gold insurance!</p>
                      <p class="more">Dragon profits x2</p>
                   </li>
-                  <li aria-label="Cost 1,000,000 Gold" id="e2" onclick="research('e2', 'dragon')" class="UP">
+                  <li id="e2" onclick="research('e2', 'dragon')" class="UP">
+                     <span class="UP-tooltip">Cost: 1,000,000 Gold</span>
                      Selective Breeding!
                      <p class="why">Breed the greediest together, and get GREEDIER DRAGONS!(this may not be a good idea)</p>
                      <p class="more">Dragon profits x2</p>
                   </li>
-                  <li aria-label="Cost 2,000,000 Gold" id="e3" onclick="research('e3', 'dragon')" class="UP">
+                  <li id="e3" onclick="research('e3', 'dragon')" class="UP">
+                     <span class="UP-tooltip">Cost: 2,000,000 Gold</span>
                      <img class="icon" src="Icons/bad.png">
                      Bad Habits!
                      <p class="why">Sharing may be caring, but I don't care!</p>
                      <p class="more">Dragon profits x2</p>
                   </li>
-                  <li aria-label="Cost 5,000,000 Gold" id="e4" onclick="research('e4', 'dragon')" class="UP">
+                  <li id="e4" onclick="research('e4', 'dragon')" class="UP">
+                     <span class="UP-tooltip">Cost: 5,000,000 Gold</span>
                      <img class="icon" src="Icons/sick.png">
                      Dragon Disease!
                      <p class="why">More gold! MORE GOLD! <strong>MORE GOLD!!!</strong></p>
                      <p class="more">Dragon profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 8,000,000 Gold" id="f1" onclick="research('f1', 'stone')" class="UP">
+                  <li id="f1" onclick="research('f1', 'stone')" class="UP">
+                     <span class="UP-tooltip">Cost: 8,000,000 Gold</span>
                      <img class="icon" src="Icons/chem.png">
                      The Flammel Effect!
                      <p class="why">Discovered by Nicolas Flammel himself!</p>
                      <p class="more">Philosopher's Stone profits x2</p>
                   </li>
-                  <li aria-label="Cost 16,000,000 Gold" id="f2" onclick="research('f2', 'stone')" class="UP">
+                  <li id="f2" onclick="research('f2', 'stone')" class="UP">
+                     <span class="UP-tooltip">Cost: 16,000,000 Gold</span>
                      <img class="icon" src="Icons/chem.png">
                      Dark Alchemy!
                      <p class="why">Uncover secrets that should not be known!</p>
                      <p class="more">Philosopher's Stone profits x2</p>
                   </li>
-                  <li aria-label="Cost 32,000,000 Gold" id="f3" onclick="research('f3', 'stone')" class="UP">
+                  <li id="f3" onclick="research('f3', 'stone')" class="UP">
+                     <span class="UP-tooltip">Cost: 32,000,000 Gold</span>
                      <img class="icon" src="Icons/chem.png">
                      Primeval Chemistry!
                      <p class="why">Tread paths that have not been tread in a thousand millenia!</p>
                      <p class="more">Philosopher's Stone profits x2</p>
                   </li>
-                  <li aria-label="Cost 70,000,000 Gold" id="f4" onclick="research('f4', 'stone')" class="UP">
+                  <li id="f4" onclick="research('f4', 'stone')" class="UP">
+                     <span class="UP-tooltip">Cost: 70,000,000 Gold</span>
                      Necromancy!
                      <p class="why">HAHAHAHAHA! (That was supposed to be an evil laugh)</p>
                      <p class="more">Philosopher's Stone profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 500,000,000 Gold" id="g1" onclick="research('g1', 'station')" class="UP">
+                  <li id="g1" onclick="research('g1', 'station')" class="UP">
+                     <span class="UP-tooltip">Cost: 500,000,000 Gold</span>
                      Solar Power!
                      <p class="why">WHY did we not think of this before?</p>
                      <p class="more">Astroid-mining Station profits x2</p>
                   </li>
-                  <li aria-label="Cost 1,000,000,000 Gold" id="g2" onclick="research('g2', 'station')" class="UP">
+                  <li id="g2" onclick="research('g2', 'station')" class="UP">
+                     <span class="UP-tooltip">Cost: 1,000,000,000 Gold</span>
                      <img class="icon" src="Icons/repair.png">
                      Self Repairing!
                      <p class="why">Throught the power of AI!</p>
                      <p class="more">Astroid-mining Station profits x2</p>
                   </li>
-                  <li aria-label="Cost 2,000,000,000 Gold" id="g3" onclick="research('g3', 'station')" class="UP">
+                  <li id="g3" onclick="research('g3', 'station')" class="UP">
+                     <span class="UP-tooltip">Cost: 2,000,000,000 Gold</span>
                      <img class="icon" src="Icons/bot.png">
                      Nanobot Minions!
                      <p class="why">Evil at your fingertips! (let the power get to your head!)</p>
                      <p class="more">Astroid-mining Station profits x2</p>
                   </li>
-                  <li aria-label="Cost 5,000,000,000 Gold" id="g4" onclick="research('g4', 'station')" class="UP">
+                  <li id="g4" onclick="research('g4', 'station')" class="UP">
+                     <span class="UP-tooltip">Cost: 5,000,000,000 Gold</span>
                      Space Dust Condenser!
                      <p class="why">Create Asteroids!</p>
                      <p class="more">Astroid-mining Station profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 1,600,000,000 Gold" id="h1" onclick="research('h1', 'leprechaun')" class="UP">
+                  <li id="h1" onclick="research('h1', 'leprechaun')" class="UP">
+                     <span class="UP-tooltip">Cost: 1,600,000,000 Gold</span>
                      Leprechaun Hierarchy!
                      <p class="why">Allows for working class!</p>
                      <p class="more">Leprechaun profits x2</p>
                   </li>
-                  <li aria-label="Cost 2,400,000,000 Gold" id="h2" onclick="research('h2', 'leprechaun')" class="UP">
+                  <li id="h2" onclick="research('h2', 'leprechaun')" class="UP">
+                     <span class="UP-tooltip">Cost: 2,400,000,000 Gold</span>
                      <img class="icon" src="Icons/rainbow.png">
                      9 Colour Rainbow!
                      <p class="why">Infared, red, orange, goldish,  yellow, green, blue, purple, ultraviolet!</p>
                      <p class="more">Leprechaun profits x2</p>
                   </li>
-                  <li aria-label="Cost 4,800,000,000 Gold" id="h3" onclick="research('h3', 'leprechaun')" class="UP">
+                  <li id="h3" onclick="research('h3', 'leprechaun')" class="UP">
+                     <span class="UP-tooltip">Cost: 4,800,000,000 Gold</span>
                      Invisible Cauldrons!
                      <p class="why">No more stealing from leprechauns!</p>
                      <p class="more">Leprechaun profits x2</p>
                   </li>
-                  <!--<li aria-label="Cost 10,000,000,000 Gold" id="h4" onclick="research('h4', 'leprechaun')" class="UP">
-                     !
-                     <p class="why">!</p>
+                  <li id="h4" onclick="research('h4', 'leprechaun')" class="UP">
+                  <span class="UP-tooltip">Cost: 10,000,000,000 Gold</span>
+                     Leprechaun Subuniversal Secrets!
+                     <p class="why">They are coming, and with them they bring tomatoes.</p>
                      <p class="more">Leprechaun profits x2</p>
-                  </li>-->
+                  </li>
 
-                  <li aria-label="Cost 200,000,000,000 Gold" id="i1" onclick="research('i1', 'sheep')" class="UP">
+                  <li id="i1" onclick="research('i1', 'sheep')" class="UP">
+                     <span class="UP-tooltip">Cost: 200,000,000,000 Gold</span>
                      Bubble Baths!
                      <p class="why">Give that fleece a nice good cleaning!</p>
                      <p class="more">Golden Sheep profits x2</p>
                   </li>
-                  <li aria-label="Cost 400,000,000,000 Gold" id="i2" onclick="research('i2', 'sheep')" class="UP">
+                  <li id="i2" onclick="research('i2', 'sheep')" class="UP">
+                     <span class="UP-tooltip">Cost: 400,000,000,000 Gold</span>
                      Merino Sheep!
                      <p class="why">Only the finest wool for your lordship!</p>
                      <p class="more">Golden Sheep profits x2</p>
                   </li>
-                  <!--<li aria-label="Cost 800,000,000,000 Gold" id="i3" onclick="research('i3', 'sheep')" class="UP">
-                     !
-                     <p class="why">!</p>
+                  <li id="i3" onclick="research('i3', 'sheep')" class="UP">
+                  <span class="UP-tooltip">Cost: 800,000,000,000 Gold</span>
+                     Fluffy Paddocks!
+                     <p class="why">The scientists said it makes more wool!</p>
                      <p class="more">Golden Sheep profits x2</p>
                   </li>
-                  <!--<li aria-label="Cost 1600,000,000,000 Gold" id="i4" onclick="research('i4', 'sheep')" class="UP">
-                     !
-                     <p class="why">!</p>
+                  <<li id="i4" onclick="research('i4', 'sheep')" class="UP">
+                  <span class="UP-tooltip">Cost: 1,600,000,000,000 Gold</span>
+                     Alternate Sheep Universe!
+                     <p class="why">The sheep that come through are not the same, but have more wool!</p>
                      <p class="more">Golden Sheep profits x2</p>
-                  </li>-->
+                  </li>
 
-                  <li aria-label="Cost 4,000,000,000,000 Gold" id="j1" onclick="research('j1', 'ray')" class="UP">
+                  <li id="j1" onclick="research('j1', 'ray')" class="UP">
+                     <span class="UP-tooltip">Cost: 4,000,000,000,000 Gold</span>
                      <img class="icon" src="Icons/energy.png">
                      Recouped Kenetic Energy!
                      <p class="why">MORE POWER!</p>
                      <p class="more">Mass Ray profits x2</p>
                   </li>
-                  <li aria-label="Cost 8,000,000,000,000 Gold" id="j2" onclick="research('j2', 'ray')" class="UP">
+                  <li id="j2" onclick="research('j2', 'ray')" class="UP">
+                     <span class="UP-tooltip">Cost: 8,000,000,000,000 Gold</span>
                      <img class="icon" src="Icons/energy.png">
                      Atomic Rearrangement!
                      <p class="why">Rearrange those atoms!</p>
                      <p class="more">Mass Ray profits x2</p>
                   </li>
-                  <li aria-label="Cost 16,000,000,000,000 Gold" id="j3" onclick="research('j3', 'ray')" class="UP">
+                  <li id="j3" onclick="research('j3', 'ray')" class="UP">
+                     <span class="UP-tooltip">Cost: 16,000,000,000,000 Gold</span>
                      <img class="icon" src="Icons/energy.png">
                      Electron Extraction!
                      <p class="why">Collect the electrons! Who cares about radioactive ion waste!</p>
                      <p class="more">Mass Ray profits x2</p>
                   </li>
-                  <li aria-label="Cost 32,000,000,000,000 Gold" id="j4" onclick="research('j4', 'merger')" class="UP">
+                  <li id="j4" onclick="research('j4', 'merger')" class="UP">
+                     <span class="UP-tooltip">Cost: 32,000,000,000,000 Gold</span>
                      Proton-Neutron Re-thingy!
                      <p class="why">I don't know, I'm not a scientist!</p>
                      <p class="more">Mass Ray profits x2</p>
                   </li>
 
-                  <li aria-label="Cost 50,000,000,000,000 Gold" id="k1" onclick="research('k1', 'merger')" class="UP">
+                  <li id="k1" onclick="research('k1', 'merger')" class="UP">
+                     <span class="UP-tooltip">Cost: 50,000,000,000,000 Gold</span>
                      Particle Reconstructor!
                      <p class="why">Building neutron stars from the ground up!</p>
                      <p class="more">Neutron Star Merger profits x2</p>
                   </li>
-                  <li aria-label="Cost 100,000,000,000,000 Gold" id="k2" onclick="research('k2', 'merger')" class="UP">
+                  <li id="k2" onclick="research('k2', 'merger')" class="UP">
+                     <span class="UP-tooltip">Cost: 100,000,000,000,000 Gold</span>
                      Advanced Magnets!
                      <p class="why">Increase the collison force!</p>
                      <p class="more">Neutron Star Merger profits x2</p>
                   </li>
-                  <li aria-label="Cost 200,000,000,000,000 Gold" id="k3" onclick="research('k3', 'merger')" class="UP">
+                  <li id="k3" onclick="research('k3', 'merger')" class="UP">
+                     <span class="UP-tooltip">Cost: 200,000,000,000,000 Gold</span>
                      Hydrolic Densifier!
                      <p class="why">Hydro-powered condensers!</p>
                      <p class="more">Neutron Star Merger profits x2</p>
                   </li>
-                  <li aria-label="Cost 500,000,000,000,000 Gold" id="k4" onclick="research('k4', 'merger')" class="UP">
+                  <li id="k4" onclick="research('k4', 'merger')" class="UP">
+                     <span class="UP-tooltip">Cost: 500,000,000,000,000 Gold</span>
                      Strange Star Collisons!
                      <p class="why">This may cause unexpected results, such as <strong>Otherworldy</strong> occurances.</p>
                      <p class="more">Neutron Star Merger profits x2</p>
@@ -335,13 +385,15 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          </details>
          <details id="game-info">
             <summary>Gold Profits</summary>
-            <p id="gpm">0 Gold Per Minute</p>
-            <p id="g0pher">0 Gold Per Hour</p>
-            <p id="gpd">0 Gold Per Day</p>
-            <p id="gpw">0 Gold Per Week</p>
-            <p id="gpM">0 Gold Per Month</p>
-            <p id="gpy">0 Gold Per Year</p>
-            <p id="totalGold">0 Lifetime Gold Profits</p>
+            <p class="goldPer" id="gpm">0 Gold Per Minute</p>
+            <p class="goldPer" id="g0pher">0 Gold Per Hour</p>
+            <p class="goldPer" id="gpd">0 Gold Per Day</p>
+            <p class="goldPer" id="gpw">0 Gold Per Week</p>
+            <p class="goldPer" id="gpM">0 Gold Per Month</p>
+            <p class="goldPer" id="gpy">0 Gold Per Year</p>
+            <p class="goldPer" id="totalGold">0 Lifetime Gold Profits</p>
+            <p class="totalGoldSpent goldPer">You have invested 0 gold.</p>
+            <p class="timeSinceStarted goldPer">You've been playing since 2020</p>
          </details>
          <details id="settings">
             <summary>Settings</summary>
@@ -350,10 +402,10 @@ You won't learn anything from snooping around here. It's main.js you want to loo
                   <p class="set-info">Manually save your progress (autosaves every 60 seconds)</p>
                </div>
                <div class="set-div" onclick="restart()">RESTART
-                  <p class="set-info">Undo all your progress, permanantly. This is irreverable.</p>
+                  <p class="set-info">Undo all your progress, irreversibly.</p>
                </div>
                <div class="set-div" onclick="dark()">DARK THEME
-                  <p class="set-info">Change to the Dark theme (Come to the Dark side)</p>
+                  <p class="set-info">Change to the Dark theme</p>
                </div>
                <div class="set-div" onclick="light()">LIGHT
                   <p class="set-info">Return to the light theme</p>
@@ -421,8 +473,14 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          </div>
          <div id="waiting"></div>
       </div>
-      <div class="alert"></div>
-      <p id="copyright"><a title="About many things" href="https://meetsquirrel.github.io">Learn More</a> | <a title="You should definitly check this out" href="https://squirrel-314.github.io/vegetable-dash/index.html">Vegetable Dash!</a> | <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/">Hillside Township</a> | <a title="See the code" href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a> | Copyright © <span id="copE-right">16/11/2020</span> Meeeeee</p>
+      <div class="alert" onclick="flipRotateAlert()"></div>
+      <p id="copyright">
+         <a href="https://meetsquirrel.github.io"><span class="copyright-tooltip">My personal site, with other games!</span> Learn More</a> |
+         <a href="https://squirrel-314.github.io/vegetable-dash/index.html"><span class="copyright-tooltip">Another great game, with more images!</span> Vegetable Dash!</a> |
+         <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/"><span class="copyright-tooltip">Check out the newsletter!</span> Hillside Township</a> |
+         <a href="https://github.com/Squirrel-314/squirrel-314.github.io"><span class="copyright-tooltip">See the code!</span> GitHub</a> |
+         Copyright © <span id="copE-right">16/11/2020</span> Meeeeee
+      </p>
    </body>
    <div id="menu">
          <li class="menu-links"><a href="https://meetsquirrel.github.io">Check this out!</a></li>
