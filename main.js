@@ -458,11 +458,11 @@ var checkForUpgrades = window.setInterval(function() {
    if (gameData.leprechaunNumber >= 1 && !upgradeData.h1) { document.getElementById("h1").style.display = "block"; }
    if (gameData.leprechaunNumber >= 5 && !upgradeData.h2) { document.getElementById("h2").style.display = "block"; }
    if (gameData.leprechaunNumber >= 15 && !upgradeData.h3) { document.getElementById("h3").style.display = "block"; }
-   /* if (gameData.leprechaunNumber 2= 15 && !upgradeData.h4) { document.getElementById("h4").style.display = "block"; } */
+   if (gameData.leprechaunNumber 2= 15 && !upgradeData.h4) { document.getElementById("h4").style.display = "block"; }
    if (gameData.sheepNumber >= 1 && !upgradeData.i1) { document.getElementById("i1").style.display = "block"; }
    if (gameData.sheepNumber >= 5 && !upgradeData.i2) { document.getElementById("i2").style.display = "block"; }
-   /* if (gameData.sheepNumber >= 15 && !upgradeData.i3) { document.getElementById("i3").style.display = "block"; } */
-   /* if (gameData.sheepNumber >= 25 && !upgradeData.i4) { document.getElementById("i4").style.display = "block"; } */
+   if (gameData.sheepNumber >= 15 && !upgradeData.i3) { document.getElementById("i3").style.display = "block"; }
+   if (gameData.sheepNumber >= 25 && !upgradeData.i4) { document.getElementById("i4").style.display = "block"; }
    if (gameData.rayNumber >= 1 && !upgradeData.j1) { document.getElementById("j1").style.display = "block"; }
    if (gameData.rayNumber >= 5 && !upgradeData.j2) { document.getElementById("j2").style.display = "block"; }
    if (gameData.rayNumber >= 15 && !upgradeData.j3) { document.getElementById("j3").style.display = "block"; }
