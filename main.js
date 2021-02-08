@@ -694,18 +694,18 @@ function dark() {
    regColor = "#454545";
    notEnoughColor = "#000";
    // Class styling
-   var storeItem = document.getElementsByClassName('store-item');
+   let storeItem = document.getElementsByClassName('store-item');
    for (let i = 0; i < storeItem.length; i++) {
       storeItem[i].style.color = '#fff';
       storeItem[i].style.fontFamily = 'times';
-      storeItem[i].style.border = 'outset 5px lightblue';
+      storeItem[i].style.border = 'outset 8px lightblue';
    }
-   var up = document.getElementsByClassName('UP');
+   let up = document.getElementsByClassName('UP');
    for (let i = 0; i < up.length; i++) {
-      up[i].style.color = '#000';
-      up[i].style.backgroundColor = '#b3d0de';
+      up[i].style.textShadow = '0 0 3.5px #262626';
+      up[i].style.backgroundColor = 'rgb(245, 245, 245, .3)';
    }
-   var details = document.getElementsByTagName('details');
+   let details = document.getElementsByTagName('details');
    for (let i = 0; i < details.length; i++) {
       details[i].style.background = '#737373';
    }
