@@ -105,6 +105,26 @@ body {
    font-size: 50px;
 }
 
+.flip-rotate-alert {
+   animation: flip-rotate-alert 6s;
+   pointer-events: none;
+}
+
+@keyframes flip-rotate-alert {
+   0% {
+      transform: rotate(0deg) translate(0px) scale(1);
+      opacity: 1;
+   }
+   25% {
+      transform: rotate(-35deg) translate(-100px, -250px) scale(.6);
+      opacity: 0;
+   }
+   100% {
+      transform: rotate(0deg) translate(0px) scale(1);
+      opacity: 0;
+   }
+}
+
 /*==========================================================
 Right Click Menu
 ==========================================================*/
@@ -266,7 +286,7 @@ li[aria-label]:hover:after {
 
 /* Gold Profits */
 
-#gpm, #g0pher, #gpd, #gpw, #gpM, #gpy, #totalGold {
+.goldPer {
    font-family: monospace;
 }
 

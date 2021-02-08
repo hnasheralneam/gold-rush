@@ -335,13 +335,15 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          </details>
          <details id="game-info">
             <summary>Gold Profits</summary>
-            <p id="gpm">0 Gold Per Minute</p>
-            <p id="g0pher">0 Gold Per Hour</p>
-            <p id="gpd">0 Gold Per Day</p>
-            <p id="gpw">0 Gold Per Week</p>
-            <p id="gpM">0 Gold Per Month</p>
-            <p id="gpy">0 Gold Per Year</p>
-            <p id="totalGold">0 Lifetime Gold Profits</p>
+            <p class="goldPer" id="gpm">0 Gold Per Minute</p>
+            <p class="goldPer" id="g0pher">0 Gold Per Hour</p>
+            <p class="goldPer" id="gpd">0 Gold Per Day</p>
+            <p class="goldPer" id="gpw">0 Gold Per Week</p>
+            <p class="goldPer" id="gpM">0 Gold Per Month</p>
+            <p class="goldPer" id="gpy">0 Gold Per Year</p>
+            <p class="goldPer" id="totalGold">0 Lifetime Gold Profits</p>
+            <p class="totalGoldSpent goldPer">You have invested 0 gold.</p>
+            <p class="timeSinceStarted goldPer">You've been playing since 2020</p>
          </details>
          <details id="settings">
             <summary>Settings</summary>
@@ -429,7 +431,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p onclick="upgradeCircle()">Upgrade</p>
          </div>
       </div>
-      <div class="alert"></div>
+      <div class="alert" onclick="flipRotateAlert()"></div>
       <p id="copyright"><a title="About many things" href="https://meetsquirrel.github.io">Learn More</a> | <a title="You should definitly check this out" href="https://squirrel-314.github.io/vegetable-dash/index.html">Vegetable Dash!</a> | <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/">Hillside Township</a> | <a title="See the code" href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a> | Copyright © <span id="copE-right">16/11/2020</span> Meeeeee</p>
    </body>
    <div id="menu">
