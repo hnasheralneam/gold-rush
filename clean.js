@@ -80,8 +80,9 @@ const initialGameData = {
    mergerGold: 0,
    buyMergerCost: 200000000000000,
    mergerNumber: 0,
-// Player Name
+// Player Stuff
    playerName: null,
+   theme: "classic",
 // Time
    lastTick: Date.now(),
    startTime: null
@@ -415,16 +416,16 @@ var buildColorLoop = window.setInterval(function() {
    if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) { document.getElementById("buyMerger").style.display = "flex"; }
    if (gameData.gold >= gameData.buyMergerCost) { document.getElementById("buyMerger").style.backgroundColor = regColor; }
    else { document.getElementById("buyMerger").style.backgroundColor = notEnoughColor; }
-   if (gameData.mergerNumber <= 0) { document.getElementById("waiting").innerHTML = "<img id=\"wait-gif\" src=\"Images/wait.gif\">"; }
 }, 500)
 
 // Prevents decimals in gold
 var setThingsRight = window.setInterval(function() {
    // Set document title as the amount of gold
-   document.title = toWord(gameData.gold) + " Gold | Gold Rush";
+   if (gameData.gold > 0) { document.title = toWord(gameData.gold) + " Gold | Gold Rush"; }
+   else { document.title = "Gold Rush!"; }
    document.getElementById("gold-owned").innerHTML = toWord((gameData.gold)) + " Gold <img src='Images/retro-coin.gif' alt='Gold!' class='retro-coin'>";
    // Display gold per second & gold per click
-   document.getElementById("gold-profits").innerHTML = toWord((goldPerSecond() * bonusNumber)) + " Gold per Second<br>" + commas(gameData.clickinGold) + " Gold per Click<br>";
+   document.getElementById("gold-profits").innerHTML = toWord((goldPerSecond() * bonusNumber)) + " Gold per Second<br>" + toWord(gameData.clickinGold) + " Gold per Click<br>";
 }, 20)
 
 // Add commas to numbers
@@ -446,12 +447,10 @@ var updateStore = window.setInterval(function() {
    updateDisplay("Merger", "buy", "Neutron Star Merger", "Merges neutron stars to create gold (find what you want at it's source ;)")
    // Gold per Building & Building Count
    function updateDisplay(item, type, itemName, text) {
-      document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName} <br> ${toWord(gameData[item.toLowerCase() + "Profit"])} GPS <br> Producing ${toWord(gameData[item.toLowerCase() + "Gold"])} GPS<br> ${text}`;
+      document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName}s: ${toWord(gameData[item.toLowerCase() + "Number"])} <br> ${toWord(gameData[item.toLowerCase() + "Profit"])} GPS <br> Producing ${toWord(gameData[item.toLowerCase() + "Gold"])} GPS<br> ${text}`;
       document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold`;
    }
-
    gameData.goldSpent = gameData.totalGold - gameData.gold;
-
    // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = `${toWord(goldPerSecond() * 60)} Gold Per Minute`;
    document.getElementById("g0pher").innerHTML = toWord(goldPerSecond() * 60 * 60) + " Gold Per Hour";
@@ -554,16 +553,74 @@ function dark() {
    document.getElementById("news").style.background = '#737373';
    document.getElementById("playerName").style.background = "#8f8d8d";
 }
-function light() {
-   // Reload page
-   location.reload();
+function modernDark() {
+   // This changes the default colors for avalible and unavalible buildings
+   regColor = "#454545";
+   notEnoughColor = "#000";
+   // Class styling
+   let storeItem = document.getElementsByClassName('store-item');
+   for (let i = 0; i < storeItem.length; i++) {
+      storeItem[i].style.color = '#fff';
+      storeItem[i].style.fontFamily = 'times';
+      storeItem[i].style.borderColor = 'rgb(101, 136, 246)';
+   }
+   let up = document.getElementsByClassName('UP');
+   for (let i = 0; i < up.length; i++) {
+      up[i].style.backgroundColor = '#ad90b0';
+      up[i].style.borderColor = '#664769';
+   }
+   let details = document.getElementsByTagName('details');
+   for (let i = 0; i < details.length; i++) {
+      details[i].style.background = '#626262';
+      details[i].style.borderColor = '#065e62';
+   }
+   let section = document.getElementsByClassName('section');
+   for (let i = 0; i < section.length; i++) {
+      section[i].style.borderColor = '#5b9c9a';
+   }
+   // Basic styling
+   document.body.style.color = "#fff";
+   document.body.style.background = "#000";
+   document.getElementById("copyright").style.background = '#000';
+   document.getElementById("news").style.background = '#626262';
+   document.getElementById("news").style.borderColor = '#065e62';
 }
+function light() {
+   if (gameData.theme === "light") { document.querySelector(".cssLink").href = "styles.css"; }
+   else {
+      gameData.theme = "light";
+      save();
+      location.reload();
+   }
+}
+function modern() {
+   gameData.theme = "modern";
+   save();
+   location.reload();
+   regColor = "#f5f2f9";
+   notEnoughColor = "#9770c0";
+   document.querySelector(".cssLink").href = "clean.css";
+   dark = modernDark;
+}
+function asiya() {
+   gameData.theme = "asiya";
+   save();
+   location.reload();
+   regColor = "#f5f2f9";
+   notEnoughColor = "#9770c0";
+   document.querySelector(".cssLink").href = "asiya.css";
+   dark = modernDark;
+}
+
+setInterval(() => {
+   if (gameData.theme === "light") { light(); }
+   else if (gameData.theme === "light") { light(); }
+
+}, 500)
 
 // Set myAudio to audio file
 let myAudio = document.getElementById("myAudio");
-function music() {
-   return myAudio.paused ? myAudio.play() : myAudio.pause();
-};
+function music() { return myAudio.paused ? myAudio.play() : myAudio.pause(); };
 
 // Save by ctrl + S
 document.addEventListener("keydown", function(e) {
@@ -644,146 +701,149 @@ let luckyRoll = window.setInterval(function() {
 //==========================================================
 
 // This is all of the news
-let allNews = [
-   `You go mining sometimes`,
-   `You like the shiny twinkle of gold`,
-   `When you feel sad, you look at your hoard of gold.`,
-   `You dream of golden sheep in a golden meadow eating golden grass.`,
-   `You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.`,
-   `Breaking News: Under threat of closing the press, journalist tells the semi-truth!`,
-   //`News: `,
-   //`News: `,
-]
-let pickaxeNews = [
-   `News: New type of pickaxe coming out, looks suspiciously like normal iron.`,
-   `News: Purchases of pickaxes on the rise for both practical and decorative purposes.`,
-   `News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"`,
-   `Ad: You looking for a good sturdy pickaxe for some backyard mining? We've got just the thing for you! Get our heavy-duty all-purpose pickaxes today!`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let dwarfNews = [
-   `News: Dwarfs stop human miners from going to work, "They only get in the way."`,
-   `News: Reports of "Little people weilding pickaxes" increasing daily`,
-   `News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner`,
-   `News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.`,
-   `News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.`,
-   `News: Gold mine collapses, dwarfs demand safer workplaces.`,
-   `News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "It's suprising how threatening a mob of tiny people can be" admits journalist`,
-   `News: Peaceful dwarf protests recived with violent reprisal!`,
-]
-let gooseNews = [
-   `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
-   `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let mineNews = [
-   `News: Mines opening everywhere, environmentalists worried.`,
-   `News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what's so special about coal?"`,
-   `News: "Maybe we should stop drilling holes in the earth." says random man.`,
-   `News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.`,
-   `News: As the gold industry gradualy gains control of the government, new laws are passed in the favor of mining.`,
-   `News: "Aren't you worried about the enviroment?" ask journalist, ${gameData.playerName}'s cheif mining officer says "I'll be gone by the time it gets bad."`,
-   //`News: `,
-   //`News: `,
-]
-let dragonNews = [
-   `News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"`,
-   `News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.`,
-   `News: Scientist warn people to stay indoors during dragon breeding season."It's for your own overall health."`,
-   `News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.`,
-   `New: Dragon babysitters needed becase all parents busy hoarding gold.`,
-   `News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.`,
-   `News: Grass-fed dragon milk, new lactose-free substitute to cow milk.`,
-   `News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"`,
-]
-let stoneNews = [
-   `News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"`,
-   `News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Locals thoroughly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"`,
-   `News: "NO, these philosophers stones DO NOT give longer lives." say exasperated representative of ${gameData.playerName} Industries to over enthusiastic crowd.`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let stationNews = [
-   `News: Major astroid mining station slams into Earth, impacted country enraged!`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let lepNews = [
-   `News: Leprechaun becomes politician, world leaders upset.`,
-   `News: Rainbows occuring more and more often, leprechaun suspected.`,
-   `News: Three leaved clovers become rare due to the large amount of four leaved clovers.`,
-   `News: "Don't trust the gold at the end of leprechaun rainbows" says athoritiy, "Who knows what nasty tricks they have up there sleaves!" "Ehm ehm" says leprechaun with camera.`,
-   `News: Semi-decent laws are made to protect people from Leprechauns, and vice versa.`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let sheepNews = [
-   `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
-   `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
-   `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
-   `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let rayNews = [
-   `Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)`,
-   `News: Mass rays wreak havoc, turning multiple minor plantets into soild gold, astronomers enraged`,
-   `News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing it. Wait... are you a reporter?!"`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let mergerNews = [
-   `News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."`,
-   `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants.`,
-   `News: Scientist explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
-let richNews = [
-   `News: Ordinary household items more commonly made of gold to deal with gold surplus.`,
-   `News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.`,
-   `News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.`,
-   `News: Personal golden planets becoming fashinble, causing imennse golden solar systems.`,
-   `News: New podcast about ${gameData.playerName}'s amazing rise to success coming out! Don't miss it!`,
-   `News: Studies show that ${gameData.playerName} has made a total of ${commas(gameData.totalGold)} Gold. "That's a lot of shiny" says researcher`,
-   `News: Gold's economic worth dramatically reduced, stock market looking for subsitude.`,
-   `News: Philosophers agree that gold is the true meaning of life. "What's truly amazing is they agreed on something." says reporter`,
-]
-let otherNews = [
-   `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
-   `News: Lost children suspected to have stumbled throught Otherworld portals.`,
-   `News: Freak weather causing havoc and destruction, traced to Otherworld portals.`,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-   //`News: `,
-]
+let allNews = pickaxeNews = dwarfNews = gooseNews = mineNews = dragonNews = stoneNews = stationNews = lepNews = sheepNews = rayNews = mergerNews = richNews = otherNews = [];
+setTimeout(() => {
+   allNews = [
+      `You go mining sometimes`,
+      `You like the shiny twinkle of gold`,
+      `When you feel sad, you look at your hoard of gold.`,
+      `You dream of golden sheep in a golden meadow eating golden grass.`,
+      `You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.`,
+      `Breaking News: Under threat of closing the press, journalist tells the semi-truth!`,
+      //`News: `,
+      //`News: `,
+   ]
+   pickaxeNews = [
+      `News: New type of pickaxe coming out, looks suspiciously like normal iron.`,
+      `News: Purchases of pickaxes on the rise for both practical and decorative purposes.`,
+      `News: Little plastic keychain pickaxes selling like crazy, tourist shops wildly confused "Who wants that type of junk?"`,
+      `Ad: You looking for a good sturdy pickaxe for some backyard mining? We've got just the thing for you! Get our heavy-duty all-purpose pickaxes today!`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   dwarfNews = [
+      `News: Dwarfs stop human miners from going to work, "They only get in the way."`,
+      `News: Reports of "Little people weilding pickaxes" increasing daily`,
+      `News: Human miners losing their jobs as dwarfs overtake the mining industry, "not necessarily a bad thing" says retired miner`,
+      `News: Scientist fear dwarfs will "take complete controll of the universe", robots disappointed.`,
+      `News: Dwarfs rights movment spreading across the globe, dwarfs demand equality and voting rights.`,
+      `News: Gold mine collapses, dwarfs demand safer workplaces.`,
+      `News: Hoards of angry dwarfs fill the streets worldwide during dwarf rights protests, "It's suprising how threatening a mob of tiny people can be" admits journalist`,
+      `News: Peaceful dwarf protests recived with violent reprisal!`,
+   ]
+   gooseNews = [
+      `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
+      `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   mineNews = [
+      `News: Mines opening everywhere, environmentalists worried.`,
+      `News: Coal and diamond mines going out of business as gold mines reign supreme. "I mean, gold is shiny, what's so special about coal?"`,
+      `News: "Maybe we should stop drilling holes in the earth." says random man.`,
+      `News: Mines inhabited by creatures from the dawn of time, all journalists investingating mysteriously vanished.`,
+      `News: As the gold industry gradualy gains control of the government, new laws are passed in the favor of mining.`,
+      `News: "Aren't you worried about the enviroment?" ask journalist, ${gameData.playerName}'s cheif mining officer says "I'll be gone by the time it gets bad."`,
+      //`News: `,
+      //`News: `,
+   ]
+   dragonNews = [
+      `News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"`,
+      `News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.`,
+      `News: Scientist warn people to stay indoors during dragon breeding season."It's for your own overall health."`,
+      `News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.`,
+      `New: Dragon babysitters needed becase all parents busy hoarding gold.`,
+      `News: Sales of dragon scale jackets skyrocketing, encouraging dragon products market.`,
+      `News: Grass-fed dragon milk, new lactose-free substitute to cow milk.`,
+      `News: Nations in fear as dragons soar above, athorities advise to "Carry umbrellas everywhere, it could save your life!"`,
+   ]
+   stoneNews = [
+      `News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"`,
+      `News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Locals thoroughly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"`,
+      `News: "NO, these philosophers stones DO NOT give longer lives." say exasperated representative of ${gameData.playerName} Industries to over enthusiastic crowd.`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   stationNews = [
+      `News: Major astroid mining station slams into Earth, impacted country enraged!`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   lepNews = [
+      `News: Leprechaun becomes politician, world leaders upset.`,
+      `News: Rainbows occuring more and more often, leprechaun suspected.`,
+      `News: Three leaved clovers become rare due to the large amount of four leaved clovers.`,
+      `News: "Don't trust the gold at the end of leprechaun rainbows" says athoritiy, "Who knows what nasty tricks they have up there sleaves!" "Ehm ehm" says leprechaun with camera.`,
+      `News: Semi-decent laws are made to protect people from Leprechauns, and vice versa.`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   sheepNews = [
+      `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
+      `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
+      `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
+      `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   rayNews = [
+      `Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)`,
+      `News: Mass rays wreak havoc, turning multiple minor plantets into soild gold, astronomers enraged`,
+      `News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing it. Wait... are you a reporter?!"`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   mergerNews = [
+      `News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."`,
+      `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants.`,
+      `News: Scientist explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+   richNews = [
+      `News: Ordinary household items more commonly made of gold to deal with gold surplus.`,
+      `News: Random woman asks: "What are we going to do with all this gold?", everyone ignores her.`,
+      `News: Gold Storehouses overflowing, young employ suggest storehouses made of gold.`,
+      `News: Personal golden planets becoming fashinble, causing imennse golden solar systems.`,
+      `News: New podcast about ${gameData.playerName}'s amazing rise to success coming out! Don't miss it!`,
+      `News: Studies show that ${gameData.playerName} has made a total of ${commas(gameData.totalGold)} Gold. "That's a lot of shiny" says researcher`,
+      `News: Gold's economic worth dramatically reduced, stock market looking for subsitude.`,
+      `News: Philosophers agree that gold is the true meaning of life. "What's truly amazing is they agreed on something." says reporter`,
+   ]
+   otherNews = [
+      `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
+      `News: Lost children suspected to have stumbled throught Otherworld portals.`,
+      `News: Freak weather causing havoc and destruction, traced to Otherworld portals.`,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+      //`News: `,
+   ]
+}, 500)
 
 // Decides which news to display
 let news = window.setInterval(function (){
@@ -836,7 +896,7 @@ window.onload = function() {
    // Display amount earned in abscence
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
-   callAlert(`While you were gone you earned ${commas(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
+   callAlert(`While you were gone you earned ${toWord(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
 }
 
 function gameSetup() {

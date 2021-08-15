@@ -216,11 +216,11 @@ Section 2 | Research Facility, News Station, Setting, and Ads
 ==========================================================*/
 
 #news {
-   height: 125px;
+   min-height: 125px;
    margin: 0px;
    font-size: 18px;
    padding: 10px;
-   font-weight: 500;
+   font-family: "Nunito";
 }
 
 details, #news {
@@ -288,10 +288,6 @@ summary {
   z-index: 1;
 }
 
-#a2 {
-   display: block;
-}
-
 ul {
    list-style-type: none;
    margin: 0;
@@ -341,7 +337,7 @@ ul {
 }
 
 .set-div {
-   width: 40%;
+   width: 38%;
    background-color: #000;
    display: inline-block;
    border-radius: 8px;
@@ -543,4 +539,18 @@ Mobile
       padding: 2px 5px 15px 5px;
       margin-bottom: -2px;
    }
+}
+
+/*==========================================================
+Summoning Circles
+==========================================================*/
+
+.summoning-circle {
+   height: 75vh;
+   width: 98%;
+   background-image: linear-gradient(#00cdff, #227ac7);
+   margin: 2vh auto;
+   border: outset 1vh #000;
+   box-sizing: border-box;
+   border-radius: 2vh;
 }
