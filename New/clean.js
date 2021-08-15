@@ -651,8 +651,8 @@ setTimeout(() => {
       `You dream of golden sheep in a golden meadow eating golden grass.`,
       `You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.`,
       `Breaking News: Under threat of closing the press, journalist tells the semi-truth!`,
-      //`News: `,
-      //`News: `,
+      `News: Isn't the world better when it's filled with gold?`,
+      `Thoughts: Moral scruples? Who needs those!`,
    ]
    pickaxeNews = [
       `News: New type of pickaxe coming out, looks suspiciously like normal iron.`,
@@ -676,9 +676,9 @@ setTimeout(() => {
    ]
    gooseNews = [
       `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
-      `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
-      //`News: `,
-      //`News: `,
+      `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today, for the low price of your soul!`,
+      `News: "Quack!" says Hurbert, world famous golden goose!`,
+      `News: Country puts Hurbert, world famous golden goose, on their flag!`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -695,7 +695,7 @@ setTimeout(() => {
       //`News: `,
    ]
    dragonNews = [
-      `News: Dragon eats poodle, owner furious: "The monster! I\'ll have his skin for my handbag!"`,
+      `News: Dragon eats poodle, owner furious: "The monster! I'll have his skin for my handbag!"`,
       `News: Gold dragons cause havoc worldwide as they search for gold-hoarding locations.`,
       `News: Scientist warn people to stay indoors during dragon breeding season."It's for your own overall health."`,
       `News: Global dragon-disease pandemic continuing unhindered, doctors searching for cure.`,
@@ -708,7 +708,7 @@ setTimeout(() => {
       `News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"`,
       `News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Locals thoroughly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"`,
       `News: "NO, these philosophers stones DO NOT give longer lives." say exasperated representative of ${gameData.playerName} Industries to over enthusiastic crowd.`,
-      //`News: `,
+      `News: Legal worries about turning Yellowstone National Park to gold silenced by bribes!`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -716,7 +716,7 @@ setTimeout(() => {
    ]
    stationNews = [
       `News: Major astroid mining station slams into Earth, impacted country enraged!`,
-      //`News: `,
+      `News: Astroid mining station to be named ${gameData.playerName} in your honor!`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -756,8 +756,8 @@ setTimeout(() => {
    ]
    mergerNews = [
       `News: Scientist figure out a way to make gold by merging neutron stars, "Eureka! Wait a moment- I think this time we actually went to far..."`,
-      `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants.`,
-      `News: Scientist explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
+      `News: "Why, may I ask, are we MERGING NEUTRON STARS just to make gold!?! Please explain your reasoning." random man rants as he is dragged away by police.`,
+      `News: Exasperated scientist patiently explains how neutron star mergers work to ${gameData.playerName}'s company top members, and gets the response: "So, it makes gold? Good enough." Scientist sighs.`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -778,7 +778,7 @@ setTimeout(() => {
       `News: Rumered discoveries of Otherworld portals disrupting world peace.`,
       `News: Lost children suspected to have stumbled throught Otherworld portals.`,
       `News: Freak weather causing havoc and destruction, traced to Otherworld portals.`,
-      //`News: `,
+      `News: Otherworld researchers are uncovering folk tales in nearly every civilization that tell of dark portals.`,
       //`News: `,
       //`News: `,
       //`News: `,

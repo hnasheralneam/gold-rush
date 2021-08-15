@@ -7,8 +7,6 @@ Go away please. Anyway, what are you doing looking at this code?
    text-align: center;
    margin: 0;
    padding: 0;
-   cursor: url("../Images/default.cur"), default;
-   cursor: url("../Images/default.cur"), pointer;
    font-size: 2.5vh;
    /* Clean Web Design */
    font-size: 2.5vh;
@@ -369,7 +367,6 @@ Copyright
 ==========================================================*/
 
 a {
-   cursor: url("../Images/link.cur"), default;
    text-decoration: none;
    color: #fff;
 }
