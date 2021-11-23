@@ -9,53 +9,60 @@ Go away please. Anyway, what are you doing looking at this code?
    padding: 0;
    cursor: url("Images/default.cur"), default;
    cursor: url("Images/default.cur"), pointer;
+   font-size: 2.5vh;
+   /* Clean Web Design */
+   font-size: 2.5vh;
+   font-weight: 400;
+   line-height: 150%;
 }
 
 body {
    display: grid;
    grid-template-columns: repeat(3, minmax(0, 1fr));
-   background-image: url("Images/background.png");
-   background-size: 120px;
+   background-color: #eee;
    overflow-y: hidden;
+   background-image: url("Images/background.png");
+   background-size: 20vh;
+}
+body::before {
+   content: "";
+   position: absolute;
+   height: 100vh;
+   width: 100vw;
+   background-color: rgba(238, 238, 238, 0.95);
 }
 
-::-webkit-scrollbar {
-   display: none;
-}
-
-::selection {
-   background-color: transparent;
-}
+::-webkit-scrollbar { display: none; }
+::selection { background-color: transparent; }
 
 .section {
-   border: outset #ab0c07 10px;
-   border-radius: 4px;
-   margin: 1vh 5px;
-   padding: 0px 1% 1% 1%;
-   height: 88vh;
+   border: solid 1.2vh;
+   border-radius: 1vh;
+   margin: 1vh 1vh 5vh 1vh;
+   height: 92vh;
    position: relative;
    overflow: scroll;
+   box-sizing: border-box;
 }
 
-.vegetable-ad {
-   width: 80%;
-   margin: 75px auto 15px auto;
-}
+.section:nth-child(1) { border-color: #abdad9; background-color: #f2f9f9; }
+.section:nth-child(2) { border-color: #daceab; background-color: #f9f7f2; }
+.section:nth-child(3) { border-color: #c2abda; }
 
 .alert {
    position: absolute;
-   bottom: 10%;
-   right: 5%;
-   height: 60px;
-   width: 180px;
-   background-color: #000;
-   color: #f5f5f5;
-   border: outset #ab0c07 5px;
-   border-radius: 5px;
-   padding: 8px;
+   bottom: 8vh;
+   right: 10vh;
+   height: 12vh;
+   width: 32vh;
+   background-color: #fff;
+   color: #494949;
+   border: outset #d2332e 1vh;
+   border-radius: 1.2vh;
+   padding: 1.5vh;
    font-family: Helvetica, sans-serif;
    opacity: 0;
-   transition: 1.5s;
+   transition: transform 1.5s;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -85,25 +92,25 @@ body {
 
 .welcome-content {
    box-sizing: border-box;
-   height: 90%;
-   width: 75%;
+   height: 90vh;
+   width: 75vw;
    background-color: #f9f9f9;
-   border-radius: 10px;
-   padding: 25px;
-   box-shadow: 0 0 10px #fff;
+   border-radius: 2h;
+   padding: 5vh;
+   box-shadow: 0 0 2vh #fff;
    z-index: 1;
    font-family: 'Nunito Sans', sans-serif;
 }
 
 .welcome-content p {
-   margin: 25px;
+   margin: 5vh;
    font-size: 125%;
 }
 
 .name-input {
-   height: 75px;
-   width: 175px;
-   font-size: 50px;
+   height: 15vh;
+   width: 30vh;
+   font-size: 100%;
 }
 
 .flip-rotate-alert {
@@ -112,57 +119,9 @@ body {
 }
 
 @keyframes flip-rotate-alert {
-   0% {
-      transform: rotate(0deg) translate(0px) scale(1);
-      opacity: 1;
-   }
-   25% {
-      transform: rotate(-35deg) translate(-100px, -250px) scale(.6);
-      opacity: 0;
-   }
-   100% {
-      transform: rotate(0deg) translate(0px) scale(1);
-      opacity: 0;
-   }
-}
-
-/*==========================================================
-Right Click Menu
-==========================================================*/
-
-#menu {
-   width: 200px;
-   position: fixed;
-   z-index: 9999;
-   display: none;
-   font-family: Nunito;
-   font-size: 15px;
-   background: #fff;
-   color: #555;
-   border-radius: 5px;
-   box-shadow: 0 0 5px #f5f5f5;
-}
-
-#menu li {
-   list-style-type: none;
-   padding: 10px 25px;
-   transition: .2s;
-}
-
-#menu li:hover {
-   text-shadow: 0 .2px .2px #262626;
-   background-color: #fafafa;
-   border-radius: 5px;
-}
-
-#menu hr {
-   border: 1px solid #ebebeb;
-   border-bottom: 0;
-}
-
-#menu a {
-   text-decoration: underline;
-   color: #555;
+   0% { transform: rotate(0deg) translate(0) scale(1); opacity: 1; }
+   25% { transform: rotate(-35deg) translate(-20vh, -50vh) scale(.6); opacity: 0; }
+   100% { transform: rotate(0deg) translate(0) scale(1); opacity: 0; }
 }
 
 /*==========================================================
@@ -172,21 +131,38 @@ Section 1 | Astroid and Player Information
 #astroid-image {
   width: 80%;
   height: auto;
-  margin: 36px 8px;
+  margin: 32vh 0 0 0;
   cursor: url("Images/pickaxecursor.png"), auto;
 }
 
 .basic-info {
-   border: ridge 5px #ab0c07;
-   margin: 2px -2px;
-   padding: 2px;
-   font-size: 25px;
+   padding: 1vh;
+   font-size: 4vh;
    font-family: 'Noto Sans', sans-serif;
-   background-image: url("Images/goldbars.jpg");
-   background-size: 100% auto;
-   text-shadow: -2px 2px 2px #262626;
-   color: lightyellow;
+   text-shadow: -.2vh .2vh .5vh #fff,
+                .2vh .2vh .5vh #fff;
+   color: #262626;
 }
+
+.basic-info-all {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   background-image: url("https://media.farandwide.com/1d/f5/1df524d9f5cb4458baa5c1ecb33c381f.jpg");
+   background-size: 100% auto;
+}
+
+#playerName {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-image: url("https://media.farandwide.com/1d/f5/1df524d9f5cb4458baa5c1ecb33c381f.jpg");
+   background-size: 100% auto;
+}
+
+#gold-profits { font-size: 3vh; }
 
 .basic-info-pumped {
    animation: flashgold-text .5s infinite alternate;
@@ -194,82 +170,72 @@ Section 1 | Astroid and Player Information
 }
 
 @keyframes flashgold-text {
-   0% {
-      text-shadow: 0 0 2px #ffdf00;
-   }
-   100% {
-      text-shadow: 0 0 6px #ffdf00;
-   }
-}
-
-#gold-profits {
-   font-size: 18px;
+   0% { text-shadow: 0 0 1vh #ffdf00; }
+   100% { text-shadow: 0 0 3vh #ffdf00; }
 }
 
 .retro-coin {
-   height: 25px;
-   margin-bottom: -5px;
+   height: 4.8vh;
+   margin-bottom: -1vh;
 }
 
 /*==========================================================
-Section 2 | Research Facility, News Station, Setting, and Ads
+Section 2 | Research Facility, News Station, Setting
 ==========================================================*/
 
 #news {
-   min-height: 125px;
-   margin: 0px;
-   font-size: 18px;
-   padding: 10px;
+   font-size: 3.5vh;
+   padding: 2vh;
    font-family: "Nunito";
 }
 
 details, #news {
-   border: inset 8px lightblue;
-   background-color: lightyellow;
-   margin-top: 5px;
+   border-bottom: solid .2vh #daceab;
+   background-color: #f9f7f2;
    font-family: merriweather-serif;
-   padding: 5px;
+   padding: 1vh;
    z-index: -1;
+   font-weight: 300;
 }
 
-summary {
-   font-size: 25px;
-}
+details > summary { list-style: none; }
+
+summary { font-size: 4vh; }
 
 .UP {
-   border: outset 4px #e8e8e8;
-   border-radius: 2px;
-   background-color: #f5f5f5;
-   margin: 5px 0;
-   padding: 2px;
-   font-size: 1.4em;
+   border: solid .8vh #dab7ab;
+   border-radius: 1vh;
+   background-color: #fefefe;
+   margin: 1vh 0;
+   padding: 2vh;
+   font-size: 3.5vh;
    display: none;
-   transition: 0.5s;
+   transition: transform .5s, box-shadow .5s;
    position: relative;
    z-index: -.8;
+   font-weight: 300;
 }
 
 .UP:hover {
    transform: scale(.98);
-   box-shadow: 0 0 4px #262626;
+   box-shadow: 0 0 .5vh #262626;
    z-index: 1;
 }
 
 .UP .UP-tooltip {
   opacity: 0;
-  width: 100%;
-  background-color: black;
-  color: #fff;
+  background-color: #fff;
+  color: #666;
   text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+  border-radius: 1vh;
+  padding: 2vh 0;
   position: absolute;
   z-index: -1;
   top: 115%;
-  right: 0;
-  margin-left: -60px;
-  border: outset 3px lightblue;
+  right: -1.2vh;
+  left: -1.2vh;
   transition: 0.2s;
+  pointer-events: none;
 }
 
 .UP .UP-tooltip::after {
@@ -277,10 +243,10 @@ summary {
   position: absolute;
   bottom: 100%;
   left: 50%;
-  margin-left: -8px;
-  border-width: 8px;
-  border-style: outset;
-  border-color: transparent transparent lightblue transparent;
+  margin-left: -1.5vh;
+  border-width: 1.5vh;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
 }
 
 .UP:hover .UP-tooltip {
@@ -300,29 +266,30 @@ ul {
 .more {
    font-size: .8em;
    margin: 0;
+   font-weight: 300;
 }
 
 .why {
    font-size: .6em;
    margin: 0;
+   font-weight: 300;
 }
-
-/* Gold Profits */
 
 .goldPer {
    font-family: monospace;
+   font-size: 2.5vh;
+   padding: .2vh;
 }
-
-/* Settings */
 
 .set-info {
    position: relative;
-   top: -500px;
+   top: -100vh;
    z-index: -1;
-   margin-top: 5px;
+   margin-top: 1vh;
    transition: all .5s 0s;
-   color: #fff;
-   font-size: 15px;
+   color: #444444;
+   font-size: 2vh;
+   transition-delay: .5s;
 }
 
 .set-div:hover .set-info {
@@ -331,49 +298,47 @@ ul {
 }
 
 .set-div:hover {
-   font-size: 18px;
+   font-size: 3vh;
    display: inline-block;
-   height: 100px;
+   height: 15vh;
 }
 
 .set-div {
-   width: 38%;
-   background-color: #000;
+   width: 45%;
+   background-color: #fff;
    display: inline-block;
-   border-radius: 8px;
-   border: outset gold 5px;
-   margin: 5px auto;
-   padding: 8px;
+   border-radius: 2vh;
+   border: outset #2cd49f .8vh;
+   margin: .5vh auto;
+   padding: .8vh;
    transition: all .5s 0s;
    overflow: hidden;
-   height: 50px;
-   color: #fff;
-   font-size: 25px;
+   height: 15vh;
+   color: #444444;
+   font-size: 3.8vh;
+   transition-delay: .5s;
+   box-sizing: border-box;
 }
 
-audio {
-   display: none;
-}
+.set-div-small { padding-top: 3.6vh; }
+.set-div-small:hover { padding-top: .8vh; }
+
+audio { display: none; }
 
 /*==========================================================
 Section 3 | Shop
 ==========================================================*/
 
 .store-item {
-   width: 96%;
-   height: 80px;
-   border-radius: 8px;
-   border: double #000 8px;
-   font-weight: 700;
-   margin: 2px auto;
-   padding: 5px 0px;
-   display: none;
+   width: 100%;
+   height: 20vh;
+   border-bottom: solid #c2abda .15vh;
+   padding: 1vh 0;
    overflow: hidden;
-   transition: all 1.5s 0s;
-   display: flex;
    align-items: center;
    justify-content: center;
    display: none;
+   box-sizing: border-box;
 }
 
 .store-info {
@@ -391,18 +356,12 @@ Section 3 | Shop
 .store-display {
    transform: scale(1);
    opacity: 1;
-   transition: all .5s .5s;
+   transition: transform .5s .5s, opacity .5s .5s;
 }
 
 .store-item:hover .store-display {
    transform: scale(0);
    opacity: 0;
-}
-
-#wait-gif {
-   height: 50px;
-   width: auto;
-   margin: 15px auto;
 }
 
 /*==========================================================
@@ -416,33 +375,37 @@ a {
 }
 
 #copyright {
-   background-color: #000;
+   height: 5.5vh;
+   background-color: #fff;
    font-family: monospace;
-   font-size: 145%;
-   color: #fff;
-   padding: 5px;
+   font-size: 3vh;
+   color: #999;
+   padding: .5vh;
    position: fixed;
    bottom: 0;
    right: 0;
    left: 0;
+   box-sizing: border-box;
 }
 
 #copyright a {
    position: relative;
+   font-size: 100%;
+   color: #999;
 }
 
 #copyright a .copyright-tooltip {
    opacity: 0;
    width: 100%;
-   background-color: #000;
-   border-radius: 6px;
+   background-color: #fff;
+   border-radius: .8vh;
    position: absolute;
    z-index: 1;
    bottom: 155%;
    right: 0;
-   padding: 5px;
+   padding: 1vh;
    font-size: 75%;
-   border: outset 2px gold;
+   border: outset .5vh lightblue;
    transition: 0.5s;
    pointer-events: none;
 }
@@ -452,105 +415,51 @@ a {
    position: absolute;
    top: 100%;
    left: 50%;
-   margin-left: -5px;
-   border-width: 5px;
+   margin-left: -1.2vh;
+   border-width: 1.2vh;
    border-style: outset;
-   border-color: gold transparent transparent transparent;
+   border-color: lightblue transparent transparent transparent;
 }
 
-#copyright a:hover .copyright-tooltip {
-   opacity: 1;
-}
+#copyright a:hover .copyright-tooltip { opacity: 1; }
+
+.summoning-circle { display: none; }
 
 /*==========================================================
-Mobile
+Right Click Menu
 ==========================================================*/
 
-.loading {
+#menu {
+   width: 32vh;
    position: fixed;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   padding: 0;
-   margin: 0;
-   height: 100vh;
-   background-color: #f5f5f5;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   overflow: hidden;
-   animation: remove-landing 8s forwards;
+   z-index: 100;
+   display: none;
+   font-family: Nunito;
+   font-size: 3vh;
+   background: #fff;
+   color: #555;
+   border-radius: 1vh;
+   box-shadow: 0 0 1vh #f5f5f5;
 }
 
-.loading-content {
-   height: 460px;
-   width: 460px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border: outset 8px lightblue;
-   border-radius: 50%;
-   overflow: hidden;
-   box-shadow: 0 0 5px #626262;
-   animation: loading-rotate 8s;
+#menu li {
+   list-style-type: none;
+   padding: 2vh 4vh;
+   transition: .2s;
 }
 
-.loading-gif {
-   height: 250px;
-   animation: bam 8s forwards;
+#menu li:hover {
+   text-shadow: 0 .06vh .06vh #262626;
+   background-color: #fafafa;
+   border-radius: 1vh;
 }
 
-@keyframes remove-landing {
-   0% { display: flex; opacity: 1; pointer-events: auto; }
-   80% { display: flex; opacity: 1; pointer-events: auto; }
-   99% { display: flex; opacity: 0; pointer-events: auto; }
-   100% { display: none; opacity: 0; pointer-events: none; }
+#menu hr {
+   border: .15vh solid #ebebeb;
+   border-bottom: 0;
 }
 
-@keyframes bam {
-   0% { transform: scale(3.2); }
-   40% { transform: scale(1.2); }
-   60% { transform: scale(1.2); }
-   100% { transform: scale(45); }
-}
-
-@keyframes loading-rotate {
-   from { transform: rotate(0deg); }
-   to { transform: rotate(360deg); }
-}
-
-/*==========================================================
-Mobile
-==========================================================*/
-
-@media (max-width: 740px) {
-   body {
-      overflow-y: scroll;
-      font-size: .8em;
-      display: block;
-   }
-   .section {
-      height: 180vh;
-      width: 85%;
-      margin: 5px auto;
-   }
-   #copyright {
-      padding: 2px 5px 15px 5px;
-      margin-bottom: -2px;
-   }
-}
-
-/*==========================================================
-Summoning Circles
-==========================================================*/
-
-.summoning-circle {
-   height: 75vh;
-   width: 98%;
-   background-image: linear-gradient(#00cdff, #227ac7);
-   margin: 2vh auto;
-   border: outset 1vh #000;
-   box-sizing: border-box;
-   border-radius: 2vh;
+#menu a {
+   text-decoration: none;
+   color: #555;
 }
