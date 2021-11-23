@@ -7,8 +7,8 @@ Go away please. Anyway, what are you doing looking at this code?
    text-align: center;
    margin: 0;
    padding: 0;
-   cursor: url("Images/default.cur"), default;
-   cursor: url("Images/default.cur"), pointer;
+   cursor: url('Images/default.cur'), default;
+   cursor: url('Images/default.cur'), pointer;
    font-size: 2.5vh;
    /* Clean Web Design */
    font-size: 2.5vh;
@@ -21,19 +21,23 @@ body {
    grid-template-columns: repeat(3, minmax(0, 1fr));
    background-color: #eee;
    overflow-y: hidden;
-   background-image: url("Images/background.png");
+   background-image: url('Images/background.png');
    background-size: 20vh;
 }
 body::before {
-   content: "";
+   content: '';
    position: absolute;
    height: 100vh;
    width: 100vw;
    background-color: rgba(238, 238, 238, 0.95);
 }
 
-::-webkit-scrollbar { display: none; }
-::selection { background-color: transparent; }
+::-webkit-scrollbar {
+   display: none;
+}
+::selection {
+   background-color: transparent;
+}
 
 .section {
    border: solid 1.2vh;
@@ -45,9 +49,17 @@ body::before {
    box-sizing: border-box;
 }
 
-.section:nth-child(1) { border-color: #abdad9; background-color: #f2f9f9; }
-.section:nth-child(2) { border-color: #daceab; background-color: #f9f7f2; }
-.section:nth-child(3) { border-color: #c2abda; }
+.section:nth-child(1) {
+   border-color: #abdad9;
+   background-color: #f2f9f9;
+}
+.section:nth-child(2) {
+   border-color: #daceab;
+   background-color: #f9f7f2;
+}
+.section:nth-child(3) {
+   border-color: #c2abda;
+}
 
 .alert {
    position: absolute;
@@ -119,9 +131,18 @@ body::before {
 }
 
 @keyframes flip-rotate-alert {
-   0% { transform: rotate(0deg) translate(0) scale(1); opacity: 1; }
-   25% { transform: rotate(-35deg) translate(-20vh, -50vh) scale(.6); opacity: 0; }
-   100% { transform: rotate(0deg) translate(0) scale(1); opacity: 0; }
+   0% {
+      transform: rotate(0deg) translate(0) scale(1);
+      opacity: 1;
+   }
+   25% {
+      transform: rotate(-35deg) translate(-20vh, -50vh) scale(0.6);
+      opacity: 0;
+   }
+   100% {
+      transform: rotate(0deg) translate(0) scale(1);
+      opacity: 0;
+   }
 }
 
 /*==========================================================
@@ -129,18 +150,17 @@ Section 1 | Astroid and Player Information
 ==========================================================*/
 
 #astroid-image {
-  width: 80%;
-  height: auto;
-  margin: 32vh 0 0 0;
-  cursor: url("Images/pickaxecursor.png"), auto;
+   width: 80%;
+   height: auto;
+   margin: 32vh 0 0 0;
+   cursor: url('Images/pickaxecursor.png'), auto;
 }
 
 .basic-info {
    padding: 1vh;
    font-size: 4vh;
    font-family: 'Noto Sans', sans-serif;
-   text-shadow: -.2vh .2vh .5vh #fff,
-                .2vh .2vh .5vh #fff;
+   text-shadow: -0.2vh 0.2vh 0.5vh #fff, 0.2vh 0.2vh 0.5vh #fff;
    color: #262626;
 }
 
@@ -149,7 +169,7 @@ Section 1 | Astroid and Player Information
    top: 0;
    left: 0;
    right: 0;
-   background-image: url("https://media.farandwide.com/1d/f5/1df524d9f5cb4458baa5c1ecb33c381f.jpg");
+   background-image: url('https://media.farandwide.com/1d/f5/1df524d9f5cb4458baa5c1ecb33c381f.jpg');
    background-size: 100% auto;
 }
 
@@ -158,20 +178,26 @@ Section 1 | Astroid and Player Information
    bottom: 0;
    left: 0;
    right: 0;
-   background-image: url("https://media.farandwide.com/1d/f5/1df524d9f5cb4458baa5c1ecb33c381f.jpg");
+   background-image: url('https://media.farandwide.com/1d/f5/1df524d9f5cb4458baa5c1ecb33c381f.jpg');
    background-size: 100% auto;
 }
 
-#gold-profits { font-size: 3vh; }
+#gold-profits {
+   font-size: 3vh;
+}
 
 .basic-info-pumped {
-   animation: flashgold-text .5s infinite alternate;
+   animation: flashgold-text 0.5s infinite alternate;
    text-shadow: none;
 }
 
 @keyframes flashgold-text {
-   0% { text-shadow: 0 0 1vh #ffdf00; }
-   100% { text-shadow: 0 0 3vh #ffdf00; }
+   0% {
+      text-shadow: 0 0 1vh #ffdf00;
+   }
+   100% {
+      text-shadow: 0 0 3vh #ffdf00;
+   }
 }
 
 .retro-coin {
@@ -186,11 +212,12 @@ Section 2 | Research Facility, News Station, Setting
 #news {
    font-size: 3.5vh;
    padding: 2vh;
-   font-family: "Nunito";
+   font-family: 'Nunito';
 }
 
-details, #news {
-   border-bottom: solid .2vh #daceab;
+details,
+#news {
+   border-bottom: solid 0.2vh #daceab;
    background-color: #f9f7f2;
    font-family: merriweather-serif;
    padding: 1vh;
@@ -198,60 +225,64 @@ details, #news {
    font-weight: 300;
 }
 
-details > summary { list-style: none; }
+details > summary {
+   list-style: none;
+}
 
-summary { font-size: 4vh; }
+summary {
+   font-size: 4vh;
+}
 
 .UP {
-   border: solid .8vh #dab7ab;
+   border: solid 0.8vh #dab7ab;
    border-radius: 1vh;
    background-color: #fefefe;
    margin: 1vh 0;
    padding: 2vh;
    font-size: 3.5vh;
    display: none;
-   transition: transform .5s, box-shadow .5s;
+   transition: transform 0.5s, box-shadow 0.5s;
    position: relative;
-   z-index: -.8;
+   z-index: -0.8;
    font-weight: 300;
 }
 
 .UP:hover {
-   transform: scale(.98);
-   box-shadow: 0 0 .5vh #262626;
+   transform: scale(0.98);
+   box-shadow: 0 0 0.5vh #262626;
    z-index: 1;
 }
 
 .UP .UP-tooltip {
-  opacity: 0;
-  background-color: #fff;
-  color: #666;
-  text-align: center;
-  border-radius: 1vh;
-  padding: 2vh 0;
-  position: absolute;
-  z-index: -1;
-  top: 115%;
-  right: -1.2vh;
-  left: -1.2vh;
-  transition: 0.2s;
-  pointer-events: none;
+   opacity: 0;
+   background-color: #fff;
+   color: #666;
+   text-align: center;
+   border-radius: 1vh;
+   padding: 2vh 0;
+   position: absolute;
+   z-index: -1;
+   top: 115%;
+   right: -1.2vh;
+   left: -1.2vh;
+   transition: 0.2s;
+   pointer-events: none;
 }
 
 .UP .UP-tooltip::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -1.5vh;
-  border-width: 1.5vh;
-  border-style: solid;
-  border-color: transparent transparent #fff transparent;
+   content: '';
+   position: absolute;
+   bottom: 100%;
+   left: 50%;
+   margin-left: -1.5vh;
+   border-width: 1.5vh;
+   border-style: solid;
+   border-color: transparent transparent #fff transparent;
 }
 
 .UP:hover .UP-tooltip {
-  opacity: 1;
-  z-index: 1;
+   opacity: 1;
+   z-index: 1;
 }
 
 ul {
@@ -264,13 +295,13 @@ ul {
 }
 
 .more {
-   font-size: .8em;
+   font-size: 0.8em;
    margin: 0;
    font-weight: 300;
 }
 
 .why {
-   font-size: .6em;
+   font-size: 0.6em;
    margin: 0;
    font-weight: 300;
 }
@@ -278,7 +309,7 @@ ul {
 .goldPer {
    font-family: monospace;
    font-size: 2.5vh;
-   padding: .2vh;
+   padding: 0.2vh;
 }
 
 .set-info {
@@ -286,10 +317,10 @@ ul {
    top: -100vh;
    z-index: -1;
    margin-top: 1vh;
-   transition: all .5s 0s;
+   transition: all 0.5s 0s;
    color: #444444;
    font-size: 2vh;
-   transition-delay: .5s;
+   transition-delay: 0.5s;
 }
 
 .set-div:hover .set-info {
@@ -308,22 +339,28 @@ ul {
    background-color: #fff;
    display: inline-block;
    border-radius: 2vh;
-   border: outset #2cd49f .8vh;
-   margin: .5vh auto;
-   padding: .8vh;
-   transition: all .5s 0s;
+   border: outset #2cd49f 0.8vh;
+   margin: 0.5vh auto;
+   padding: 0.8vh;
+   transition: all 0.5s 0s;
    overflow: hidden;
    height: 15vh;
    color: #444444;
    font-size: 3.8vh;
-   transition-delay: .5s;
+   transition-delay: 0.5s;
    box-sizing: border-box;
 }
 
-.set-div-small { padding-top: 3.6vh; }
-.set-div-small:hover { padding-top: .8vh; }
+.set-div-small {
+   padding-top: 3.6vh;
+}
+.set-div-small:hover {
+   padding-top: 0.8vh;
+}
 
-audio { display: none; }
+audio {
+   display: none;
+}
 
 /*==========================================================
 Section 3 | Shop
@@ -332,7 +369,7 @@ Section 3 | Shop
 .store-item {
    width: 100%;
    height: 20vh;
-   border-bottom: solid #c2abda .15vh;
+   border-bottom: solid #c2abda 0.15vh;
    padding: 1vh 0;
    overflow: hidden;
    align-items: center;
@@ -345,7 +382,7 @@ Section 3 | Shop
    position: absolute;
    transform: scale(0);
    opacity: 0;
-   transition: all .5s .5s;
+   transition: all 0.5s 0.5s;
 }
 
 .store-item:hover .store-info {
@@ -356,7 +393,7 @@ Section 3 | Shop
 .store-display {
    transform: scale(1);
    opacity: 1;
-   transition: transform .5s .5s, opacity .5s .5s;
+   transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
 }
 
 .store-item:hover .store-display {
@@ -369,7 +406,7 @@ Copyright
 ==========================================================*/
 
 a {
-   cursor: url("Images/link.cur"), default;
+   cursor: url('Images/link.cur'), default;
    text-decoration: none;
    color: #fff;
 }
@@ -380,7 +417,7 @@ a {
    font-family: monospace;
    font-size: 3vh;
    color: #999;
-   padding: .5vh;
+   padding: 0.5vh;
    position: fixed;
    bottom: 0;
    right: 0;
@@ -398,20 +435,20 @@ a {
    opacity: 0;
    width: 100%;
    background-color: #fff;
-   border-radius: .8vh;
+   border-radius: 0.8vh;
    position: absolute;
    z-index: 1;
    bottom: 155%;
    right: 0;
    padding: 1vh;
    font-size: 75%;
-   border: outset .5vh lightblue;
+   border: outset 0.5vh lightblue;
    transition: 0.5s;
    pointer-events: none;
 }
 
 #copyright a .copyright-tooltip::after {
-   content: "";
+   content: '';
    position: absolute;
    top: 100%;
    left: 50%;
@@ -421,9 +458,13 @@ a {
    border-color: lightblue transparent transparent transparent;
 }
 
-#copyright a:hover .copyright-tooltip { opacity: 1; }
+#copyright a:hover .copyright-tooltip {
+   opacity: 1;
+}
 
-.summoning-circle { display: none; }
+.summoning-circle {
+   display: none;
+}
 
 /*==========================================================
 Right Click Menu
@@ -445,17 +486,17 @@ Right Click Menu
 #menu li {
    list-style-type: none;
    padding: 2vh 4vh;
-   transition: .2s;
+   transition: 0.2s;
 }
 
 #menu li:hover {
-   text-shadow: 0 .06vh .06vh #262626;
+   text-shadow: 0 0.06vh 0.06vh #262626;
    background-color: #fafafa;
    border-radius: 1vh;
 }
 
 #menu hr {
-   border: .15vh solid #ebebeb;
+   border: 0.15vh solid #ebebeb;
    border-bottom: 0;
 }
 

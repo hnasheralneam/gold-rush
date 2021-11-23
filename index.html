@@ -12,184 +12,74 @@ You won't learn anything from snooping around here. It's main.js you want to loo
       <script src="https://squirrel-314.github.io/digit/main.js" charset="utf-8"></script>
       <!-- Basic -->
       <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon"/>
-      <link class="cssLink" rel="stylesheet" href="styles.css">
+      <link class="cssLink" rel="stylesheet" href="new.css">
       <meta name="description" content=" *Click*... A clicker game all about gold! Buy items, increase revenue, upgrade things, achive acheivements, and get rich!!!">
       <meta charset="utf-8">
       <title>Gold Rush</title>
    </head>
   <body>
-     <!-- Click -->
-      <div class="section">
-         <div class="basic-info-all">
-            <p id="gold-owned" class="basic-info">0 Gold</p>
-            <p id="gold-profits" class="basic-info">0 Gold per Second<br>1 Gold per Click</p>
-         </div>
-         <img id="astroid-image" onclick="collectGold()" src="Images/astroid.png" alt="Gold">
-         <audio controls id="clinck" src="Sounds & Music/clinck.mp3"></audio>
-         <p id="playerName" class="basic-info">NaN's Mine</p>
-      </div>
-      <!-- Words -->
-      <div class="section">
-         <p id="news">Your lust for gold never ceases to amaze you.</p>
+     <div class="block clickBlock">
+        <div class="gold-info">
+           <p class="gold"></p><img src='Images/retro-coin.gif' alt='Gold!' class='retro-coin'>
+           <p class="gps"></p>
+           <p class="gpc"></p>
+        </div>
+        <img class="astroid" onclick="collectGold()" src="Images/astroid.png" alt="Gold">
+        <audio style="display:none" controls class="clinck" src="Sounds & Music/clinck.mp3"></audio>
+        <p class="playerName"></p>
+     </div>
+     <div class="block upgradeBlock">
+        <p id="news">Your lust for gold never ceases to amaze you.</p>
          <details open id="upgrades">
             <summary>Research</summary>
-            <div id="upgrades">
-               <ul>
-                  <li id="a1" onclick="aResearch(1)" class="UP">
-                     <span class="UP-tooltip">Cost: 200 Gold</span>
-                     <img class="icon" src="Icons/hand.png">
-                     Hand of Fate!
-                     <p class="why">Fate is with you!</p>
-                     <p class="more">Clicking revenue x2</p>
+            <ul class="upgradeList">
+                  <li id="a1" onclick="aResearch(1)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 200 Gold</span>
+                     <img class="upgrade-icon" src="Icons/hand.png">
+                     <p class="upgrade-name">Hand of Fate!</p>
+                     <p class="upgrade-why">Fate is with you!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
                   </li>
-                  <li id="a2" onclick="aResearch(2)" class="UP">
-                     <span class="UP-tooltip">Cost: 500 Gold</span>
-                     <img class="icon" src="Icons/uptool.png">
-                     New Tool Material!
-                     <p class="why">Complete with dubious origins!</p>
-                     <p class="more">Clicking revenue x2</p>
+                  <li id="a2" onclick="aResearch(2)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 500 Gold</span>
+                     <img class="upgrade-icon" src="Icons/uptool.png">
+                     <p class="upgrade-name">New Tool Material!</p>
+                     <p class="upgrade-why">Complete with dubious origins!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
                   </li>
-                  <li id="a3" onclick="aResearch(3)" class="UP">
-                     <span class="UP-tooltip">Cost: 2,000 Gold</span>
-                     <img class="icon" src="Icons/hand.png">
-                     Golden Fingers!
-                     <p class="why">Clicking gold with gold!</p>
-                     <p class="more">Clicking revenue x2</p>
+                  <li id="a3" onclick="aResearch(3)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 2,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/hand.png">
+                     <p class="upgrade-name">Golden Fingers!</p>
+                     <p class="upgrade-why">Clicking gold with gold!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
                   </li>
-                  <li id="a4" onclick="aResearch(4)" class="UP">
-                     <span class="UP-tooltip">Cost: 8,000 Gold</span>
-                     <img class="icon" src="Icons/hands.png">
-                     Both Hands!
-                     <p class="why">Double the efficacy!</p>
-                     <p class="more">Clicking revenue x2</p>
+                  <li id="a4" onclick="aResearch(4)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 8,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/hands.png">
+                     <p class="upgrade-name">Both Hands!</p>
+                     <p class="upgrade-why">Double the efficacy!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
                   </li>
-                  <li id="a5" onclick="a5()" class="UP">
-                     <span class="UP-tooltip">Cost: 80,000 Gold</span>
-                     <img class="icon" src="Icons/math.png">
-                     Pickaxe Exponents!
-                     <p class="why">Clicking to the nth power!</p>
-                     <p class="more">Clicking revenue x pickaxe count</p>
+                  <li id="a5" onclick="a5()" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 80,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/math.png">
+                     <p class="upgrade-name">Pickaxe Exponents!</p>
+                     <p class="upgrade-why">Clicking to the nth power!</p>
+                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
                   </li>
-                  <li id="a6" onclick="a6()" class="UP">
-                     <span class="UP-tooltip">Cost: 280,000 Gold</span>
-                     <img class="icon" src="Icons/question.png">
-                     Clicking Conundrum!
-                     <p class="why">A complicated math problem that increases efficacy(don't ask me)!</p>
-                     <p class="more">Clicking revenue x pickaxe count</p>
-                  </li>
-
-                  <li id="b1" onclick="research('b1', 'pickaxe')" class="UP">
-                     <span class="UP-tooltip">Cost: 750 Gold</span>
-                     <img class="icon" src="Icons/check.png">
-                     Sharper Pickaxes!
-                     <p class="why">This statement has not been evaluated by the Food and Drug Administration!</p>
-                     <p class="more">Pickaxe profit x2</p>
-                  </li>
-                  <li id="b2" onclick="research('b2', 'pickaxe')" class="UP">
-                     <span class="UP-tooltip">Cost: 2,000 Gold</span>
-                     <img class="icon" src="Icons/neww.png">
-                     New Element!
-                     <p class="why">Pickaxium works 3x better than competing brands!</p>
-                     <p class="more">Pickaxe profit x2</p>
-                  </li>
-                  <li id="b3" onclick="research('b3', 'pickaxe')" class="UP">
-                     <span class="UP-tooltip">Cost: 5,000 Gold</span>
-                     <img class="icon" src="Icons/set.png">
-                     Automatic Mechanisms!
-                     <p class="why">These pickaxes will mine by themselves!(watching them work may be slightly disconcerting)</p>
-                     <p class="more">Pickaxe profit x2</p>
-                  </li>
-                  <li id="b4" onclick="research('b4', 'pickaxe')" class="UP">
-                     <span class="UP-tooltip">Cost: 8,000 Gold</span>
-                     <img class="icon" src="Icons/gear.png">
-                     Self-oiling Gears!
-                     <p class="why">Make them work so fast they blur!(safety gear recommended)</p>
-                     <p class="more">Pickaxe profit x2</p>
+                  <li id="a6" onclick="a6()" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 280,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/question.png">
+                     <p class="upgrade-name">Clicking Conundrum!</p>
+                     <p class="upgrade-why">A complicated math problem that increases efficacy(don't ask me)!</p>
+                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
                   </li>
 
-                  <li id="c1" onclick="research('c1', 'dwarf')" class="UP">
-                     <span class="UP-tooltip">Cost: 1,250 Gold</span>
-                     <img class="icon" src="Icons/school.png">
-                     Dwarf Academy!
-                     <p class="why">Complete with posh students!</p>
-                     <p class="more">Dwarf profits x2</p>
-                  </li>
-                  <li id="c2" onclick="research('c2', 'dwarf')" class="UP">
-                     <span class="UP-tooltip">Cost: 3,200 Gold</span>
-                     <img class="icon" src="Icons/manager.png">
-                     Dwarf Managers!
-                     <p class="why">Down with the worker unions!</p>
-                     <p class="more">Dwarf profits x2</p>
-                  </li>
-                  <li id="c3" onclick="research('c3', 'dwarf')" class="UP">
-                     <span class="UP-tooltip">Cost: 5,000 Gold</span>
-                     <img class="icon" src="Icons/caf.png">
-                     Mysterious Cafeteria Food!
-                     <p class="why">Your workers will become mysteriously obedient!</p>
-                     <p class="more">Dwarf profits x2</p>
-                  </li>
-                  <li id="c4" onclick="research('c4', 'dwarf')" class="UP">
-                     <span class="UP-tooltip">Cost: 15,000 Gold</span>
-                     <img class="icon" src="Icons/holiday.png">
-                     Paid Holidays!
-                     <p class="why">There's nothing someone won't do when you give them paid holidays!</p>
-                     <p class="more">Dwarf profits x2</p>
-                  </li>
-
-                  <li id="c01" onclick="research('c01', 'goose')" class="UP">
-                     <span class="UP-tooltip">Cost: 25,000 Gold</span>
-                     <img class="icon" src="Icons/food.png">
-                     Healthier Diets!
-                     <p class="why">Make sure they get all the nutrients they need!</p>
-                     <p class="more">Geese profits x2</p>
-                  </li>
-                  <li id="c02" onclick="research('c02', 'goose')" class="UP">
-                     <span class="UP-tooltip">Cost: 50,000 Gold</span>
-                     Larger Flocks!
-                     <p class="why">More geese, more eggs!</p>
-                     <p class="more">Geese profits x2</p>
-                  </li>
-                  <li id="c03" onclick="research('c03', 'goose')" class="UP">
-                     <span class="UP-tooltip">Cost: 80,000 Gold</span>
-                     <img class="icon" src="Icons/mind.png">
-                     Advanced Mental Abilities!
-                     <p class="why">Dark magic is your greatest friend!</p><p class="more">Geese profits x2</p>
-                  </li>
-                  <li id="c04" onclick="research('c04', 'goose')" class="UP">
-                     <span class="UP-tooltip">Cost: 160,000 Gold</span>
-                     <img class="icon" src="Icons/box.png">
-                     Bigger Nesting Boxes!
-                     <p class="why">I don't even know how this will help!</p>
-                     <p class="more">Geese profits x2</p>
-                  </li>
-
-                  <li id="d1" onclick="research('d1', 'mine')" class="UP">
-                     <span class="UP-tooltip">Cost: 60,000 Gold</span>
-                     Deeper Mines!
-                     <p class="why">Far over, the misty mountains cold...</p>
-                     <p class="more">Mine profits x2</p>
-                  </li>
-                  <li id="d2" onclick="research('d2', 'mine')" class="UP">
-                     <span class="UP-tooltip">Cost: 120,000 Gold</span>
-                     <img class="icon" src="Icons/new.png">
-                     Wider Mineshafts!
-                     <p class="why">Five feet wide the door and three may walk abreast...</p>
-                     <p class="more">Mine profits x2</p>
-                  </li>
-                  <li id="d3" onclick="research('d3', 'mine')" class="UP">
-                     <span class="UP-tooltip">Cost: 240,000  Gold</span>
-                     <img class="icon" src="Icons/globe.png">
-                     Journey to the Center of the Earth!
-                     <p class="why">(let's hope that isn't copyrighted)</p>
-                     <p class="more">Mine profits x2</p>
-                  </li>
-                  <li id="d4" onclick="research('d4', 'mine')" class="UP">
-                     <span class="UP-tooltip">Cost: 500,000 Gold</span>
-                     <img class="icon" src="Icons/globe.png">
-                     Holy Earth!
-                     <p class="why">The Earth is now so riddled with holes, the ground is constantly being torn apart by earthquakes!</p>
-                     <p class="more">Mine profits x2</p>
-                  </li>
+                  
+                  
+<!-- createUpgradeElement("d", 1, "mine", "", "Deeper Mines!", "Far over, the misty mountains cold... (Read The Hobbit)", "Mine profit x2");
+ -->
 
                   <li id="e1" onclick="research('e1', 'dragon')" class="UP">
                      <span class="UP-tooltip">Cost: 500,000 Gold Gold</span>
@@ -385,9 +275,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
                   <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li> -->
                   <br><br>
                </ul>
-            </div>
          </details>
-         <details id="game-info">
+         <details class="game-info">
             <summary>Gold Profits</summary>
             <p class="goldPer" id="gpm">0 Gold Per Minute</p>
             <p class="goldPer" id="g0pher">0 Gold Per Hour</p>
@@ -408,32 +297,31 @@ You won't learn anything from snooping around here. It's main.js you want to loo
                <div class="set-div set-div-small" onclick="restart()">RESTART
                   <p class="set-info">Undo all your progress, irreversibly.</p>
                </div>
-               <div class="set-div set-div-small" onclick="light()">Classic
-                  <p class="set-info">Return to the Light theme</p>
-               </div>
-               <div class="set-div set-div-small" onclick="dark()">Jet
-                  <p class="set-info">Change to the Dark theme</p>
-               </div>
-               <div class="set-div set-div-small" onclick="modern()">Modern
-                  <p class="set-info">Change to the Modern theme</p>
-               </div>
-               <div class="set-div set-div-small" onclick="asiya()">Asiya
-                  <p class="set-info">Change to the Asiya theme</p>
-               </div>
                <div class="set-div set-div-small" onclick="music()">MUSIC
                   <p class="set-info">Turn the amazing music on or off</p>
                </div>
-               <audio id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
+               <audio style="display: none;" id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
             </div>
          </details>
          <details id="ad">
             <summary>Ad</summary>
             Get your consumerism 70% percent off today! Limited time offer! (Not including tax and outrageous shipping prices)
          </details>
-      </div>
-      <!-- Store -->
-      <div class="section">
-         <div class="store-item" id="bTool" onclick="bTool()">
+         <details class="summoning-circle">
+            <summary>Summoning Circle</summary>
+            <h3>Summoning Circles</h3>
+            <p class="summoning-level">Level: 1</p>
+            <p class="summoning-product">Producing: Pickaxes</p>
+            <p class="summoning-time">Time: 24 hours</p>
+            <p class="summoning-amount">Amount: 1</p>
+            <p class="summoning-storage">Storage: 1</p>
+            
+            <p class="summoning-time-left">Storage: 1</p>
+            <p class="summoning-in-storage">Storage: 1</p>
+         </details>
+     </div>
+     <div class="block buildingBlock">
+        <div class="store-item" id="bTool" onclick="bTool()">
             <p class="store-display" id="tool-display"></p>
             <p class="store-info" id="tool-info"></p>
          </div>
@@ -481,13 +369,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="store-display" id="merger-display"></p>
             <p class="store-info" id="merger-info"></p>
          </div>
-         <div class="summoning-circle">
-            <h3>Summoning Circles</h3>
-            <p class="summoning-producing">Producing: Dwarves</p>
-            <p class="summoning-time">Time: 24 hours</p>
-            <p class="summoning-amount">Amount: 1</p>
-         </div>
-      </div>
+     </div>
+     </div>
       <div class="alert" onclick="flipRotateAlert()"></div>
       <p id="copyright">
          <a href="https://meetsquirrel.github.io"><span class="copyright-tooltip">My personal site, with other games!</span> Learn More</a> |
