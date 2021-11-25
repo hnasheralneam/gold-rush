@@ -82,6 +82,7 @@ const initialGameData = {
 // Player Stuff
    playerName: null,
    theme: "classic",
+   timeUntil: "off",
 // Time
    lastTick: Date.now(),
    startTime: null
@@ -218,8 +219,7 @@ let bonusNumber = 1;
 function collectGold() {
    addGold(gameData.clickinGold);
    gameData.clicks += 1;
-   // Make clink sounds
-   document.getElementById("clinck").play();
+   document.querySelector(".clinck").play();
 }
 
 // Spacebar gold
@@ -483,7 +483,8 @@ var updateStore = window.setInterval(function() {
    // Gold per Building & Building Count
    function updateDisplay(item, type, itemName, text) {
       document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName}s: ${toWord(gameData[item.toLowerCase() + "Number"])} <br> ${toWord(gameData[item.toLowerCase() + "Profit"])} GPS <br> Producing ${toWord(gameData[item.toLowerCase() + "Gold"])} GPS<br> ${text}`;
-      document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${(getPercent(gameData[item.toLowerCase() + "Gold"], goldPerSecond())).toFixed(3)}% of Profits`;
+      if (timeUntilAffordable(gameData[type + item + "Cost"]) === "Sufficient funds!" || gameData.timeUntil === "off") { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${(getPercent(gameData[item.toLowerCase() + "Gold"], goldPerSecond())).toFixed(3)}% of Profits`; }
+      else { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${(getPercent(gameData[item.toLowerCase() + "Gold"], goldPerSecond())).toFixed(3)}% of Profits <br> ${timeUntilAffordable(gameData[type + item + "Cost"])}`; }
    }
    gameData.goldSpent = gameData.totalGold - gameData.gold;
    // Display gold per minuite, hour, day, month, and year
@@ -510,19 +511,58 @@ function flipRotateAlert() {
    setTimeout(removeAlertClass => document.querySelector(".alert").classList.remove("flip-rotate-alert"), 8000)
 }
 
+function timeUntilAffordable(gold) {
+   let goldNeeded = gold - gameData.gold;
+   if (goldNeeded < 0) { return "Sufficient funds!"; }
+   let secondsLeft = Math.round(goldNeeded/goldPerSecond());
+   if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
+   let hours = Math.floor(secondsLeft / 3600);
+   let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
+   let seconds = secondsLeft - (minutes * 60);
+   if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds until affordable`; }
+   else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds until affordable`; }
+   else { return `${seconds} Seconds until affordable`; }
+}
+
+function calcTimeUntil(gold) {
+   let goldNeeded = gold - gameData.gold;
+   if (goldNeeded < 0) { return "Sufficient funds!"; }
+   return Math.round(goldNeeded/goldPerSecond());
+}
+
+function getTimeDisplay(secondsLeft) {
+   if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
+   let hours = Math.floor(secondsLeft / 3600);
+   let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
+   let seconds = secondsLeft - (minutes * 60);
+   if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds`; }
+   else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds`; }
+   else { return `${seconds} Seconds`; }
+}
+
 //==========================================================
 // Summoning Circle
 //==========================================================
 
 const summoningData = {
    level: 1,
-   product: "pickaxes",
+   product: "pickaxe",
    time: [24, "hours"],
    amount: 1,
    storage: 1,
    timeReady: "Not Started",
    timeLeft: "Not Started",
-   inStorage: 0
+   inStorage: 0,
+   // Times
+   storage1Ready: Infinity,
+   storage2Ready: Infinity,
+   storage3Ready: Infinity,
+   storage4Ready: Infinity,
+   storage5Ready: Infinity,
+   storage6Ready: Infinity,
+   storage7Ready: Infinity,
+   storage8Ready: Infinity,
+   storage9Ready: Infinity
 }
 
 setInterval(() => {
@@ -542,12 +582,61 @@ setInterval(() => {
 
 function summoningProductionIsReady() { summoningData.inStorage++; }
 function collectSummoningStorage() {
-   // add pickaxes to number
-   summoningData.inStorage = 0;
-   startNewSummoningProduction();
+   if (summoningData.inStorage === summoningData.storage) {
+      gameData[summoningData.product + "Number"] += summoningData.inStorage;
+      summoningData.inStorage = 0;
+      startNewSummoningProduction();
+   }
 }
 function startNewSummoningProduction() {
+   for (let i = summoningData.storage; i > 0; i--) {
+      let timeUntil = getSummoningTime() * i;
+      console.log(timeUntil,  Date.now());
+      summoningData[`storage${i}Ready`] = Date.now() + timeUntil;
+      console.log(summoningData[`storage${i}Ready`]/.0000036);
+   }
    // set time and everything
+}
+
+function getSummoningTime() {
+   if (summoningData.time[1] === "hours") { return summoningData.time[0] * .0000036; }
+}
+
+
+
+
+
+
+
+
+
+// minutes until affordable
+
+function displayTime(endTime, display) {
+   if (!Number.isFinite(endTime)) { return; }
+   let timeDisplay = document.querySelector(display);
+   let countDownInterval;
+   let secondsLeftms;
+   let setCountDown = (endTime) => {
+      secondsLeftms = endTime - Date.now();
+      let secondsLeft = Math.round(secondsLeftms / 1000);
+      let hours = Math.floor(secondsLeft / 3600);
+      let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
+      let seconds = secondsLeft % 60;
+      if (secondsLeft < 0) { resetCountDown(); return; }
+      if (hours < 10) { hours = `0${hours}`; }
+      if (minutes < 10) { minutes = `0${minutes}`; }
+      if (seconds < 10) { seconds = `0${seconds}`; }
+      timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+   };
+   if (Date.now() < endTime) {
+      setCountDown(endTime);
+      countDownInterval = setInterval(() => { setCountDown(endTime); }, 1000);
+   }
+   function resetCountDown() {
+      clearInterval(countDownInterval);
+      timeDisplay.textContent = '00:00:00';
+   }
 }
 
 //==========================================================
@@ -596,6 +685,11 @@ function save() {
 let myAudio = document.getElementById("myAudio");
 function music() { return myAudio.paused ? myAudio.play() : myAudio.pause(); };
 
+function timeUntil() {
+   if (gameData.timeUntil === "off") { gameData.timeUntil = "on"; }
+   else { gameData.timeUntil = "off"; }
+}
+
 // Save
 document.addEventListener("keydown", function(e) {
    // If player is on a Mac, use Cmd + S
@@ -605,9 +699,7 @@ document.addEventListener("keydown", function(e) {
    }
 }, false);
 
-function getPercent(val, totalVal) {
-   return val/totalVal*100;
-}
+function getPercent(val, totalVal) { return val/totalVal*100; }
 
 //==========================================================
 // Right Click Button
@@ -661,14 +753,16 @@ let luckyRoll = window.setInterval(function() {
    // Good Luck (15% chance)
    if (rand > .85) {
       callAlert(`${["Large underground gold reserve found!", "Old Ican temple with vast stores of gold found!"][Math.floor(Math.random() * 2)]} Gold earnings x${bonusAmount} for 30 seconds!`);
-      document.getElementsByClassName("gold-info")[0].classList.add("basic-info-pumped");
-      document.getElementsByClassName("gold-info")[1].classList.add("basic-info-pumped");
+      document.getElementsByClassName("click-info")[0].classList.add("basic-info-pumped");
+      document.getElementsByClassName("click-info")[1].classList.add("basic-info-pumped");
+      document.getElementsByClassName("click-info")[2].classList.add("basic-info-pumped");
       bonusNumber = bonusAmount;
       setTimeout(resetBonus, 30000);
       function resetBonus() {
          bonusNumber = 1;
-         document.getElementsByClassName("gold-info")[0].classList.remove("basic-info-pumped");
-         document.getElementsByClassName("gold-info")[1].classList.remove("basic-info-pumped");
+         document.getElementsByClassName("click-info")[0].classList.remove("basic-info-pumped");
+         document.getElementsByClassName("click-info")[1].classList.remove("basic-info-pumped");
+         document.getElementsByClassName("click-info")[2].classList.remove("basic-info-pumped");
       }
    }
 }, 300000) // 5 minutes (Change this to varible)
@@ -687,7 +781,7 @@ setTimeout(() => {
       `You dream of golden sheep in a golden meadow eating golden grass.`,
       `You dream of golden dragons flying high through golden clouds in a golden sky with the golden setting sun.`,
       `Breaking News: Under threat of closing the press, journalist tells the semi-truth!`,
-      //`News: `,
+      `News: You magnanimously donate $10 to some random charity.`,
       //`News: `,
    ]
    pickaxeNews = [
@@ -713,7 +807,7 @@ setTimeout(() => {
    gooseNews = [
       `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
       `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
-      //`News: `,
+      `You have a pet goose called Henrieta.`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -752,7 +846,7 @@ setTimeout(() => {
    ]
    stationNews = [
       `News: Major astroid mining station slams into Earth, impacted country enraged!`,
-      //`News: `,
+      `News: ${gameData.playerName} gets to cut the ribbon for the first astroid mining station.`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -775,8 +869,8 @@ setTimeout(() => {
       `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
       `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
       `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
-      //`News: `,
-      //`News: `,
+      `News: "Baaaaa", says interviewed golden sheep.`,
+      `News: "Just move a bit to the left and you'll be golden," says photographer to golden sheep.`,
       //`News: `,
       //`News: `,
    ]
