@@ -172,12 +172,15 @@ body {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .block {
-   height: 88vh;
-   margin: 2.5vh 1.25vh;
+   height: 87vh;
+   /* height: 88vh; */
+   margin: 1.5vh .5vh;
+   /* margin: 2.5vh 1.25vh; */
    padding: 1.5vh;
    overflow: auto;
-   background-color: #fff;
+   /* background-color: #000; */
    border-radius: 2.5vh;
+   border: solid .5vh #eee;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -207,12 +210,20 @@ body {
    height: 35vh;
 }
 
+.playerName {
+   margin: 2vh 0;
+   padding: 2vh;
+   font-size: 3.5vh;
+   font-family: "Nunito";
+   background-color: #4287f5;
+   border-radius: 1.5vh;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Upgrade Section
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #news {
-   margin: 2vh 0;
    padding: 2vh;
    font-size: 3.5vh;
    font-family: "Nunito";
@@ -225,7 +236,7 @@ details {
    padding: 2vh;
    font-size: 3.5vh;
    font-family: "Nunito";
-   background-color: #f9f7f2;
+   background-color: #51b1e8;
    border-radius: 1.5vh;
 }
 
@@ -241,10 +252,26 @@ summary {
    background-color: #36e047;
 }
 
+#settings {
+   background-color: #50e667;
+}
+
+#ad {
+   background-color: #4ee3e6;
+}
+
+#upgrades {
+   background-color: #f9f7f2;
+}
+
+#attribution {
+   color: #d9f5ff;
+}
+
 /* Summoning Cicle */
 .summoning-circle {
-   color: #fff;
-   background-color: #4221d1;
+   color: #d9f5ff;
+   background-color: #4d7de3;
 }
 
 /* Settings */
@@ -337,8 +364,11 @@ summary {
 }
 
 .upgrade-icon {
+   position: absolute;
+   top: 1vh;
+   left: 1vh;
    display: inline;
-   height: 4vh;
+   height: 6vh;
 }
 
 .upgrade:hover {
@@ -392,7 +422,7 @@ summary {
    position: relative;
    background-color: #a503fc;
    border-radius: 1.5vh;
-   color: #fff;
+   color: #8a6600;
    font-size: 3.5vh;
    font-family: 'Nunito';
    display: none;
@@ -424,6 +454,23 @@ summary {
 .store-item:hover .store-display {
    transform: scale(0);
    opacity: 0;
+}
+
+.building-img {
+   position: absolute;
+   top: 1.5vh;
+   left: 1.5vh;
+   padding: 1.5vh;
+}
+
+.building-img img {
+   height: 8vh;
+   transition: .1s;
+}
+
+.building-img img:hover {
+   filter: drop-shadow(0 0 .25vh #362800);
+   transform: scale(1.05);
 }
 
 /*==========================================================

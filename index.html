@@ -27,256 +27,7 @@ You won't learn anything from snooping around here. It's main.js you want to loo
         <img class="astroid" onclick="collectGold()" src="Images/astroid.png" alt="Gold">
         <audio style="display:none" controls class="clinck" src="Sounds & Music/clinck.mp3"></audio>
         <p class="playerName"></p>
-     </div>
-     <div class="block upgradeBlock">
-        <p id="news">Your lust for gold never ceases to amaze you.</p>
-         <details open id="upgrades">
-            <summary>Research</summary>
-            <ul class="upgradeList">
-                  <li id="a1" onclick="aResearch(1)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 200 Gold</span>
-                     <img class="upgrade-icon" src="Icons/hand.png">
-                     <p class="upgrade-name">Hand of Fate!</p>
-                     <p class="upgrade-why">Fate is with you!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a2" onclick="aResearch(2)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 500 Gold</span>
-                     <img class="upgrade-icon" src="Icons/uptool.png">
-                     <p class="upgrade-name">New Tool Material!</p>
-                     <p class="upgrade-why">Complete with dubious origins!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a3" onclick="aResearch(3)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 2,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/hand.png">
-                     <p class="upgrade-name">Golden Fingers!</p>
-                     <p class="upgrade-why">Clicking gold with gold!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a4" onclick="aResearch(4)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 8,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/hands.png">
-                     <p class="upgrade-name">Both Hands!</p>
-                     <p class="upgrade-why">Double the efficacy!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a5" onclick="a5()" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 80,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/math.png">
-                     <p class="upgrade-name">Pickaxe Exponents!</p>
-                     <p class="upgrade-why">Clicking to the nth power!</p>
-                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
-                  </li>
-                  <li id="a6" onclick="a6()" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 280,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/question.png">
-                     <p class="upgrade-name">Clicking Conundrum!</p>
-                     <p class="upgrade-why">A complicated math problem that increases efficacy(don't ask me)!</p>
-                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
-                  </li>
-
-                  
-                  
-<!-- createUpgradeElement("d", 1, "mine", "", "Deeper Mines!", "Far over, the misty mountains cold... (Read The Hobbit)", "Mine profit x2");
- -->
-
-                  <li id="e1" onclick="research('e1', 'dragon')" class="UP">
-                     <span class="UP-tooltip">Cost: 500,000 Gold Gold</span>
-                     <img class="icon" src="Icons/insurance.png">
-                     Dragon Gold Insurance!
-                     <p class="why">Switch to dragon gold insurance!</p>
-                     <p class="more">Dragon profits x2</p>
-                  </li>
-                  <li id="e2" onclick="research('e2', 'dragon')" class="UP">
-                     <span class="UP-tooltip">Cost: 1,000,000 Gold</span>
-                     Selective Breeding!
-                     <p class="why">Breed the greediest together, and get GREEDIER DRAGONS!(this may not be a good idea)</p>
-                     <p class="more">Dragon profits x2</p>
-                  </li>
-                  <li id="e3" onclick="research('e3', 'dragon')" class="UP">
-                     <span class="UP-tooltip">Cost: 2,000,000 Gold</span>
-                     <img class="icon" src="Icons/bad.png">
-                     Bad Habits!
-                     <p class="why">Sharing may be caring, but I don't care!</p>
-                     <p class="more">Dragon profits x2</p>
-                  </li>
-                  <li id="e4" onclick="research('e4', 'dragon')" class="UP">
-                     <span class="UP-tooltip">Cost: 5,000,000 Gold</span>
-                     <img class="icon" src="Icons/sick.png">
-                     Dragon Disease!
-                     <p class="why">More gold! MORE GOLD! <strong>MORE GOLD!!!</strong></p>
-                     <p class="more">Dragon profits x2</p>
-                  </li>
-
-                  <li id="f1" onclick="research('f1', 'stone')" class="UP">
-                     <span class="UP-tooltip">Cost: 8,000,000 Gold</span>
-                     <img class="icon" src="Icons/chem.png">
-                     The Flammel Effect!
-                     <p class="why">Discovered by Nicolas Flammel himself!</p>
-                     <p class="more">Philosopher's Stone profits x2</p>
-                  </li>
-                  <li id="f2" onclick="research('f2', 'stone')" class="UP">
-                     <span class="UP-tooltip">Cost: 16,000,000 Gold</span>
-                     <img class="icon" src="Icons/chem.png">
-                     Dark Alchemy!
-                     <p class="why">Uncover secrets that should not be known!</p>
-                     <p class="more">Philosopher's Stone profits x2</p>
-                  </li>
-                  <li id="f3" onclick="research('f3', 'stone')" class="UP">
-                     <span class="UP-tooltip">Cost: 32,000,000 Gold</span>
-                     <img class="icon" src="Icons/chem.png">
-                     Primeval Chemistry!
-                     <p class="why">Tread paths that have not been tread in a thousand millennia!</p>
-                     <p class="more">Philosopher's Stone profits x2</p>
-                  </li>
-                  <li id="f4" onclick="research('f4', 'stone')" class="UP">
-                     <span class="UP-tooltip">Cost: 70,000,000 Gold</span>
-                     Necromancy!
-                     <p class="why">HAHAHAHAHA! (That was supposed to be an evil laugh)</p>
-                     <p class="more">Philosopher's Stone profits x2</p>
-                  </li>
-
-                  <li id="g1" onclick="research('g1', 'station')" class="UP">
-                     <span class="UP-tooltip">Cost: 500,000,000 Gold</span>
-                     Solar Power!
-                     <p class="why">WHY did we not think of this before?</p>
-                     <p class="more">Astroid-mining Station profits x2</p>
-                  </li>
-                  <li id="g2" onclick="research('g2', 'station')" class="UP">
-                     <span class="UP-tooltip">Cost: 1,000,000,000 Gold</span>
-                     <img class="icon" src="Icons/repair.png">
-                     Self Repairing!
-                     <p class="why">Through the power of AI!</p>
-                     <p class="more">Astroid-mining Station profits x2</p>
-                  </li>
-                  <li id="g3" onclick="research('g3', 'station')" class="UP">
-                     <span class="UP-tooltip">Cost: 2,000,000,000 Gold</span>
-                     <img class="icon" src="Icons/bot.png">
-                     Nanobot Minions!
-                     <p class="why">Evil at your fingertips! (let the power get to your head!)</p>
-                     <p class="more">Astroid-mining Station profits x2</p>
-                  </li>
-                  <li id="g4" onclick="research('g4', 'station')" class="UP">
-                     <span class="UP-tooltip">Cost: 5,000,000,000 Gold</span>
-                     Space Dust Condenser!
-                     <p class="why">Create Asteroids!</p>
-                     <p class="more">Astroid-mining Station profits x2</p>
-                  </li>
-
-                  <li id="h1" onclick="research('h1', 'leprechaun')" class="UP">
-                     <span class="UP-tooltip">Cost: 1,600,000,000 Gold</span>
-                     Leprechaun Hierarchy!
-                     <p class="why">Allows for working class!</p>
-                     <p class="more">Leprechaun profits x2</p>
-                  </li>
-                  <li id="h2" onclick="research('h2', 'leprechaun')" class="UP">
-                     <span class="UP-tooltip">Cost: 2,400,000,000 Gold</span>
-                     <img class="icon" src="Icons/rainbow.png">
-                     9 Colour Rainbow!
-                     <p class="why">Infrared, red, orange, goldish, yellow, green, blue, purple, ultraviolet!</p>
-                     <p class="more">Leprechaun profits x2</p>
-                  </li>
-                  <li id="h3" onclick="research('h3', 'leprechaun')" class="UP">
-                     <span class="UP-tooltip">Cost: 4,800,000,000 Gold</span>
-                     Invisible Cauldrons!
-                     <p class="why">No more stealing from leprechauns!</p>
-                     <p class="more">Leprechaun profits x2</p>
-                  </li>
-                  <li id="h4" onclick="research('h4', 'leprechaun')" class="UP">
-                  <span class="UP-tooltip">Cost: 10,000,000,000 Gold</span>
-                     Leprechaun Subuniversal Secrets!
-                     <p class="why">They are coming, and with them they bring tomatoes.</p>
-                     <p class="more">Leprechaun profits x2</p>
-                  </li>
-
-                  <li id="i1" onclick="research('i1', 'sheep')" class="UP">
-                     <span class="UP-tooltip">Cost: 200,000,000,000 Gold</span>
-                     Bubble Baths!
-                     <p class="why">Give that fleece a nice good cleaning!</p>
-                     <p class="more">Golden Sheep profits x2</p>
-                  </li>
-                  <li id="i2" onclick="research('i2', 'sheep')" class="UP">
-                     <span class="UP-tooltip">Cost: 400,000,000,000 Gold</span>
-                     Merino Sheep!
-                     <p class="why">Only the finest wool for your lordship!</p>
-                     <p class="more">Golden Sheep profits x2</p>
-                  </li>
-                  <li id="i3" onclick="research('i3', 'sheep')" class="UP">
-                  <span class="UP-tooltip">Cost: 800,000,000,000 Gold</span>
-                     Fluffy Paddocks!
-                     <p class="why">The scientists said it makes more wool!</p>
-                     <p class="more">Golden Sheep profits x2</p>
-                  </li>
-                  <li id="i4" onclick="research('i4', 'sheep')" class="UP">
-                  <span class="UP-tooltip">Cost: 1,600,000,000,000 Gold</span>
-                     Alternate Sheep Universe!
-                     <p class="why">The sheep that come through are not the same, but have more wool!</p>
-                     <p class="more">Golden Sheep profits x2</p>
-                  </li>
-
-                  <li id="j1" onclick="research('j1', 'ray')" class="UP">
-                     <span class="UP-tooltip">Cost: 4,000,000,000,000 Gold</span>
-                     <img class="icon" src="Icons/energy.png">
-                     Recouped Kinetic Energy!
-                     <p class="why">MORE POWER!</p>
-                     <p class="more">Mass Ray profits x2</p>
-                  </li>
-                  <li id="j2" onclick="research('j2', 'ray')" class="UP">
-                     <span class="UP-tooltip">Cost: 8,000,000,000,000 Gold</span>
-                     <img class="icon" src="Icons/energy.png">
-                     Atomic Rearrangement!
-                     <p class="why">Rearrange those atoms!</p>
-                     <p class="more">Mass Ray profits x2</p>
-                  </li>
-                  <li id="j3" onclick="research('j3', 'ray')" class="UP">
-                     <span class="UP-tooltip">Cost: 16,000,000,000,000 Gold</span>
-                     <img class="icon" src="Icons/energy.png">
-                     Electron Extraction!
-                     <p class="why">Collect the electrons! Who cares about radioactive ion waste!</p>
-                     <p class="more">Mass Ray profits x2</p>
-                  </li>
-                  <li id="j4" onclick="research('j4', 'merger')" class="UP">
-                     <span class="UP-tooltip">Cost: 32,000,000,000,000 Gold</span>
-                     Proton-Neutron Re-thingy!
-                     <p class="why">I don't know, I'm not a scientist!</p>
-                     <p class="more">Mass Ray profits x2</p>
-                  </li>
-
-                  <li id="k1" onclick="research('k1', 'merger')" class="UP">
-                     <span class="UP-tooltip">Cost: 50,000,000,000,000 Gold</span>
-                     Particle Reconstructor!
-                     <p class="why">Building neutron stars from the ground up!</p>
-                     <p class="more">Neutron Star Merger profits x2</p>
-                  </li>
-                  <li id="k2" onclick="research('k2', 'merger')" class="UP">
-                     <span class="UP-tooltip">Cost: 100,000,000,000,000 Gold</span>
-                     Advanced Magnets!
-                     <p class="why">Increase the collision force!</p>
-                     <p class="more">Neutron Star Merger profits x2</p>
-                  </li>
-                  <li id="k3" onclick="research('k3', 'merger')" class="UP">
-                     <span class="UP-tooltip">Cost: 200,000,000,000,000 Gold</span>
-                     Hydrolic Densifier!
-                     <p class="why">Hydro-powered condensers!</p>
-                     <p class="more">Neutron Star Merger profits x2</p>
-                  </li>
-                  <li id="k4" onclick="research('k4', 'merger')" class="UP">
-                     <span class="UP-tooltip">Cost: 500,000,000,000,000 Gold</span>
-                     Strange Star Collisions!
-                     <p class="why">This may cause unexpected results, such as <strong>Otherworldly</strong> occurrences.</p>
-                     <p class="more">Neutron Star Merger profits x2</p>
-                  </li>
-
-                  <!-- <li aria-label="Cost 100 Gold" id="l1" onclick="l1()" class="UP">Gold Monopoly!<p class="why">Mine, ALL MINE!(pun intended)</p><p class="more">All profits x2</p></li>
-                  <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
-                  <li aria-label="Cost 120,000,000,000,000 Gold" id="otherworldPortal" onclick="otherworldPortal()" class="UP">The Otherworld Portal<p class="why">A whole new world! (Terms and Conditions may apply)</p><p class="more">Don't do it.</p></li>
-
-                  <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li> -->
-                  <br><br>
-               </ul>
-         </details>
-         <details class="game-info">
+        <details class="game-info">
             <summary>Gold Profits</summary>
             <p class="goldPer" id="gpm">0 Gold Per Minute</p>
             <p class="goldPer" id="g0pher">0 Gold Per Hour</p>
@@ -287,6 +38,63 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="goldPer" id="totalGold">0 Lifetime Gold Profits</p>
             <p class="totalGoldSpent goldPer">You have invested 0 gold.</p>
             <p class="timeSinceStarted goldPer">You've been playing since 2020</p>
+        </details>
+     </div>
+     <div class="block upgradeBlock">
+        <p id="news">Your lust for gold never ceases to amaze you.</p>
+         <details open id="upgrades">
+            <summary>Research</summary>
+            <ul class="upgradeList">
+                  <li id="a1" onclick="aResearch(1)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 200 Gold</span>
+                     <img class="upgrade-icon" src="Icons/toolbox.png">
+                     <p class="upgrade-name">Hand of Fate!</p>
+                     <p class="upgrade-why">Fate is with you!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
+                  </li>
+                  <li id="a2" onclick="aResearch(2)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 500 Gold</span>
+                     <img class="upgrade-icon" src="Icons/toolbox.png">
+                     <p class="upgrade-name">New Tool Material!</p>
+                     <p class="upgrade-why">Complete with dubious origins!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
+                  </li>
+                  <li id="a3" onclick="aResearch(3)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 2,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/toolbox.png">
+                     <p class="upgrade-name">Golden Fingers!</p>
+                     <p class="upgrade-why">Clicking gold with gold!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
+                  </li>
+                  <li id="a4" onclick="aResearch(4)" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 8,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/toolbox.png">
+                     <p class="upgrade-name">Both Hands!</p>
+                     <p class="upgrade-why">Double the efficacy!</p>
+                     <p class="upgrade-more">Clicking revenue x2</p>
+                  </li>
+                  <li id="a5" onclick="a5()" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 80,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/toolbox.png">
+                     <p class="upgrade-name">Pickaxe Exponents!</p>
+                     <p class="upgrade-why">Clicking to the nth power!</p>
+                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
+                  </li>
+                  <li id="a6" onclick="a6()" class="upgrade">
+                     <span class="upgrade-tooltip">Cost: 280,000 Gold</span>
+                     <img class="upgrade-icon" src="Icons/toolbox.png">
+                     <p class="upgrade-name">Clicking Conundrum!</p>
+                     <p class="upgrade-why">A complicated math problem that increases efficacy(don't ask me)!</p>
+                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
+                  </li>
+
+                  <!-- <li aria-label="Cost 100 Gold" id="l1" onclick="l1()" class="UP">Gold Monopoly!<p class="why">Mine, ALL MINE!(pun intended)</p><p class="more">All profits x2</p></li>
+                  <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+                  <li aria-label="Cost 120,000,000,000,000 Gold" id="otherworldPortal" onclick="otherworldPortal()" class="UP">The Otherworld Portal<p class="why">A whole new world! (Terms and Conditions may apply)</p><p class="more">Don't do it.</p></li>
+
+                  <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li> -->
+                  <br><br>
+               </ul>
          </details>
          <details id="settings">
             <summary>Settings</summary>
@@ -324,6 +132,21 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="summoning-time-left">Storage: 1</p>
             <p class="summoning-in-storage">Storage: 1</p>
          </details>
+        <details id="attribution">
+            <summary>Icon Attribution</summary>
+            <div>Toolbox icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Pickaxe icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Dwarf icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Goose icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Mine icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Dragon icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Stone icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Satalite icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Leprechaun icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Sheep icon made by <a href="https://www.flaticon.com/authors/vichanon-chaimsuk" title="Vichanon Chaimsuk">Vichanon Chaimsuk</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Ray icon made by <a href="https://www.flaticon.com/authors/juicy-fish" title="juicy_fish">juicy_fish</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Merger icon made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+         </details>
      </div>
      <div class="block buildingBlock">
         <div class="store-item" id="bTool" onclick="bTool()">
@@ -333,46 +156,57 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          <div class="store-item" id="buyPickaxe" onclick="acquireAsset('pickaxe', 'buyPickaxe', 58)">
             <p class="store-display" id="pickaxe-display"></p>
             <p class="store-info" id="pickaxe-info"></p>
+            <span class="building-img"><img src="Icons/pickaxe.png"></span>
          </div>
          <div class="store-item" id="hireDwarf" onclick="acquireAsset('dwarf', 'hireDwarf', 279)">
             <p class="store-display" id="dwarf-display"></p>
             <p class="store-info" id="dwarf-info"></p>
+            <span class="building-img"><img src="Icons/dwarf.png"></span>
          </div>
          <div class="store-item" id="hireGoose" onclick="acquireAsset('goose', 'hireGoose', 10127)">
             <p class="store-display" id="goose-display"></p>
             <p class="store-info" id="goose-info"></p>
+            <span class="building-img"><img src="Icons/goose.png"></span>
          </div>
          <div class="store-item" id="openMine" onclick="acquireAsset('mine', 'openMine', 28351)">
             <p class="store-display" id="mine-display"></p>
             <p class="store-info" id="mine-info"></p>
+            <span class="building-img"><img src="Icons/mine.png"></span>
          </div>
          <div class="store-item" id="hireDragon" onclick="acquireAsset('dragon', 'hireDragon', 201648)">
             <p class="store-display" id="dragon-display"></p>
             <p class="store-info" id="dragon-info"></p>
+            <span class="building-img"><img src="Icons/dragon.png"></span>
          </div>
          <div class="store-item" id="buyStone" onclick="acquireAsset('stone', 'buyStone', 3752186)">
             <p class="store-display" id="stone-display"></p>
             <p class="store-info" id="stone-info"></p>
+            <span class="building-img"><img src="Icons/stone.png"></span>
          </div>
          <div class="store-item" id="openStation" onclick="acquireAsset('station', 'openStation', 287500000)">
             <p class="store-display" id="station-display"></p>
             <p class="store-info" id="station-info"></p>
+            <span class="building-img"><img src="Icons/station.png"></span>
          </div>
          <div class="store-item" id="hireLeprechaun" onclick="acquireAsset('leprechaun', 'hireLeprechaun', 1150000000)">
+            <span class="building-img"><img src="Icons/leprechaun.png"></span>
             <p class="store-display" id="leprechaun-display"></p>
             <p class="store-info" id="leprechaun-info"</p>
          </div>
          <div class="store-item" id="hireSheep" onclick="acquireAsset('sheep', 'hireSheep', 287500000000)">
             <p class="store-display" id="sheep-display"></p>
             <p class="store-info" id="sheep-info"></p>
+            <span class="building-img"><img src="Icons/sheep.png"></span>
          </div>
          <div class="store-item" id="buyRay" onclick="acquireAsset('ray', 'buyRay', 2300000000000)">
             <p class="store-display" id="ray-display"></p>
             <p class="store-info" id="ray-info"></p>
+            <span class="building-img"><img src="Icons/ray.png"></span>
          </div>
          <div class="store-item" id="buyMerger" onclick="acquireAsset('merger', 'buyMerger', 230000000000000)">
             <p class="store-display" id="merger-display"></p>
             <p class="store-info" id="merger-info"></p>
+            <span class="building-img"><img src="Icons/merger.png"></span>
          </div>
      </div>
      </div>
