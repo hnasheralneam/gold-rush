@@ -329,7 +329,7 @@ function createUpgradeElement(letter, num, item, src, name, about) {
    upgradeBlock.appendChild(title);
    let why = document.createElement("P");
    why.classList.add("upgrade-why");
-   why.textContent = about;
+   why.innerHTML = about;
    upgradeBlock.appendChild(why);
    let description = document.createElement("P");
    description.classList.add("upgrade-more");
@@ -547,7 +547,7 @@ function timeUntilAffordable(gold) {
    if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
    let hours = Math.floor(secondsLeft / 3600);
    let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
-   let seconds = secondsLeft - (minutes * 60);
+   let seconds = secondsLeft - (minutes * 60) - (hours * 60 * 60);
    if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds until affordable`; }
    else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds until affordable`; }
    else { return `${seconds} Seconds until affordable`; }
@@ -835,9 +835,9 @@ setTimeout(() => {
    ]
    gooseNews = [
       `News: Scientist finally get the government to allow for the genetic modification of geese to make them lay golden eggs, public enraged.`,
-      `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today for the low price of your soul!`,
+      `Ad: Your old hen not laying enough eggs? Your job just not paying the bills? Get your very own GOLDEN GOOSE today, for the low price of your soul!`,
       `You have a pet goose called Henrieta.`,
-      //`News: `,
+      `News: Golden goose released into wild, taking the habitats of native geese!`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -867,7 +867,7 @@ setTimeout(() => {
       `News: Geologist strongly against turning rocks into gold; "You shall not steal our invaluable specimens!"`,
       `News: Throught an aminzing feat of alchemy, Mt. Everest is turned into gold. Locals thoroughly bothered: "Do you know how hard it is to live with a hunk of gold shimmering in your face CONSTANTLY?"`,
       `News: "NO, these philosophers stones DO NOT give longer lives." say exasperated representative of ${gameData.playerName} Industries to over enthusiastic crowd.`,
-      //`News: `,
+      `News: Scientist lose philosophers stone, having trouble finding it. "I mean, its just a normal rock," says scientist`,
       //`News: `,
       //`News: `,
       //`News: `,
@@ -876,7 +876,7 @@ setTimeout(() => {
    stationNews = [
       `News: Major astroid mining station slams into Earth, impacted country enraged!`,
       `News: ${gameData.playerName} gets to cut the ribbon for the first astroid mining station.`,
-      //`News: `,
+      `News: Astroid mineing stations becoming popular vacation locations.`,
       //`News: `,
       //`News: `,
       //`News: `,
