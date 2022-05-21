@@ -1,0 +1,370 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Global
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+* {
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   font-size: 2.5vh;
+}
+
+body {
+   display: grid;
+   grid-template-columns: 33.333% 33.333% 33.333%;
+   background-image: url("https://previews.123rf.com/images/nadiinko/nadiinko1808/nadiinko180800072/112037430-modern-simple-geometric-vector-seamless-pattern-with-gold-line-texture-on-white-background-light-abs.jpg");
+   background-size: 20vh;
+}
+
+::-webkit-scrollbar { display: none; }
+::selection { background-color: transparent; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Alert
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.alert {
+   position: absolute;
+   bottom: 8vh;
+   right: 10vh;
+   height: 12vh;
+   width: 32vh;
+   background-color: #fff;
+   color: #494949;
+   border: outset #d2332e 1vh;
+   border-radius: 1.2vh;
+   padding: 1.5vh;
+   font-family: Helvetica, sans-serif;
+   opacity: 0;
+   transition: transform 1.5s;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.flip-rotate-alert {
+   animation: flip-rotate-alert 6s;
+   pointer-events: none;
+}
+
+@keyframes flip-rotate-alert {
+   0% {
+      transform: rotate(0deg) translate(0) scale(1);
+      opacity: 1;
+   }
+   25% {
+      transform: rotate(-35deg) translate(-20vh, -50vh) scale(0.6);
+      opacity: 0;
+   }
+   100% {
+      transform: rotate(0deg) translate(0) scale(1);
+      opacity: 0;
+   }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Sections
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.block {
+   height: 90vh;
+   margin: 0;
+   padding: 1.5vh;
+   overflow: auto;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Click Section
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.gold-info {
+   padding: 2vh 1vh;
+   color: #2A57FA;
+   background-color: #f8fbff;
+   border-radius: 1.5vh;
+}
+
+.click-info {
+   font-size: 3vh;
+   font-family: "Nunito";
+}
+
+.gold {
+   font-family: "Nunito";
+   font-weight: 700;
+   font-size: 4vh;
+   display: inline-block;
+}
+
+.retro-coin {
+   height: 5vh;
+   display: inline;
+   margin-bottom: -1vh;
+}
+
+.astroid {
+   margin: 6vh 0;
+   height: 35vh;
+}
+
+.playerName {
+   margin: 2vh 0;
+   padding: 2vh;
+   font-size: 3.5vh;
+   font-family: "Nunito";
+   background-color: #A3A3FD;
+   border-radius: 1.5vh;
+}
+
+.basic-info-pumped {
+   animation: flashgold-text 0.5s infinite alternate;
+}
+
+@keyframes flashgold-text {
+   0% { text-shadow: 0 0 1vh #ffdf00; }
+   100% { text-shadow: 0 0 3vh #ffdf00; }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Upgrade Section
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#news {
+   padding: 2vh;
+   font-size: 3.5vh;
+   font-family: "Nunito";
+   background-color: #FDE9A3;
+   border-radius: 1.5vh;
+}
+
+.game-info {
+   background-color: #D0A3FD;
+}
+
+details {
+   margin: 2vh 0;
+   padding: 2vh;
+   font-size: 3.5vh;
+   font-family: "Nunito";
+   border-radius: 1.5vh;
+}
+
+details > summary {
+   list-style: none;
+}
+
+summary {
+   font-size: 4vh;
+}
+
+
+.upgradeList {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100%;
+   padding: 1vh 2vh;
+   box-sizing: border-box;
+   border-radius: 2vh;
+}
+
+/* Settings */
+.set-info {
+   position: relative;
+   top: -100vh;
+   z-index: -1;
+   margin-top: 1vh;
+   transition: all 0.5s 0s;
+   color: #444444;
+   font-size: 2vh;
+   transition-delay: 0.5s;
+}
+
+.set-div:hover .set-info {
+   top: 0;
+   z-index: 1;
+}
+
+.set-div:hover {
+   font-size: 3vh;
+   display: inline-block;
+   height: 15vh;
+}
+
+.set-div {
+   width: 45%;
+   background-color: #fff;
+   display: inline-block;
+   border-radius: 2vh;
+   border: outset #2cd49f 0.8vh;
+   margin: 0.5vh auto;
+   padding: 0.8vh;
+   transition: all 0.5s 0s;
+   overflow: hidden;
+   height: 15vh;
+   color: #444444;
+   font-size: 3.8vh;
+   transition-delay: 0.5s;
+   box-sizing: border-box;
+}
+
+.set-div-small {
+   padding-top: 3.6vh;
+}
+
+.set-div-small:hover {
+   padding-top: 0.8vh;
+}
+
+/* Upgrades */
+.upgrade {
+   border: solid 0.8vh #FACD2A;
+   border-radius: 1vh;
+   background-color: #fefefe;
+   margin: 1vh 0;
+   padding: 2vh 1.5vh;
+   font-size: 3.5vh;
+   display: none;
+   transition: transform 0.5s, box-shadow 0.5s;
+   position: relative;
+   z-index: -0.8;
+   font-weight: 300;
+}
+
+.upgrade-name {
+   font-size: 4.5vh;
+   display: inline-block;
+}
+
+.upgrade-more {
+   font-size: 3.5vh;
+   margin: 0;
+   font-weight: 300;
+}
+
+.upgrade-why {
+   font-size: 2.5vh;
+   margin: 0;
+   font-weight: 300;
+}
+
+.upgrade-icon {
+   position: absolute;
+   top: 1vh;
+   left: 1vh;
+   display: inline;
+   height: 6vh;
+}
+
+.upgrade:hover {
+   transform: scale(0.98);
+   box-shadow: 0 0 0.5vh #6D5500;
+   z-index: 1;
+}
+
+.upgrade .upgrade-tooltip {
+   font-size: 3vh;
+   opacity: 0;
+   background-color: #252525;
+   color: #fff;
+   text-align: center;
+   border-radius: 1vh;
+   padding: 2vh 0;
+   position: absolute;
+   z-index: -1;
+   top: 115%;
+   right: -1.2vh;
+   left: -1.2vh;
+   transition: 0.2s;
+   pointer-events: none;
+}
+
+.upgrade .upgrade-tooltip::after {
+   content: '';
+   position: absolute;
+   bottom: 100%;
+   left: 50%;
+   margin-left: -1.5vh;
+   border-width: 1.5vh;
+   border-style: solid;
+   border-color: transparent transparent #252525 transparent;
+}
+
+.upgrade:hover .upgrade-tooltip {
+   opacity: 1;
+   z-index: 1;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Building Section
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.store-item {
+   height: 20vh;
+   width: 100%;
+   margin: .5vh 0;
+   padding: .5vh;
+   position: relative;
+   background-color: #a503fc;
+   border-radius: 1.5vh;
+   color: #8a6600;
+   font-size: 3.5vh;
+   font-family: 'Nunito';
+   display: none;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+   box-sizing: border-box;
+}
+
+/* Store item animation */
+.store-info {
+   position: absolute;
+   transform: scale(0);
+   opacity: 0;
+   transition: all 0.5s 0.5s;
+}
+
+.store-item:hover .store-info {
+   transform: scale(1);
+   opacity: 1;
+}
+
+.store-display {
+   transform: scale(1);
+   opacity: 1;
+   transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+}
+
+.store-item:hover .store-display {
+   transform: scale(0);
+   opacity: 0;
+}
+
+.building-img {
+   position: absolute;
+   top: 1.5vh;
+   left: 1.5vh;
+   padding: 1.5vh;
+}
+
+.building-img img {
+   height: 8vh;
+   transition: .1s;
+}
+
+.building-img img:hover {
+   filter: drop-shadow(0 0 .1vh #362800);
+   transform: scale(1.05);
+}
+
+/*==========================================================
+Links
+==========================================================*/
+
+a {
+   text-decoration: none;
+   color: inherit;
+   font-size: inherit;
+}

@@ -995,15 +995,13 @@ window.onload = function() {
 }
 
 function gameSetup() {
-   document.querySelector(".dark-shadow").style.display = "block";
-   document.querySelector(".welcome").style.display = "flex";
+   document.querySelector(".introduction").style.display = "block";
    document.querySelector(".name-input").addEventListener("keyup", function(event) {
       if (event.keyCode === 13) {
          event.preventDefault();
          gameData.playerName = document.querySelector(".name-input").value;
-         document.querySelector(".dark-shadow").style.display = "none";
-         document.querySelector(".welcome").style.display = "none";
-         document.getElementById("playerName").innerHTML = gameData.playerName + "'s Mine";
+         document.querySelector(".introduction").style.display = "none";
+         document.querySelector(".playerName").textContent = gameData.playerName + "'s Mine";
       }
    });
    let date = new Date();

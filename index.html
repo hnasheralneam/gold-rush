@@ -5,20 +5,22 @@ You won't learn anything from snooping around here. It's main.js you want to loo
 <html lang="en" dir="ltr">
    <head>
       <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
       <!-- numtoword.js (Made it meself) -->
       <script src="https://squirrel-314.github.io/digit/main.js" charset="utf-8"></script>
       <!-- Basic -->
       <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon"/>
-      <link class="cssLink" rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="ol'styles.css">
       <meta name="description" content=" *Click*... A clicker game all about gold! Buy items, increase revenue, upgrade things, achive acheivements, and get rich!!!">
       <meta charset="utf-8">
       <title>Gold Rush</title>
    </head>
-  <body>
-     <div class="block clickBlock">
+   <body>
+      <div class="block clickBlock">
         <div class="gold-info click-info">
            <p class="gold"></p><img src='Images/retro-coin.gif' alt='Gold!' class='retro-coin'>
            <p class="gps click-info"></p>
@@ -39,12 +41,22 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="totalGoldSpent goldPer">You have invested 0 gold.</p>
             <p class="timeSinceStarted goldPer">You've been playing since 2020</p>
         </details>
-     </div>
-     <div class="block upgradeBlock">
-        <p id="news">Your lust for gold never ceases to amaze you.</p>
-         <details open id="upgrades">
-            <summary>Research</summary>
-            <ul class="upgradeList">
+      </div>
+      <div class="block upgradeBlock">
+      <!-- Windows -->
+      <div class="um-1">
+         <div class="tab-bar">
+            <div class="tab tab-research active-tab" onclick="scrollToSection('research')"><span class="material-symbols-rounded">biotech</span></div>
+            <div class="tab tab-settings" onclick="scrollToSection('settings')"><span class="material-symbols-rounded">settings</span></div>
+            <div class="tab tab-ad" onclick="scrollToSection('ad')"><span class="material-symbols-rounded">verified</span></div>
+            <div class="tab tab-circles" onclick="scrollToSection('circles')"><span class="material-symbols-rounded">radio_button_unchecked</span></div>
+            <div class="tab tab-attribution" onclick="scrollToSection('attribution')"><span class="material-symbols-rounded">attribution</span></div>
+            <!-- <div class="tab tab-achievments" onclick="scrollToSection('achievments')"><span class="material-symbols-rounded">stars</span></div> -->
+         </div>   
+         <div class="tab-pages">
+            <div class="page" id="page-research">
+               <h1 class="big-title">Research</h1>
+               <ul class="upgradeList">
                   <li id="a1" onclick="aResearch(1)" class="upgrade">
                      <span class="upgrade-tooltip">Cost: 200 Gold</span>
                      <img class="upgrade-icon" src="Icons/toolbox.png">
@@ -94,60 +106,76 @@ You won't learn anything from snooping around here. It's main.js you want to loo
 
                   <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li> -->
                </ul>
-         </details>
-         <details id="settings">
-            <summary>Settings</summary>
-            <div id="settings">
-               <div class="set-div set-div-small" onclick="save()">SAVE
-                  <p class="set-info">Save (autosaves every minute)</p>
-               </div>
-               <div class="set-div set-div-small" onclick="restart()">RESTART
-                  <p class="set-info">Undo all your progress, irreversibly.</p>
-               </div>
-               <div class="set-div set-div-small" onclick="music()">MUSIC
-                  <p class="set-info">Turn the amazing music on or off</p>
-               </div>
-               <div class="set-div set-div-small" onclick="timeUntil()">TIME UNTIL
-                  <p class="set-info">Shows how much time until somthing's affordable</p>
-               </div>
-               <audio style="display: none;" id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
             </div>
-         </details>
-         <details id="ad">
-            <summary>Ad</summary>
-            Get your consumerism 70% percent off today! Limited time offer! (Not including tax and outrageous shipping prices)
-         </details>
-         <details class="summoning-circle">
-            <summary>Summoning Circle</summary>
-            <h3>Summoning Circles</h3>
-            <p class="summoning-level">Level: 1</p>
-            <p class="summoning-product">Producing: Pickaxes</p>
-            <p class="summoning-time">Time: 24 hours</p>
-            <p class="summoning-amount">Amount: 1</p>
-            <p class="summoning-storage">Storage: 1</p>
-            
-            <button onclick="collectSummoningStorage()">Collect items in Storage</button>
-            
-            <p class="summoning-time-left">Storage: 1</p>
-            <p class="summoning-in-storage">Storage: 1</p>
-         </details>
-        <details id="attribution">
-            <summary>Icon Attribution</summary>
-            <div>Toolbox icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Pickaxe icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Dwarf icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Goose icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Mine icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Dragon icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Stone icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Satalite icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Leprechaun icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Sheep icon made by <a href="https://www.flaticon.com/authors/vichanon-chaimsuk" title="Vichanon Chaimsuk">Vichanon Chaimsuk</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Ray icon made by <a href="https://www.flaticon.com/authors/juicy-fish" title="juicy_fish">juicy_fish</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            <div>Merger icon made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-         </details>
-     </div>
-     <div class="block buildingBlock">
+            <div class="page" id="page-settings">
+               <h1 class="big-title">Settings</h1>
+               <div id="settings">
+                  <div class="set-div set-div-small" onclick="save()">SAVE
+                     <p class="set-info">Save (autosaves every minute)</p>
+                  </div>
+                  <div class="set-div set-div-small" onclick="restart()">RESTART
+                     <p class="set-info">Undo all your progress, irreversibly.</p>
+                  </div>
+                  <div class="set-div set-div-small" onclick="music()">MUSIC
+                     <p class="set-info">Turn the amazing music on or off</p>
+                  </div>
+                  <div class="set-div set-div-small" onclick="timeUntil()">TIME UNTIL
+                     <p class="set-info">Shows how much time until somthing's affordable</p>
+                  </div>
+                  <audio style="display: none;" id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
+               </div>
+            </div>
+            <div class="page" id="page-ad">
+               <h1 class="big-title">Ad</h1>
+               <p class="ad-text">Get your consumerism 70% percent off today! Limited time offer! (Not including tax and outrageous shipping prices)</p>
+            </div>
+            <div class="page" id="page-circles">
+               <h1 class="big-title">Summoning Circles</h1>
+               <p class="summoning-level">Level: 1</p>
+               <p class="summoning-product">Producing: Pickaxes</p>
+               <p class="summoning-time">Time: 24 hours</p>
+               <p class="summoning-amount">Amount: 1</p>
+               <p class="summoning-storage">Storage: 1</p>
+               <button onclick="collectSummoningStorage()">Collect items in Storage</button>
+               <p class="summoning-time-left">Storage: 1</p>
+               <p class="summoning-in-storage">Storage: 1</p>
+            </div>
+            <div class="page" id="page-attribution">
+               <h1 class="big-title">Icon Attribution</h1>
+               <div>Toolbox icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Pickaxe icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Dwarf icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Goose icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Mine icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Dragon icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Stone icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Satalite icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Leprechaun icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Sheep icon made by <a href="https://www.flaticon.com/authors/vichanon-chaimsuk" title="Vichanon Chaimsuk">Vichanon Chaimsuk</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Ray icon made by <a href="https://www.flaticon.com/authors/juicy-fish" title="juicy_fish">juicy_fish</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               <div>Merger icon made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            </div>
+            <!-- <div class="page" id="page-achievments">
+               <h1 class="big-title">Invites Sent</h1>
+               <p>You want these people to be your friend.</p>
+            </div> -->
+         </div>
+      </div>
+      
+
+      <script>
+         function scrollToSection(id) {
+            document.querySelector(`#page-${id}`).scrollIntoView();
+            document.querySelector(`.active-tab`).classList.remove("active-tab");
+            document.querySelector(`.tab-${id}`).classList.add("active-tab");
+         }
+         </script>
+
+
+
+         <p id="news">Your lust for gold never ceases to amaze you.</p>
+      </div>
+      <div class="block buildingBlock">
         <div class="store-item" id="bTool" onclick="bTool()">
             <p class="store-display" id="tool-display"></p>
             <p class="store-info" id="tool-info"></p>
@@ -207,32 +235,38 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="store-info" id="merger-info"></p>
             <span class="building-img"><img src="Icons/merger.png"></span>
          </div>
-     </div>
-     </div>
+      </div>
+      </div>
       <div class="alert" onclick="flipRotateAlert()"></div>
-      <p id="copyright">
+      <div class="copyright">
          <a href="https://meetsquirrel.github.io"><span class="copyright-tooltip">My personal site, with other games!</span> Learn More</a> |
          <a href="https://squirrel-314.github.io/vegetable-dash/index.html"><span class="copyright-tooltip">Another great game, with more images!</span> Vegetable Dash!</a> |
-         <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/"><span class="copyright-tooltip">Check out the newsletter!</span> Hillside Township</a> |
+         <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/"><span class="copyright-tooltip">Check out the newsletter!</span> Hillside</a> |
          <a href="https://github.com/Squirrel-314/squirrel-314.github.io"><span class="copyright-tooltip">See the code!</span> GitHub</a> |
          Copyright © <span id="copE-right">16/11/2020</span> Meeeeee
-      </p>
-   </body>
-   <div id="menu">
-         <li class="menu-links"><a href="https://meetsquirrel.github.io">Meet Squirrel!</a></li>
-         <li class="menu-links"><a href="https://vegetable-dash.herokuapp.com/">Vegetable Dash!</a></li>
-         <hr>
-         <li class="menu-links"><a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a></li>
-   </div>
-   <div class="dark-shadow"></div>
-   <div class="welcome">
-      <div class="welcome-content">
-         <h1>Welcome to Gold Rush!</h1>
-         <p>This is an incremental game. To earn gold, click on the asteroid or the space bar, and when you get enough, invest it in gold producing items. Enjoy the game.</p>
-         <p>What is your name? <br> (don't use your real name)</p>
-         <input class="name-input">
       </div>
+   </body>
+   <!-- Context Menu -->
+   <div id="menu">
+         <li><a href="https://meetsquirrel.github.io">Meet Squirrel!</a></li>
+         <li><a href="https://vegetable-dash.herokuapp.com/">Vegetable Dash!</a></li>
+         <hr>
+         <li><a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a></li>
+         <hr>
+         <li>v0.1.0</li>
+         <!-- 
+            v0.1.0 - Initial release (this)
+          -->
    </div>
+   <!-- Introduction -->
+   <div class="introduction">
+      <img src="Images/wise-turtle.png">
+      <h1>Welcome to Gold Rush!</h1>
+      <p>Hello! I'm Phil, and I'll walk you through how to play! Your goal is to earn money! To start, click the astroid, and when you have enough gold, buy a pickax (on the right)! Let;s go!</p>
+      <p>First, though, what's your name? <br> (don't use your real name)</p>
+      <input class="name-input">
+   </div>
+   <!-- Scripts -->
    <script src="https://www.w3counter.com/tracker.js?id=134512"></script>
    <script src="main.js" charset="utf-8"></script>
 </html>
