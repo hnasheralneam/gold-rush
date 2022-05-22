@@ -6,203 +6,33 @@
 // If you continue you shall get the majority of the game spoiled for you. Also, it's a 'bit' messy
 // Solicitors will be relieved of their sanity
 
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 // Important Varibles
-//==========================================================
-// Default values
-const initialGameData = {
-// Gold
-   gold: 0,
-   totalGold: 0,
-   goldSpent: 0,
-// Clicks
-   clickinGold: 1,
-   upgradeClickCost: 100,
-   goldPerClick: 0,
-   clicks: 0,
-// Tools
-   bToolCost: 10,
-   toolLevel: 1,
-// Pickaxes
-   pickaxeProfit: 0.5,
-   pickaxeGold: 0,
-   buyPickaxeCost: 50,
-   pickaxeNumber: 0,
-// Dwarfs
-   dwarfProfit: 2,
-   dwarfGold: 0,
-   hireDwarfCost: 250,
-   dwarfNumber: 0,
-// Geese
-   gooseProfit: 10,
-   gooseGold: 0,
-   hireGooseCost: 10000,
-   gooseNumber: 0,
-// Gold mines
-   mineProfit: 60,
-   mineGold: 0,
-   openMineCost: 28000,
-   mineNumber: 0,
-// Dragons
-   dragonProfit: 800,
-   dragonGold: 0,
-   hireDragonCost: 200000,
-   dragonNumber: 0,
-// Philosopher's Stones
-   stoneProfit: 10000,
-   stoneGold: 0,
-   buyStoneCost: 3750000,
-   stoneNumber: 0,
-   upgradeStoneCost: 3000000,
-// Astroid-mining Station
-   stationProfit: 85000,
-   stationGold: 0,
-   openStationCost: 250000000,
-   stationNumber: 0,
-// Leprechauns
-   leprechaunProfit: 600000,
-   leprechaunGold: 0,
-   hireLeprechaunCost: 1000000000,
-   leprechaunNumber: 0,
-// Golden Sheep
-   sheepProfit: 10000000,
-   sheepGold: 0,
-   hireSheepCost: 250000000000,
-   sheepNumber: 0,
-// Mass rays
-   rayProfit: 1000000000,
-   rayGold: 0,
-   buyRayCost: 2000000000000,
-   rayNumber: 0,
-// Neutron Star Mergers
-   mergerProfit: 10000000000,
-   mergerGold: 0,
-   buyMergerCost: 200000000000000,
-   mergerNumber: 0,
-// Player Stuff
-   playerName: null,
-   theme: "classic",
-   timeUntil: "off",
-// Time
-   lastTick: Date.now(),
-   startTime: null
-}
-const initialUpgradeData = {
-   a1: false,
-   a1Price: 200,
-   a2: false,
-   a2Price: 500,
-   a3: false,
-   a3Price: 2000,
-   a4: false,
-   a4Price: 8000,
-   a5: false,
-   a5Price: 80000,
-   a6: false,
-   a6Price: 280000,
-   b1: false,
-   b1Price: 750,
-   b2: false,
-   b2Price: 2000,
-   b3: false,
-   b3Price: 5000,
-   b4: false,
-   b4Price: 8000,
-   c1: false,
-   c1Price: 1250,
-   c2: false,
-   c2Price: 3200,
-   c3: false,
-   c3Price: 5000,
-   c4: false,
-   c4Price: 15000,
-   c01: false,
-   c01Price: 25000,
-   c02: false,
-   c02Price: 50000,
-   c03: false,
-   c03Price: 80000,
-   c04: false,
-   c04Price: 160000,
-   d1: false,
-   d1Price: 60000,
-   d2: false,
-   d2Price: 120000,
-   d3: false,
-   d3Price: 240000,
-   d4: false,
-   d4Price: 500000,
-   e1: false,
-   e1Price: 500000,
-   e2: false,
-   e2Price: 1000000,
-   e3: false,
-   e3Price: 2000000,
-   e4: false,
-   e4Price: 5000000,
-   f1: false,
-   f1Price: 8000000,
-   f2: false,
-   f2Price: 16000000,
-   f3: false,
-   f3Price: 32000000,
-   f4: false,
-   f4Price: 70000000,
-   g1: false,
-   g1Price: 500000000,
-   g2: false,
-   g2Price: 1000000000,
-   g3: false,
-   g3Price: 2000000000,
-   g4: false,
-   g4Price: 5000000000,
-   h1: false,
-   h1Price: 1600000000,
-   h2: false,
-   h2Price: 2400000000,
-   h3: false,
-   h3Price: 4800000000,
-   h4: false,
-   h4Price: 10000000000,
-   i1: false,
-   i1Price: 200000000000,
-   i2: false,
-   i2Price: 400000000000,
-   i3: false,
-   i3Price: 800000000000,
-   i4: false,
-   i4Price: 1600000000000,
-   j1: false,
-   j1Price: 4000000000000,
-   j2: false,
-   j2Price: 8000000000000,
-   j3: false,
-   j3Price: 16000000000000,
-   j4: false,
-   j4Price: 32000000000000,
-   k1: false,
-   k1Price: 50000000000000,
-   k2: false,
-   k2Price: 100000000000000,
-   k3: false,
-   k3Price: 200000000000000,
-   k4: false,
-   k4Price: 500000000000000,
-
-   l1: 1,
-   l1Price: 1000000000000,
-   l2: 1,
-   l2Price: 5000000000000,
-
-   otherworldPortalActivationCost: 120000000000000
-}
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Assigning defaults to individual player values
 let gameData = initialGameData;
 let upgradeData = initialUpgradeData;
 
 // All building gold added together
-let goldPerSecond = goldPerSecond => gameData.pickaxeGold + gameData.dwarfGold + gameData.gooseGold + gameData.mineGold + gameData.dragonGold + gameData.stoneGold + gameData.stationGold + gameData.leprechaunGold + gameData.sheepGold + gameData.rayGold + gameData.mergerGold;
+
+function goldPerSecond() {
+   let pickaxeGold = gameData.pickaxeNumber * gameData.pickaxeProfit;
+   let dwarfGold = gameData.dwarfNumber * gameData.dwarfProfit;
+   let gooseGold = gameData.gooseNumber * gameData.gooseProfit;
+   let mineGold = gameData.mineNumber * gameData.mineProfit;
+   let dragonGold = gameData.dragonNumber * gameData.dragonProfit;
+   let stoneGold = gameData.stoneNumber * gameData.stoneProfit;
+   let stationGold = gameData.stationNumber * gameData.stationProfit;
+   let leprechaunGold = gameData.leprechaunNumber * gameData.leprechaunProfit;
+   let sheepGold = gameData.sheepNumber * gameData.sheepProfit;
+   let rayGold = gameData.rayNumber * gameData.rayProfit;
+   let mergerGold = gameData.mergerNumber * gameData.mergerProfit;
+   let allGold = pickaxeGold + dwarfGold + gooseGold + mineGold + dragonGold + stoneGold + stationGold + leprechaunGold + sheepGold + rayGold + mergerGold;
+   return allGold;
+}
 
 // Colors for avilibe or unavalibe buildings
 let regColor = "#ffdc7d";
@@ -211,15 +41,17 @@ let notEnoughColor = "#5e4f24";
 let alert = document.querySelector(".alert");
 let bonusNumber = 1;
 
-//==========================================================
-// Gain Profit
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Clicking
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Add gold by clicking the asteroid
 function collectGold() {
    addGold(gameData.clickinGold);
    gameData.clicks += 1;
-   document.querySelector(".clinck").play();
+   if (gameData.clickSounds == "on") { document.querySelector(".clinck").play(); }
 }
 
 // Spacebar gold
@@ -236,9 +68,11 @@ function addGold(gold) {
    gameData.totalGold = gameData.totalGold + gold;
 }
 
-//==========================================================
-// Acquire Business Assets
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Building Functions
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 function bTool() {
    if (gameData.gold >= gameData.bToolCost) {
@@ -252,91 +86,16 @@ function bTool() {
 function acquireAsset(asset, assetCost, costMultiplier) {
    if (gameData.gold >= gameData[assetCost + "Cost"]) {
       gameData.gold -= gameData[assetCost + "Cost"];
-      gameData[asset + "Gold"] += gameData[asset + "Profit"];
       gameData[assetCost + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
       gameData[asset + "Number"]++;
    }
 }
 
-//==========================================================
-// Upgrades
-//==========================================================
-
-(function () {
-   createUpgradeElement("b", 1, "pickaxe", "pickaxe.png", "Sharper Pickaxes!", "This statement has not been evaluated by the Food and Drug Administration!", "Pickaxe profit x2");
-   createUpgradeElement("b", 2, "pickaxe", "pickaxe.png", "New Element!", "Pickaxium works 3x better than competing brands!", "Pickaxe profit x2");
-   createUpgradeElement("b", 3, "pickaxe", "pickaxe.png", "Automatic Mechanisms!", "These pickaxes will mine by themselves!(watching them work may be slightly disconcerting)", "Pickaxe profit x2");
-   createUpgradeElement("b", 4, "pickaxe", "pickaxe.png", "Self-oiling Gears!", "Make them work so fast they blur!(safety gear recommended)", "Pickaxe profit x2");
-   createUpgradeElement("c", 1, "dwarf", "dwarf.png", "Dwarf Academy!", "Complete with posh students!", "Dwarf profit x2");
-   createUpgradeElement("c", 2, "dwarf", "dwarf.png", "Dwarf Managers!", "Down with the worker unions!", "Dwarf profit x2");
-   createUpgradeElement("c", 3, "dwarf", "dwarf.png", "Mysterious Cafeteria Food!", "Your workers will become mysteriously obedient!", "Dwarf profit x2");
-   createUpgradeElement("c", 4, "dwarf", "dwarf.png", "Paid Holidays!", "There's nothing someone won't do when you give them paid holidays!", "Dwarf profit x2");
-   createUpgradeElement("c0", 1, "goose", "goose.png", "Healthier Diets!", "Make sure they get all the nutrients they need!", "Geese profit x2");
-   createUpgradeElement("c0", 2, "goose", "goose.png", "Larger Flocks!", "More geese, more eggs!", "Geese profit x2");
-   createUpgradeElement("c0", 3, "goose", "goose.png", "Advanced Mental Abilities!", "Dark magic is your greatest friend!", "Geese profit x2");
-   createUpgradeElement("c0", 4, "goose", "goose.png", "Bigger Nesting Boxes!", "I don't even know how this will help!", "Geese profit x2");
-   createUpgradeElement("d", 1, "mine", "mine.png", "Deeper Mines!", "Far over, the misty mountains cold... (Read The Hobbit)", "Mine profit x2");
-   createUpgradeElement("d", 2, "mine", "mine.png", "Smaller Mineshafts!", "Saftey? Comfort? Who cares? Most certiantly not me, sitting here in my mansion. Why, I don't even know if I have clastrophpobia 'cause the smallest space i've ever been is my private limosine.");
-   createUpgradeElement("d", 3, "mine", "mine.png", "Journey to the Center of the Earth!", "(let's hope that isn't copyrighted)", "Mine profit x2");
-   createUpgradeElement("d", 4, "mine", "mine.png", "Holy Earth!", "The Earth is now so riddled with holes, the ground is constantly being torn apart by earthquakes", "Mine profit x2");
-   createUpgradeElement("e", 1, "dragon", "dragon.png", "Dragon Gold Insurance!", "Switch to dragon gold insurance!");
-   createUpgradeElement("e", 2, "dragon", "dragon.png", "Selective Breeding!", "Breed the greediest together, and get GREEDIER DRAGONS!(this may not be a good idea)");
-   createUpgradeElement("e", 3, "dragon", "dragon.png", "Bad Habits!", "Sharing may be caring, but I don't care!");
-   createUpgradeElement("e", 4, "dragon", "dragon.png", "Dragon Disease!", "More gold! MORE GOLD! <strong>MORE GOLD!!!</strong>");
-   createUpgradeElement("f", 1, "stone", "stone.png", "The Flammel Effect!", "Discovered by Nicolas Flammel himself!");
-   createUpgradeElement("f", 2, "stone", "stone.png", "Dark Alchemy!", "Uncover secrets that should not be known!");
-   createUpgradeElement("f", 3, "stone", "stone.png", "Primeval Chemistry!", "Tread paths that have not been tread in a thousand millennia!");
-   createUpgradeElement("f", 4, "stone", "stone.png", "Necromancy!", "HAHAHAHAHA! (That was supposed to be an evil laugh)");
-   createUpgradeElement("g", 1, "station", "station.png", "Solar Power!", "WHY did we not think of this before? All of those double-A Duracell batteries where quite difficult to transport!");
-   createUpgradeElement("g", 2, "station", "station.png", "Self Repairing!", "Through the power of AI!");
-   createUpgradeElement("g", 3, "station", "station.png", "Nanobot Minions!", "Evil at your fingertips! (let the power get to your head!)");
-   createUpgradeElement("g", 4, "station", "station.png", "Space Dust Condenser!", "Create Asteroids!");
-   createUpgradeElement("h", 1, "leprechaun", "leprechaun.png", "Leprechaun Hierarchy!", "Allows for working class!");
-   createUpgradeElement("h", 2, "leprechaun", "leprechaun.png", " 9 Colour Rainbow!", "Infrared, red, orange, goldish, yellow, green, blue, purple, ultraviolet!");
-   createUpgradeElement("h", 3, "leprechaun", "leprechaun.png", "Invisible Cauldrons!", "No more stealing from leprechauns!");
-   createUpgradeElement("h", 4, "leprechaun", "leprechaun.png", "Leprechaun Subuniversal Secrets!", "They are coming, and with them they bring tomatoes.");
-   createUpgradeElement("i", 1, "sheep", "sheep.png", "Bubble Baths!", "Give that fleece a nice good cleaning!");
-   createUpgradeElement("i", 2, "sheep", "sheep.png", "Merino Sheep!", "Only the finest wool for your lordsheep!");
-   createUpgradeElement("i", 3, "sheep", "sheep.png", "Fluffy Paddocks!", "The researchers said it makes more wool!");
-   createUpgradeElement("i", 4, "sheep", "sheep.png", "Alternate Sheep Universe!", "The sheep that come through are not the same, but they have wool!");
-   createUpgradeElement("j", 1, "ray", "ray.png", "Recouped Kinetic Energy!", "MORE POWER!");
-   createUpgradeElement("j", 2, "ray", "ray.png", "Atomic Rearrangement!", "Rearrange those atoms!");
-   createUpgradeElement("j", 3, "ray", "ray.png", "Electron Extraction!", "Collect the electrons! Who cares about radioactive ion waste!");
-   createUpgradeElement("j", 4, "ray", "ray.png", "Proton-Neutron Re-thingy!", "Don't question it, it works!");
-   createUpgradeElement("k", 1, "merger", "merger.png", "Particle Reconstructor!", "Building neutron stars from the ground up!");
-   createUpgradeElement("k", 2, "merger", "merger.png", "Advanced Magnets!", "Increase the collision force!");
-   createUpgradeElement("k", 3, "merger", "merger.png", "Hydrolic Densifier!", "Hydro-powered condensers!");
-   createUpgradeElement("k", 4, "merger", "merger.png", "Strange Star Collisions", "This may cause unexpected results, such as <strong>Otherworldly</strong> occurrences.");
-
-})();
-
-function createUpgradeElement(letter, num, item, src, name, about) {
-   let upgradeBlock = document.createElement("LI");
-   upgradeBlock.id = letter + num;
-   upgradeBlock.classList.add("upgrade");
-   upgradeBlock.onclick = () => { research(`${letter + num}`, item); };
-   let costTooltip = document.createElement("SPAN");
-   costTooltip.textContent = `Cost: ${toWord(upgradeData[letter + num + "Price"], "long")} Gold`;
-   costTooltip.classList.add("upgrade-tooltip");
-   upgradeBlock.appendChild(costTooltip);
-   let icon = document.createElement("IMG");
-   icon.classList.add("upgrade-icon");
-   icon.src = `Icons/${src}`;
-   upgradeBlock.appendChild(icon);
-   let title = document.createElement("P");
-   title.textContent = name;
-   title.classList.add("upgrade-name");
-   upgradeBlock.appendChild(title);
-   let why = document.createElement("P");
-   why.classList.add("upgrade-why");
-   why.innerHTML = about;
-   upgradeBlock.appendChild(why);
-   let description = document.createElement("P");
-   description.classList.add("upgrade-more");
-   description.textContent = `${item} profits x2`;
-   upgradeBlock.appendChild(description);
-   document.querySelector(".upgradeList").appendChild(upgradeBlock);
-}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Research Functions
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 var checkForUpgrades = window.setInterval(function() {
    // Try to change this into a loop
@@ -398,8 +157,8 @@ var checkForUpgrades = window.setInterval(function() {
 
 // Communal Upgrade Function
 function research(number, building) {
-   if (gameData.gold >= upgradeData[number + "Price"]) {
-      gameData.gold -= upgradeData[number + "Price"];
+   if (gameData.gold >= upgradeCosts[number]) {
+      gameData.gold -= upgradeCosts[number];
       gameData[building + "Profit"] *= 2;
       gameData[building + "Gold"] *= 2;
       upgradeData[number] = true;
@@ -407,40 +166,42 @@ function research(number, building) {
    }
 }
 function aResearch(num) {
-   if (gameData.gold >= upgradeData["a" + num + "Price"]) {
-      gameData.gold -= upgradeData["a" + num + "Price"];
+   if (gameData.gold >= upgradeCosts["a" + num]) {
+      gameData.gold -= upgradeCosts["a" + num];
       gameData.clickinGold *= 2;
       upgradeData["a" + num] = true;
       document.getElementById("a" + num).style.display = "none";
    }
 }
 function a5() {
-   if (gameData.gold >= upgradeData.a5Price) {
-      gameData.gold -= upgradeData.a5Price;
+   if (gameData.gold >= upgradeCosts.a5) {
+      gameData.gold -= upgradeCosts.a5;
       gameData.clickinGold *= gameData.pickaxeNumber;
       upgradeData.a5 = true;
       document.getElementById("a5").style.display = "none";
    }
 }
 function a6() {
-   if (gameData.gold >= upgradeData.a6Price) {
-      gameData.gold -= upgradeData.a6Price;
+   if (gameData.gold >= upgradeCosts.a6) {
+      gameData.gold -= upgradeCosts.a6;
       gameData.clickinGold *= gameData.pickaxeNumber;
       upgradeData.a6 = true;
       document.getElementById("a6").style.display = "none";
    }
 }
 
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 // Game Core
-//==========================================================
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 var goldPerSecondLoop = window.setInterval(function() {
    // Current time minus one second ago, set one second ago to now, and add gold for that time
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
    addGold((goldPerSecond() * (diff / 1000) * bonusNumber));
-}, 1000)
+}, 1000);
 
 var buildColorLoop = window.setInterval(function() {
    // If you have half the gold to buy the item, make it visible
@@ -485,7 +246,7 @@ var buildColorLoop = window.setInterval(function() {
    if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) { document.getElementById("buyMerger").style.display = "flex"; }
    if (gameData.gold >= gameData.buyMergerCost) { document.getElementById("buyMerger").style.backgroundColor = regColor; }
    else { document.getElementById("buyMerger").style.backgroundColor = notEnoughColor; }
-}, 500)
+}, 500);
 
 var setThingsRight = window.setInterval(function() {
    if (gameData.gold > 0) { document.title = toWord(gameData.gold) + " Gold | Gold Rush"; }
@@ -493,7 +254,7 @@ var setThingsRight = window.setInterval(function() {
    document.querySelector(".gold").innerHTML = toWord((gameData.gold)) + " Gold";
    document.querySelector(".gps").textContent = `${toWord((goldPerSecond() * bonusNumber))} Gold per Second`;
    document.querySelector(".gpc").textContent = `${toWord(gameData.clickinGold)} Gold per Click`;
-}, 50)
+}, 150);
 
 // This resets the values displayed in the shop
 var updateStore = window.setInterval(function() {
@@ -512,8 +273,8 @@ var updateStore = window.setInterval(function() {
    // Gold per Building & Building Count
    function updateDisplay(item, type, itemName, text) {
       document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName}s: ${toWord(gameData[item.toLowerCase() + "Number"])} <br> ${toWord(gameData[item.toLowerCase() + "Profit"])} GPS <br> Producing ${toWord(gameData[item.toLowerCase() + "Gold"])} GPS<br> ${text}`;
-      if (timeUntilAffordable(gameData[type + item + "Cost"]) === "Sufficient funds!" || gameData.timeUntil === "off") { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${(getPercent(gameData[item.toLowerCase() + "Gold"], goldPerSecond())).toFixed(3)}% of Profits`; }
-      else { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${(getPercent(gameData[item.toLowerCase() + "Gold"], goldPerSecond())).toFixed(3)}% of Profits <br> ${timeUntilAffordable(gameData[type + item + "Cost"])}`; }
+      if (timeUntilAffordable(gameData[type + item + "Cost"]) === "Sufficient funds!" || gameData.timeUntil === "off") { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${percentOfProfits(item)}% of Profits`; }
+      else { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${percentOfProfits(item)}% of Profits <br> ${timeUntilAffordable(gameData[type + item + "Cost"])}`; }
    }
    gameData.goldSpent = gameData.totalGold - gameData.gold;
    // Display gold per minuite, hour, day, month, and year
@@ -526,197 +287,26 @@ var updateStore = window.setInterval(function() {
    document.getElementById("totalGold").innerHTML = toWord(gameData.totalGold) + " Lifetime Gold Profits";
    document.querySelector(".timeSinceStarted").textContent = `You've been playing since ${gameData.startTime}`;
    document.querySelector(".totalGoldSpent").textContent = `You have invested ${toWord(gameData.goldSpent)} gold`;
-}, 500)
+}, 500);
 
-function callAlert(text) {
-   alert.style.opacity = "1";
-   alert.style.pointerEvents = "auto";
-   alert.textContent = text;
-   setTimeout(hideAlert => { alert.style.opacity = "0"; alert.style.pointerEvents = "none"; }, 6000);
-}
-
-function flipRotateAlert() {
-   document.querySelector(".alert").classList.add("flip-rotate-alert");
-   setTimeout(removeAlertClass => document.querySelector(".alert").classList.remove("flip-rotate-alert"), 8000)
-}
-
-function timeUntilAffordable(gold) {
-   let goldNeeded = gold - gameData.gold;
-   if (goldNeeded < 0) { return "Sufficient funds!"; }
-   let secondsLeft = Math.round(goldNeeded/goldPerSecond());
-   if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
-   let hours = Math.floor(secondsLeft / 3600);
-   let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
-   let seconds = secondsLeft - (minutes * 60) - (hours * 60 * 60);
-   if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds until affordable`; }
-   else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds until affordable`; }
-   else { return `${seconds} Seconds until affordable`; }
-}
-
-function calcTimeUntil(gold) {
-   let goldNeeded = gold - gameData.gold;
-   if (goldNeeded < 0) { return "Sufficient funds!"; }
-   return Math.round(goldNeeded/goldPerSecond());
-}
-
-function getTimeDisplay(secondsLeft) {
-   if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
-   let hours = Math.floor(secondsLeft / 3600);
-   let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
-   let seconds = secondsLeft - (minutes * 60);
-   if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds`; }
-   else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds`; }
-   else { return `${seconds} Seconds`; }
-}
-
-//==========================================================
-// Summoning Circle
-//==========================================================
-
-const summoningData = {
-   level: 1,
-   product: "pickaxe",
-   time: [24, "hours"],
-   amount: 1,
-   storage: 1,
-   timeReady: "Not Started",
-   timeLeft: "Not Started",
-   inStorage: 0,
-   // Times
-   storage1Ready: Infinity,
-   storage2Ready: Infinity,
-   storage3Ready: Infinity,
-   storage4Ready: Infinity,
-   storage5Ready: Infinity,
-   storage6Ready: Infinity,
-   storage7Ready: Infinity,
-   storage8Ready: Infinity,
-   storage9Ready: Infinity
-}
-
-setInterval(() => {
-   if (Date.now() >= summoningData.timeReady || summoningData.timeReady === "Not Started") {
-      summoningData.timeReady = "waiting";
-      summoningData.timeLeft = "Not operating";
-      summoningProductionIsReady();
-   }
-   document.querySelector(".summoning-level").textContent = `Level: ${summoningData.level}`;
-   document.querySelector(".summoning-product").textContent = `Producing: ${summoningData.product}`;
-   document.querySelector(".summoning-time").textContent = `Time: ${summoningData.time[0] + " " + summoningData.time[1]}`;
-   document.querySelector(".summoning-amount").textContent = `Amount: ${summoningData.amount}`;
-   document.querySelector(".summoning-storage").textContent = `Storage: ${summoningData.storage}`;
-   document.querySelector(".summoning-time-left").textContent = `Time Left: ${summoningData.timeLeft}`;
-   document.querySelector(".summoning-in-storage").textContent = `In Storage: ${summoningData.inStorage}`;
-}, 1000);
-
-function summoningProductionIsReady() { summoningData.inStorage++; }
-function collectSummoningStorage() {
-   if (summoningData.inStorage === summoningData.storage) {
-      gameData[summoningData.product + "Number"] += summoningData.inStorage;
-      summoningData.inStorage = 0;
-      startNewSummoningProduction();
-   }
-}
-function startNewSummoningProduction() {
-   for (let i = summoningData.storage; i > 0; i--) {
-      let timeUntil = getSummoningTime() * i;
-      console.log(timeUntil,  Date.now());
-      summoningData[`storage${i}Ready`] = Date.now() + timeUntil;
-      console.log(summoningData[`storage${i}Ready`]/.0000036);
-   }
-   // set time and everything
-}
-
-function getSummoningTime() {
-   if (summoningData.time[1] === "hours") { return summoningData.time[0] * .0000036; }
-}
-
-
-
-
-
-
-
-
-
-// minutes until affordable
-
-function displayTime(endTime, display) {
-   if (!Number.isFinite(endTime)) { return; }
-   let timeDisplay = document.querySelector(display);
-   let countDownInterval;
-   let secondsLeftms;
-   let setCountDown = (endTime) => {
-      secondsLeftms = endTime - Date.now();
-      let secondsLeft = Math.round(secondsLeftms / 1000);
-      let hours = Math.floor(secondsLeft / 3600);
-      let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
-      let seconds = secondsLeft % 60;
-      if (secondsLeft < 0) { resetCountDown(); return; }
-      if (hours < 10) { hours = `0${hours}`; }
-      if (minutes < 10) { minutes = `0${minutes}`; }
-      if (seconds < 10) { seconds = `0${seconds}`; }
-      timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-   };
-   if (Date.now() < endTime) {
-      setCountDown(endTime);
-      countDownInterval = setInterval(() => { setCountDown(endTime); }, 1000);
-   }
-   function resetCountDown() {
-      clearInterval(countDownInterval);
-      timeDisplay.textContent = '00:00:00';
-   }
-}
-
-//==========================================================
-// Save
-//==========================================================
-
-// Retrive game data as savegame
-let savegame = {
-   gameData: JSON.parse(localStorage.getItem("gameDataSave")),
-   upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
-}
-
-// If the savegame is empty set game data as savegame
-if (savegame.gameData === null) {
-   savegame.gameData = gameData;
-   savegame.upgradeData = upgradeData;
-}
-
-var saveLoop = window.setInterval(function() { save(); }, 60000)
-
-// Wipe Save
-function restart() {
-   var areYouSure = confirm("Are you SURE you want to restart? This will wipe all your progress!");
-   if (areYouSure === true) {
-      var areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
-      if (areYouReallySure === true) {
-         localStorage.setItem("gameDataSave", JSON.stringify(initialGameData));
-         localStorage.setItem("upgradeDataSave", JSON.stringify(initialUpgradeData));
-         location.reload();
-      }
-   }
-}
-
-// Save, and set save alert
-function save() {
-   localStorage.setItem("gameDataSave", JSON.stringify(gameData));
-   localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
-   callAlert(`Game Saved!`);
-}
-
-//==========================================================
-// Settings & Shortcuts
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Settings
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // Set myAudio to audio file
 let myAudio = document.getElementById("myAudio");
 function music() { return myAudio.paused ? myAudio.play() : myAudio.pause(); };
 
 function timeUntil() {
-   if (gameData.timeUntil === "off") { gameData.timeUntil = "on"; }
-   else { gameData.timeUntil = "off"; }
+   if (gameData.timeUntil === "off") { gameData.timeUntil = "on"; notify("Time Until is now on!"); }
+   else { gameData.timeUntil = "off"; notify("Time Until is now off!") }
+}
+
+function clickSounds() {
+   if (gameData.clickSounds === "off") { gameData.clickSounds = "on"; notify("Clicking Sounds are now active!"); }
+   else { gameData.clickSounds = "off"; notify("Clicking Sounds are now inactive!") }
 }
 
 // Save
@@ -730,15 +320,36 @@ document.addEventListener("keydown", function(e) {
 
 function getPercent(val, totalVal) { return val/totalVal*100; }
 
-//==========================================================
-// Right Click Button
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Helpful Functions
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-let rightClickMenu = document.getElementById("menu").style;
-if (document.addEventListener) {
+// Alerts
+function notify(text) {
+   let alert = document.querySelector(".alert").cloneNode(true);
+   document.querySelector(".alert-box").insertBefore(alert, document.querySelector(".alert-box").firstChild);
+   alert.style.display = "flex";
+   alert.textContent = text;
+   setTimeout(alertAnimation => { alert.classList.add('alertAnimation'); }, 6000);
+   setTimeout(removeAnimation => { alert.classList.remove('alertAnimation');  alert.remove(); }, 7000);
+}
+// notify("Welcome to Dwarf Gold!");
+
+// Scroll to section
+function scrollToSection(id) {
+   document.querySelector(`#page-${id}`).scrollIntoView();
+   document.querySelector(`.active-tab`).classList.remove("active-tab");
+   document.querySelector(`.tab-${id}`).classList.add("active-tab");
+}
+
+// Context Menu
+let rightClickMenu = document.querySelector("#menu").style;
+function contextMenu() {
    document.addEventListener('contextmenu', function(e) {
-      var posX = e.clientX;
-      var posY = e.clientY;
+      let posX = e.clientX;
+      let posY = e.clientY;
       menu(posX, posY);
       e.preventDefault();
    }, false);
@@ -746,42 +357,75 @@ if (document.addEventListener) {
       rightClickMenu.display = "none";
    }, false);
 }
-else {
-   document.attachEvent('oncontextmenu', function(e) {
-      var posX = e.clientX;
-      var posY = e.clientY;
-      menu(posX, posY);
-      e.preventDefault();
-   });
-   document.attachEvent('onclick', function(e) {
-      setTimeout(function() {
-         rightClickMenu.display = "none";
-      }, 501);
-   });
-}
 function menu(x, y) {
    rightClickMenu.top = y + "px";
    rightClickMenu.left = x + "px";
    rightClickMenu.display = "block";
 }
 
-//==========================================================
-// Disasters & Enchancments
-//==========================================================
+// Update Store
+function percentOfProfits(val) {
+   let percent = getPercent(gameData[val.toLowerCase() + "Gold"], goldPerSecond());
+   if (percent.toString().length > 6) { percent = (percent).toFixed(3); }
+   if (!isNaN(percent)) { return percent; }
+   else { return 0; }
+}
+function timeUntilAffordable(gold) {
+   let goldNeeded = gold - gameData.gold;
+   if (goldNeeded < 0) { return "Sufficient funds!"; }
+   let secondsLeft = Math.round(goldNeeded/goldPerSecond());
+   if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
+   let hours = Math.floor(secondsLeft / 3600);
+   let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
+   let seconds = secondsLeft - (minutes * 60) - (hours * 60 * 60);
+   if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds until affordable`; }
+   else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds until affordable`; }
+   else { return `${seconds} Seconds until affordable`; }
+}
+function calcTimeUntil(gold) {
+   let goldNeeded = gold - gameData.gold;
+   if (goldNeeded < 0) { return "Sufficient funds!"; }
+   return Math.round(goldNeeded/goldPerSecond());
+}
+function getTimeDisplay(secondsLeft) {
+   if (secondsLeft === "Sufficient funds!") { return "Sufficient funds!"; }
+   let hours = Math.floor(secondsLeft / 3600);
+   let minutes = Math.floor(secondsLeft / 60) - (hours * 60);
+   let seconds = secondsLeft - (minutes * 60);
+   if (hours > 0) { return `${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds`; }
+   else if (minutes > 0) { return `${minutes} Minutes and ${seconds} Seconds`; }
+   else { return `${seconds} Seconds`; }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Disasters & Enchancements
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 let luckyRoll = window.setInterval(function() {
    let rand = Math.random();
-   let bonusAmount = [1.5, 2, 2.5][Math.floor(Math.random() * 3)];
-   let dwarvesLost = Math.floor(gameData.dwarfNumber / 8);
    // Bad Luck(8% chance)
    if (rand > .92) {
-      callAlert(`A mine shaft collapsed! ${dwarvesLost} dwarfs perished.`);
-      gameData.dwarfGold -= gameData.dwarfProfit;
-      gameData.dwarfNumber -= dwarvesLost;
+      if (gameData.dwarfNumber > 0) {
+         let rand2 = Math.random();
+         if (rand2 > .5) {
+            if (gameData.dwarfNumber > 0) {
+               gameData.dwarfNumber--;
+               notify("A Dwarf has succumbed to the bad luck of the gods!");
+            }
+         }
+         else {
+            let dwarvesLost = Math.floor(Math.random() * 10) + 1;
+            notify(`A mine shaft collapsed! ${dwarvesLost} dwarfs perished.`);
+            gameData.dwarfNumber -= dwarvesLost;
+         }
+      }
    }
    // Good Luck (15% chance)
    if (rand > .85) {
-      callAlert(`${["Large underground gold reserve found!", "Old Ican temple with vast stores of gold found!"][Math.floor(Math.random() * 2)]} Gold earnings x${bonusAmount} for 30 seconds!`);
+      let bonusAmount = [1.5, 2, 2.5][Math.floor(Math.random() * 3)];
+      notify(`${["Large underground gold reserve found!", "Old Ican temple with vast stores of gold found!"][Math.floor(Math.random() * 2)]} Gold earnings x${bonusAmount} for 30 seconds!`);
       document.getElementsByClassName("click-info")[0].classList.add("basic-info-pumped");
       document.getElementsByClassName("click-info")[1].classList.add("basic-info-pumped");
       document.getElementsByClassName("click-info")[2].classList.add("basic-info-pumped");
@@ -796,9 +440,11 @@ let luckyRoll = window.setInterval(function() {
    }
 }, 300000) // 5 minutes (Change this to varible)
 
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
 // News
-//==========================================================
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // This is all of the news
 let allNews = pickaxeNews = dwarfNews = gooseNews = mineNews = dragonNews = stoneNews = stationNews = lepNews = sheepNews = rayNews = mergerNews = richNews = otherNews = [];
@@ -968,9 +614,51 @@ let news = window.setInterval(function (){
    document.getElementById("news").innerHTML = randomNews;
 }, 12000); // Change this to varible
 
-//==========================================================
-// Onload & Game Setup
-//==========================================================
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Save
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Retrive game data as savegame
+let savegame = {
+   gameData: JSON.parse(localStorage.getItem("gameDataSave")),
+   upgradeData: JSON.parse(localStorage.getItem("upgradeDataSave")),
+}
+
+// If the savegame is empty set game data as savegame
+if (savegame.gameData === null) {
+   savegame.gameData = gameData;
+   savegame.upgradeData = upgradeData;
+}
+
+var saveLoop = window.setInterval(function() { save(); }, 60000)
+
+// Wipe Save
+function restart() {
+   var areYouSure = confirm("Are you SURE you want to restart? This will wipe all your progress!");
+   if (areYouSure === true) {
+      var areYouReallySure = confirm("Are you REALLY SURE you want to restart? There is no going back!");
+      if (areYouReallySure === true) {
+         localStorage.setItem("gameDataSave", JSON.stringify(initialGameData));
+         localStorage.setItem("upgradeDataSave", JSON.stringify(initialUpgradeData));
+         location.reload();
+      }
+   }
+}
+
+// Save, and set save alert
+function save() {
+   localStorage.setItem("gameDataSave", JSON.stringify(gameData));
+   localStorage.setItem("upgradeDataSave", JSON.stringify(upgradeData));
+   notify(`Game Saved!`);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+// Onload & Setup
+//
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 // This all runs the moment the page is loaded, and sets up the game
 window.onload = function() {
@@ -991,7 +679,8 @@ window.onload = function() {
    // Display amount earned in abscence
    let diff = Date.now() - gameData.lastTick;
    gameData.lastTick = Date.now();
-   callAlert(`While you were gone you earned ${toWord(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
+   notify(`While you were gone you earned ${toWord(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
+   contextMenu();
 }
 
 function gameSetup() {
@@ -1010,3 +699,4 @@ function gameSetup() {
 
 // Log somthing sarcastic
 console.log(["Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?", "Sssskkkeeeeeeeeee!"][Math.floor(Math.random() * 4)]);
+

@@ -43,136 +43,127 @@ You won't learn anything from snooping around here. It's main.js you want to loo
         </details>
       </div>
       <div class="block upgradeBlock">
-      <!-- Windows -->
-      <div class="um-1">
-         <div class="tab-bar">
-            <div class="tab tab-research active-tab" onclick="scrollToSection('research')"><span class="material-symbols-rounded">biotech</span></div>
-            <div class="tab tab-settings" onclick="scrollToSection('settings')"><span class="material-symbols-rounded">settings</span></div>
-            <div class="tab tab-ad" onclick="scrollToSection('ad')"><span class="material-symbols-rounded">verified</span></div>
-            <div class="tab tab-circles" onclick="scrollToSection('circles')"><span class="material-symbols-rounded">radio_button_unchecked</span></div>
-            <div class="tab tab-attribution" onclick="scrollToSection('attribution')"><span class="material-symbols-rounded">attribution</span></div>
-            <!-- <div class="tab tab-achievments" onclick="scrollToSection('achievments')"><span class="material-symbols-rounded">stars</span></div> -->
-         </div>   
-         <div class="tab-pages">
-            <div class="page" id="page-research">
-               <h1 class="big-title">Research</h1>
-               <ul class="upgradeList">
-                  <li id="a1" onclick="aResearch(1)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 200 Gold</span>
-                     <img class="upgrade-icon" src="Icons/toolbox.png">
-                     <p class="upgrade-name">Hand of Fate!</p>
-                     <p class="upgrade-why">Fate is with you!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a2" onclick="aResearch(2)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 500 Gold</span>
-                     <img class="upgrade-icon" src="Icons/toolbox.png">
-                     <p class="upgrade-name">New Tool Material!</p>
-                     <p class="upgrade-why">Complete with dubious origins!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a3" onclick="aResearch(3)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 2,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/toolbox.png">
-                     <p class="upgrade-name">Golden Fingers!</p>
-                     <p class="upgrade-why">Clicking gold with gold!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a4" onclick="aResearch(4)" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 8,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/toolbox.png">
-                     <p class="upgrade-name">Both Hands!</p>
-                     <p class="upgrade-why">Double the efficacy!</p>
-                     <p class="upgrade-more">Clicking revenue x2</p>
-                  </li>
-                  <li id="a5" onclick="a5()" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 80,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/toolbox.png">
-                     <p class="upgrade-name">Pickaxe Exponents!</p>
-                     <p class="upgrade-why">Clicking to the nth power!</p>
-                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
-                  </li>
-                  <li id="a6" onclick="a6()" class="upgrade">
-                     <span class="upgrade-tooltip">Cost: 280,000 Gold</span>
-                     <img class="upgrade-icon" src="Icons/toolbox.png">
-                     <p class="upgrade-name">Clicking Conundrum!</p>
-                     <p class="upgrade-why">A complicated math problem that increases efficacy(don't ask me)!</p>
-                     <p class="upgrade-more">Clicking revenue x pickaxe count</p>
-                  </li>
-
-                  <!-- <li aria-label="Cost 100 Gold" id="l1" onclick="l1()" class="UP">Gold Monopoly!<p class="why">Mine, ALL MINE!(pun intended)</p><p class="more">All profits x2</p></li>
-                  <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
-                  <li aria-label="Cost 120,000,000,000,000 Gold" id="otherworldPortal" onclick="otherworldPortal()" class="UP">The Otherworld Portal<p class="why">A whole new world! (Terms and Conditions may apply)</p><p class="more">Don't do it.</p></li>
-
-                  <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li> -->
-               </ul>
-            </div>
-            <div class="page" id="page-settings">
-               <h1 class="big-title">Settings</h1>
-               <div id="settings">
-                  <div class="set-div set-div-small" onclick="save()">SAVE
-                     <p class="set-info">Save (autosaves every minute)</p>
-                  </div>
-                  <div class="set-div set-div-small" onclick="restart()">RESTART
-                     <p class="set-info">Undo all your progress, irreversibly.</p>
-                  </div>
-                  <div class="set-div set-div-small" onclick="music()">MUSIC
-                     <p class="set-info">Turn the amazing music on or off</p>
-                  </div>
-                  <div class="set-div set-div-small" onclick="timeUntil()">TIME UNTIL
-                     <p class="set-info">Shows how much time until somthing's affordable</p>
-                  </div>
-                  <audio style="display: none;" id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
+         <!-- Windows -->
+         <div class="um-1">
+            <div class="tab-bar">
+               <div class="tab tab-research active-tab" onclick="scrollToSection('research')"><span class="material-symbols-rounded">biotech</span></div>
+               <div class="tab tab-settings" onclick="scrollToSection('settings')"><span class="material-symbols-rounded">settings</span></div>
+               <div class="tab tab-ad" onclick="scrollToSection('ad')"><span class="material-symbols-rounded">verified</span></div>
+               <div class="tab tab-circles" onclick="scrollToSection('circles')"><span class="material-symbols-rounded">radio_button_unchecked</span></div>
+               <div class="tab tab-attribution" onclick="scrollToSection('attribution')"><span class="material-symbols-rounded">attribution</span></div>
+               <!-- <div class="tab tab-achievments" onclick="scrollToSection('achievments')"><span class="material-symbols-rounded">stars</span></div> -->
+            </div>   
+            <div class="tab-pages">
+               <div class="page" id="page-research">
+                  <h1 class="big-title">Research</h1>
+                  <ul class="upgradeList">
+                     <li id="a1" onclick="aResearch(1)" class="upgrade">
+                        <span class="upgrade-tooltip">Cost: 200 Gold</span>
+                        <img class="upgrade-icon" src="Icons/toolbox.png">
+                        <p class="upgrade-name">Hand of Fate!</p>
+                        <p class="upgrade-why">Fate is with you!</p>
+                        <p class="upgrade-more">Clicking revenue x2</p>
+                     </li>
+                     <li id="a2" onclick="aResearch(2)" class="upgrade">
+                        <span class="upgrade-tooltip">Cost: 500 Gold</span>
+                        <img class="upgrade-icon" src="Icons/toolbox.png">
+                        <p class="upgrade-name">New Tool Material!</p>
+                        <p class="upgrade-why">Complete with dubious origins!</p>
+                        <p class="upgrade-more">Clicking revenue x2</p>
+                     </li>
+                     <li id="a3" onclick="aResearch(3)" class="upgrade">
+                        <span class="upgrade-tooltip">Cost: 2,000 Gold</span>
+                        <img class="upgrade-icon" src="Icons/toolbox.png">
+                        <p class="upgrade-name">Golden Fingers!</p>
+                        <p class="upgrade-why">Clicking gold with gold!</p>
+                        <p class="upgrade-more">Clicking revenue x2</p>
+                     </li>
+                     <li id="a4" onclick="aResearch(4)" class="upgrade">
+                        <span class="upgrade-tooltip">Cost: 8,000 Gold</span>
+                        <img class="upgrade-icon" src="Icons/toolbox.png">
+                        <p class="upgrade-name">Both Hands!</p>
+                        <p class="upgrade-why">Double the efficacy!</p>
+                        <p class="upgrade-more">Clicking revenue x2</p>
+                     </li>
+                     <li id="a5" onclick="a5()" class="upgrade">
+                        <span class="upgrade-tooltip">Cost: 80,000 Gold</span>
+                        <img class="upgrade-icon" src="Icons/toolbox.png">
+                        <p class="upgrade-name">Pickaxe Exponents!</p>
+                        <p class="upgrade-why">Clicking to the nth power!</p>
+                        <p class="upgrade-more">Clicking revenue x pickaxe count</p>
+                     </li>
+                     <li id="a6" onclick="a6()" class="upgrade">
+                        <span class="upgrade-tooltip">Cost: 280,000 Gold</span>
+                        <img class="upgrade-icon" src="Icons/toolbox.png">
+                        <p class="upgrade-name">Clicking Conundrum!</p>
+                        <p class="upgrade-why">A complicated math problem that increases efficacy(don't ask me)!</p>
+                        <p class="upgrade-more">Clicking revenue x pickaxe count</p>
+                     </li>
+   
+                     <!-- <li aria-label="Cost 100 Gold" id="l1" onclick="l1()" class="UP">Gold Monopoly!<p class="why">Mine, ALL MINE!(pun intended)</p><p class="more">All profits x2</p></li>
+                     <li aria-label="Cost 100 Gold" id="l2" onclick="l2()" class="UP">World Domination!<p class="why">You're next, Universe!</p><p class="more">All profits x2</p></li>
+                     <li aria-label="Cost 120,000,000,000,000 Gold" id="otherworldPortal" onclick="otherworldPortal()" class="UP">The Otherworld Portal<p class="why">A whole new world! (Terms and Conditions may apply)</p><p class="more">Don't do it.</p></li>
+   
+                     <li aria-label="Cost 10,000 Otherstars" id="unlockCircle" onclick="unlockCircle()" class="UP">Metaphysics<p class="why">Who knows what primeval powers the philosphers hold?</p><p class="more">????????</p></li> -->
+                  </ul>
                </div>
+               <div class="page" id="page-settings">
+                  <h1 class="big-title">Settings</h1>
+                  <div id="settings">
+                     <div onclick="save()">SAVE
+                        <p>Save (autosaves every minute)</p>
+                     </div>
+                     <div onclick="restart()">RESTART
+                        <p>Undo all your progress, irreversibly.</p>
+                     </div>
+                     <div onclick="music()">MUSIC
+                        <p>Turn the amazing music on or off</p>
+                     </div>
+                     <div onclick="timeUntil()">TIME UNTIL
+                        <p>Shows how much time until somthing's affordable</p>
+                     </div>
+                     <div onclick="clickSounds()">CLICKING SOUNDS
+                        <p>Turn the clicking sounds on or off</p>
+                     </div>
+                     <audio style="display: none;" id="myAudio" src="Sounds & Music/BANJO COUNTRY.mp3" preload="auto" controls loop></audio>
+                  </div>
+               </div>
+               <div class="page" id="page-ad">
+                  <h1 class="big-title">Ad</h1>
+                  <p class="ad-text">Get your consumerism 70% percent off today! Limited time offer! (Not including tax and outrageous shipping prices)</p>
+               </div>
+               <div class="page" id="page-circles">
+                  <h1 class="big-title">Summoning Circles</h1>
+                  <p class="summoning-level">Level: 1</p>
+                  <p class="summoning-product">Producing: Pickaxes</p>
+                  <p class="summoning-time">Time: 24 hours</p>
+                  <p class="summoning-amount">Amount: 1</p>
+                  <p class="summoning-storage">Storage: 1</p>
+                  <button onclick="collectSummoningStorage()">Collect items in Storage</button>
+                  <p class="summoning-time-left">Storage: 1</p>
+                  <p class="summoning-in-storage">Storage: 1</p>
+               </div>
+               <div class="page" id="page-attribution">
+                  <h1 class="big-title">Icon Attribution</h1>
+                  <div>Toolbox icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Pickaxe icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Dwarf icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Goose icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Mine icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Dragon icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Stone icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Satalite icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Leprechaun icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Sheep icon made by <a href="https://www.flaticon.com/authors/vichanon-chaimsuk" title="Vichanon Chaimsuk">Vichanon Chaimsuk</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Ray icon made by <a href="https://www.flaticon.com/authors/juicy-fish" title="juicy_fish">juicy_fish</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                  <div>Merger icon made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+               </div>
+               <!-- <div class="page" id="page-achievments">
+                  <h1 class="big-title">Invites Sent</h1>
+                  <p>You want these people to be your friend.</p>
+               </div> -->
             </div>
-            <div class="page" id="page-ad">
-               <h1 class="big-title">Ad</h1>
-               <p class="ad-text">Get your consumerism 70% percent off today! Limited time offer! (Not including tax and outrageous shipping prices)</p>
-            </div>
-            <div class="page" id="page-circles">
-               <h1 class="big-title">Summoning Circles</h1>
-               <p class="summoning-level">Level: 1</p>
-               <p class="summoning-product">Producing: Pickaxes</p>
-               <p class="summoning-time">Time: 24 hours</p>
-               <p class="summoning-amount">Amount: 1</p>
-               <p class="summoning-storage">Storage: 1</p>
-               <button onclick="collectSummoningStorage()">Collect items in Storage</button>
-               <p class="summoning-time-left">Storage: 1</p>
-               <p class="summoning-in-storage">Storage: 1</p>
-            </div>
-            <div class="page" id="page-attribution">
-               <h1 class="big-title">Icon Attribution</h1>
-               <div>Toolbox icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Pickaxe icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Dwarf icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Goose icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Mine icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Dragon icon made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Stone icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Satalite icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Leprechaun icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Sheep icon made by <a href="https://www.flaticon.com/authors/vichanon-chaimsuk" title="Vichanon Chaimsuk">Vichanon Chaimsuk</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Ray icon made by <a href="https://www.flaticon.com/authors/juicy-fish" title="juicy_fish">juicy_fish</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-               <div>Merger icon made by <a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </div>
-            <!-- <div class="page" id="page-achievments">
-               <h1 class="big-title">Invites Sent</h1>
-               <p>You want these people to be your friend.</p>
-            </div> -->
          </div>
-      </div>
-      
-
-      <script>
-         function scrollToSection(id) {
-            document.querySelector(`#page-${id}`).scrollIntoView();
-            document.querySelector(`.active-tab`).classList.remove("active-tab");
-            document.querySelector(`.tab-${id}`).classList.add("active-tab");
-         }
-         </script>
-
-
-
          <p id="news">Your lust for gold never ceases to amaze you.</p>
       </div>
       <div class="block buildingBlock">
@@ -237,7 +228,6 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          </div>
       </div>
       </div>
-      <div class="alert" onclick="flipRotateAlert()"></div>
       <div class="copyright">
          <a href="https://meetsquirrel.github.io"><span class="copyright-tooltip">My personal site, with other games!</span> Learn More</a> |
          <a href="https://squirrel-314.github.io/vegetable-dash/index.html"><span class="copyright-tooltip">Another great game, with more images!</span> Vegetable Dash!</a> |
@@ -253,11 +243,14 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          <hr>
          <li><a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a></li>
          <hr>
-         <li>v0.1.0</li>
+         <li>v0.1.1</li>
          <!-- 
-            v0.1.0 - Initial release (this)
+            v0.1.0 - Initial release
+            v0.1.1 - Lots of changes, but mostly bug fixes
           -->
    </div>
+   <!-- Alert Box -->
+   <div class="alert-box"><div class="alert alert-cominin">Game Saved!</div></div>
    <!-- Introduction -->
    <div class="introduction">
       <img src="Images/wise-turtle.png">
@@ -268,5 +261,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
    </div>
    <!-- Scripts -->
    <script src="https://www.w3counter.com/tracker.js?id=134512"></script>
+   <script src="Scripts/initalVars.js" charset="utf-8"></script>
+   <script src="Scripts/summoning.js" charset="utf-8"></script>
+   <script src="Scripts/initialize.js" charset="utf-8"></script>
    <script src="main.js" charset="utf-8"></script>
 </html>

@@ -1,77 +1,3 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~
-// Global
-~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-* {
-   margin: 0;
-   padding: 0;
-   text-align: center;
-   font-size: 2.5vh;
-}
-
-body {
-   display: grid;
-   grid-template-columns: 33.333% 33.333% 33.333%;
-   background-image: url("https://previews.123rf.com/images/nadiinko/nadiinko1808/nadiinko180800072/112037430-modern-simple-geometric-vector-seamless-pattern-with-gold-line-texture-on-white-background-light-abs.jpg");
-   background-size: 20vh;
-}
-
-::-webkit-scrollbar { display: none; }
-::selection { background-color: transparent; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~
-// Alert
-~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-.alert {
-   position: absolute;
-   bottom: 8vh;
-   right: 10vh;
-   height: 12vh;
-   width: 32vh;
-   background-color: #fff;
-   color: #494949;
-   border: outset #d2332e 1vh;
-   border-radius: 1.2vh;
-   padding: 1.5vh;
-   font-family: Helvetica, sans-serif;
-   opacity: 0;
-   transition: transform 1.5s;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.flip-rotate-alert {
-   animation: flip-rotate-alert 6s;
-   pointer-events: none;
-}
-
-@keyframes flip-rotate-alert {
-   0% {
-      transform: rotate(0deg) translate(0) scale(1);
-      opacity: 1;
-   }
-   25% {
-      transform: rotate(-35deg) translate(-20vh, -50vh) scale(0.6);
-      opacity: 0;
-   }
-   100% {
-      transform: rotate(0deg) translate(0) scale(1);
-      opacity: 0;
-   }
-}
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~
-// Sections
-~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-.block {
-   height: 90vh;
-   margin: 0;
-   padding: 1.5vh;
-   overflow: auto;
-}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Click Section
@@ -125,22 +51,6 @@ body {
    100% { text-shadow: 0 0 3vh #ffdf00; }
 }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~
-// Upgrade Section
-~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-#news {
-   padding: 2vh;
-   font-size: 3.5vh;
-   font-family: "Nunito";
-   background-color: #FDE9A3;
-   border-radius: 1.5vh;
-}
-
-.game-info {
-   background-color: #D0A3FD;
-}
-
 details {
    margin: 2vh 0;
    padding: 2vh;
@@ -157,6 +67,21 @@ summary {
    font-size: 4vh;
 }
 
+.game-info {
+   background-color: #D0A3FD;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Upgrade Section
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#news {
+   padding: 2vh;
+   font-size: 3.5vh;
+   font-family: "Nunito";
+   background-color: #FDE9A3;
+   border-radius: 1.5vh;
+}
 
 .upgradeList {
    list-style-type: none;
@@ -167,54 +92,6 @@ summary {
    padding: 1vh 2vh;
    box-sizing: border-box;
    border-radius: 2vh;
-}
-
-/* Settings */
-.set-info {
-   position: relative;
-   top: -100vh;
-   z-index: -1;
-   margin-top: 1vh;
-   transition: all 0.5s 0s;
-   color: #444444;
-   font-size: 2vh;
-   transition-delay: 0.5s;
-}
-
-.set-div:hover .set-info {
-   top: 0;
-   z-index: 1;
-}
-
-.set-div:hover {
-   font-size: 3vh;
-   display: inline-block;
-   height: 15vh;
-}
-
-.set-div {
-   width: 45%;
-   background-color: #fff;
-   display: inline-block;
-   border-radius: 2vh;
-   border: outset #2cd49f 0.8vh;
-   margin: 0.5vh auto;
-   padding: 0.8vh;
-   transition: all 0.5s 0s;
-   overflow: hidden;
-   height: 15vh;
-   color: #444444;
-   font-size: 3.8vh;
-   transition-delay: 0.5s;
-   box-sizing: border-box;
-}
-
-.set-div-small {
-   padding-top: 3.6vh;
-}
-
-.set-div-small:hover {
-   padding-top: 0.8vh;
 }
 
 /* Upgrades */

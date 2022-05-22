@@ -1,3 +1,75 @@
+/* 
+//// Key ////
+// Global
+// Sections
+// Settings
+// Center Block
+// Introduction
+// Alert
+// Copyright
+// Context Menu
+*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Global
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+* {
+   margin: 0;
+   padding: 0;
+   text-align: center;
+   font-size: 2.5vh;
+}
+
+body {
+   display: grid;
+   grid-template-columns: 33.333% 33.333% 33.333%;
+   background-image: url("https://previews.123rf.com/images/nadiinko/nadiinko1808/nadiinko180800072/112037430-modern-simple-geometric-vector-seamless-pattern-with-gold-line-texture-on-white-background-light-abs.jpg");
+   background-size: 20vh;
+}
+
+::-webkit-scrollbar { display: none; }
+::selection { background-color: transparent; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Sections
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.block {
+   height: 90vh;
+   margin: 0;
+   padding: 1.5vh;
+   overflow: auto;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Settings
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#settings div {
+   width: 90%;
+   background-color: #ffffffee;
+   display: inline-block;
+   border-radius: 1.25vh;
+   margin: 1vh auto 0 auto;
+   padding: 1.6vh 0.8vh 2vh 0.8vh;
+   color: #444444;
+   font-size: 3.8vh;
+   box-sizing: border-box;
+   border-left: solid 0.8vh #2CD49F;
+   transition: .1s;
+}
+
+#settings div:hover {
+   padding-left: 0.4vh;
+   border-left: solid 1.6vh #2CD49F;
+   box-shadow: 0 0 .5vh #ddd;
+}
+
+#settings p {
+   margin-top: 1vh;
+   font-size: 2.4vh;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Center Block
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -148,6 +220,59 @@
 .name-input:focus {
    outline: none;
    border-bottom: solid .5vh cornflowerblue;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~
+// Alert
+~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.alert-box {
+   pointer-events: none;
+   z-index: 1000000000;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   font-size: 2vh; 
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+}
+
+.alert {
+   display: none;
+   justify-content: center;
+   align-items: center;
+   min-height: 18vh;
+   width: 40vh;
+   font-size: 2.6vh;
+   color: #494949;
+   padding: 2.5vh;
+   margin: 0 1vh 1vh 0;
+   box-sizing: border-box;
+   border: outset #d2332e .8vh;
+   font-family: "Nunito";
+   text-align: center;
+   background-color: #fff;
+   border-radius: 1vh;
+   transition: .3s;
+}
+.alert-cominin {
+   animation: alertCominIn 1.2s forwards;
+}
+.alertAnimation {
+   opacity: 1;
+   transform: scale(1) rotate(0);
+   pointer-events: none;
+   animation: alert-animation 1.2s forwards;
+}
+@keyframes alert-animation {
+   0% { transform: translate(0, 0) scale(1); opacity: 1; }
+   100% { transform: translate(50vh, 0) scale(.8); opacity: .5; }
+}
+@keyframes alertCominIn {
+   0% { transform: translate(50vh, 0) scale(.8); opacity: .5; }
+   100% {transform: translate(0, 0) scale(1); opacity: 1;  }
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
