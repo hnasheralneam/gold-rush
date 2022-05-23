@@ -143,7 +143,7 @@ summary {
 .upgrade .upgrade-tooltip {
    font-size: 3vh;
    opacity: 0;
-   background-color: #252525;
+   background-color: #444;
    color: #fff;
    text-align: center;
    border-radius: 1vh;
@@ -153,6 +153,7 @@ summary {
    top: 115%;
    right: -1.2vh;
    left: -1.2vh;
+   text-decoration: none;
    transition: 0.2s;
    pointer-events: none;
 }
@@ -160,12 +161,12 @@ summary {
 .upgrade .upgrade-tooltip::after {
    content: '';
    position: absolute;
-   bottom: 100%;
+   bottom: 98%;
    left: 50%;
    margin-left: -1.5vh;
    border-width: 1.5vh;
    border-style: solid;
-   border-color: transparent transparent #252525 transparent;
+   border-color: transparent transparent #444 transparent;
 }
 
 .upgrade:hover .upgrade-tooltip {

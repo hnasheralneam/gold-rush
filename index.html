@@ -85,14 +85,14 @@ You won't learn anything from snooping around here. It's main.js you want to loo
                         <p class="upgrade-why">Double the efficacy!</p>
                         <p class="upgrade-more">Clicking revenue x2</p>
                      </li>
-                     <li id="a5" onclick="a5()" class="upgrade">
+                     <li id="a5" onclick="aResearch(5)" class="upgrade">
                         <span class="upgrade-tooltip">Cost: 80,000 Gold</span>
                         <img class="upgrade-icon" src="Icons/toolbox.png">
                         <p class="upgrade-name">Pickaxe Exponents!</p>
                         <p class="upgrade-why">Clicking to the nth power!</p>
                         <p class="upgrade-more">Clicking revenue x pickaxe count</p>
                      </li>
-                     <li id="a6" onclick="a6()" class="upgrade">
+                     <li id="a6" onclick="aResearch(6)" class="upgrade">
                         <span class="upgrade-tooltip">Cost: 280,000 Gold</span>
                         <img class="upgrade-icon" src="Icons/toolbox.png">
                         <p class="upgrade-name">Clicking Conundrum!</p>
@@ -171,57 +171,57 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="store-display" id="tool-display"></p>
             <p class="store-info" id="tool-info"></p>
          </div>
-         <div class="store-item" id="buyPickaxe" onclick="acquireAsset('pickaxe', 'buyPickaxe', 58)">
+         <div class="store-item" id="addPickaxe" onclick="acquireAsset('pickaxe', 58)">
             <p class="store-display" id="pickaxe-display"></p>
             <p class="store-info" id="pickaxe-info"></p>
             <span class="building-img"><img src="Icons/pickaxe.png"></span>
          </div>
-         <div class="store-item" id="hireDwarf" onclick="acquireAsset('dwarf', 'hireDwarf', 279)">
+         <div class="store-item" id="addDwarf" onclick="acquireAsset('dwarf', 279)">
             <p class="store-display" id="dwarf-display"></p>
             <p class="store-info" id="dwarf-info"></p>
             <span class="building-img"><img src="Icons/dwarf.png"></span>
          </div>
-         <div class="store-item" id="hireGoose" onclick="acquireAsset('goose', 'hireGoose', 10127)">
+         <div class="store-item" id="addGoose" onclick="acquireAsset('goose', 10127)">
             <p class="store-display" id="goose-display"></p>
             <p class="store-info" id="goose-info"></p>
             <span class="building-img"><img src="Icons/goose.png"></span>
          </div>
-         <div class="store-item" id="openMine" onclick="acquireAsset('mine', 'openMine', 28351)">
+         <div class="store-item" id="addMine" onclick="acquireAsset('mine', 28351)">
             <p class="store-display" id="mine-display"></p>
             <p class="store-info" id="mine-info"></p>
             <span class="building-img"><img src="Icons/mine.png"></span>
          </div>
-         <div class="store-item" id="hireDragon" onclick="acquireAsset('dragon', 'hireDragon', 201648)">
+         <div class="store-item" id="addDragon" onclick="acquireAsset('dragon', 201648)">
             <p class="store-display" id="dragon-display"></p>
             <p class="store-info" id="dragon-info"></p>
             <span class="building-img"><img src="Icons/dragon.png"></span>
          </div>
-         <div class="store-item" id="buyStone" onclick="acquireAsset('stone', 'buyStone', 3752186)">
+         <div class="store-item" id="addStone" onclick="acquireAsset('stone', 3752186)">
             <p class="store-display" id="stone-display"></p>
             <p class="store-info" id="stone-info"></p>
             <span class="building-img"><img src="Icons/stone.png"></span>
          </div>
-         <div class="store-item" id="openStation" onclick="acquireAsset('station', 'openStation', 287500000)">
+         <div class="store-item" id="addStation" onclick="acquireAsset('station', 287500000)">
             <p class="store-display" id="station-display"></p>
             <p class="store-info" id="station-info"></p>
             <span class="building-img"><img src="Icons/station.png"></span>
          </div>
-         <div class="store-item" id="hireLeprechaun" onclick="acquireAsset('leprechaun', 'hireLeprechaun', 1150000000)">
+         <div class="store-item" id="addLeprechaun" onclick="acquireAsset('leprechaun', 1150000000)">
             <span class="building-img"><img src="Icons/leprechaun.png"></span>
             <p class="store-display" id="leprechaun-display"></p>
             <p class="store-info" id="leprechaun-info"</p>
          </div>
-         <div class="store-item" id="hireSheep" onclick="acquireAsset('sheep', 'hireSheep', 287500000000)">
+         <div class="store-item" id="addSheep" onclick="acquireAsset('sheep', 287500000000)">
             <p class="store-display" id="sheep-display"></p>
             <p class="store-info" id="sheep-info"></p>
             <span class="building-img"><img src="Icons/sheep.png"></span>
          </div>
-         <div class="store-item" id="buyRay" onclick="acquireAsset('ray', 'buyRay', 2300000000000)">
+         <div class="store-item" id="addRay" onclick="acquireAsset('ray', 2300000000000)">
             <p class="store-display" id="ray-display"></p>
             <p class="store-info" id="ray-info"></p>
             <span class="building-img"><img src="Icons/ray.png"></span>
          </div>
-         <div class="store-item" id="buyMerger" onclick="acquireAsset('merger', 'buyMerger', 230000000000000)">
+         <div class="store-item" id="addMerger" onclick="acquireAsset('merger', 230000000000000)">
             <p class="store-display" id="merger-display"></p>
             <p class="store-info" id="merger-info"></p>
             <span class="building-img"><img src="Icons/merger.png"></span>
@@ -243,10 +243,11 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          <hr>
          <li><a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a></li>
          <hr>
-         <li>v0.1.1</li>
+         <li>v0.1.2</li>
          <!-- 
             v0.1.0 - Initial release
             v0.1.1 - Lots of changes, but mostly bug fixes
+            v0.1.2 - Urgent bug fixes, cleaner code
           -->
    </div>
    <!-- Alert Box -->

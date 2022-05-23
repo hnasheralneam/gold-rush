@@ -83,10 +83,10 @@ function bTool() {
    }
 }
 
-function acquireAsset(asset, assetCost, costMultiplier) {
-   if (gameData.gold >= gameData[assetCost + "Cost"]) {
-      gameData.gold -= gameData[assetCost + "Cost"];
-      gameData[assetCost + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
+function acquireAsset(asset, costMultiplier) {
+   if (gameData.gold >= gameData[asset + "Cost"]) {
+      gameData.gold -= gameData[asset + "Cost"];
+      gameData[asset + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
       gameData[asset + "Number"]++;
    }
 }
@@ -160,33 +160,24 @@ function research(number, building) {
    if (gameData.gold >= upgradeCosts[number]) {
       gameData.gold -= upgradeCosts[number];
       gameData[building + "Profit"] *= 2;
-      gameData[building + "Gold"] *= 2;
       upgradeData[number] = true;
       document.getElementById(number).style.display = "none";
    }
 }
 function aResearch(num) {
-   if (gameData.gold >= upgradeCosts["a" + num]) {
+   if (gameData.gold >= upgradeCosts["a" + num] && num < 5) {
       gameData.gold -= upgradeCosts["a" + num];
       gameData.clickinGold *= 2;
       upgradeData["a" + num] = true;
       document.getElementById("a" + num).style.display = "none";
    }
-}
-function a5() {
-   if (gameData.gold >= upgradeCosts.a5) {
-      gameData.gold -= upgradeCosts.a5;
-      gameData.clickinGold *= gameData.pickaxeNumber;
-      upgradeData.a5 = true;
-      document.getElementById("a5").style.display = "none";
-   }
-}
-function a6() {
-   if (gameData.gold >= upgradeCosts.a6) {
-      gameData.gold -= upgradeCosts.a6;
-      gameData.clickinGold *= gameData.pickaxeNumber;
-      upgradeData.a6 = true;
-      document.getElementById("a6").style.display = "none";
+   else {
+      if (gameData.gold >= upgradeCosts[`a${num}`] && num >= 5) {
+         gameData.gold -= upgradeCosts[`a${num}`];
+         gameData.clickinGold *= gameData.pickaxeNumber;
+         upgradeData[`a${num}`] = true;
+         document.getElementById(`a${num}`).style.display = "none";
+      }
    }
 }
 
@@ -204,48 +195,16 @@ var goldPerSecondLoop = window.setInterval(function() {
 }, 1000);
 
 var buildColorLoop = window.setInterval(function() {
-   // If you have half the gold to buy the item, make it visible
-   if (gameData.gold >= (gameData.bToolCost / 2) || gameData.toolLevel >= 1) { document.getElementById("bTool").style.display = "flex"; }
-   // If you have enough gold to buy the item, make the color the avalible color
+   document.getElementById("bTool").style.display = "flex";
    if (gameData.gold >= gameData.bToolCost) { document.getElementById("bTool").style.backgroundColor = regColor; }
-   // Otherwise, make it the unavalible color
    else { document.getElementById("bTool").style.backgroundColor = notEnoughColor; }
-   let pickaxeBox = document.getElementById("buyPickaxe");
-   if (gameData.gold >= (gameData.buyPickaxeCost / 2) || gameData.pickaxeNumber >= 1) { pickaxeBox.style.display = "flex"; }
-   if (gameData.gold >= gameData.buyPickaxeCost) { pickaxeBox.style.backgroundColor = regColor; }
-   else { pickaxeBox.style.backgroundColor = notEnoughColor; }
-   let dwarfBox = document.getElementById("hireDwarf");
-   if (gameData.gold >= (gameData.hireDwarfCost / 2) || gameData.dwarfNumber >= 1) { dwarfBox.style.display = "flex"; }
-   if (gameData.gold >= gameData.hireDwarfCost) { dwarfBox.style.backgroundColor = regColor; }
-   else { dwarfBox.style.backgroundColor = notEnoughColor; }
-   let gooseBox = document.getElementById("hireGoose");
-   if (gameData.gold >= (gameData.hireGooseCost / 2) || gameData.gooseNumber >= 1) { gooseBox.style.display = "flex";  }
-   if (gameData.gold >= gameData.hireGooseCost) { gooseBox.style.backgroundColor = regColor; }
-   else { gooseBox.style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.openMineCost / 2) || gameData.mineNumber >= 1) { document.getElementById("openMine").style.display = "flex"; }
-   if (gameData.gold >= gameData.openMineCost) { document.getElementById("openMine").style.backgroundColor = regColor; }
-   else { document.getElementById("openMine").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.hireDragonCost / 2) || gameData.dragonNumber >= 1) { document.getElementById("hireDragon").style.display = "flex"; }
-   if (gameData.gold >= gameData.hireDragonCost) { document.getElementById("hireDragon").style.backgroundColor = regColor; }
-   else { document.getElementById("hireDragon").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.buyStoneCost / 2) || gameData.stoneNumber >= 1) { document.getElementById("buyStone").style.display = "flex"; }
-   if (gameData.gold >= gameData.buyStoneCost) { document.getElementById("buyStone").style.backgroundColor = regColor; }
-   else { document.getElementById("buyStone").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.openStationCost / 2) || gameData.stationNumber >= 1) { document.getElementById("openStation").style.display = "flex"; }
-   if (gameData.gold >= gameData.openStationCost) { document.getElementById("openStation").style.backgroundColor = regColor; }
-   else { document.getElementById("openStation").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.hireLeprechaunCost / 2) || gameData.leprechaunNumber >= 1) { document.getElementById("hireLeprechaun").style.display = "flex"; }
-   if (gameData.gold >= gameData.hireLeprechaunCost) { document.getElementById("hireLeprechaun").style.backgroundColor = regColor; }
-   else { document.getElementById("hireLeprechaun").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.hireSheepCost / 2) || gameData.sheepNumber >= 1) { document.getElementById("hireSheep").style.display = "flex"; }
-   if (gameData.gold >= gameData.hireSheepCost) { document.getElementById("hireSheep").style.backgroundColor = regColor; }
-   else { document.getElementById("hireSheep").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.buyRayCost / 2) || gameData.rayNumber >= 1) { document.getElementById("buyRay").style.display = "flex"; }
-   if (gameData.gold >= gameData.buyRayCost) { document.getElementById("buyRay").style.backgroundColor = regColor; }
-   else { document.getElementById("buyRay").style.backgroundColor = notEnoughColor; }
-   if (gameData.gold >= (gameData.buyMergerCost / 2) || gameData.mergerNumber >= 1) { document.getElementById("buyMerger").style.display = "flex"; }
-   if (gameData.gold >= gameData.buyMergerCost) { document.getElementById("buyMerger").style.backgroundColor = regColor; }
-   else { document.getElementById("buyMerger").style.backgroundColor = notEnoughColor; }
+
+   ["pickaxe", "dwarf", "goose", "mine", "dragon", "stone", "station", "leprechaun", "sheep", "ray", "merger"].forEach((item) => {
+      let itemBox = document.getElementById("add" + toCap(item));
+      if (gameData.gold >= (gameData[`${item}Cost`] / 2) || gameData[`${item}Number`] >= 1) { itemBox.style.display = "flex"; }
+      if (gameData.gold >= gameData[`${item}Cost`]) { itemBox.style.backgroundColor = regColor; }
+      else { itemBox.style.backgroundColor = notEnoughColor; }
+   });
 }, 500);
 
 var setThingsRight = window.setInterval(function() {
@@ -259,22 +218,29 @@ var setThingsRight = window.setInterval(function() {
 // This resets the values displayed in the shop
 var updateStore = window.setInterval(function() {
    document.getElementById("bTool").innerHTML = "Better Tools<br> Tool Level " + toWord(gameData.toolLevel) + "<br> Cost: " + toWord(gameData.bToolCost) + " Gold";
-   updateDisplay("Pickaxe", "buy", "Pickaxe", "A sturdy pickaxe to mine gold with")
-   updateDisplay("Dwarf", "hire", "Dwarf", "An assistant to help you mine gold")
-   updateDisplay("Goose", "hire", "Goose", "A nice goose that lays golden egg")
-   updateDisplay("Mine", "open", "Mine", "A new mine to mine gold in")
-   updateDisplay("Dragon", "hire", "Dragon", "A nice dragon to hoard gold for you")
-   updateDisplay("Stone", "buy", "Philosopher's Stone", "An alchemy stone that turns ordinary rocks into gold")
-   updateDisplay("Station", "open", "Astroid-mining Station", "A space station that mines astroids for gold")
-   updateDisplay("Leprechaun", "hire", "Leprechaun", "Will find gold at the end of rainbows")
-   updateDisplay("Sheep", "hire", "Golden Sheep", "A cute round fluffy sheep with a golden fleece")
-   updateDisplay("Ray", "buy", "Mass Ray", "Turns mass into gold")
-   updateDisplay("Merger", "buy", "Neutron Star Merger", "Merges neutron stars to create gold (find what you want at it's source ;)")
+   updateDisplay("Pickaxe", "Pickaxes", "A sturdy pickaxe to mine gold with")
+   updateDisplay("Dwarf", "Dwarfs", "An assistant to help you mine gold")
+   updateDisplay("Goose", "Geese", "A nice goose that lays golden egg")
+   updateDisplay("Mine", "Mines", "A new mine to mine gold in")
+   updateDisplay("Dragon", "Dragons", "A nice dragon to hoard gold for you")
+   updateDisplay("Stone", "Philosopher's Stones", "An alchemy stone that turns ordinary rocks into gold")
+   updateDisplay("Station", "Astroid-mining Stations", "A space station that mines astroids for gold")
+   updateDisplay("Leprechaun", "Leprechauns", "Will find gold at the end of rainbows")
+   updateDisplay("Sheep", "Golden Sheep", "A cute round fluffy sheep with a golden fleece")
+   updateDisplay("Ray", "Mass Rays", "Turns mass into gold")
+   updateDisplay("Merger", "Neutron Star Mergers", "Merges neutron stars to create gold (find what you want at it's source ;)")
    // Gold per Building & Building Count
-   function updateDisplay(item, type, itemName, text) {
-      document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName}s: ${toWord(gameData[item.toLowerCase() + "Number"])} <br> ${toWord(gameData[item.toLowerCase() + "Profit"])} GPS <br> Producing ${toWord(gameData[item.toLowerCase() + "Gold"])} GPS<br> ${text}`;
-      if (timeUntilAffordable(gameData[type + item + "Cost"]) === "Sufficient funds!" || gameData.timeUntil === "off") { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${percentOfProfits(item)}% of Profits`; }
-      else { document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${itemName} <br> (You have ${toWord(gameData[item.toLowerCase() + "Number"])}) <br>Cost: ${toWord(gameData[type + item + "Cost"])} Gold <br> ${percentOfProfits(item)}% of Profits <br> ${timeUntilAffordable(gameData[type + item + "Cost"])}`; }
+   function updateDisplay(item, itemName, text) {
+      let profit = gameData[item.toLowerCase() + "Profit"];
+      let amount = gameData[item.toLowerCase() + "Number"];
+      let cost = gameData[item.toLowerCase() + "Cost"];
+      document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName}: ${toWord(amount)} <br> ${toWord(profit)} GPS <br> Producing ${toWord(profit * amount)} GPS<br> ${text}`;
+      if (timeUntilAffordable(cost) === "Sufficient funds!" || gameData.timeUntil === "off") {
+         document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${item} <br> (You have ${toWord(amount)}) <br>Cost: ${toWord(cost)} Gold <br> ${percentOfProfits(item)}% of Profits`;
+      }
+      else {
+         document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${item} <br> (You have ${toWord(amount)}) <br>Cost: ${toWord(cost)} Gold <br> ${percentOfProfits(item)}% of Profits <br> ${timeUntilAffordable(cost)}`;
+      }
    }
    gameData.goldSpent = gameData.totalGold - gameData.gold;
    // Display gold per minuite, hour, day, month, and year
@@ -317,8 +283,6 @@ document.addEventListener("keydown", function(e) {
       save();
    }
 }, false);
-
-function getPercent(val, totalVal) { return val/totalVal*100; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
@@ -365,7 +329,8 @@ function menu(x, y) {
 
 // Update Store
 function percentOfProfits(val) {
-   let percent = getPercent(gameData[val.toLowerCase() + "Gold"], goldPerSecond());
+   let gold = gameData[val.toLowerCase() + "Profit"] * gameData[val.toLowerCase() + "Number"];
+   let percent = getPercent(gold, goldPerSecond());
    if (percent.toString().length > 6) { percent = (percent).toFixed(3); }
    if (!isNaN(percent)) { return percent; }
    else { return 0; }
@@ -397,6 +362,12 @@ function getTimeDisplay(secondsLeft) {
    else { return `${seconds} Seconds`; }
 }
 
+// Word/Number Wrangling
+function toCap(string) {
+   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function getPercent(val, totalVal) { return val/totalVal*100; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
 // Disasters & Enchancements
@@ -410,12 +381,10 @@ let luckyRoll = window.setInterval(function() {
       if (gameData.dwarfNumber > 0) {
          let rand2 = Math.random();
          if (rand2 > .5) {
-            if (gameData.dwarfNumber > 0) {
-               gameData.dwarfNumber--;
-               notify("A Dwarf has succumbed to the bad luck of the gods!");
-            }
+            gameData.dwarfNumber--;
+            notify("A Dwarf has succumbed to the bad luck of the gods!");
          }
-         else {
+         else if (gameData.dwarfNumber > 10) {
             let dwarvesLost = Math.floor(Math.random() * 10) + 1;
             notify(`A mine shaft collapsed! ${dwarvesLost} dwarfs perished.`);
             gameData.dwarfNumber -= dwarvesLost;
