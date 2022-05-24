@@ -1,0 +1,50 @@
+* {
+   padding: 0;
+   margin: 0;
+   font-family: "Nunito", sans-serif;
+}
+
+body {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-image: url("https://previews.123rf.com/images/nadiinko/nadiinko1808/nadiinko180800072/112037430-modern-simple-geometric-vector-seamless-pattern-with-gold-line-texture-on-white-background-light-abs.jpg");
+   background-size: 20vh;
+}
+
+.float {
+   padding: 6vh 8vh;
+   height: 60vh;
+   width: 50vw;
+   background-color: #fff;
+   border-radius: 3vh;
+}
+
+h1 {
+   text-align: center;
+}
+
+h4 {
+   text-align: center;
+   font-weight: 300;
+}
+
+p {
+   line-height: 5.5vh;
+   margin: 2vh 1vh;
+}
+
+a {
+   padding: .75vh 1.5vh;
+   /* color: #FFEC00; */
+   color: #FF5400;
+   background-color: #fafafa;
+   font-weight: 900;
+   text-decoration: none;
+   border-radius: .5vh;
+}
+
+a:hover {
+   text-decoration: underline;
+}

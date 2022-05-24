@@ -1,0 +1,28 @@
+{
+  "name": "gold-rush",
+  "version": "0.1.3",
+  "description": "An incremental game about gold",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Squirrel-314/squirrel-314.github.io.git"
+  },
+  "keywords": [
+    "incremental",
+    "clicker",
+    "game"
+  ],
+  "author": "Squirrel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Squirrel-314/squirrel-314.github.io/issues"
+  },
+  "homepage": "https://github.com/Squirrel-314/squirrel-314.github.io#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}
