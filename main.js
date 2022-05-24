@@ -83,12 +83,15 @@ function bTool() {
    }
 }
 
-function acquireAsset(asset, costMultiplier) {
-   if (gameData.gold >= gameData[asset + "Cost"]) {
-      gameData.gold -= gameData[asset + "Cost"];
-      gameData[asset + "Cost"] = (costMultiplier * 1.15 ** gameData[asset + "Number"]).toFixed(0);
+function acquireAsset(asset) {
+   if (gameData.gold >= getCost(asset)) {
+      gameData.gold -= getCost(asset);
       gameData[asset + "Number"]++;
    }
+}
+
+function getCost(asset) {
+   return (buildingCosts[asset] * Math.pow(1.15, gameData[asset + "Number"])).toFixed(0);
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -201,8 +204,9 @@ var buildColorLoop = window.setInterval(function() {
 
    ["pickaxe", "dwarf", "goose", "mine", "dragon", "stone", "station", "leprechaun", "sheep", "ray", "merger"].forEach((item) => {
       let itemBox = document.getElementById("add" + toCap(item));
-      if (gameData.gold >= (gameData[`${item}Cost`] / 2) || gameData[`${item}Number`] >= 1) { itemBox.style.display = "flex"; }
-      if (gameData.gold >= gameData[`${item}Cost`]) { itemBox.style.backgroundColor = regColor; }
+      let itemPrice = getCost(item);
+      if (gameData.gold >= (itemPrice / 2) || gameData[`${item}Number`] >= 1) { itemBox.style.display = "flex"; }
+      if (gameData.gold >= itemPrice) { itemBox.style.backgroundColor = regColor; }
       else { itemBox.style.backgroundColor = notEnoughColor; }
    });
 }, 500);
@@ -233,7 +237,7 @@ var updateStore = window.setInterval(function() {
    function updateDisplay(item, itemName, text) {
       let profit = gameData[item.toLowerCase() + "Profit"];
       let amount = gameData[item.toLowerCase() + "Number"];
-      let cost = gameData[item.toLowerCase() + "Cost"];
+      let cost = getCost(item.toLowerCase());
       document.getElementById(`${item.toLowerCase()}-info`).innerHTML = `${itemName}: ${toWord(amount)} <br> ${toWord(profit)} GPS <br> Producing ${toWord(profit * amount)} GPS<br> ${text}`;
       if (timeUntilAffordable(cost) === "Sufficient funds!" || gameData.timeUntil === "off") {
          document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${item} <br> (You have ${toWord(amount)}) <br>Cost: ${toWord(cost)} Gold <br> ${percentOfProfits(item)}% of Profits`;
@@ -242,7 +246,6 @@ var updateStore = window.setInterval(function() {
          document.getElementById(`${item.toLowerCase()}-display`).innerHTML = `${item} <br> (You have ${toWord(amount)}) <br>Cost: ${toWord(cost)} Gold <br> ${percentOfProfits(item)}% of Profits <br> ${timeUntilAffordable(cost)}`;
       }
    }
-   gameData.goldSpent = gameData.totalGold - gameData.gold;
    // Display gold per minuite, hour, day, month, and year
    document.getElementById("gpm").innerHTML = `${toWord(goldPerSecond() * 60)} Gold Per Minute`;
    document.getElementById("g0pher").innerHTML = toWord(goldPerSecond() * 60 * 60) + " Gold Per Hour";
@@ -252,7 +255,7 @@ var updateStore = window.setInterval(function() {
    document.getElementById("gpy").innerHTML = toWord(goldPerSecond() * 60 * 60 * 24 * 7 * 4 * 12) + " Gold Per Year";
    document.getElementById("totalGold").innerHTML = toWord(gameData.totalGold) + " Lifetime Gold Profits";
    document.querySelector(".timeSinceStarted").textContent = `You've been playing since ${gameData.startTime}`;
-   document.querySelector(".totalGoldSpent").textContent = `You have invested ${toWord(gameData.goldSpent)} gold`;
+   document.querySelector(".totalGoldSpent").textContent = `You have invested ${toWord(gameData.totalGold - gameData.gold)} gold`;
 }, 500);
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -647,8 +650,7 @@ window.onload = function() {
    document.getElementById("copE-right").innerHTML = date;
    // Display amount earned in abscence
    let diff = Date.now() - gameData.lastTick;
-   gameData.lastTick = Date.now();
-   notify(`While you were gone you earned ${toWord(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`);
+   if (diff > 5000) { notify(`While you were gone you earned ${toWord(Math.floor(goldPerSecond() * (diff / 1000)))} Gold`); }
    contextMenu();
 }
 
@@ -665,6 +667,11 @@ function gameSetup() {
    let date = new Date();
    gameData.startTime = date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
 }
+
+// Check if mobile
+if (isMobile() && !window.location.href.includes("mobile.html")) { window.location.href = "mobile.html"; }
+else if (!isMobile() && !window.location.href.includes("index.html")) { window.location.href = "index.html"; }
+function isMobile() { return ("ontouchstart" in document.documentElement); }
 
 // Log somthing sarcastic
 console.log(["Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?", "Sssskkkeeeeeeeeee!"][Math.floor(Math.random() * 4)]);

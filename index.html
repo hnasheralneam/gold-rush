@@ -13,8 +13,8 @@ You won't learn anything from snooping around here. It's main.js you want to loo
       <script src="https://squirrel-314.github.io/digit/main.js" charset="utf-8"></script>
       <!-- Basic -->
       <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon"/>
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="ol'styles.css">
+      <link rel="stylesheet" href="Styles/styles.css">
+      <link rel="stylesheet" href="Styles/summoning.css">
       <meta name="description" content=" *Click*... A clicker game all about gold! Buy items, increase revenue, upgrade things, achive acheivements, and get rich!!!">
       <meta charset="utf-8">
       <title>Gold Rush</title>
@@ -134,14 +134,34 @@ You won't learn anything from snooping around here. It's main.js you want to loo
                </div>
                <div class="page" id="page-circles">
                   <h1 class="big-title">Summoning Circles</h1>
-                  <p class="summoning-level">Level: 1</p>
-                  <p class="summoning-product">Producing: Pickaxes</p>
-                  <p class="summoning-time">Time: 24 hours</p>
-                  <p class="summoning-amount">Amount: 1</p>
-                  <p class="summoning-storage">Storage: 1</p>
-                  <button onclick="collectSummoningStorage()">Collect items in Storage</button>
-                  <p class="summoning-time-left">Storage: 1</p>
-                  <p class="summoning-in-storage">Storage: 1</p>
+                  <div class="sumDivs">
+                     <button onclick="startSum()">Start Summoning Circle</button>
+                     <div class="sumDiv sLevel">
+                        <p class="summoning-level">Level: 1</p>
+                        <button disabled>Upgrade</button>
+                     </div>
+                     <div class="sumDiv sTimeleft">
+                        <p class="summoning-time-left"></p>
+                     </div>
+                     <div class="sumDiv sProduct">
+                        <p class="summoning-product">Producing: Pickaxes</p>
+                     </div>
+                     <div class="sumDiv sTime">
+                        <p class="summoning-time">Time: 24 hours</p>
+                        <button disabled>Decrease</button>
+                     </div>
+                     <div class="sumDiv sAmount">
+                        <p class="summoning-amount">Amount: 1</p>
+                        <button disabled>Upgrade</button>
+                     </div>
+                     <div class="sumDiv sStorage">
+                        <p class="summoning-storage">Storage: 1</p>
+                        <button disabled>Upgrade</button>
+                        <br><br>
+                        <p class="summoning-in-storage">In storage: 0</p>
+                        <button onclick="collectSummoningStorage()">Collect items in Storage</button>
+                     </div>
+                  </div>
                </div>
                <div class="page" id="page-attribution">
                   <h1 class="big-title">Icon Attribution</h1>
@@ -171,57 +191,57 @@ You won't learn anything from snooping around here. It's main.js you want to loo
             <p class="store-display" id="tool-display"></p>
             <p class="store-info" id="tool-info"></p>
          </div>
-         <div class="store-item" id="addPickaxe" onclick="acquireAsset('pickaxe', 58)">
+         <div class="store-item" id="addPickaxe" onclick="acquireAsset('pickaxe')">
             <p class="store-display" id="pickaxe-display"></p>
             <p class="store-info" id="pickaxe-info"></p>
             <span class="building-img"><img src="Icons/pickaxe.png"></span>
          </div>
-         <div class="store-item" id="addDwarf" onclick="acquireAsset('dwarf', 279)">
+         <div class="store-item" id="addDwarf" onclick="acquireAsset('dwarf')">
             <p class="store-display" id="dwarf-display"></p>
             <p class="store-info" id="dwarf-info"></p>
             <span class="building-img"><img src="Icons/dwarf.png"></span>
          </div>
-         <div class="store-item" id="addGoose" onclick="acquireAsset('goose', 10127)">
+         <div class="store-item" id="addGoose" onclick="acquireAsset('goose')">
             <p class="store-display" id="goose-display"></p>
             <p class="store-info" id="goose-info"></p>
             <span class="building-img"><img src="Icons/goose.png"></span>
          </div>
-         <div class="store-item" id="addMine" onclick="acquireAsset('mine', 28351)">
+         <div class="store-item" id="addMine" onclick="acquireAsset('mine')">
             <p class="store-display" id="mine-display"></p>
             <p class="store-info" id="mine-info"></p>
             <span class="building-img"><img src="Icons/mine.png"></span>
          </div>
-         <div class="store-item" id="addDragon" onclick="acquireAsset('dragon', 201648)">
+         <div class="store-item" id="addDragon" onclick="acquireAsset('dragon')">
             <p class="store-display" id="dragon-display"></p>
             <p class="store-info" id="dragon-info"></p>
             <span class="building-img"><img src="Icons/dragon.png"></span>
          </div>
-         <div class="store-item" id="addStone" onclick="acquireAsset('stone', 3752186)">
+         <div class="store-item" id="addStone" onclick="acquireAsset('stone')">
             <p class="store-display" id="stone-display"></p>
             <p class="store-info" id="stone-info"></p>
             <span class="building-img"><img src="Icons/stone.png"></span>
          </div>
-         <div class="store-item" id="addStation" onclick="acquireAsset('station', 287500000)">
+         <div class="store-item" id="addStation" onclick="acquireAsset('station')">
             <p class="store-display" id="station-display"></p>
             <p class="store-info" id="station-info"></p>
             <span class="building-img"><img src="Icons/station.png"></span>
          </div>
-         <div class="store-item" id="addLeprechaun" onclick="acquireAsset('leprechaun', 1150000000)">
+         <div class="store-item" id="addLeprechaun" onclick="acquireAsset('leprechaun')">
             <span class="building-img"><img src="Icons/leprechaun.png"></span>
             <p class="store-display" id="leprechaun-display"></p>
             <p class="store-info" id="leprechaun-info"</p>
          </div>
-         <div class="store-item" id="addSheep" onclick="acquireAsset('sheep', 287500000000)">
+         <div class="store-item" id="addSheep" onclick="acquireAsset('sheep')">
             <p class="store-display" id="sheep-display"></p>
             <p class="store-info" id="sheep-info"></p>
             <span class="building-img"><img src="Icons/sheep.png"></span>
          </div>
-         <div class="store-item" id="addRay" onclick="acquireAsset('ray', 2300000000000)">
+         <div class="store-item" id="addRay" onclick="acquireAsset('ray')">
             <p class="store-display" id="ray-display"></p>
             <p class="store-info" id="ray-info"></p>
             <span class="building-img"><img src="Icons/ray.png"></span>
          </div>
-         <div class="store-item" id="addMerger" onclick="acquireAsset('merger', 230000000000000)">
+         <div class="store-item" id="addMerger" onclick="acquireAsset('merger')">
             <p class="store-display" id="merger-display"></p>
             <p class="store-info" id="merger-info"></p>
             <span class="building-img"><img src="Icons/merger.png"></span>
@@ -243,11 +263,13 @@ You won't learn anything from snooping around here. It's main.js you want to loo
          <hr>
          <li><a href="https://github.com/Squirrel-314/squirrel-314.github.io">GitHub</a></li>
          <hr>
-         <li>v0.1.2</li>
+         <li>v0.1.3</li>
          <!-- 
             v0.1.0 - Initial release
             v0.1.1 - Lots of changes, but mostly bug fixes
             v0.1.2 - Urgent bug fixes, cleaner code
+            v0.1.3 - Cleaner saves, Basic Mobile
+            v0.1.4 - (hopefully) Summoning Circles Beta!
           -->
    </div>
    <!-- Alert Box -->

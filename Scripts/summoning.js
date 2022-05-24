@@ -3,6 +3,7 @@
 //==========================================================
 
 const summoningData = {
+   active: false,
    level: 1,
    product: "pickaxe",
    time: [24, "hours"],
@@ -23,12 +24,37 @@ const summoningData = {
    storage9Ready: Infinity
 }
 
+function startSum() {
+   if (summoningData.active) { return; }
+   else {
+      summoningData.active = true;
+      console.log(getSummoningTime())
+      summoningData.timeReady = Date.now() + getSummoningTime();
+      // startNewSummoningProduction();
+   }
+}
+
+function startNewSummoningProduction() {
+   if (summoningData.active) { return; }
+   else {
+      summoningData.active = true;
+      summoningData.timeReady = Date.now() + getSummoningTime();   
+   }
+}
+
 setInterval(() => {
-   if (Date.now() >= summoningData.timeReady || summoningData.timeReady === "Not Started") {
-      summoningData.timeReady = "waiting";
+   // if (Date.now() >= summoningData.timeReady || summoningData.timeReady === "Not Started") {
+   //    summoningData.timeReady = "waiting";
+   //    summoningData.timeLeft = "Not operating";
+   //    summoningProductionIsReady();
+   // }
+   if (Date.now() >= summoningData.timeReady) {
+      summoningData.active = false;
+      summoningData.timeReady = "Not Started";
       summoningData.timeLeft = "Not operating";
       summoningProductionIsReady();
    }
+
    document.querySelector(".summoning-level").textContent = `Level: ${summoningData.level}`;
    document.querySelector(".summoning-product").textContent = `Producing: ${summoningData.product}`;
    document.querySelector(".summoning-time").textContent = `Time: ${summoningData.time[0] + " " + summoningData.time[1]}`;
@@ -39,6 +65,13 @@ setInterval(() => {
 }, 1000);
 
 function summoningProductionIsReady() { summoningData.inStorage++; }
+// function collectSummoningStorage() {
+//    if (summoningData.inStorage === summoningData.storage) {
+//       gameData[summoningData.product + "Number"] += summoningData.inStorage;
+//       summoningData.inStorage = 0;
+//       startNewSummoningProduction();
+//    }
+// }
 function collectSummoningStorage() {
    if (summoningData.inStorage === summoningData.storage) {
       gameData[summoningData.product + "Number"] += summoningData.inStorage;
@@ -46,18 +79,10 @@ function collectSummoningStorage() {
       startNewSummoningProduction();
    }
 }
-function startNewSummoningProduction() {
-   for (let i = summoningData.storage; i > 0; i--) {
-      let timeUntil = getSummoningTime() * i;
-      console.log(timeUntil,  Date.now());
-      summoningData[`storage${i}Ready`] = Date.now() + timeUntil;
-      console.log(summoningData[`storage${i}Ready`]/.0000036);
-   }
-   // set time and everything
-}
+
 
 function getSummoningTime() {
-   if (summoningData.time[1] === "hours") { return summoningData.time[0] * .0000036; }
+   if (summoningData.time[1] === "hours") { return summoningData.time[0] * 3600000; }
 }
 
 

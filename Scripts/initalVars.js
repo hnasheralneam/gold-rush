@@ -1,65 +1,43 @@
 const initialGameData = {
-// Gold
+   // Gold
    gold: 0,
    totalGold: 0,
-   goldSpent: 0,
-// Clicks
+   // Clicks
    clickinGold: 1,
    upgradeClickCost: 100,
    goldPerClick: 0,
    clicks: 0,
-// Tools
+   // Tools
    bToolCost: 10,
    toolLevel: 1,
-// Pickaxes
+   // Buildings
    pickaxeProfit: 0.5,
-   pickaxeCost: 50,
    pickaxeNumber: 0,
-// Dwarfs
    dwarfProfit: 2,
-   dwarfCost: 250,
    dwarfNumber: 0,
-// Geese
    gooseProfit: 10,
-   gooseCost: 10000,
    gooseNumber: 0,
-// Gold mines
    mineProfit: 60,
-   mineCost: 28000,
    mineNumber: 0,
-// Dragons
    dragonProfit: 800,
-   dragonCost: 200000,
    dragonNumber: 0,
-// Philosopher's Stones
    stoneProfit: 10000,
-   stoneCost: 3750000,
    stoneNumber: 0,
-// Astroid-mining Station
    stationProfit: 85000,
-   stationCost: 250000000,
    stationNumber: 0,
-// Leprechauns
    leprechaunProfit: 600000,
-   leprechaunCost: 1000000000,
    leprechaunNumber: 0,
-// Golden Sheep
    sheepProfit: 10000000,
-   sheepCost: 250000000000,
    sheepNumber: 0,
-// Mass rays
    rayProfit: 1000000000,
-   rayCost: 2000000000000,
    rayNumber: 0,
-// Neutron Star Mergers
    mergerProfit: 10000000000,
-   mergerCost: 200000000000000,
    mergerNumber: 0,
-// Player Stuff
+   // Player Stuff
    playerName: null,
    timeUntil: "off",
    clickSounds: "on",
-// Time
+   // Time
    lastTick: Date.now(),
    startTime: null
 }
@@ -117,6 +95,24 @@ const initialUpgradeData = {
    k4: false,
    l1: 1,
    l2: 1,
+}
+//
+//
+// Note: the following variables are not saved, they are only used for the initalization of the game
+//
+//
+const buildingCosts = {
+   pickaxe: 50,
+   dwarf: 250,
+   goose: 10000,
+   mine: 28000,
+   dragon: 200000,
+   stone: 3750000,
+   station: 250000000,
+   leprechaun: 1000000000,
+   sheep: 250000000000,
+   ray: 2000000000000,
+   merger: 200000000000000,
 }
 const upgradeCosts = {
    a1: 200,
