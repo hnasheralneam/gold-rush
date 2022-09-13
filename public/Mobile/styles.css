@@ -109,12 +109,6 @@ a {
    display: inline-block;
 }
 
-.retro-coin {
-   height: 5vh;
-   display: inline;
-   margin-bottom: -1vh;
-}
-
 .astroid {
    margin: 6vh 0;
    height: 35vh;
