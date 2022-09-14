@@ -26,9 +26,11 @@
 body {
    display: grid;
    grid-template-columns: 33.333% 33.333% 33.333%;
-   background-image: url("https://previews.123rf.com/images/nadiinko/nadiinko1808/nadiinko180800072/112037430-modern-simple-geometric-vector-seamless-pattern-with-gold-line-texture-on-white-background-light-abs.jpg");
-   background-size: 20vh;
+   background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/10/texture-seamless-wood-5.jpg");
+   background-size: 30vh;
 }
+
+/* https://unblast.com/wp-content/uploads/2020/04/Seamless-Wood-Texture-3.jpg */
 
 ::-webkit-scrollbar { display: none; }
 ::selection { background-color: transparent; }
@@ -44,10 +46,15 @@ a {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .block {
-   height: 90vh;
+   height: 100vh;
    margin: 0;
    padding: 1.5vh;
+   box-sizing: border-box;
    overflow: auto;
+}
+
+.clickBlock {
+   height: 94vh;
 }
 
 .upgradeBlock {
@@ -57,6 +64,7 @@ a {
 }
 
 #news {
+   margin-bottom: 2vh;
    padding: 2vh;
    font-size: 3.5vh;
    font-family: "Nunito";
@@ -71,7 +79,8 @@ a {
 .gold-info {
    padding: 2vh 1vh;
    color: #2A57FA;
-   background-color: #f8fbff;
+   background-color: #ffffff80;
+   backdrop-filter: blur(.4rem);
    border-radius: 1.5vh;
 }
 
@@ -177,9 +186,10 @@ summary {
 }
 
 .tab-bar {
-   height: 65vh;
+   height: 70vh;
    overflow: auto;
    padding: .2vh;
+   border-radius: 1.5vh 0 0 1.5vh;
    box-sizing: border-box;
    background-color: #ffffff90;
    max-height: 100%;
@@ -190,6 +200,7 @@ summary {
    display: inline-block;
    padding: 1.8vh 2vh;
    margin: .5vh .5vh;
+   margin-bottom: 0;
    text-align: center;
    background-color: #fafafa;
    font-family: sans-serif;
@@ -201,6 +212,10 @@ summary {
    transition: .2s;
 }
 
+.tab-info {
+   top: 18vh;
+}
+
 .tab .material-symbols-rounded {
    font-size: 5vh !important;
 }
@@ -210,25 +225,26 @@ summary {
    border-radius: 1vh 0 0 1vh;
 }
 
-.tab-research { background-color: #E4FDA3; }
-#page-research { background-color: #E4FDA3; }
-.tab-settings { background-color: #B7FDA3; }
-#page-settings { background-color: #B7FDA3; }
-.tab-ad { background-color: #A3FDBC; }
-#page-ad { background-color: #A3FDBC; }
-.tab-attribution { background-color: #A3FDE9; }
-#page-attribution { background-color: #A3FDE9; }
-
+.tab-research { background-color: #E4FDA3; border-bottom: solid .5vh #D7ED9F; }
+#page-research { background-color: #E4FDA3; border-bottom: solid .5vh #D7ED9F; }
+.tab-settings { background-color: #B7FDA3; border-bottom: solid .5vh #B0ED9F; }
+#page-settings { background-color: #B7FDA3; border-bottom: solid .5vh #B0ED9F; }
+.tab-ad { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
+#page-ad { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
+.tab-attribution { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
+#page-attribution { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
+.tab-info { background-color: #E5B0FF; border-bottom: solid .5vh #D8AAEF; }
+#page-info { background-color: #E5B0FF; border-bottom: solid .5vh #D8AAEF; }
 
 /* Information */
 .tab-pages {
-   height: 65vh;
+   height: 70vh;
    background-color: #fafafa;
    width: 100%;
    overflow: hidden;
    scroll-behavior: smooth;
    margin: 0;
-   border-radius: .5vh;
+   border-radius: 0 1.5vh 1.5vh 0;
 }
 
 .tab-pages .page {
@@ -526,17 +542,28 @@ summary {
 // Copyright
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.copyright {
-   height: 5.5vh;
-   background-color: #fffffff2;
-   font-family: monospace;
-   font-size: 3vh;
-   color: #999;
+.copy-info {
+   position: relative;
+   color: #555;
    padding: 1vh;
+   border-radius: .5vh;
+}
+
+.copy-info a { color: #fff; }
+
+.copyright {
+   background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/10/texture-seamless-wood-5.jpg");
+   background-size: 10vh;
+   box-shadow: 0 0 .5vh #000,
+               0 0 .2vh #000;
+   font-family: monospace;
+   font-size: 2.4vh;
+   color: #ddd;
+   padding: 1vh 4vh;
    position: fixed;
-   bottom: .4vh;
-   right: .4vh;
-   left: .4vh;
+   bottom: .8vh;
+   left: .8vh;
+   display: inline-block;
    border-radius: .5vh;
    box-sizing: border-box;
 }
