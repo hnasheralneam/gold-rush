@@ -2,7 +2,7 @@
 // Copyright and Opening Information
 //==========================================================
 
-// Copyright Squirrel 2020 A.D.
+// Copyright Editor Rust Nov 4 2022
 // If you continue you shall get the majority of the game spoiled for you. Also, it's a 'bit' messy
 // Solicitors will be relieved of their sanity
 
