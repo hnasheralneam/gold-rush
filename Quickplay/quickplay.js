@@ -553,6 +553,18 @@ function notify(text) {
 }
 // notify("Welcome to Dwarf Gold!");
 
+// function notifyHTML(text) {
+//    let alert = document.querySelector(".alert").cloneNode(true);
+//    document.querySelector(".alert-box").insertBefore(alert, document.querySelector(".alert-box").firstChild);
+//    alert.style.display = "flex";
+//    alert.innerHTML = text;
+//    setTimeout(alertAnimation => { alert.classList.add('alertAnimation'); }, 6000);
+//    setTimeout(removeAnimation => { alert.classList.remove('alertAnimation');  alert.remove(); }, 7000);
+// }
+// console.log("hi")
+// notifyHTML(`If you want to make an account (for cross-device saves), check out the <a href="https://goldrush.cyclic.app/">Game Page!</a> (DONESN'T SAVE YET! I'M WORKING ON IT!)`);
+
+
 // Scroll to section
 function scrollToSection(id) {
    document.querySelector(`#page-${id}`).scrollIntoView();
