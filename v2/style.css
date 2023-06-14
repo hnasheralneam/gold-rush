@@ -1,0 +1,106 @@
+* {
+   padding: 0;
+   margin: 0;
+}
+
+/* Sections */
+
+.section {
+   padding: 1em .8em;
+   border-bottom: solid .2em #eee;
+}
+
+.settings {
+   border-bottom: none;
+}
+
+/* Upgrades */
+
+.upgrade {
+   padding: .4em .6em;
+   margin: .4em 0;
+   display: none;
+   background-color: #f5f5f5;
+   border-radius: .3em;
+}
+
+.upgrade.canafford {
+   display: inline-block;
+}
+
+.upgrade.cantafford {
+   display: inline-block;
+   background-color: #eee;
+}
+
+/* Buttons */
+
+button {
+   padding: .4em .8em;
+   margin: .3em .1em;
+   background-color: #eee;
+   border: none;
+   border-radius: .3em;
+}
+
+button:hover {
+   background-color: #ddd;
+}
+
+button:active {
+   background-color: #eee;
+}
+
+button:disabled {
+   background-color: #f4f4f4;
+}
+
+/* Buildings */
+
+.building, .tools {
+   position: relative;
+   padding: .8em .6em;
+   width: 20em;
+   background-color: #f2f2f2;
+   border-top: solid .2em #ddd;
+}
+
+.building.cantafford {
+   background-color: #d2d2d2;
+}
+
+.building .name {
+   font-size: 1.1em;
+}
+
+.building .info {
+   color: #222;
+}
+
+.building .hover, .tools .hover {
+   padding: .4em .6em;
+   margin: 0 .8em;
+   position: absolute;
+   top: 50%;
+   left: 0%;
+   width: 18.4em;
+   color: #fff;
+   background-color: #222;
+   border-radius: .3em;
+   pointer-events: none;
+   opacity: 0;
+   z-index: 10;
+   transition: .3s;
+   transition-delay: .3s;
+}
+
+.building:hover .hover, .tools:hover .hover {
+   top: 105%;
+   pointer-events: auto;
+   opacity: 1;
+}
+
+.tools {
+   display: inline-block;
+   border-top: none;
+}

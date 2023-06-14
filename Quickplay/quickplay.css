@@ -25,7 +25,7 @@
 
 body {
    display: grid;
-   grid-template-columns: 33.333% 33.333% 33.333%;
+   grid-template-columns: 1fr 1fr 1fr;
    background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/10/texture-seamless-wood-5.jpg");
    background-size: 30vh;
 }
@@ -45,25 +45,23 @@ a {
 // Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.block {
+.block, .section {
    height: 100vh;
-   margin: 0;
-   padding: 1.5vh;
    box-sizing: border-box;
    overflow: auto;
 }
 
-.clickBlock {
-   height: 94vh;
+.dashboard, .buildings {
+   background-color: #ffffff20;
 }
 
-.upgradeBlock {
-   padding: .5vh;
+.main {
    display: grid;
    grid-template-rows: auto auto;
+   background-color: #ffffff20;
 }
 
-#news {
+.news {
    margin-bottom: 2vh;
    padding: 2vh;
    font-size: 3.5vh;
@@ -78,21 +76,22 @@ a {
 
 .gold-info {
    padding: 2vh 1vh;
-   color: #2A57FA;
-   background-color: #ffffff80;
+   color: #fff;
+   text-shadow: 0 .05em .04em #00000060;
+   background-color: #FDE9A3;
    backdrop-filter: blur(.4rem);
    border-radius: 1.5vh;
 }
 
-.click-info {
-   font-size: 3vh;
+.otherGoldInfo {
+   font-size: 1.2em;
    font-family: "Nunito";
 }
 
-.gold {
+.goldOwned {
    font-family: "Nunito";
    font-weight: 700;
-   font-size: 4vh;
+   font-size: 3em;
    display: inline-block;
 }
 
@@ -291,7 +290,7 @@ summary {
 // Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.store-item {
+.building {
    height: 20vh;
    width: 100%;
    margin: .5vh 0;
@@ -353,6 +352,18 @@ summary {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Upgrades
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* Upgrades */
+
+.upgrade.canafford {
+   display: block;
+}
+
+.upgrade.cantafford {
+   display: block;
+   background-color: #bbb;
+}
+/* old */
 
 .upgrade {
    border-left: solid 1.4vh #B4EA29;
@@ -490,8 +501,7 @@ summary {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .alert-box {
-   pointer-events: none;
-   z-index: 1000000000;
+   z-index: 1000;
    position: fixed;
    top: 0;
    bottom: 0;
@@ -506,28 +516,30 @@ summary {
    display: none;
    justify-content: center;
    align-items: center;
-   min-height: 18vh;
-   width: 40vh;
-   font-size: 2.6vh;
-   color: #494949;
-   padding: 2.5vh;
-   margin: 0 1vh 1vh 0;
-   box-sizing: border-box;
-   border: outset #d2332e .8vh;
+   min-height: 5em;
+   width: 12em;
+   font-size: 1.4em;
+   color: #fff;
+   padding: .25em .5em;
+   margin: .1em .2em;
    font-family: "Nunito";
-   text-align: center;
-   background-color: #fff;
-   border-radius: 1vh;
-   transition: .3s;
+   background-color: #d2332e;
+   border-radius: 1.5vh;
+   transition: .2s;
 }
 .alert-cominin {
-   animation: alertCominIn 1.2s forwards;
+   animation: alertCominIn .8s forwards;
 }
 .alertAnimation {
    opacity: 1;
    transform: scale(1) rotate(0);
-   pointer-events: none;
-   animation: alert-animation 1.2s forwards;
+   animation: alert-animation .8s forwards;
+
+   min-height: 0;
+   height: 0;
+   overflow: hidden;
+   padding: 0;
+   margin: 0;
 }
 @keyframes alert-animation {
    0% { transform: translate(0, 0) scale(1); opacity: 1; }
@@ -551,57 +563,6 @@ summary {
 
 .copy-info a { color: #fff; }
 
-.copyright {
-   background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/10/texture-seamless-wood-5.jpg");
-   background-size: 10vh;
-   box-shadow: 0 0 .5vh #000,
-               0 0 .2vh #000;
-   font-family: monospace;
-   font-size: 2.4vh;
-   color: #ddd;
-   padding: 1vh 4vh;
-   position: fixed;
-   bottom: .8vh;
-   left: .8vh;
-   display: inline-block;
-   border-radius: .5vh;
-   box-sizing: border-box;
-}
-
-.copyright a {
-   position: relative;
-}
-
-.copyright a .copyright-tooltip {
-   opacity: 0;
-   width: 100%;
-   background-color: #fff;
-   border-radius: 0.8vh;
-   position: absolute;
-   z-index: 1;
-   bottom: 155%;
-   right: 0;
-   padding: 1vh;
-   font-size: 75%;
-   border: outset 0.5vh lightblue;
-   transition: 0.5s;
-   pointer-events: none;
-}
-
-.copyright a .copyright-tooltip::after {
-   content: '';
-   position: absolute;
-   top: 100%;
-   left: 50%;
-   margin-left: -1.2vh;
-   border-width: 1.2vh;
-   border-style: outset;
-   border-color: lightblue transparent transparent transparent;
-}
-
-.copyright a:hover .copyright-tooltip {
-   opacity: 1;
-}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Context Menu
@@ -640,4 +601,78 @@ summary {
    font-size: 3.2vh;
    text-decoration: none;
    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sections */
+
+.section {
+   padding: 1em .8em;
+   border-bottom: solid .2em #eee;
+}
+
+.settings {
+   border-bottom: none;
+}
+
+/* Buildings */
+.building, .tools {
+   background-color: #ffdc7d;
+}
+
+.building.cantafford {
+   background-color: #5e4f24;
+}
+
+.building .name {
+   font-size: 1.1em;
+}
+
+.building .info {
+   color: #222;
+}
+
+.building .hover, .tools .hover {
+   padding: .4em .6em;
+   margin: 0 .8em;
+   position: absolute;
+   top: 50%;
+   left: 0%;
+   width: 18.4em;
+   color: #fff;
+   background-color: #222;
+   border-radius: .3em;
+   pointer-events: none;
+   opacity: 0;
+   z-index: 10;
+   transition: .3s;
+   transition-delay: .3s;
+}
+
+.building:hover .hover, .tools:hover .hover {
+   top: 105%;
+   pointer-events: auto;
+   opacity: 1;
+}
+
+.tools {
+   display: inline-block;
+   border-top: none;
 }

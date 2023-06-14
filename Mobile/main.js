@@ -670,7 +670,7 @@ function gameSetup() {
 
 // Check if mobile
 if (isMobile() && !window.location.href.includes("mobile")) { window.location.href = "mobile.html"; }
-else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "play.html"; }
+// else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "play.html"; }
 function isMobile() { return ("ontouchstart" in document.documentElement); }
 
 // Log somthing sarcastic

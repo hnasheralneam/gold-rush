@@ -63,7 +63,7 @@ function createUpgradeElement(letter, num, item, src, name, about) {
    upgradeBlock.appendChild(costTooltip);
    let icon = document.createElement("IMG");
    icon.classList.add("upgrade-icon");
-   icon.src = `Icons/${src}`;
+   icon.src = `Images/Icons/${src}`;
    upgradeBlock.appendChild(icon);
    let title = document.createElement("P");
    title.textContent = name;
