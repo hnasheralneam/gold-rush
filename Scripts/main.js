@@ -482,6 +482,9 @@ function getNews() {
 //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Switch to account version
+notify("<span>If you want to make an account, check out the <a style='text-decoration: underline; cursor: pointer;' href='https://goldrush.cyclic.app/'>Game Page!</a> (I'm working on cross-device saves!)</span>");
+
 // Creates upgrade DOM elements
 createUpgradeElements();
 
@@ -580,7 +583,7 @@ function notify(text) {
    let alert = document.querySelector(".alert").cloneNode(true);
    document.querySelector(".alert-box").insertBefore(alert, document.querySelector(".alert-box").firstChild);
    alert.style.display = "flex";
-   alert.textContent = text;
+   alert.innerHTML = text;
    alert.addEventListener("click", () => {
       alert.classList.add('alertAnimation');
       setTimeout(() => { alert.remove(); }, 400);
@@ -624,7 +627,7 @@ console.log(messages[Math.floor(Math.random() * messages.length)]);
 
 // Check if mobile
 if (isMobile() && !window.location.href.includes("mobile")) { window.location.href = "mobile.html"; }
-else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "play.html"; }
+else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "/"; }
 function isMobile() { return ("ontouchstart" in document.documentElement); }
 
 
@@ -654,6 +657,7 @@ function isMobile() { return ("ontouchstart" in document.documentElement); }
 - Partical effect for clicking
 - Fix look of building displays
 - Fix upgrades look
+- Sort upgrades by cost
 
 */
 

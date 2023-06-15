@@ -25,10 +25,12 @@
 
 body {
    display: grid;
-   grid-template-columns: 33.333% 33.333% 33.333%;
-   background-image: url("https://previews.123rf.com/images/nadiinko/nadiinko1808/nadiinko180800072/112037430-modern-simple-geometric-vector-seamless-pattern-with-gold-line-texture-on-white-background-light-abs.jpg");
-   background-size: 20vh;
+   grid-template-columns: 1fr 1fr 1fr;
+   background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/10/texture-seamless-wood-5.jpg");
+   background-size: 30vh;
 }
+
+/* https://unblast.com/wp-content/uploads/2020/04/Seamless-Wood-Texture-3.jpg */
 
 ::-webkit-scrollbar { display: none; }
 ::selection { background-color: transparent; }
@@ -43,20 +45,24 @@ a {
 // Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.block {
-   height: 90vh;
-   margin: 0;
-   padding: 1.5vh;
+.block, .section {
+   height: 100vh;
+   box-sizing: border-box;
    overflow: auto;
 }
 
-.upgradeBlock {
-   padding: .5vh;
-   display: grid;
-   grid-template-rows: auto auto;
+.dashboard, .buildings {
+   background-color: #ffffff20;
 }
 
-#news {
+.main {
+   display: grid;
+   grid-template-rows: auto auto;
+   background-color: #ffffff20;
+}
+
+.news {
+   margin-bottom: 2vh;
    padding: 2vh;
    font-size: 3.5vh;
    font-family: "Nunito";
@@ -70,20 +76,22 @@ a {
 
 .gold-info {
    padding: 2vh 1vh;
-   color: #2A57FA;
-   background-color: #f8fbff;
+   color: #fff;
+   text-shadow: 0 .05em .04em #00000060;
+   background-color: #FDE9A3;
+   backdrop-filter: blur(.4rem);
    border-radius: 1.5vh;
 }
 
-.click-info {
-   font-size: 3vh;
+.otherGoldInfo {
+   font-size: 1.2em;
    font-family: "Nunito";
 }
 
-.gold {
+.goldOwned {
    font-family: "Nunito";
    font-weight: 700;
-   font-size: 4vh;
+   font-size: 3em;
    display: inline-block;
 }
 
@@ -177,9 +185,10 @@ summary {
 }
 
 .tab-bar {
-   height: 65vh;
+   height: 70vh;
    overflow: auto;
    padding: .2vh;
+   border-radius: 1.5vh 0 0 1.5vh;
    box-sizing: border-box;
    background-color: #ffffff90;
    max-height: 100%;
@@ -190,6 +199,7 @@ summary {
    display: inline-block;
    padding: 1.8vh 2vh;
    margin: .5vh .5vh;
+   margin-bottom: 0;
    text-align: center;
    background-color: #fafafa;
    font-family: sans-serif;
@@ -201,6 +211,10 @@ summary {
    transition: .2s;
 }
 
+.tab-info {
+   top: 18vh;
+}
+
 .tab .material-symbols-rounded {
    font-size: 5vh !important;
 }
@@ -210,27 +224,26 @@ summary {
    border-radius: 1vh 0 0 1vh;
 }
 
-.tab-research { background-color: #E4FDA3; }
-#page-research { background-color: #E4FDA3; }
-.tab-settings { background-color: #B7FDA3; }
-#page-settings { background-color: #B7FDA3; }
-.tab-ad { background-color: #A3FDBC; }
-#page-ad { background-color: #A3FDBC; }
-.tab-circles { background-color: #A3FDE9; }
-#page-circles { background-color: #A3FDE9; }
-.tab-attribution { background-color: #A3E4FD; }
-#page-attribution { background-color: #A3E4FD; }
-
+.tab-research { background-color: #E4FDA3; border-bottom: solid .5vh #D7ED9F; }
+#page-research { background-color: #E4FDA3; border-bottom: solid .5vh #D7ED9F; }
+.tab-settings { background-color: #B7FDA3; border-bottom: solid .5vh #B0ED9F; }
+#page-settings { background-color: #B7FDA3; border-bottom: solid .5vh #B0ED9F; }
+.tab-ad { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
+#page-ad { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
+.tab-attribution { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
+#page-attribution { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
+.tab-info { background-color: #E5B0FF; border-bottom: solid .5vh #D8AAEF; }
+#page-info { background-color: #E5B0FF; border-bottom: solid .5vh #D8AAEF; }
 
 /* Information */
 .tab-pages {
-   height: 65vh;
+   height: 70vh;
    background-color: #fafafa;
    width: 100%;
    overflow: hidden;
    scroll-behavior: smooth;
    margin: 0;
-   border-radius: .5vh;
+   border-radius: 0 1.5vh 1.5vh 0;
 }
 
 .tab-pages .page {
@@ -277,7 +290,7 @@ summary {
 // Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.store-item {
+.building {
    height: 20vh;
    width: 100%;
    margin: .5vh 0;
@@ -339,6 +352,18 @@ summary {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Upgrades
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* Upgrades */
+
+.upgrade.canafford {
+   display: block;
+}
+
+.upgrade.cantafford {
+   display: block;
+   background-color: #bbb;
+}
+/* old */
 
 .upgrade {
    border-left: solid 1.4vh #B4EA29;
@@ -476,8 +501,7 @@ summary {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .alert-box {
-   pointer-events: none;
-   z-index: 1000000000;
+   z-index: 1000;
    position: fixed;
    top: 0;
    bottom: 0;
@@ -492,28 +516,30 @@ summary {
    display: none;
    justify-content: center;
    align-items: center;
-   min-height: 18vh;
-   width: 40vh;
-   font-size: 2.6vh;
-   color: #494949;
-   padding: 2.5vh;
-   margin: 0 1vh 1vh 0;
-   box-sizing: border-box;
-   border: outset #d2332e .8vh;
+   min-height: 5em;
+   width: 12em;
+   font-size: 1.4em;
+   color: #fff;
+   padding: .25em .5em;
+   margin: .1em .2em;
    font-family: "Nunito";
-   text-align: center;
-   background-color: #fff;
-   border-radius: 1vh;
-   transition: .3s;
+   background-color: #d2332e;
+   border-radius: 1.5vh;
+   transition: .2s;
 }
 .alert-cominin {
-   animation: alertCominIn 1.2s forwards;
+   animation: alertCominIn .8s forwards;
 }
 .alertAnimation {
    opacity: 1;
    transform: scale(1) rotate(0);
-   pointer-events: none;
-   animation: alert-animation 1.2s forwards;
+   animation: alert-animation .8s forwards;
+
+   min-height: 0;
+   height: 0;
+   overflow: hidden;
+   padding: 0;
+   margin: 0;
 }
 @keyframes alert-animation {
    0% { transform: translate(0, 0) scale(1); opacity: 1; }
@@ -528,55 +554,15 @@ summary {
 // Copyright
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.copyright {
-   height: 5.5vh;
-   background-color: #fffffff2;
-   font-family: monospace;
-   font-size: 3vh;
-   color: #999;
-   padding: 1vh;
-   position: fixed;
-   bottom: .4vh;
-   right: .4vh;
-   left: .4vh;
-   border-radius: .5vh;
-   box-sizing: border-box;
-}
-
-.copyright a {
+.copy-info {
    position: relative;
-}
-
-.copyright a .copyright-tooltip {
-   opacity: 0;
-   width: 100%;
-   background-color: #fff;
-   border-radius: 0.8vh;
-   position: absolute;
-   z-index: 1;
-   bottom: 155%;
-   right: 0;
+   color: #555;
    padding: 1vh;
-   font-size: 75%;
-   border: outset 0.5vh lightblue;
-   transition: 0.5s;
-   pointer-events: none;
+   border-radius: .5vh;
 }
 
-.copyright a .copyright-tooltip::after {
-   content: '';
-   position: absolute;
-   top: 100%;
-   left: 50%;
-   margin-left: -1.2vh;
-   border-width: 1.2vh;
-   border-style: outset;
-   border-color: lightblue transparent transparent transparent;
-}
+.copy-info a { color: #fff; }
 
-.copyright a:hover .copyright-tooltip {
-   opacity: 1;
-}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Context Menu
@@ -615,4 +601,78 @@ summary {
    font-size: 3.2vh;
    text-decoration: none;
    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sections */
+
+.section {
+   padding: 1em .8em;
+   border-bottom: solid .2em #eee;
+}
+
+.settings {
+   border-bottom: none;
+}
+
+/* Buildings */
+.building, .tools {
+   background-color: #ffdc7d;
+}
+
+.building.cantafford {
+   background-color: #5e4f24;
+}
+
+.building .name {
+   font-size: 1.1em;
+}
+
+.building .info {
+   color: #222;
+}
+
+.building .hover, .tools .hover {
+   padding: .4em .6em;
+   margin: 0 .8em;
+   position: absolute;
+   top: 50%;
+   left: 0%;
+   width: 18.4em;
+   color: #fff;
+   background-color: #222;
+   border-radius: .3em;
+   pointer-events: none;
+   opacity: 0;
+   z-index: 10;
+   transition: .3s;
+   transition-delay: .3s;
+}
+
+.building:hover .hover, .tools:hover .hover {
+   top: 105%;
+   pointer-events: auto;
+   opacity: 1;
+}
+
+.tools {
+   display: inline-block;
+   border-top: none;
 }
