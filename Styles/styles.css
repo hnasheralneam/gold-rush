@@ -1,17 +1,3 @@
-/* 
-//// Key ////
-// Global
-// Sections
-// Left Block
-// Settings
-// Center Block
-// Store
-// Upgrades
-// Introduction
-// Alert
-// Copyright
-// Context Menu
-*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Global
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -19,46 +5,40 @@
 * {
    margin: 0;
    padding: 0;
-   text-align: center;
-   font-size: 2.5vh;
 }
 
 body {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
-   background-image: url("https://www.myfreetextures.com/wp-content/uploads/2014/10/texture-seamless-wood-5.jpg");
+   background-image: url("../Images/wood-texture.jpg");
    background-size: 30vh;
 }
-
-/* https://unblast.com/wp-content/uploads/2020/04/Seamless-Wood-Texture-3.jpg */
 
 ::-webkit-scrollbar { display: none; }
 ::selection { background-color: transparent; }
 
 a {
-   text-decoration: none;
    color: inherit;
-   font-size: inherit;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.block, .section {
+.section {
    height: 100vh;
+   padding: .5em .8em;
    box-sizing: border-box;
    overflow: auto;
-}
-
-.dashboard, .buildings {
+   text-align: center;
    background-color: #ffffff20;
 }
 
 .main {
+   position: relative;
+   padding: 0;
    display: grid;
    grid-template-rows: auto auto;
-   background-color: #ffffff20;
 }
 
 .news {
@@ -78,9 +58,8 @@ a {
    padding: 2vh 1vh;
    color: #fff;
    text-shadow: 0 .05em .04em #00000060;
-   background-color: #FDE9A3;
-   backdrop-filter: blur(.4rem);
-   border-radius: 1.5vh;
+   background-color: #998eff;
+   border-radius: 1em;
 }
 
 .otherGoldInfo {
@@ -95,14 +74,41 @@ a {
    display: inline-block;
 }
 
-.astroid {
-   margin: 6vh 0;
-   height: 35vh;
+.asteroid {
+   margin: 3em auto;
+   width: 29vw;
+   filter: drop-shadow(0 0 .1vh #362800);
+   transition: .1s;
+}
+
+.astroid:hover {
+   transform: scale(1.05);
+   filter: drop-shadow(0 0 1.5vh #2b2a26);
+}
+
+.astroid:active {
+   transform: scale(1.02);
+   filter: drop-shadow(0 0 2.5vh #2b2a26);
+}
+
+.particle {
+   position: fixed;
+   pointer-events: none;
+   padding: .2em .3em;
+   font-size: 1.2em;
+   color: #fff;
+   text-shadow: 0 .05em .04em #00000060;
+   font-weight: 700;
+   animation: particle 1s forwards;
+}
+
+@keyframes particle {
+   0% { transform: scale(1); opacity: 1; }
+   100% { transform: scale(2); opacity: 0; }
 }
 
 .playerName {
-   margin: 2vh 0;
-   padding: 2vh;
+   padding: 1em;
    font-size: 3.5vh;
    font-family: "Nunito";
    background-color: #A3A3FD;
@@ -119,9 +125,9 @@ a {
 }
 
 details {
-   margin: 2vh 0;
-   padding: 2vh;
-   font-size: 3.5vh;
+   margin: .5em 0;
+   padding: .6em;
+   font-size: 1.6em;
    font-family: "Nunito";
    border-radius: 1.5vh;
 }
@@ -131,7 +137,7 @@ details > summary {
 }
 
 summary {
-   font-size: 4vh;
+   font-size: 1.2em;
 }
 
 .game-info {
@@ -291,45 +297,78 @@ summary {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .building {
-   height: 20vh;
+   /* height: 8em; */
    width: 100%;
    margin: .5vh 0;
-   padding: .5vh;
+   padding: .5em;
    position: relative;
    background-color: #a503fc;
    border-radius: 1.5vh;
    color: #8a6600;
    font-size: 3.5vh;
-   font-family: 'Nunito';
+   font-family: "Nunito";
    display: none;
    align-items: center;
    justify-content: center;
-   overflow: hidden;
+   /* overflow-y: hidden;
+   overflow-x: hidden; */
    box-sizing: border-box;
 }
 
-/* Store item animation */
-.store-info {
+.building-info {
    position: absolute;
-   transform: scale(0);
+   right: 0;
+   width: 100%;
+   max-width: 20em;
+   padding: .8em 1em;
+   background-color: #222;
+   color: #fff;
+   border-radius: 1.5vh;
+   box-sizing: border-box;
+   text-align: left;
    opacity: 0;
-   transition: all 0.5s 0.5s;
+   font-size: 1.3em;
+   pointer-events: none;
+   transition: .2s;
 }
 
-.store-item:hover .store-info {
-   transform: scale(1);
-   opacity: 1;
+.building-info .name {
+   font-size: 1.3em;
+   font-family: sans-serif;
 }
 
-.store-display {
-   transform: scale(1);
-   opacity: 1;
-   transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+.building-info .descr {
+   padding: .2em 0 .5em 0;
+   font-size: .9em;
+   color: #ddd;
 }
 
-.store-item:hover .store-display {
-   transform: scale(0);
-   opacity: 0;
+.building-info .cost {
+   margin-top: .25em;
+   float: right;
+   font-family: sans-serif;
+}
+
+/* Buildings */
+.building, .tools {
+   background-color: #ffdc7d;
+}
+
+.building.cantafford {
+   background-color: #5e4f24;
+}
+
+.building .name {
+   font-size: 1.1em;
+}
+
+.building .info {
+   color: #222;
+}
+
+.tools {
+   display: inline-block;
+   border-top: none;
 }
 
 .building-img {
@@ -369,7 +408,7 @@ summary {
    border-left: solid 1.4vh #B4EA29;
    border-radius: 1vh;
    background-color: #fefefe;
-   margin: 1vh 0;
+   margin: 1vh .2em;
    padding: 2vh 2vh 2vh 1.5vh;
    font-size: 3.5vh;
    display: none;
@@ -460,6 +499,7 @@ summary {
    display: none;
    font-family: 'Nunito', sans-serif;
    background-color: #fff;
+   text-align: center;
 }
 
 .introduction img {
@@ -510,9 +550,11 @@ summary {
    display: flex;
    flex-direction: column;
    justify-content: flex-end;
+   pointer-events: none;
 }
 
 .alert {
+   pointer-events: auto;
    display: none;
    justify-content: center;
    align-items: center;
@@ -601,78 +643,4 @@ summary {
    font-size: 3.2vh;
    text-decoration: none;
    color: #555;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Sections */
-
-.section {
-   padding: 1em .8em;
-   border-bottom: solid .2em #eee;
-}
-
-.settings {
-   border-bottom: none;
-}
-
-/* Buildings */
-.building, .tools {
-   background-color: #ffdc7d;
-}
-
-.building.cantafford {
-   background-color: #5e4f24;
-}
-
-.building .name {
-   font-size: 1.1em;
-}
-
-.building .info {
-   color: #222;
-}
-
-.building .hover, .tools .hover {
-   padding: .4em .6em;
-   margin: 0 .8em;
-   position: absolute;
-   top: 50%;
-   left: 0%;
-   width: 18.4em;
-   color: #fff;
-   background-color: #222;
-   border-radius: .3em;
-   pointer-events: none;
-   opacity: 0;
-   z-index: 10;
-   transition: .3s;
-   transition-delay: .3s;
-}
-
-.building:hover .hover, .tools:hover .hover {
-   top: 105%;
-   pointer-events: auto;
-   opacity: 1;
-}
-
-.tools {
-   display: inline-block;
-   border-top: none;
 }

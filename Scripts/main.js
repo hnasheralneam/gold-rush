@@ -16,14 +16,14 @@ const InitGameData = {
    test: "99",
    gold: 0,
    goldPerClick: 1,
-   goldFromClicks: 0, // Used to be clickinGold
+   goldFromClicks: 0,
    clicks: 0,
    topGold: 67, // For pickaxe to show immediately
    goldSpent: 0,
    lastTick: Date.now(),
-   dateStarted: new Date(), // Used to be startTime
+   dateStarted: new Date(),
    playerName: undefined,
-   timePlayed: undefined, // Need to implement this 
+   timePlayed: undefined, 
    // Tools
    toolLevel: 1,
    improveToolCost: 100,
@@ -253,13 +253,27 @@ const Game = (() => {
 // Adds gold per click amount to gold
 function mineGold(click) {
    Game.add(GameData.goldPerClick);
-   if (click) GameData.clicks++;
+   if (click) {
+      GameData.goldFromClicks += GameData.goldPerClick;
+      GameData.clicks++;
+}
    if (GameData.settings.sound.click) {
       let clicksound = new Audio("Audio/clinck.mp3");
       clicksound.play();
       setTimeout(() => { clicksound = null; }, 1000);
    }
 }
+
+// Particle effect for the astroid
+document.querySelector(".astroid").addEventListener("click", (e) => {
+   let particle = document.createElement("span");
+   particle.textContent = "💥 +" + GameData.goldPerClick;
+   particle.classList.add("particle");
+   particle.style.left = e.clientX + "px";
+   particle.style.top = e.clientY + "px";
+   document.body.appendChild(particle);
+   setTimeout(() => { particle.remove(); }, 1000);
+});
 
 // Mine gold on spacebar press
 document.body.onkeyup = (e) => { if (e.key == " ") mineGold(false); }
@@ -296,11 +310,62 @@ function obtain(item) {
 
 // Calculates time until building is affordable
 function affordableIn(amount) {
-   if (amount <= GameData.gold) return "now";
+   if (amount <= GameData.gold) return "can buy now";
    let amountNeeded = amount - GameData.gold;
    let secondsNeeded = amountNeeded / calcGPS();
-   if (calcGPS() == 0) return "never";
-   return "in " + formatTime(secondsNeeded * 1000);
+   if (calcGPS() == 0) return "can never afford";
+   return "can afford in " + formatTime(secondsNeeded * 1000);
+}
+
+// Create building elements
+function createBuildingElements() {
+   buildings.forEach((building) => {
+      let buildingElement = document.createElement("div");
+      buildingElement.classList.add("building");
+      buildingElement.classList.add(building);
+      buildingElement.innerHTML = `
+         <p class="name"></p>
+         <p class="info"></p>
+         <p class="canbuyin"></p>
+         <span class="building-img"></span>
+      `;
+
+      buildingElement.onclick = () => { obtain(building); };
+      document.querySelector(".buildings").appendChild(buildingElement);
+
+      buildingImgParent = buildingElement.querySelector(".building-img");
+      buildingImg = document.createElement("img");
+      buildingImgParent.appendChild(buildingImg);
+
+      let link  = `Images/Icons/${building}.png`;
+      buildingImg.setAttribute("src", link);
+
+
+
+      buildingElement.addEventListener("mouseover", (e) => {
+         // select building info and set its values to the building's cost
+         let buildingInfo = document.querySelector(".building-info");
+         buildingInfo.querySelector(".name").textContent = GameInfo[building]["name"];
+         buildingInfo.querySelector(".descr").textContent = GameInfo[building]["descr"];
+         buildingInfo.querySelector(".cost").textContent = "¢" + formatNum(GameData[building]["cost"]) + " Gold";
+         buildingInfo.querySelector(".about").textContent = `You have ${formatNum(GameData[building]["amount"])}, producing ${formatNum(GameData[building]["profit"])} GPS each, ${formatNum(GameData[building]["profit"] * GameData[building]["amount"])} GPS together and ${percent(GameData[building]["profit"] * GameData[building]["amount"], calcGPS())}% of your total GPS`;;
+         buildingInfo.style.opacity = 1;
+         buildingInfo.style.pointerEvents = "auto";
+         buildingInfo.style.transition = "0";
+         buildingInfo.style.top = e.clientY + "px";
+         document.body.addEventListener("mousemove", trackMouse(e, buildingInfo));
+
+      });
+      buildingElement.addEventListener("mouseleave", () => {
+         document.querySelector(".building-info").style.transition = ".2s";
+         document.querySelector(".building-info").style.opacity = 0;
+         document.querySelector(".building-info").style.pointerEvents = "none";
+         document.body.removeEventListener("mousemove", trackMouse);
+      });
+      function trackMouse(e, element) {
+         element.style.top = e.clientY + "px";
+      }
+   });
 }
 
 
@@ -340,12 +405,12 @@ function updatePage() {
 
    // Updates all gold values on page
 
-   document.querySelector(".otherGoldInfo").textContent = `${formatNum(GameData.goldPerClick)} Gold per Click and ${formatNum(calcGPS())} Gold per Second`;
+   document.querySelector(".otherGoldInfo").textContent = `${formatNum(calcGPS())} Gold per Second`;
    document.querySelector(".tools .name").textContent = `Improve Tools - Costs ${formatNum(GameData.improveToolCost)} Gold (lvl. ${formatNum(GameData.toolLevel)})`;
    // Loops through all buildings and updates information on page
    buildings.forEach((building) => {
-      document.querySelector(`.${building} .name`).textContent = `${capitalize(building)} - Costs ${formatNum(GameData[building]["cost"])} Gold (you've got ${formatNum(GameData[building]["amount"])})`;
-      document.querySelector(`.${building} .info`).textContent = `produces ${formatNum(GameData[building]["profit"])} GPS each, ${formatNum(GameData[building]["profit"] * GameData[building]["amount"])} GPS together and ${percent(GameData[building]["profit"] * GameData[building]["amount"], calcGPS())}% of your total GPS`;
+      document.querySelector(`.${building} .name`).textContent = `${GameInfo[building]["name"]} - You have ${formatNum(GameData[building]["amount"])}`;
+      document.querySelector(`.${building} .info`).textContent = `Costs ${formatNum(GameData[building]["cost"])} Gold`;
    });
    // Display gold per minute, hour, day, and year
    document.querySelector(".moreGoldInfo").innerHTML = `${toWord(calcGPS() * 60)} Gold Per Minute
@@ -366,7 +431,8 @@ function updatePage() {
    // Tools
    if (GameData.improveToolCost > GameData.gold) document.querySelector(".tools").dataset.disabled = true;
    else document.querySelector(".tools").dataset.disabled = false;
-   if (GameData.settings.canBuyIn.buildings) document.querySelector(".tools").querySelector(".canbuyin").textContent = "can afford " + affordableIn(GameData["improveToolCost"]);
+   if (GameData.settings.canBuyIn.buildings && (affordableIn(GameData["improveToolCost"]) != "can buy now")) document.querySelector(".tools").querySelector(".canbuyin").textContent = affordableIn(GameData["improveToolCost"]);
+   else document.querySelector(".tools").querySelector(".canbuyin").textContent = "";
    // For changing color
    if (GameData.improveToolCost > GameData.gold) document.querySelector(".tools").classList.add("cantafford");
    else document.querySelector(".tools").classList.remove("cantafford");
@@ -383,7 +449,8 @@ function updatePage() {
       if (GameData[building]["cost"] > GameData.gold) document.querySelector(`.${building}`).classList.add("cantafford");
       else document.querySelector(`.${building}`).classList.remove("cantafford");
       // Finds when building is affordable
-      if (GameData.settings.canBuyIn.buildings) document.querySelector(`.${building}`).querySelector(".canbuyin").textContent = "can afford " + affordableIn(GameData[building]["cost"]);
+      if (GameData.settings.canBuyIn.buildings && (affordableIn(GameData[building]["cost"]) != "can buy now")) document.querySelector(`.${building}`).querySelector(".canbuyin").textContent = affordableIn(GameData[building]["cost"]);
+      else document.querySelector(`.${building}`).querySelector(".canbuyin").textContent = "";
    });
 }
 
@@ -437,7 +504,8 @@ function upgrades() {
             // And show when it will be affordable
             if (GameData.settings.canBuyIn.upgrades) {
                if (document.querySelector(`.upgrade-${building}-${i}`) != null) {
-                  document.querySelector(`.upgrade-${building}-${i}`).querySelector(".canaffordin").textContent = "can afford " + affordableIn(GameInfo[building]["upgrades"][i][3]);
+                  if (affordableIn(GameInfo[building]["upgrades"][i][3]) != "can buy now") document.querySelector(`.upgrade-${building}-${i}`).querySelector(".canaffordin").textContent = affordableIn(GameInfo[building]["upgrades"][i][3]);
+                  else document.querySelector(`.upgrade-${building}-${i}`).querySelector(".canaffordin").textContent = "";
                }
             }
          }
@@ -485,6 +553,9 @@ function getNews() {
 // Switch to account version
 notify("<span>If you want to make an account, check out the <a style='text-decoration: underline; cursor: pointer;' href='https://goldrush.cyclic.app/'>Game Page!</a> (I'm working on cross-device saves!)</span>");
 
+// Create buildings
+createBuildingElements();
+
 // Creates upgrade DOM elements
 createUpgradeElements();
 
@@ -493,9 +564,6 @@ Game.add(GameData.gold);
 
 // And update page with all other values
 updatePage();
-
-// And set building descriptions
-buildings.forEach((building) => { document.querySelector(`.${building} .hover`).textContent = GameInfo[building]["descr"]; });
 
 // Set player name
 document.querySelector(".playerName").innerHTML = GameData.playerName + "'s Mine";
@@ -626,9 +694,9 @@ let messages = ["No cheating!", "The garage door is open.", "I can't believe you
 console.log(messages[Math.floor(Math.random() * messages.length)]);
 
 // Check if mobile
-if (isMobile() && !window.location.href.includes("mobile")) { window.location.href = "mobile.html"; }
-else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "/"; }
-function isMobile() { return ("ontouchstart" in document.documentElement); }
+// if (isMobile() && !window.location.href.includes("mobile")) { window.location.href = "mobile.html"; }
+// else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "/"; }
+// function isMobile() { return ("ontouchstart" in document.documentElement); }
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -645,19 +713,19 @@ function isMobile() { return ("ontouchstart" in document.documentElement); }
 
 // Feature ideas
 - Add images to upgrades
+- Add images to buildings
 - Handle clicking upgrades
 - Multibuy buildings
 - Sell buildings
 - Buy max
 - Buy max upgrades
 - Make news for only the rich
-- Make import/export ui
 - No need to save price of buildings, calculate it each time
 - Turn settings into on/off buttons
-- Partical effect for clicking
-- Fix look of building displays
 - Fix upgrades look
 - Sort upgrades by cost
+- Start time not working
+- Implement time played
 
 */
 
@@ -720,51 +788,8 @@ function getCost(asset) {
 
 
 
-
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Research
-
-   createUpgradeElement("c", 1, "dwarf", "dwarf.png", "Dwarf Academy!", "Complete with posh students!", "Dwarf profit x2");
-   createUpgradeElement("c", 2, "dwarf", "dwarf.png", "Dwarf Managers!", "Down with the worker unions!", "Dwarf profit x2");
-   createUpgradeElement("c", 3, "dwarf", "dwarf.png", "Mysterious Cafeteria Food!", "Your workers will become mysteriously obedient!", "Dwarf profit x2");
-   createUpgradeElement("c", 4, "dwarf", "dwarf.png", "Paid Holidays!", "There's nothing someone won't do when you give them paid holidays!", "Dwarf profit x2");
-   createUpgradeElement("c0", 1, "goose", "goose.png", "Healthier Diets!", "Make sure they get all the nutrients they need!", "Geese profit x2");
-   createUpgradeElement("c0", 2, "goose", "goose.png", "Larger Flocks!", "More geese, more eggs!", "Geese profit x2");
-   createUpgradeElement("c0", 3, "goose", "goose.png", "Advanced Mental Abilities!", "Dark magic is your greatest friend!", "Geese profit x2");
-   createUpgradeElement("c0", 4, "goose", "goose.png", "Bigger Nesting Boxes!", "I don't even know how this will help!", "Geese profit x2");
-   createUpgradeElement("d", 1, "mine", "mine.png", "Deeper Mines!", "Far over, the misty mountains cold... (Read The Hobbit)", "Mine profit x2");
-   createUpgradeElement("d", 2, "mine", "mine.png", "Smaller Mineshafts!", "Saftey? Comfort? Who cares? Most certiantly not me, sitting here in my mansion. Why, I don't even know if I have clastrophpobia 'cause the smallest space i've ever been is my private limosine.");
-   createUpgradeElement("d", 3, "mine", "mine.png", "Journey to the Center of the Earth!", "(let's hope that isn't copyrighted)", "Mine profit x2");
-   createUpgradeElement("d", 4, "mine", "mine.png", "Holy Earth!", "The Earth is now so riddled with holes, the ground is constantly being torn apart by earthquakes", "Mine profit x2");
-   createUpgradeElement("e", 1, "dragon", "dragon.png", "Dragon Gold Insurance!", "Switch to dragon gold insurance!");
-   createUpgradeElement("e", 2, "dragon", "dragon.png", "Selective Breeding!", "Breed the greediest together, and get GREEDIER DRAGONS!(this may not be a good idea)");
-   createUpgradeElement("e", 3, "dragon", "dragon.png", "Bad Habits!", "Sharing may be caring, but I don't care!");
-   createUpgradeElement("e", 4, "dragon", "dragon.png", "Dragon Disease!", "More gold! MORE GOLD! <strong>MORE GOLD!!!</strong>");
-   createUpgradeElement("f", 1, "stone", "stone.png", "The Flammel Effect!", "Discovered by Nicolas Flammel himself!");
-   createUpgradeElement("f", 2, "stone", "stone.png", "Dark Alchemy!", "Uncover secrets that should not be known!");
-   createUpgradeElement("f", 3, "stone", "stone.png", "Primeval Chemistry!", "Tread paths that have not been tread in a thousand millennia!");
-   createUpgradeElement("f", 4, "stone", "stone.png", "Necromancy!", "HAHAHAHAHA! (That was supposed to be an evil laugh)");
-   createUpgradeElement("g", 1, "station", "station.png", "Solar Power!", "WHY did we not think of this before? All of those double-A Duracell batteries where quite difficult to transport!");
-   createUpgradeElement("g", 2, "station", "station.png", "Self Repairing!", "Through the power of AI!");
-   createUpgradeElement("g", 3, "station", "station.png", "Nanobot Minions!", "Evil at your fingertips! (let the power get to your head!)");
-   createUpgradeElement("g", 4, "station", "station.png", "Space Dust Condenser!", "Create Asteroids!");
-   createUpgradeElement("h", 1, "leprechaun", "leprechaun.png", "Leprechaun Hierarchy!", "Allows for working class!");
-   createUpgradeElement("h", 2, "leprechaun", "leprechaun.png", " 9 Colour Rainbow!", "Infrared, red, orange, goldish, yellow, green, blue, purple, ultraviolet!");
-   createUpgradeElement("h", 3, "leprechaun", "leprechaun.png", "Invisible Cauldrons!", "No more stealing from leprechauns!");
-   createUpgradeElement("h", 4, "leprechaun", "leprechaun.png", "Leprechaun Subuniversal Secrets!", "They are coming, and with them they bring tomatoes.");
-   createUpgradeElement("i", 1, "sheep", "sheep.png", "Bubble Baths!", "Give that fleece a nice good cleaning!");
-   createUpgradeElement("i", 2, "sheep", "sheep.png", "Merino Sheep!", "Only the finest wool for your lordsheep!");
-   createUpgradeElement("i", 3, "sheep", "sheep.png", "Fluffy Paddocks!", "The researchers said it makes more wool!");
-   createUpgradeElement("i", 4, "sheep", "sheep.png", "Alternate Sheep Universe!", "The sheep that come through are not the same, but they have wool!");
-   createUpgradeElement("j", 1, "ray", "ray.png", "Recouped Kinetic Energy!", "MORE POWER!");
-   createUpgradeElement("j", 2, "ray", "ray.png", "Atomic Rearrangement!", "Rearrange those atoms!");
-   createUpgradeElement("j", 3, "ray", "ray.png", "Electron Extraction!", "Collect the electrons! Who cares about radioactive ion waste!");
-   createUpgradeElement("j", 4, "ray", "ray.png", "Proton-Neutron Re-thingy!", "Don't question it, it works!");
-   createUpgradeElement("k", 1, "merger", "merger.png", "Particle Reconstructor!", "Building neutron stars from the ground up!");
-   createUpgradeElement("k", 2, "merger", "merger.png", "Advanced Magnets!", "Increase the collision force!");
-   createUpgradeElement("k", 3, "merger", "merger.png", "Hydrolic Densifier!", "Hydro-powered condensers!");
-   createUpgradeElement("k", 4, "merger", "merger.png", "Strange Star Collisions", "This may cause unexpected results, such as <strong>Otherworldly</strong> occurrences.");
 
    if (gameData.gold >= upgradeCosts["a" + num] && num < 5) {
       gameData.gold -= upgradeCosts["a" + num];

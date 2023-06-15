@@ -30,7 +30,7 @@
          <p class="goldOwned"></p>
          <p class="otherGoldInfo"></p>
       </div>
-      <img class="astroid" onclick="mineGold(true)" src="Images/astroid.png">
+      <img class="asteroid" onclick="mineGold(true)" src="Images/asteroid.png">
       <p class="playerName"></p>
       <!-- More gold info -->
       <details class="game-info">
@@ -51,7 +51,6 @@
       <div class="tab tab-ad" onclick="scrollToSection('ad')"><span class="material-symbols-rounded">verified</span></div>
       <div class="tab tab-attribution" onclick="scrollToSection('attribution')"><span class="material-symbols-rounded">attribution</span></div>
       <div class="tab tab-info" onclick="scrollToSection('info')"><span class="material-symbols-rounded">info</span></div>
-      <!-- <div class="tab tab-achievments" onclick="scrollToSection('achievments')"><span class="material-symbols-rounded">stars</span></div> -->
    </div>   
    <div class="tab-pages">
       <div class="page" id="page-research">
@@ -126,6 +125,13 @@
             <div onclick="clickSounds()">CLICKING SOUNDS
                <p>Turn the clicking sounds on or off</p>
             </div>
+            <div onclick="exportData()">EXPORT SAVE
+               <p>So you can save it or use it somewhere else</p>
+               <textarea style="display: none;" class="exportdata"></textarea>
+            </div>
+            <div onclick="importData()">IMPORT SAVE
+               <p>Bring in one of your saves</p>
+            </div>
          </div>
       </div>
       <div class="page" id="page-ad">
@@ -162,11 +168,16 @@
          <a title="Sign up for the newsletter! Please." href="https://hillside-township.github.io/"><span>Check out the newsletter!</span></a><br>
          <h2>My GitHub</h2>
          <a href="https://github.com/editorrust/gold-rush/tree/quickplay"><span>See the code!</span></a><br>
-         Copyright © <span id="copE-right">9/13/2022</span> Editor Rust
       </div>
    </div>
 </div>
       <p class="news">Your lust for gold never ceases to amaze you.</p>
+      <div class="building-info">
+         <p class="cost"></p>
+         <p class="name"></p>
+         <p class="descr"></p>
+         <p class="about"></p>
+      </div>
    </div>
    <!-- Buildings -->
    <div class="section buildings">
@@ -176,83 +187,6 @@
          <p class="hover">+1 Gold every click - nice!</p>
          <p class="canbuyin"></p>
          <span class="building-img"><img src="Images/Icons/toolbox.png"></span>
-     </div>
-      <div onclick="obtain('pickaxe')" class="building pickaxe">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="hover"></p>
-         <p class="canbuyin"></p>
-         <span class="building-img"><img src="Images/Icons/pickaxe.png"></span>
-      </div>
-      <div onclick="obtain('dwarf')" class="building dwarf">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="hover"></p>
-         <p class="canbuyin"></p>
-         <span class="building-img"><img src="Images/Icons/dwarf.png"></span>
-      </div>
-      <div onclick="obtain('goose')" class="building goose">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="hover"></p>
-         <p class="canbuyin"></p>
-         <span class="building-img"><img src="Images/Icons/goose.png"></span>
-      </div>
-      <div onclick="obtain('mine')" class="building mine">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/mine.png"></span>
-      </div>
-      <div onclick="obtain('dragon')" class="building dragon">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/dragon.png"></span>
-      </div>
-      <div onclick="obtain('stone')" class="building stone">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/stone.png"></span>
-      </div>
-      <div onclick="obtain('station')" class="building station">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/station.png"></span>
-      </div>
-      <div onclick="obtain('leprechaun')" class="building leprechaun">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/leprechaun.png"></span>
-      </div>
-      <div onclick="obtain('sheep')" class="building sheep">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/sheep.png"></span>
-      </div>
-      <div onclick="obtain('ray')" class="building ray">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/ray.png"></span>
-      </div>
-      <div onclick="obtain('merger')" class="building merger">
-         <p class="name"></p>
-         <p class="info"></p>
-         <p class="canbuyin"></p>
-         <p class="hover"></p>
-         <span class="building-img"><img src="Images/Icons/merger.png"></span>
       </div>
    </div>
 </body>
@@ -290,7 +224,7 @@
    <div class="introduction">
       <img src="Images/wise-turtle.png">
       <h1>Welcome to Gold Rush!</h1>
-      <p>Hello! I'm Phil, and I'll walk you through how to play! Your goal is to earn money! To start, click the astroid, and when you have enough gold, buy a pickax (on the right)! Let's go!</p>
+      <p>Hello! I'm Phil, and I'll walk you through how to play! Your goal is to earn Gold! To start, click the asteroid, and when you have enough gold, buy a pickaxe (on the right)! Let's go!</p>
       <p>First, though, what's your name? <br> (don't use your real name)</p>
       <input class="name-input">
    </div>

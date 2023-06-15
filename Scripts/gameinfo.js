@@ -1,6 +1,7 @@
 // Game information
 const GameInfo = {
    pickaxe: {
+      name: "Pickaxe",
       descr: "it mines things for you (lazy)",
       upgrades: [
          // Format: [title, descr, required buildings of type, cost]
@@ -12,76 +13,114 @@ const GameInfo = {
       ]
    },
    dwarf: {
-       descr: "it mines things for you - no salary required!",
-       upgrades: [
-           ["Paid Vacation", "Don't worry, it's not very long", 2, 1200],
-           ["Dwarf Academy", "Mining is a complex art, and requires lots of training", 10, 7400]
-       ]
+      name: "Dwarf",
+      descr: "it mines things for you - no salary required!",
+      upgrades: [
+         ["Paid Vacation", "Don't worry, it's not very long", 2, 1200],
+         ["Dwarf Academy", "Complete with posh students!", 10, 7400],
+         ["Dwarf Managers", "Down with the worker union!", 20, 30000],
+         ["\"Special\" Cafeteria Food", "Your workers will become mysteriously obedient!", 35, 150000],
+         ["Paid Holidays", "There's nothing someone won't do when you give them paid holidays!", 50, 750000]
+      ]
    },
    goose: {
-       descr: "a nice goose - it lays golden eggs",
-       upgrades: [
-           ["Softer Nests", "They're more comfortable!", 2, 6000],
-           ["Healthier Diets", "Improves the Gold-to-lead ratio!", 10, 24000]
-       ]
+      name: "Golden Goose",
+      descr: "a nice goose - it lays golden eggs",
+      upgrades: [
+         ["Softer Nests", "They're more comfortable!", 2, 6000],
+         ["Healthier Diets", "Improves the Gold-to-lead ratio!", 10, 24000],
+         ["Larger Flocks", "More geese, more eggs!", 20, 100000],
+         ["Advanced Mental Abilities", "Dark magic is your greatest friend!", 35, 500000],
+         ["Bigger Nesting Boxes", "I don't even know how this will help", 50, 2500000]
+      ]
    },
    mine: {
-       descr: "a mine, with plenty of Gold for the taking",
-       upgrades: [
-           ["Deeper Mines", "Down, down, down down", 2, 15000],
-           ["Narrower Shafts", "'Cause dwarves don't have rights!", 10, 80000]
-       ]
+      name: "Gold Mine",
+      descr: "a mine, with plenty of Gold for the taking",
+      upgrades: [
+         ["Deeper Mines", "Down, down, down down", 2, 15000],
+         ["Better Ventilation", "So your workers don't die!", 10, 60000],
+         ["Smaller Mineshafts", "Saftey? Comfort? Who cares? Most certiantly not me, sitting here in my mansion. Why, I don't even know if I have clastrophpobia 'cause the smallest space i've ever been is my private limosine.", 20, 250000],
+         ["Even Narrower Shafts", "'Cause dwarves don't have rights!", 35, 80000],
+         ["Journey to the Center of the Earth", "Let's hope that isn't copywrited", 50, 350000],
+         ["Holy Earth", "The Earth is now so riddled with holes, the ground is constantly being torn apart by earthquakes", 80, 2000000]
+      ]
    },
    dragon: {
-       descr: "a nice dragon, it steals Gold for you",
-       upgrades: [
-           ["Dragon Babysitters", "So the parents can spend more time away from home!", 2, 120000],
-           ["Increased Greed", "Umm...ok. Don't worry about it!", 10, 460000]
-       ]
+      name: "Dragon",
+      descr: "a nice dragon, it steals Gold for you",
+      upgrades: [
+         ["Dragon Babysitters", "So the parents can spend more time away from home!", 2, 120000],
+         ["Increased Greed", "Umm...ok. Don't worry about it!", 10, 460000],
+         ["Dragon Gold Insurance", "Switch to dragon gold insurance!", 20, 2000000],
+         ["Selective Breeding", "It's less controversial than CRISPR", 35, 10000000],
+         ["Bad Habits", "Sharing may be caring, but I don't care!", 50, 50000000],
+      ]
    },
    stone: {
+      name: "Philosopher's Stone",
       descr: "an alchemy stone that turns ordinary rocks into gold",
       upgrades: [
-         ["Better Alchemy", "Turns rocks into gold more efficiently", 2, 200000],
-         ["Better Alchemy", "Turns rocks into gold more efficiently", 10, 800000]
+         ["The Flammel Effect", "Discovered by Nicolas Flammel himself!", 2, 200000],
+         ["Dark Alchemy", "This is fine.", 10, 800000],
+         ["Primeval Chemistry", "Tread paths that have not been tread in a thousand millennia!", 20, 3500000],
+         ["Necromancy!", "HAHAHAHAHAHAHAHAHAHAH!", 35, 20000000]
       ]
    },
    station: {
+      name: "Asteroid Mining Station",
       descr: "a space station, it mines Gold from asteroids",
       upgrades: [
-         ["Better Lasers", "Lasers are more efficient", 2, 1000000],
-         ["Better Lasers", "Lasers are more efficient", 10, 4000000]
+         ["Solar Power!", "WHY did we not think of this before? All of those double-A Duracell batteries where quite difficult to transport!", 2, 400000],
+         ["Self-Reparing Hull", "It's like magic!", 10, 1600000],
+         ["Nanobot Minions", "Evil at your fingertips!", 20, 7000000],
+         ["Space Dust Condenser", "Create your own astroids!", 35, 40000000],
+         ["Self-Replicating Stations", "A classic Von Neumann design", 50, 200000000]
       ]
    },
    leprechaun: {
+      name: "Leprechaun",
       descr: "will find gold at the end of rainbows",
       upgrades: [
-         ["Better Rainbows", "Rainbows are more efficient", 2, 5000000],
-         ["Better Rainbows", "Rainbows are more efficient", 10, 20000000]
+         ["Leprdiction", "Predicts where rainbows will appear", 2, 800000],
+         ["Leprechaun Academy", "Teaches leprechauns how to find rainbows", 10, 3200000],
+         ["9 Color Rainbows", "Now with goldish!", 20, 14000000],
+         ["Invisible Cauldrons", "No more stealing from leprechauns!", 35, 80000000],
+         ["Rainbow Generator", "It's called refraction", 50, 400000000]
       ]
    },
    sheep: {
+      name: "Golden Sheep",
       descr: "a cute round fluffy sheep with a golden fleece",
       upgrades: [
-         ["Better Shears", "Shears are more efficient", 2, 10000000],
-         ["Better Shears", "Shears are more efficient", 10, 40000000]
+         ["Bubble Baths!", "Give that fleece a nice good cleaning!", 2, 1600000],
+         ["Merino Sheep", "Only the finest wool for your lordsheep!", 10, 6400000],
+         ["Fluffy Paddocks!", "The researchers said it makes more wool", 20, 28000000],
+         ["Alternate Sheep Universe", "The sheep that come through are not the same, but they have wool", 35, 160000000]
       ]
    },
    ray: {
+      name: "Ray Gun",
       descr: "a ray gun that turns things into gold",
       upgrades: [
-         ["Better Ray", "Ray is more efficient", 2, 20000000],
-         ["Better Ray", "Ray is more efficient", 10, 80000000]
+         ["Recouped Kinetic Energy!", "MORE POWER!", 2, 3200000],
+         ["Atomic Rearrangement!", "Rearrange those atoms!", 10, 12800000],
+         ["Electron Extraction!", "Collect the electrons! Who cares about radioactive ion waste!", 20, 56000000],
+         ["Proton-Neutron Re-thingy!", "Don't question it, it works!", 35, 320000000]
       ]
    },
    merger: {
+      name: "Neutron Star Merger",
       descr: "merges neutron stars to create gold",
       upgrades: [
-         ["Better Merger", "Mergers are more efficient", 2, 50000000],
-         ["Better Merger", "Mergers are more efficient", 10, 200000000]
+         ["Particle Reconstructor!", "Building neutron stars from the ground up!", 2, 6400000],
+         ["Advanced Magnets!", "Increase the collision force!", 10, 25600000],
+         ["Hydrolic Densifier!", "Hydro-powered condensers!", 20, 112000000],
+         ["Strange Star Collisions", "This may cause unexpected results, such as <strong>Otherworldly</strong> occurrences.", 35, 640000000]
       ]
    }
 }
+
 
 // News
 const news = [
@@ -162,9 +201,9 @@ const news = [
       `News: Scientist lose philosophers stone, having trouble finding it. "I mean, its just a normal rock," says scientist`,
    ],
    [
-      `News: Major astroid mining station slams into Earth, impacted country enraged!`,
-      `News: You gets to cut the ribbon for the first astroid mining station.`,
-      `News: Astroid mineing stations becoming popular vacation locations, "It's like a cruise, but in space!" says random person.`
+      `News: Major asteroid mining station slams into Earth, impacted country enraged!`,
+      `News: You gets to cut the ribbon for the first asteroid mining station.`,
+      `News: Asteroid mining stations becoming popular vacation locations, "It's like a cruise, but in space!" says random person.`
    ],
    [
       `News: Leprechaun becomes politician, world leaders upset.`,
