@@ -265,7 +265,7 @@ function mineGold(click) {
 }
 
 // Particle effect for the astroid
-document.querySelector(".astroid").addEventListener("click", (e) => {
+document.querySelector(".asteroid").addEventListener("click", (e) => {
    let particle = document.createElement("span");
    particle.textContent = "💥 +" + GameData.goldPerClick;
    particle.classList.add("particle");
