@@ -154,22 +154,38 @@ summary {
    display: inline-block;
    border-radius: 1.25vh;
    margin: 1vh auto 0 auto;
-   padding: 1.6vh 0.8vh 2vh 0.8vh;
+   padding: 1.6vh 0.8vh 2vh 2.8vh;
    color: #444444;
    font-size: 3.8vh;
    box-sizing: border-box;
-   border-left: solid 0.8vh #2CD49F;
+   border-right: solid .4em #2CD49F;
+   border-left: solid 0 #2CD49F;
    transition: .1s;
+   text-align: left;
+   font-size: .9em;
 }
 
 #settings div:hover {
-   padding-left: 0.4vh;
-   border-left: solid 1.6vh #2CD49F;
-   box-shadow: 0 0 .5vh #ddd;
+   border-right: solid 0 #2CD49F;
+   border-left: solid .4em #2CD49F;
+}
+
+#settings h1 {
+   text-align: left;
+   margin: .4em 0 0 1em;
+   font-size: 1.2em;
+   font-weight: 700;
+   font-family: monospace;
+   color: #444;
+}
+
+#settings h2 {
+   font-size: 1em;
+   font-weight: 400;
 }
 
 #settings p {
-   margin-top: 1vh;
+   margin-top: .4vh;
    font-size: 2.4vh;
 }
 
@@ -290,6 +306,21 @@ summary {
    padding: 1vh 2vh;
    box-sizing: border-box;
    border-radius: 2vh;
+}
+
+#page-attribution {
+   padding: .4em .2em;
+   font-size: 1.2em;
+}
+
+#page-attribution a {
+   color: #fff;
+   text-shadow: 0 0 .001em #00000020;
+}
+
+#page-info {
+   padding: .4em .2em;
+   font-size: 1.4em;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
