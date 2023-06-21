@@ -696,7 +696,18 @@ console.log(messages[Math.floor(Math.random() * messages.length)]);
 // Check if mobile
 // if (isMobile() && !window.location.href.includes("mobile")) { window.location.href = "mobile.html"; }
 // else if (!isMobile() && !window.location.href.includes("play")) { window.location.href = "/"; }
-// function isMobile() { return ("ontouchstart" in document.documentElement); }
+function isMobile() { return ("ontouchstart" in document.documentElement); }
+
+if (isMobile()) {
+   let doubleTouchStart = 0;
+   document.addEventListener("touchstart", (event) => {
+      let now = new Date();
+      if ((doubleTouchStart + 350) > now) {
+         event.preventDefault();
+      }
+      doubleTouchStart = now;
+   });
+}
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
