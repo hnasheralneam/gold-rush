@@ -209,44 +209,44 @@ const Game = (() => {
    let gold = 0;
    // Updates gold in save varibles and locally
    function changeBy(num) {
-       gold += num;
-       gold = Math.round(gold * 10) / 10;
-       GameData.gold = gold;
-       refreshDisplay();
+      gold += num;
+      gold = Math.round(gold * 10) / 10;
+      GameData.gold = gold;
+      refreshDisplay();
    }
    function substract(num) {
-       gold -= num;
-       gold = Math.round(gold * 10) / 10;
-       GameData.gold = gold;
-       GameData.goldSpent += num;
-       refreshDisplay();
+      gold -= num;
+      gold = Math.round(gold * 10) / 10;
+      GameData.gold = gold;
+      GameData.goldSpent += num;
+      refreshDisplay();
    }
    function set(num) {
-       gold = num;
-       GameData.gold = gold;
-       refreshDisplay();
+      gold = num;
+      GameData.gold = gold;
+      refreshDisplay();
    }
    // Updates values across game
    function refreshDisplay() {
-       // Updates Gold display on page
-       document.querySelector(".goldOwned").textContent = formatNum(gold) + " Gold";
-       // And the detailed number
-       document.querySelector(".goldOwned").title = gold.toLocaleString() + " Gold";
-       // Updates page title to display Gold
-       document.title = `${formatNum(gold)} Gold | Gold Rush`;
-       // Checks if current Gold is record high
-       if (gold > GameData.topGold) GameData.topGold = gold;
-       // Checks if upgrades are now affordable
-       upgrades();
-       // Updates GPS and other values on page
-       updatePage();
+      // Updates Gold display on page
+      document.querySelector(".goldOwned").textContent = formatNum(gold, "long", 0) + " Gold";
+      // And the detailed number
+      document.querySelector(".goldOwned").title = gold.toLocaleString() + " Gold";
+      // Updates page title to display Gold
+      document.title = `${formatNum(gold)} Gold | Gold Rush`;
+      // Checks if current Gold is record high
+      if (gold > GameData.topGold) GameData.topGold = gold;
+      // Checks if upgrades are now affordable
+      upgrades();
+      // Updates GPS and other values on page
+      updatePage();
    }
    // Passes varibles back from closure
    return {
-       add(num) { changeBy(num); },
-       substract(num) { substract(num); },
-       set(num) { set(num) },
-       updatePage() { updatePage; }
+      add(num) { changeBy(num); },
+      substract(num) { substract(num); },
+      set(num) { set(num) },
+      updatePage() { updatePage; }
    };
 })();
 
@@ -653,12 +653,12 @@ function notify(text) {
    alert.style.display = "flex";
    alert.innerHTML = text;
    alert.addEventListener("click", () => {
-      alert.classList.add('alertAnimation');
+      alert.classList.add("alertAnimation");
       setTimeout(() => { alert.remove(); }, 400);
       clearTimeout(clearAlert);
    });
-   setTimeout(() => { alert.classList.add('alertAnimation'); }, 6000);
-   let clearAlert = setTimeout(() => { alert.classList.remove('alertAnimation');  alert.remove(); }, 6400);
+   setTimeout(() => { alert.classList.add("alertAnimation"); }, 6000);
+   let clearAlert = setTimeout(() => { alert.classList.remove("alertAnimation");  alert.remove(); }, 6400);
 }
 
 // Scroll to section
@@ -687,7 +687,7 @@ function formatTime(ms) {
 }
 
 // Patch for varible name in digit.js
-function formatNum(number, type) { return toWord(number, type); }
+function formatNum(number, type, decimalPrecision) { return toWord(number, type, decimalPrecision); }
 
 // Let those player know they're being watched
 let messages = ["No cheating!", "The garage door is open.", "I can't believe you switched to T-Mobile! How could you!", "C'mon, Windows? Why not Linux?", "Look behind you.", "Wait a moment... did you leave the stove on?", "Cheating, are you?", "Sssskkkeeeeeeeeee!"];
