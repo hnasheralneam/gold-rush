@@ -1,6 +1,6 @@
 {
   "name": "gold-rush",
-  "version": "0.1.3",
+  "version": "2.0.0",
   "description": "An incremental game about gold",
   "main": "app.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "clicker",
     "game"
   ],
-  "author": "Editor Rust",
+  "author": "Hamza Nasher-Alneam",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/editorrust/gold-rush/issues"
