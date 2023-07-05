@@ -215,17 +215,16 @@ const news = [
    [
       `News: New golden sheep breeds coming out, including golden-merino, golden-lincon and golden-corriedale.`,
       `News: Market sees a dramatic upturn in the sales of golden fleece jackets.`,
-      `News: Pet sheep becoming popular, "They're so fluffy!" says random person.`,
-      `News: Sheep farmers becoming rich, "I mean, it's not like we're doing anything different." says sheep farmer.`,
+      `News: Pet sheep are popular now, "They're so fluffy!" says random person.`,
       `News: "I don't know what to do with all this wool!" says sheep farmer, "I mean, it's not like I can sell it or anything."`,
-      `News: Pet golden sheeps becoming more popular, causing the introduction of pigmy golden sheeps, adorable little fluffy golden sheeps small enough to fit in your palm.`,
+      `News: Pet golden sheeps on the rise, caused by the introduction of pigmy golden sheeps, little fluffy golden sheeps small enough to fit in your palm.`,
       `Ad: Are you looking for a family pet? Are dragons just not right? Get a pigmy golden sheep today!`,
       `News: "Baaaaa", says interviewed golden sheep.`,
       `News: "Just move a bit to the left and you'll be golden," says photographer to golden sheep.`
    ],
    [
-      `Warning: do not stand in front of mass ray... actually, on second thought, do. (hehe, more gold)`,
-      `News: Mass rays wreak havoc, turning multiple minor plantets into soild gold, astronomers enraged`,
+      `Warning: do not stand in front of mass ray... actually, on second thought, do.`,
+      `News: Mass rays wreak havoc, turning multiple minor plantets into solid gold, astronomers enraged`,
       `News: Illegal criminals illegally use mass rays to turn politicians into gold. "I know it's illegal, but I hope they keep doing it. Wait... are you a reporter?!"`,
    ],
    [
@@ -234,3 +233,4 @@ const news = [
       `News: "I mean, it's not like we're going to run out of neutron stars anytime soon." says scientist.`
    ],
 ];
+let gpsLastTick = -1;

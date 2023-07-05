@@ -5,6 +5,8 @@
 * {
    margin: 0;
    padding: 0;
+   font-family: "Nunito";
+   touch-action: manipulation;
 }
 
 body {
@@ -14,7 +16,7 @@ body {
    background-size: 30vh;
 }
 
-::-webkit-scrollbar { display: none; }
+*::-webkit-scrollbar { display: none; }
 ::selection { background-color: transparent; }
 
 a {
@@ -45,7 +47,6 @@ a {
    margin-bottom: 2vh;
    padding: 2vh;
    font-size: 3.5vh;
-   font-family: "Nunito";
    background-color: #FDE9A3;
    border-radius: 1.5vh;
 }
@@ -59,16 +60,14 @@ a {
    color: #fff;
    text-shadow: 0 .05em .04em #00000060;
    background-color: #998eff;
-   border-radius: 1em;
+   border-radius: 1.5vh;
 }
 
 .otherGoldInfo {
    font-size: 1.2em;
-   font-family: "Nunito";
 }
 
 .goldOwned {
-   font-family: "Nunito";
    font-weight: 700;
    font-size: 3em;
    display: inline-block;
@@ -110,38 +109,23 @@ a {
 .playerName {
    padding: 1em;
    font-size: 3.5vh;
-   font-family: "Nunito";
    background-color: #A3A3FD;
    border-radius: 1.5vh;
 }
 
-.basic-info-pumped {
-   animation: flashgold-text 0.5s infinite alternate;
-}
-
-@keyframes flashgold-text {
-   0% { text-shadow: 0 0 1vh #ffdf00; }
-   100% { text-shadow: 0 0 3vh #ffdf00; }
-}
-
-details {
-   margin: .5em 0;
+.game-info {
+   background-color: #D0A3FD;   margin: .5em 0;
    padding: .6em;
    font-size: 1.6em;
-   font-family: "Nunito";
    border-radius: 1.5vh;
 }
 
-details > summary {
+.game-info > summary {
    list-style: none;
 }
 
 summary {
    font-size: 1.2em;
-}
-
-.game-info {
-   background-color: #D0A3FD;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,17 +177,13 @@ summary {
 // Center Block
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.um-1 {
+.tabs-parent {
    margin: 2vh auto;
    width: 32vw;
    display: grid;
    grid-template-columns: 11vh auto;
-   border-radius: .5vh;
+   border-radius: 1.5vh;
    overflow: hidden;
-}
-
-.tab-bar::-webkit-scrollbar {
-   display: none;
 }
 
 .tab-bar {
@@ -224,17 +204,15 @@ summary {
    margin-bottom: 0;
    text-align: center;
    background-color: #fafafa;
-   font-family: sans-serif;
    font-size: 2vh;
    color: #222;
-   border-radius: 1vh;
+   border-radius: 1.5vh;
    box-shadow: 0 0 .2vh #00000020;
-   font-family: "Nunito", sans-serif;
    transition: .2s;
 }
 
 .tab-info {
-   top: 18vh;
+   top: 28vh;
 }
 
 .tab .material-symbols-rounded {
@@ -250,12 +228,10 @@ summary {
 #page-research { background-color: #E4FDA3; border-bottom: solid .5vh #D7ED9F; }
 .tab-settings { background-color: #B7FDA3; border-bottom: solid .5vh #B0ED9F; }
 #page-settings { background-color: #B7FDA3; border-bottom: solid .5vh #B0ED9F; }
-.tab-ad { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
-#page-ad { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
-.tab-attribution { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
-#page-attribution { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
-.tab-info { background-color: #E5B0FF; border-bottom: solid .5vh #D8AAEF; }
-#page-info { background-color: #E5B0FF; border-bottom: solid .5vh #D8AAEF; }
+.tab-attribution { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
+#page-attribution { background-color: #A3FDBC; border-bottom: solid .5vh #9FEDB4; }
+.tab-info { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
+#page-info { background-color: #A3FDE9; border-bottom: solid .5vh #9FEDDC; }
 
 /* Information */
 .tab-pages {
@@ -274,38 +250,14 @@ summary {
    height: 100%;
    padding: 2vh 0;
    font-size: 3.5vh;
-   font-family: "Nunito";
    vertical-align: top;
    box-sizing: border-box;
    overflow: scroll;
 }
 
 .big-title {
-   font-family: "Nunito";
    text-align: center;
    font-size: 4vh;
-}
-
-.ad-text {
-   padding: 3vh 4vh;
-   font-size: 3.5vh;
-}
-
-.tab-pages span {
-   color: #ccc;
-   font-family: sans-serif;
-   text-decoration: underline;
-}
-
-.upgradeList {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   width: 100%;
-   height: 100%;
-   padding: 1vh 2vh;
-   box-sizing: border-box;
-   border-radius: 2vh;
 }
 
 #page-attribution {
@@ -313,13 +265,17 @@ summary {
    font-size: 1.2em;
 }
 
-#page-attribution a {
-   color: #fff;
-   text-shadow: 0 0 .001em #00000020;
+#page-attribution *::selection { background-color: #f6813d66; }
+
+#page-attribution a, #page-info a {
+   color: #222;
+   text-shadow: 0 0 .02em #fff;
 }
 
 #page-info {
-   padding: .4em .2em;
+   position: relative;
+   color: #555;
+   padding: 1vh;
    font-size: 1.4em;
 }
 
@@ -328,21 +284,16 @@ summary {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .building {
-   /* height: 8em; */
    width: 100%;
    margin: .5vh 0;
    padding: .5em;
    position: relative;
-   background-color: #a503fc;
    border-radius: 1.5vh;
    color: #8a6600;
    font-size: 3.5vh;
-   font-family: "Nunito";
    display: none;
    align-items: center;
    justify-content: center;
-   /* overflow-y: hidden;
-   overflow-x: hidden; */
    box-sizing: border-box;
 }
 
@@ -365,7 +316,6 @@ summary {
 
 .building-info .name {
    font-size: 1.3em;
-   font-family: sans-serif;
 }
 
 .building-info .descr {
@@ -377,7 +327,6 @@ summary {
 .building-info .cost {
    margin-top: .25em;
    float: right;
-   font-family: sans-serif;
 }
 
 /* Buildings */
@@ -386,7 +335,7 @@ summary {
 }
 
 .building.cantafford {
-   background-color: #5e4f24;
+   background-color: #4f411d; /* #5e4f24 */
 }
 
 .building .name {
@@ -424,7 +373,6 @@ summary {
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /* Upgrades */
-
 .upgrade.canafford {
    display: block;
 }
@@ -433,11 +381,9 @@ summary {
    display: block;
    background-color: #bbb;
 }
-/* old */
 
 .upgrade {
-   border-left: solid 1.4vh #B4EA29;
-   border-radius: 1vh;
+   border-radius: 1.5vh;
    background-color: #fefefe;
    margin: 1vh .2em;
    padding: 2vh 2vh 2vh 1.5vh;
@@ -447,74 +393,10 @@ summary {
    position: relative;
    z-index: -0.8;
    font-weight: 300;
-
-}
-
-.upgrade-name {
-   font-size: 4.5vh;
-   display: inline-block;
-}
-
-.upgrade-more {
-   font-size: 3.5vh;
-   margin: 0;
-   font-weight: 300;
-}
-
-.upgrade-why {
-   font-size: 2.5vh;
-   margin: 0;
-   font-weight: 300;
-}
-
-.upgrade-icon {
-   position: absolute;
-   top: 1vh;
-   right: 1.5vh;
-   display: inline;
-   height: 6vh;
 }
 
 .upgrade:hover {
    box-shadow: 0 0 0.5vh #6D550020;
-   padding: 2vh 1.5vh 2vh 1.5vh;
-   border-left: solid 1.6vh #B4EA29;
-   z-index: 1;
-}
-
-.upgrade .upgrade-tooltip {
-   font-size: 3vh;
-   opacity: 0;
-   background-color: #444;
-   color: #fff;
-   text-align: center;
-   border-radius: 1vh;
-   padding: 2vh 0;
-   position: absolute;
-   z-index: -1;
-   top: 105%;
-   right: 0;
-   left: -1.6vh;
-   text-decoration: none;
-   transition: 0.2s;
-   pointer-events: none;
-   border-left: solid 1.4vh #18727C;
-}
-
-.upgrade .upgrade-tooltip::after {
-   content: '';
-   position: absolute;
-   bottom: 98%;
-   left: 50%;
-   margin-left: -1.5vh;
-   border-width: 1.5vh;
-   border-style: solid;
-   border-color: transparent transparent #444 transparent;
-}
-
-.upgrade:hover .upgrade-tooltip {
-   opacity: 1;
-   z-index: 1;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -528,10 +410,11 @@ summary {
    right: 0;
    bottom: 0;
    display: none;
-   font-family: 'Nunito', sans-serif;
    background-color: #fff;
    text-align: center;
 }
+
+.introduction *::selection { background-color: #f6813d66; }
 
 .introduction img {
    position: absolute;
@@ -554,9 +437,9 @@ summary {
 
 .name-input {
    height: 15vh;
-   width: 100%;
+   width: calc(100% - 10em);
+   margin: 0 5em;
    font-size: 5.6vh;
-   font-family: 'Nunito', sans-serif;
    border: none;
    border-bottom: solid .3vh cornflowerblue;
    transition: .2s;
@@ -595,7 +478,6 @@ summary {
    color: #fff;
    padding: .25em .5em;
    margin: .1em .2em;
-   font-family: "Nunito";
    background-color: #d2332e;
    border-radius: 1.5vh;
    transition: .2s;
@@ -624,20 +506,6 @@ summary {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~
-// Copyright
-~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-.copy-info {
-   position: relative;
-   color: #555;
-   padding: 1vh;
-   border-radius: .5vh;
-}
-
-.copy-info a { color: #fff; }
-
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~
 // Context Menu
 ~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -655,7 +523,6 @@ summary {
    margin: .5vh;
    padding: 2vh 4vh;
    color: #555;
-   font-family: Nunito;
    font-size: 3.2vh;
    border-radius: 1vh;
    transition: 0.3s;
