@@ -1,5 +1,5 @@
 // Gold Rush v2
-// Started APRIL 11, 2023 by Editor Rust
+// Started APRIL 11, 2023 by Hamza
 // The code is better now [citation needed]
 // "Inspired" by Cookie Clicker
 
